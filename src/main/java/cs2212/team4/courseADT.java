@@ -6,6 +6,8 @@
  * @version 1.0 2/2/2014
  */
 
+package cs2212.team4;
+
 public interface courseADT
 {
 	/**
@@ -31,6 +33,16 @@ public interface courseADT
 	  * 
 	  */
 	public String getCode();
+	
+	/**
+	  * A getter for a student object in the course's studentList.
+	  * 
+	  * @param		int, will hold the position of the student in studentList.
+	  * 
+	  * @return		student, will hold the student object information.
+	  * 
+	  */
+	public student getStudent(int stud);
 
 	/**
 	  * A setter for the course title value.
@@ -129,7 +141,7 @@ public interface courseADT
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addDeliverable(deliverable deliver);
+	public boolean addDeliverable(String name, String type, double weight);
 
 	/**
 	  * removeDeliverable method will remove a specific deliverable object from the deliverableList.
@@ -139,7 +151,7 @@ public interface courseADT
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeDeliverable(deliverable deliver);
+	public boolean removeDeliverable(String name, String type);
 	
 	/**
 	  * importDeliverables method will import a deliverableList from a .csv file.

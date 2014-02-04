@@ -11,6 +11,8 @@
  * @version 1.0 2/2/2014
  */
 
+package cs2212.team4;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -23,7 +25,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 
-public class course
+public class course implements courseADT
 {
 	private String title="", term="", code="";
 	private ArrayList<student> studentList = new ArrayList<student>();
@@ -106,6 +108,16 @@ public class course
 	public String getCode(){return code;}
 
 	/**
+	  * A getter for a student object in the course's studentList.
+	  * 
+	  * @param		int, will hold the position of the student in studentList.
+	  * 
+	  * @return		student, will hold the student object information.
+	  * 
+	  */
+	public student getStudent(int stud){return studentList.get(stud);}
+	
+	/**
 	  * A setter for the course title value.
 	  * 
 	  * @param		title			String, will hold the course title new value.
@@ -141,11 +153,9 @@ public class course
 	  */
 	private boolean checkNumber(int number)
 	{
-		int tempNumber;
 		for (int i=0; i<studentList.size(); i++)
 		{
-			tempNumber=studentList.get(i).getNumber();
-			if (tempNumber==number)return true;
+			if (studentList.get(i).getNumber()==number)return true;
 		}return false;
 	}
 
@@ -161,11 +171,9 @@ public class course
 	  */
 	private boolean checkEmail(String email)
 	{
-		String tempEmail;
 		for (int i=0; i<studentList.size(); i++)
 		{
-			tempEmail=studentList.get(i).getEmail();
-			if (tempEmail==email)return true;
+			if (studentList.get(i).getEmail()==email)return true;
 		}return false;
 	}
 
@@ -212,11 +220,9 @@ public class course
 	  */
 	public int findStudent(int number)
 	{
-		int tempNumber;
 		for (int i=0; i<studentList.size(); i++)
 		{
-			tempNumber=studentList.get(i).getNumber();
-			if (tempNumber==number)return i;
+			if (studentList.get(i).getNumber()==number)return i;
 		}return -1;
 	}
 	
@@ -233,7 +239,8 @@ public class course
 	  */
 	public boolean addStudent(String nameFirst, String nameLast, int number, String email)
 	{
-		if (!(checkNumber(number)&&checkEmail(email)))
+		ArrayList<deliverable> deliverableList=new ArrayList<deliverable>();deliverableList.addAll(this.deliverableList);
+		if (!(checkNumber(number)||checkEmail(email)))
 		{
 			studentList.add(new student(nameFirst, nameLast, number, email, deliverableList));return true;
 		}return false;
@@ -331,12 +338,13 @@ public class course
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addDeliverable(deliverable deliver)
+	public boolean addDeliverable(String name, String type, double weight)
 	{
-		if (findDeliverable(deliver.getName(), deliver.getType())!=-1)return false;
+		deliverable deliver;
+		if (findDeliverable(name, type)!=-1)return false;
 		else
 		{
-			deliverableList.add(deliver);
+			deliverableList.add(deliver = new deliverable(name, type, weight));
 			for (int i=0; i<studentList.size(); i++)studentList.get(i).addDeliverable(deliver);
 		}return true;
 	}
@@ -349,10 +357,10 @@ public class course
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeDeliverable(deliverable deliver)
+	public boolean removeDeliverable(String name, String type)
 	{
 		int i;
-		if ((i= findDeliverable(deliver.getName(), deliver.getType()))==-1)return false;
+		if ((i= findDeliverable(name, type))==-1)return false;
 		else 
 		{
 			deliverableList.remove(i);

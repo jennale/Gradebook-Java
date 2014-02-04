@@ -9,6 +9,8 @@
  * @version 1.0 2/2/2014
  */
 
+package cs2212.team4;
+
 import java.util.ArrayList;
 
 public class student implements studentADT
@@ -16,7 +18,7 @@ public class student implements studentADT
 	private String nameFirst="", nameLast="", email="";
 	private int number=0;
 	private double avg=0.0, exmAvg=0.0, asnAvg=0.0;
-	private ArrayList<deliverable> deliverableList = new ArrayList<deliverable>();
+	private ArrayList<deliverable> deliverableList;
 
 	/**
 	  * A constructor of the student class, will create an empty student object.

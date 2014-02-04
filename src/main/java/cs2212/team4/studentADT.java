@@ -6,6 +6,8 @@
  * @version 1.0 2/2/2014
  */
 
+package cs2212.team4;
+
 public interface studentADT
 {
 	/**

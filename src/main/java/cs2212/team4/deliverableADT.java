@@ -1,40 +1,22 @@
 /**
  * team4-gradebook application
- * deliverable.java
- * Purpose: deliverable.java is a java object that will hold the information about a course deliverable. The object will
- * have four attributes which are: name, type, weight and grade.
+ * deliverableADT.java
  *
  * @author Zaid Albirawi
  * @version 1.0 2/2/2014
  */
 
-public class deliverable implements deliverableADT
+package cs2212.team4;
+
+public interface deliverableADT
 {
-	private String name="", type="";
-	private double weight=0.0, grade=0.0;
-
-	/**
-	  * A constructor of the deliverable class, will create a deliverable object.
-	  * 
-	  * @param		name		String, will hold the deliverable name value.
-	  * @param		type		String, will hold the deliverable type value.
-	  * @param		weight		double, will hold the deliverable weight value.
-	  * 
-	  */
-	public deliverable(String name, String type, double weight)
-	{
-		this.name=name;
-		this.type=type;
-		this.weight=weight;
-	}
-
 	/**
 	  * A getter for the deliverable name value.
 	  * 
 	  * @return		String, will hold the deliverable name value.
 	  * 
 	  */
-	public String getName(){return name;}
+	public String getName();
 
 	/**
 	  * A getter for the deliverable type value.
@@ -42,7 +24,7 @@ public class deliverable implements deliverableADT
 	  * @return		String, will hold the deliverable name type.
 	  * 
 	  */
-	public String getType(){return type;}
+	public String getType();
 
 	/**
 	  * A getter for the deliverable weight value.
@@ -50,7 +32,7 @@ public class deliverable implements deliverableADT
 	  * @return		double, will hold the deliverable weight value.
 	  * 
 	  */
-	public double getWeight(){return weight;}
+	public double getWeight();
 
 	/**
 	  * A getter for the deliverable grade value.
@@ -58,7 +40,7 @@ public class deliverable implements deliverableADT
 	  * @return		double, will hold the deliverable grade value.
 	  * 
 	  */
-	public double getGrade(){return grade;}
+	public double getGrade();
 	
 	/**
 	  * A setter for the deliverable name value.
@@ -66,7 +48,7 @@ public class deliverable implements deliverableADT
 	  * @param		name			String, will hold the deliverable name new value.
 	  * 
 	  */
-	public void setName(String name){this.name=name;}
+	public void setName(String name);
 
 	/**
 	  * A setter for the deliverable type value.
@@ -74,15 +56,15 @@ public class deliverable implements deliverableADT
 	  * @param		type			String, will hold the deliverable type new value.
 	  * 
 	  */
-	public void setType(String type){this.type=type;}
-
+	public void setType(String type);
+	
 	/**
 	  * A setter for the deliverable weight value.
 	  * 
 	  * @param		weight			double, will hold the deliverable weight new value.
 	  * 
 	  */
-	public void setWeight(double weight){this.weight=weight;}
+	public void setWeight(double weight);
 
 	/**
 	  * A setter for the deliverable grade value.
@@ -90,7 +72,7 @@ public class deliverable implements deliverableADT
 	  * @param		grade			double, will hold the deliverable grade new value.
 	  * 
 	  */
-	public void setGrade(double grade){this.grade=grade;}
+	public void setGrade(double grade);
 	
 	/**
 	  * A toString method.
@@ -98,5 +80,5 @@ public class deliverable implements deliverableADT
 	  * return		String, will hold the deliverable information.
 	  * 
 	  */
-	public String toString(){return ("\""+name+"\", \""+type+"\", \""+weight+"\"\n");}
+	public String toString();
 }

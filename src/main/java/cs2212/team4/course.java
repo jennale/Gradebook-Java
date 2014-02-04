@@ -25,11 +25,11 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 
-public class course implements courseADT
+public class Course implements CourseADT
 {
 	private String title="", term="", code="";
-	private ArrayList<student> studentList = new ArrayList<student>();
-	private ArrayList<deliverable> deliverableList = new ArrayList<deliverable>();
+	private ArrayList<Student> studentList = new ArrayList<Student>();
+	private ArrayList<Deliverable> deliverableList = new ArrayList<Deliverable>();
 
 	/**
 	  * A constructor of the course class, will create an empty course object.
@@ -39,7 +39,7 @@ public class course implements courseADT
 	  * @param		code		String, will hold the course code value.
 	  * 
 	  */
-	public course(String title, String term, String code)
+	public Course(String title, String term, String code)
 	{
 		this.title=title;
 		this.term=term;
@@ -55,7 +55,7 @@ public class course implements courseADT
 	  * @param		studentList		ArrayList<student>, will hold a list of student objects.
 	  * 
 	  */
-	public course(String title, String term, String code, ArrayList<student> studentList)
+	public Course(String title, String term, String code, ArrayList<Student> studentList)
 	{
 		this.title=title;
 		this.term=term;
@@ -74,7 +74,7 @@ public class course implements courseADT
 	  * @param		deliverableList	ArrayList<deliverable>, will hold a list of deliverable objects.
 	  * 
 	  */
-	public course(String title, String term, String code, ArrayList<student> studentList, ArrayList<deliverable> deliverableList)
+	public Course(String title, String term, String code, ArrayList<Student> studentList, ArrayList<Deliverable> deliverableList)
 	{
 		this.title=title;
 		this.term=term;
@@ -115,7 +115,7 @@ public class course implements courseADT
 	  * @return		student, will hold the student object information.
 	  * 
 	  */
-	public student getStudent(int stud){return studentList.get(stud);}
+	public Student getStudent(int stud){return studentList.get(stud);}
 	
 	/**
 	  * A setter for the course title value.
@@ -186,7 +186,7 @@ public class course implements courseADT
 	  * @return		boolean, true if the number has been edited, false otherwise.
 	  * 
 	  */
-	public boolean editStudentNumber(student stud, int number)
+	public boolean editStudentNumber(Student stud, int number)
 	{
 		if (stud.getNumber()==number)return true;
 		else if (checkNumber(number))return false;
@@ -202,7 +202,7 @@ public class course implements courseADT
 	  * @return		boolean, true if the email has been edited, false otherwise.
 	  * 
 	  */
-	public boolean editStudentEmail(student stud, String email)
+	public boolean editStudentEmail(Student stud, String email)
 	{
 		if (stud.getEmail()==email)return true;
 		else if (checkEmail(email))return false;
@@ -239,10 +239,10 @@ public class course implements courseADT
 	  */
 	public boolean addStudent(String nameFirst, String nameLast, int number, String email)
 	{
-		ArrayList<deliverable> deliverableList=new ArrayList<deliverable>();deliverableList.addAll(this.deliverableList);
+		ArrayList<Deliverable> deliverableList=new ArrayList<Deliverable>();deliverableList.addAll(this.deliverableList);
 		if (!(checkNumber(number)||checkEmail(email)))
 		{
-			studentList.add(new student(nameFirst, nameLast, number, email, deliverableList));return true;
+			studentList.add(new Student(nameFirst, nameLast, number, email, deliverableList));return true;
 		}return false;
 	}
 
@@ -340,11 +340,11 @@ public class course implements courseADT
 	  */
 	public boolean addDeliverable(String name, String type, double weight)
 	{
-		deliverable deliver;
+		Deliverable deliver;
 		if (findDeliverable(name, type)!=-1)return false;
 		else
 		{
-			deliverableList.add(deliver = new deliverable(name, type, weight));
+			deliverableList.add(deliver = new Deliverable(name, type, weight));
 			for (int i=0; i<studentList.size(); i++)studentList.get(i).addDeliverable(deliver);
 		}return true;
 	}

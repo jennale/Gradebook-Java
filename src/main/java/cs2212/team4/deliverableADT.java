@@ -8,7 +8,7 @@
 
 package cs2212.team4;
 
-public interface deliverableADT
+public interface DeliverableADT
 {
 	/**
 	  * A getter for the deliverable name value.

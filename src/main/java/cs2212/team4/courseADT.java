@@ -8,7 +8,7 @@
 
 package cs2212.team4;
 
-public interface courseADT
+public interface CourseADT
 {
 	/**
 	  * A getter for the course title value.
@@ -42,7 +42,7 @@ public interface courseADT
 	  * @return		student, will hold the student object information.
 	  * 
 	  */
-	public student getStudent(int stud);
+	public Student getStudent(int stud);
 
 	/**
 	  * A setter for the course title value.

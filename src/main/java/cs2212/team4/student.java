@@ -13,12 +13,12 @@ package cs2212.team4;
 
 import java.util.ArrayList;
 
-public class student implements studentADT
+public class Student implements StudentADT
 {
 	private String nameFirst="", nameLast="", email="";
 	private int number=0;
 	private double avg=0.0, exmAvg=0.0, asnAvg=0.0;
-	private ArrayList<deliverable> deliverableList;
+	private ArrayList<Deliverable> deliverableList;
 
 	/**
 	  * A constructor of the student class, will create an empty student object.
@@ -30,7 +30,7 @@ public class student implements studentADT
 	  * @param		deliverableList	ArrayList<deliverable>, will hold the student deliverableList value.
 	  * 
 	  */
-	public student(String nameFirst, String nameLast, int number, String email, ArrayList<deliverable> deliverableList)
+	public Student(String nameFirst, String nameLast, int number, String email, ArrayList<Deliverable> deliverableList)
 	{
 		this.nameFirst=nameFirst;
 		this.nameLast=nameLast;
@@ -187,7 +187,7 @@ public class student implements studentADT
 	  * @param		deliver				deliverable, will hold the deliverable object's information.
 	  * 
 	  */
-	public void addDeliverable(deliverable deliver){deliverableList.add(deliver);}
+	public void addDeliverable(Deliverable deliver){deliverableList.add(deliver);}
 	
 	/**
 	  * removeDeliverable method will remove a specific deliverable object from the deliverableList.

@@ -10,7 +10,7 @@
 
 package cs2212.team4;
 
-public class deliverable implements deliverableADT
+public class Deliverable implements DeliverableADT
 {
 	private String name="", type="";
 	private double weight=0.0, grade=0.0;
@@ -23,7 +23,7 @@ public class deliverable implements deliverableADT
 	  * @param		weight		double, will hold the deliverable weight value.
 	  * 
 	  */
-	public deliverable(String name, String type, double weight)
+	public Deliverable(String name, String type, double weight)
 	{
 		this.name=name;
 		this.type=type;

@@ -10,7 +10,7 @@ package cs2212.team4;
 
 import java.util.ArrayList;
 
-public interface gradebookADT
+public interface GradebookADT
 {
 	/**
 	  * A find method that will iterate through the courseList to find a specific course object. If the course
@@ -21,7 +21,7 @@ public interface gradebookADT
 	  * @return		course, will hold the position of the course object in the courseList if the object exists, else -1.
 	  * 
 	  */
-	public int findCourse(course crs);
+	public int findCourse(Course crs);
 
 	/**
 	  * addCourse method will add a course object to the courseList.
@@ -46,7 +46,7 @@ public interface gradebookADT
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addCourse(String name, String term, String code, ArrayList<student> studentList);
+	public boolean addCourse(String name, String term, String code, ArrayList<Student> studentList);
 
 
 	/**
@@ -61,7 +61,7 @@ public interface gradebookADT
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addCourse(String name, String term, String code, ArrayList<student> studentList, ArrayList<deliverable> deliverableList);
+	public boolean addCourse(String name, String term, String code, ArrayList<Student> studentList, ArrayList<Deliverable> deliverableList);
 
 	/**
 	  * removeCourse method will remove a specific course object from the courseList.
@@ -71,5 +71,5 @@ public interface gradebookADT
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeCourse(course crs);
+	public boolean removeCourse(Course crs);
 }

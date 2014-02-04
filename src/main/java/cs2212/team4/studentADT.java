@@ -8,7 +8,7 @@
 
 package cs2212.team4;
 
-public interface studentADT
+public interface StudentADT
 {
 	/**
 	  * A getter for the student nameFirst value.
@@ -128,7 +128,7 @@ public interface studentADT
 	  * @param		deliver				deliverable, will hold the deliverable object's information.
 	  * 
 	  */
-	public void addDeliverable(deliverable deliver);
+	public void addDeliverable(Deliverable deliver);
 	
 	/**
 	  * removeDeliverable method will remove a specific deliverable object from the deliverableList.

@@ -12,14 +12,14 @@ package cs2212.team4;
 
 import java.util.ArrayList;
 
-public class gradebook implements gradebookADT
+public class Gradebook implements GradebookADT
 {
-	private ArrayList<course> courseList = new ArrayList<course>();
+	private ArrayList<Course> courseList = new ArrayList<Course>();
 
 	/**
 	  * A constructor of the gradebook class, will create an empty gradebook object.
 	  */
-	public gradebook(){}
+	public Gradebook(){}
 	
 	/**
 	  * A find method that will iterate through the courseList to find a specific course object. If the course
@@ -30,9 +30,9 @@ public class gradebook implements gradebookADT
 	  * @return		course, will hold the position of the course object in the courseList if the object exists, else -1.
 	  * 
 	  */
-	public int findCourse(course crs)
+	public int findCourse(Course crs)
 	{
-		course tempCourse;
+		Course tempCourse;
 		for (int i=0; i<courseList.size(); i++)
 		{
 			tempCourse=courseList.get(i);
@@ -52,8 +52,8 @@ public class gradebook implements gradebookADT
 	  */
 	public boolean addCourse(String name, String term, String code)
 	{
-		course crs;
-		if (findCourse(crs=new course(name, term, code))!=-1)return false;
+		Course crs;
+		if (findCourse(crs=new Course(name, term, code))!=-1)return false;
 		else courseList.add(crs);return true;
 	}
 
@@ -68,10 +68,10 @@ public class gradebook implements gradebookADT
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addCourse(String name, String term, String code, ArrayList<student> studentList)
+	public boolean addCourse(String name, String term, String code, ArrayList<Student> studentList)
 	{
-		course crs;
-		if (findCourse(crs=new course(name, term, code, studentList))!=-1)return false;
+		Course crs;
+		if (findCourse(crs=new Course(name, term, code, studentList))!=-1)return false;
 		else courseList.add(crs);return true;
 	}
 
@@ -88,10 +88,10 @@ public class gradebook implements gradebookADT
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addCourse(String name, String term, String code, ArrayList<student> studentList, ArrayList<deliverable> deliverableList)
+	public boolean addCourse(String name, String term, String code, ArrayList<Student> studentList, ArrayList<Deliverable> deliverableList)
 	{
-		course crs;
-		if (findCourse(crs=new course(name, term, code, studentList, deliverableList))!=-1)return false;
+		Course crs;
+		if (findCourse(crs=new Course(name, term, code, studentList, deliverableList))!=-1)return false;
 		else courseList.add(crs);return true;
 	}
 
@@ -103,7 +103,7 @@ public class gradebook implements gradebookADT
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeCourse(course crs)
+	public boolean removeCourse(Course crs)
 	{
 		int i;
 		if ((i=findCourse(crs))==-1)return false;

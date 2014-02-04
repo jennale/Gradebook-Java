@@ -4,12 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-public class courseTest 
+public class CourseTest 
 {
-	private course crs;
+	private Course crs;
 	
 	@Before
-	public void createCourse(){crs=new course("title", "term", "code");}
+	public void createCourse(){crs=new Course("title", "term", "code");}
 	
 	@Before
 	public void addStudent()

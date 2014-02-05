@@ -65,6 +65,30 @@ public interface StudentADT
 	  * 
 	  */
 	public double getExmAvg();
+	
+	/**
+	  * A method that evaluates the student avg value.
+	  * 
+	  * @return		double, will hold the student avg value.
+	  * 
+	  */
+	public double evalAvg();
+	
+	/**
+	  * A method that evaluates the student asnAvg value.
+	  * 
+	  * @return		double, will hold the student asnAvg value.
+	  * 
+	  */
+	public double evalAsnAvg();
+	
+	/**
+	  * A method that evaluates the student exmAvg value.
+	  * 
+	  * @return		double, will hold the student exmAvg value.
+	  * 
+	  */
+	public double evalExmAvg();
 
 	/**
 	  * A setter for the student nameFirst value.

@@ -79,12 +79,8 @@ public class Student implements StudentADT
 	  */
 	public double getAvg()
 	{
-		double sum=0.0, weight=0.0;
-		for (int i=0; i<deliverableList.size(); i++)
-		{
-			sum+=deliverableList.get(i).getGrade();
-			weight+=deliverableList.get(i).getWeight();
-		}avg=sum/weight;return avg;
+		if (avg==0)return evalAvg();
+		return avg;
 	}
 	
 	/**
@@ -94,6 +90,46 @@ public class Student implements StudentADT
 	  * 
 	  */
 	public double getAsnAvg()
+	{
+		if (asnAvg==0)return evalAsnAvg();
+		return asnAvg;
+	}
+	
+	/**
+	  * A getter for the student exmAvg value.
+	  * 
+	  * @return		double, will hold the student exmAvg value.
+	  * 
+	  */
+	public double getExmAvg()
+	{
+		if (exmAvg==0)return evalExmAvg();
+		return exmAvg;
+	}
+
+	/**
+	  * A method that evaluates the student avg value.
+	  * 
+	  * @return		double, will hold the student avg value.
+	  * 
+	  */
+	public double evalAvg()
+	{
+		double sum=0.0, weight=0.0;
+		for (int i=0; i<deliverableList.size(); i++)
+		{
+			sum+=deliverableList.get(i).getGrade();
+			weight+=deliverableList.get(i).getWeight();
+		}avg=sum/weight;return avg;
+	}
+	
+	/**
+	  * A method that evaluates the student asnAvg value.
+	  * 
+	  * @return		double, will hold the student asnAvg value.
+	  * 
+	  */
+	public double evalAsnAvg()
 	{
 		double sum=0.0, weight=0.0;
 		for (int i=0; i<deliverableList.size(); i++)
@@ -107,12 +143,12 @@ public class Student implements StudentADT
 	}
 	
 	/**
-	  * A getter for the student exmAvg value.
+	  * A method that evaluates the student exmAvg value.
 	  * 
 	  * @return		double, will hold the student exmAvg value.
 	  * 
 	  */
-	public double getExmAvg()
+	public double evalExmAvg()
 	{
 		double sum=0.0, weight=0.0;
 		for (int i=0; i<deliverableList.size(); i++)
@@ -124,7 +160,7 @@ public class Student implements StudentADT
 			}
 		}exmAvg=sum/weight;return exmAvg;
 	}
-
+	
 	/**
 	  * A setter for the student nameFirst value.
 	  * 
@@ -206,7 +242,7 @@ public class Student implements StudentADT
 	public String gradeExportString()
 	{
 		String str="\""+number+"\"";
-		for (int i=0; i<deliverableList.size()-1; i++)str=str+", \""+deliverableList.get(i).getGrade()+"\"";
+		for (int i=0; i<deliverableList.size(); i++)str=str+", \""+deliverableList.get(i).getGrade()+"\"";
 		return str+"\n";
 	}
 
@@ -216,5 +252,5 @@ public class Student implements StudentADT
 	  * return		String, will hold the student information.
 	  * 
 	  */
-	public String toString(){return ("\""+nameLast+"\", \""+nameFirst+"\", \""+number+"\""+"\", \""+email+"\"\n");}
+	public String toString(){return ("\""+nameLast+"\", \""+nameFirst+"\", \""+number+"\""+", \""+email+"\"\n");}
 }

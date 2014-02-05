@@ -104,36 +104,38 @@ public class StudentTest
 	public void testSetAvg()
 	{
 		stud.setAvg(90);
-		Assert.assertTrue(90==stud.getAvg());
-		Assert.assertFalse(80==stud.getAvg());
+		Assert.assertTrue((90==stud.getAvg()));
+		Assert.assertFalse((80==stud.getAvg()));
 	}
 
 	@Test
 	public void testSetAsnAvg()
 	{
 		stud.setAsnAvg(90);
-		Assert.assertTrue (90==stud.getAsnAvg());
-		Assert.assertFalse (100==stud.getAsnAvg());
+		Assert.assertTrue((90==stud.getAsnAvg()));
+		Assert.assertFalse((100==stud.getAsnAvg()));
 	}
 
 	@Test
 	public void testSetExmAvg() 
 	{
 		stud.setExmAvg(70);
-		Assert.assertTrue (70==stud.getExmAvg());
-		Assert.assertFalse (100==stud.getExmAvg());
+		Assert.assertTrue((70==stud.getExmAvg()));
+		Assert.assertFalse((100==stud.getExmAvg()));
 	}
 
 	@Test
 	public void testGradeExportString() 
 	{
-		Assert.assertTrue ("\"111111111\", \"20.0\", \"20.0\", \"20.0\", \"20.0\"\n".equals(stud.gradeExportString()));
+		String str="\"111111111\", \"20.0\", \"20.0\", \"20.0\", \"20.0\"\n";
+		Assert.assertEquals (str, stud.gradeExportString());
 	}
 
 	@Test
 	public void testToString() 
 	{
-		Assert.assertTrue ("\"Albirawi\", \"Zaid\", \"111111111\", \"zalbiraw@uwo.ca\"\n".equals(stud.toString()));
+		String str="\"Albirawi\", \"Zaid\", \"111111111\", \"zalbiraw@uwo.ca\"\n";
+		Assert.assertEquals(str, stud.toString());
 	}
 
 }

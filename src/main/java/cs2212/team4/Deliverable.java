@@ -14,7 +14,7 @@ public class Deliverable implements DeliverableADT
 {
 	private String name="", type="";
 	private double weight=0.0, grade=0.0;
-
+	
 	/**
 	  * A constructor of the deliverable class, will create a deliverable object.
 	  * 
@@ -28,6 +28,24 @@ public class Deliverable implements DeliverableADT
 		this.name=name;
 		this.type=type;
 		this.weight=weight;
+	}
+	
+	
+	/**
+	  * A constructor of the deliverable class, will create a deliverable object.
+	  * 
+	  * @param		name		String, will hold the deliverable name value.
+	  * @param		type		String, will hold the deliverable type value.
+	  * @param		weight		double, will hold the deliverable weight value.
+	  * @param		grade		double, will hold the deliverable grade value.
+	  * 
+	  */
+	public Deliverable(String name, String type, double weight, double grade)
+	{
+		this.name=name;
+		this.type=type;
+		this.weight=weight;
+		this.grade=grade;
 	}
 
 	/**

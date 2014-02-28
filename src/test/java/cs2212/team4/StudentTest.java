@@ -8,17 +8,17 @@ import org.junit.Before;
 public class StudentTest
 {
 	ArrayList<Deliverable> deliverableList = new ArrayList<Deliverable>();
-	Student stud = new Student("Zaid", "Albirawi", 111111111, "zalbiraw@uwo.ca", deliverableList);
-	
+	Student stud = new Student("Zaid", "Albirawi", 111111111, "zalbiraw@uwo.ca");
+
 	@Before
 	public void addDeliverables()
 	{
-		deliverableList.add(new Deliverable("Exam", "Exam", 40.0, 20.0));
-		deliverableList.add(new Deliverable("Assignment 1", "Assignment", 20.0, 20.0));
-		deliverableList.add(new Deliverable("Assignment 2", "Assignment", 20.0, 20.0));
-		deliverableList.add(new Deliverable("Participation", "Other", 20.0, 20.0));
+		deliverableList.add(new Deliverable("Exam", "Exam", 40.0, 20));
+		deliverableList.add(new Deliverable("Assignment 1", "Assignment", 20.0, 20));
+		deliverableList.add(new Deliverable("Assignment 2", "Assignment", 20.0, 20));
+		deliverableList.add(new Deliverable("Participation", "Other", 20.0, 20));
 	}
-	
+
 	@Test
 	public void testGetNameFirst() 
 	{
@@ -45,6 +45,13 @@ public class StudentTest
 	{
 		Assert.assertEquals("zalbiraw@uwo.ca", stud.getEmail());
 		Assert.assertNotEquals("", stud.getEmail());
+	}
+
+	@Test
+	public void testGetGrade()
+	{
+		stud.addGrade(0, 75.0, "type1", 5.0);
+		Assert.assertTrue(stude.getGrade(0));
 	}
 
 	@Test
@@ -125,10 +132,18 @@ public class StudentTest
 	}
 
 	@Test
-	public void testGradeExportString() 
+	public void testAddGrade() 
 	{
-		String str="\"111111111\", \"20.0\", \"20.0\", \"20.0\", \"20.0\"\n";
-		Assert.assertEquals (str, stud.gradeExportString());
+		Assert.assertTrue(stud.addGrade(0, 75.0, "type1", 5.0));
+		Assert.assertFalse(stud.addGrade(1, 75.0, 5.0, "type1"));
+	}
+
+	@Test
+	public void testRemoveGrade() 
+	{
+		Assert.assertTrue(stud.addGrade(1, 80.0, "type2", 5.0));
+		Assert.assertTrue(stud.removeGrade(1, "type2"));
+		Asert.assertFalse(stud.removeGrade(3, "type3"));
 	}
 
 	@Test

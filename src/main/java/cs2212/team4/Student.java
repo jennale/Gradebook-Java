@@ -1,15 +1,17 @@
+package cs2212.team4;
+
+import java.io.Serializable;
+
 /**
- * team4-gradebook application
- * 
+ *
  * Student is the class that will store all the student grades and informations.
+ *
+ * team4-gradebook application
  *
  * @author Zaid Albirawi
  * @version 1.4 2/28/2014
  */
 
-package cs2212.team4;
-
-import java.io.Serializable;
 
 public class Student implements StudentADT, Serializable
 {

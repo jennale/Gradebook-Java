@@ -1,12 +1,3 @@
-/**
- * team4-gradebook application
- * 
- * Course is the class that will be used to store all course students, deliverables, grades, and course information.
- *
- * @author Zaid Albirawi
- * @version 1.5 2/28/2014
- */
-
 package cs2212.team4;
 
 import java.io.BufferedReader;
@@ -23,6 +14,16 @@ import java.io.Writer;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.Stack;
+
+/**
+ *
+ * Course is the class that will be used to store all course students, deliverables, grades, and course information.
+ *
+ * team4-gradebook application
+ *
+ * @author Zaid Albirawi
+ * @version 1.5 2/28/2014
+ */
 
 public class Course implements CourseADT, Serializable
 {

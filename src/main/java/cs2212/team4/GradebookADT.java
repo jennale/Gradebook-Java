@@ -1,5 +1,14 @@
 package cs2212.team4;
 
+/**
+ *
+ * GradebookADT implements the method interface for the Gradebook class.
+ *
+ * @author Zaid Albirawi
+ * @version 1.0 2/28/2014
+ */
+
+
 public interface GradebookADT 
 {
 	/**

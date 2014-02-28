@@ -1,15 +1,16 @@
+package cs2212.team4;
+
+import java.io.Serializable;
+
 /**
- * team4-gradebook application
- * 
+ *
  * Grade is the class that will be used to store student grades.
+ *
+ * team4-gradebook application
  *
  * @author Zaid Albirawi
  * @version 1.0 2/28/2014
  */
-
-package cs2212.team4;
-
-import java.io.Serializable;
 
 public class Grade implements GradeADT, Serializable
 {

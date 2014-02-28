@@ -1,5 +1,13 @@
 package cs2212.team4;
 
+/**
+ *
+ * CourseADT implements the method interface for the Course class.
+ *
+ * @author Zaid Albirawi
+ * @version 1.0 2/28/2014
+ */
+
 public interface CourseADT
 {
 	/**

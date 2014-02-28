@@ -125,9 +125,10 @@ public interface StudentADT
 	/**
 	  * Adds a grade to the StudentGrades object.
 	  * 
-	  * @param		stud				Student, the Student object.
-	  * @param		deliver				Deliverable, the Deliverable object.
+	  * @param		deliver				Integer, the grade insertion position.
 	  * @param		grade				Double, the grade.
+	  * @param		type				String, the deliverable type.
+	  * @param		weight				Double, the grade weight.
 	  * 
 	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
 	  * 
@@ -136,9 +137,9 @@ public interface StudentADT
 	
 	/**
 	  * Removes a grade from the StudentGrades object.
-	  * 
-	  * @param		stud				Student, the Student object.
-	  * @param		deliver				Deliverable, the Deliverable object.
+	  *
+	  * @param		deliver				Integer, the position at where the grade will be inserted.
+	  * @param		type				String, the type of the deliverable.
 	  * 
 	  * @return		boolean, true if the grade was removed successfully, false otherwise.
 	  * 

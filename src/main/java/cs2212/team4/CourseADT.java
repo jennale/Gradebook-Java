@@ -132,8 +132,7 @@ public interface CourseADT
 	/**
 	  * Finds the Deliverable object inside the deliverableList list.
 	  * 
-	  * @param		name			String, the name of the Deliverable object.
-	  * @param		type			String, the type of the deliverable object.
+	  * @param		deliver			Deliverable, the Deliverable object.
 	  * 
 	  * @return		Integer, the position of the Deliverable object in the deliverableList list if the object exists, otherwise it will return -1.
 	  * 

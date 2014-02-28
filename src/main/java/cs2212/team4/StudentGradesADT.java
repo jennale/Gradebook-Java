@@ -73,7 +73,7 @@ public interface StudentGradesADT
 	  * A setter for the student email value.
 	  * 
 	  * @param		email			String, will hold the student email new value.
-	  * @return 
+	  * @return 	return a boolean to weather the grade was successfully removed or not.
 	  * 
 	  */
 	public boolean remove(int deliver, String type);

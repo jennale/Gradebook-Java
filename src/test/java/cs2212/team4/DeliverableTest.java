@@ -5,11 +5,11 @@ import org.junit.Test;
 
 public class DeliverableTest 
 {
-	Deliverable deliver1 = new Deliverable("name1", "type1", 20.0, 10.0);
-	Deliverable deliver2 = new Deliverable("name2", "type2", 40.0, 20.0);
-	Deliverable deliver3 = new Deliverable("name3", "type3", 30.0, 30.0);
-	Deliverable deliver4 = new Deliverable("name4", "type4", 5.0, 40.0);
-	Deliverable deliver5 = new Deliverable("name5", "type5", 5.0, 50.0);
+	Deliverable deliver1 = new Deliverable("name1", "type1", 20.0, 10);
+	Deliverable deliver2 = new Deliverable("name2", "type2", 40.0, 20);
+	Deliverable deliver3 = new Deliverable("name3", "type3", 30.0, 30);
+	Deliverable deliver4 = new Deliverable("name4", "type4", 5.0, 40);
+	Deliverable deliver5 = new Deliverable("name5", "type5", 5.0, 50);
 	
 	@Test
 	public void testGetName() 
@@ -60,19 +60,19 @@ public class DeliverableTest
 	}
 
 	@Test
-	public void testGetGrade()
+	public void testGetObjId()
 	{
-		Assert.assertFalse(0==deliver1.getGrade());
-		Assert.assertFalse(0==deliver2.getGrade());
-		Assert.assertFalse(0==deliver3.getGrade());
-		Assert.assertFalse(0==deliver4.getGrade());
-		Assert.assertFalse(0==deliver5.getGrade());
+		Assert.assertFalse(0==deliver1.getObjId());
+		Assert.assertFalse(0==deliver2.getObjId());
+		Assert.assertFalse(0==deliver3.getObjId());
+		Assert.assertFalse(0==deliver4.getObjId());
+		Assert.assertFalse(0==deliver5.getObjId());
 		
-		Assert.assertTrue(10==deliver1.getGrade());
-		Assert.assertTrue(20==deliver2.getGrade());
-		Assert.assertTrue(30==deliver3.getGrade());
-		Assert.assertTrue(40==deliver4.getGrade());
-		Assert.assertTrue(50==deliver5.getGrade());
+		Assert.assertTrue(10==deliver1.getObjId());
+		Assert.assertTrue(20==deliver2.getObjId());
+		Assert.assertTrue(30==deliver3.getObjId());
+		Assert.assertTrue(40==deliver4.getObjId());
+		Assert.assertTrue(50==deliver5.getObjId());
 	}
 
 	@Test
@@ -148,27 +148,19 @@ public class DeliverableTest
 	}
 
 	@Test
-	public void testSetGrade() 
+	public void testEquals() 
 	{
-		deliver1.setGrade(60);
-		Assert.assertTrue(60==deliver1.getGrade());
-		Assert.assertFalse(0==deliver1.getGrade());
-		
-		deliver2.setGrade(70);
-		Assert.assertTrue(70==deliver2.getGrade());
-		Assert.assertFalse(0==deliver2.getGrade());
+		Assert.assertFalse(deliver1.equals(deliver2));
+		Assert.assertFalse(deliver2.equals(deliver3));
+		Assert.assertFalse(deliver3.equals(deliver4));
+		Assert.assertFalse(deliver4.equals(deliver5));
+		Assert.assertFalse(deliver5.equals(deliver1));
 
-		deliver3.setGrade(80);
-		Assert.assertTrue(80==deliver3.getGrade());
-		Assert.assertFalse(0==deliver3.getGrade());
-		
-		deliver4.setGrade(90);
-		Assert.assertTrue(90==deliver4.getGrade());
-		Assert.assertFalse(0==deliver4.getGrade());
-		
-		deliver5.setGrade(100);
-		Assert.assertTrue(100==deliver5.getGrade());
-		Assert.assertFalse(0==deliver5.getGrade());
+		Assert.assertTrue(deliver1.equals(deliver1));
+		Assert.assertTrue(deliver2.equals(deliver2));
+		Assert.assertTrue(deliver3.equals(deliver3));
+		Assert.assertTrue(deliver4.equals(deliver4));
+		Assert.assertTrue(deliver5.equals(deliver5));
 	}
 
 	@Test

@@ -18,12 +18,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.Serializable;
 import java.io.Writer;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class Course implements CourseADT
+public class Course implements CourseADT, Serializable
 {
 	/* ************************************************************
 	* Instance Variables

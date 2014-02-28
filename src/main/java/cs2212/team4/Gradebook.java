@@ -9,9 +9,17 @@
 
 package cs2212.team4;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 
-public class Gradebook implements GradebookADT
+public class Gradebook implements GradebookADT, Serializable
 {
 	/* ************************************************************
 	* Instance Variables
@@ -23,11 +31,75 @@ public class Gradebook implements GradebookADT
 	/**
 	  * A constructor of the gradebook class, will create an empty gradebook object.
 	  */
-	public Gradebook(){courseList = new ArrayList<Course>();}
+	public Gradebook()
+	{
+		if (!load(" "))courseList = new ArrayList<Course>();
+	}
 	
 	/* ************************************************************
 	* Helper Methods
 	************************************************************ */
+	
+	/**
+	  * Stores the Course objects from the courseList list.
+	  * 
+	  * @param		path			String, the path to where the data will be located.
+	  * 
+	  * @return		boolean, true if the objects were successfully exported, false otherwise.
+	  * 
+	  */
+	public boolean store(String path)
+	{ 
+		try
+		{
+			FileOutputStream FOS = new FileOutputStream(path);
+			ObjectOutputStream OUS = new ObjectOutputStream(FOS);
+			for (int i=0; i<courseList.size(); i++)OUS.writeObject(courseList.get(i));
+			OUS.close();FOS.close();return true;
+		}
+		catch(FileAlreadyExistsException e)
+		{
+			return false;
+		}
+		catch(FileNotFoundException e)
+		{
+			return false;
+		}
+		catch (IOException e)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	  * Loads the Course objects into the courseList list.
+	  * 
+	  * @param		path			String, the path to where the data will be located.
+	  * 
+	  * @return		boolean, true if the objects were successfully imported, false otherwise.
+	  * 
+	  */
+	private boolean load(String path)
+	{
+		try
+		{
+			ObjectInputStream OIS = new ObjectInputStream(new FileInputStream(path));
+			while(OIS.available()>0)courseList.add((Course)OIS.readObject());
+			OIS.close();return true;
+		}
+		catch (FileNotFoundException e)
+		{
+			return false;
+		}
+		catch (ClassNotFoundException e)
+		{
+			return false;
+		}
+		catch (IOException e)
+		{
+			return false;
+		}
+	}
 	
 	/**
 	  * Finds the Course object inside the courseList list.

@@ -9,7 +9,9 @@
 
 package cs2212.team4;
 
-public class Deliverable implements DeliverableADT
+import java.io.Serializable;
+
+public class Deliverable implements DeliverableADT, Serializable
 {
 	/* ************************************************************
 	* Instance Variables

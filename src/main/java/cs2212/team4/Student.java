@@ -9,7 +9,9 @@
 
 package cs2212.team4;
 
-public class Student implements StudentADT
+import java.io.Serializable;
+
+public class Student implements StudentADT, Serializable
 {
 	/* ************************************************************
 	* Instance Variables

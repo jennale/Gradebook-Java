@@ -9,9 +9,10 @@
 
 package cs2212.team4;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class StudentGrades implements StudentGradesADT
+public class StudentGrades implements StudentGradesADT, Serializable
 {
 	/* ************************************************************
 	* Instance Variables

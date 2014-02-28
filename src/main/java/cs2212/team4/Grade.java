@@ -9,7 +9,9 @@
 
 package cs2212.team4;
 
-public class Grade implements GradeADT
+import java.io.Serializable;
+
+public class Grade implements GradeADT, Serializable
 {
 	/* ************************************************************
 	* Instance Variables

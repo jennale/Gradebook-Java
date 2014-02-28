@@ -1,5 +1,13 @@
 package cs2212.team4;
 
+/**
+ *
+ * StudentGradesADT implements the method interface for the StudentGrades class.
+ *
+ * @author Zaid Albirawi
+ * @version 1.0 2/28/2014
+ */
+
 public interface StudentGradesADT
 {	
 	/**
@@ -70,11 +78,13 @@ public interface StudentGradesADT
 	public boolean add(int deliver, double grade, String type, double weight);
 	
 	/**
-	  * A setter for the student email value.
-	  * 
-	  * @param		email			String, will hold the student email new value.
-	  * @return 	return a boolean to weather the grade was successfully removed or not.
-	  * 
-	  */
+     * Removes a grade from the StudentGrades object.
+     *
+     * @param		deliver				Integer, the position at where the grade will be inserted.
+     * @param		type				String, the type of the deliverable.
+     *
+     * @return		boolean, true if the grade was removed successfully, false otherwise.
+     * 
+     */
 	public boolean remove(int deliver, String type);
 }

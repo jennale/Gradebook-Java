@@ -1,16 +1,17 @@
-/**
- * team4-gradebook application
- * 
- * The StudentGrades class will contain all the grades for each Student.
- *
- * @author Zaid Albirawi
- * @version 1.0 2/28/2014
- */
-
 package cs2212.team4;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+/**
+ *
+ * The StudentGrades class will contain all the grades for each Student.
+ *
+ * team4-gradebook application
+ *
+ * @author Zaid Albirawi
+ * @version 1.0 2/28/2014
+ */
 
 public class StudentGrades implements StudentGradesADT, Serializable
 {
@@ -203,15 +204,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 		grades.add(deliver, (new Grade(grade, weight)));return true;
 	}
 	
-	/**
-	  * Removes a grade from the StudentGrades object.
-	  *
-	  * @param		deliver				Integer, the position at where the grade will be inserted.
-	  * @param		type				String, the type of the deliverable.
-	  * 
-	  * @return		boolean, true if the grade was removed successfully, false otherwise.
-	  * 
-	  */
+
 	public boolean remove(int deliver, String type)
 	{
 		if (grades.get(deliver)==null)return false;

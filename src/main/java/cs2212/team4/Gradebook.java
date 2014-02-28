@@ -1,12 +1,3 @@
-/**
- * team4-gradebook application
- * 
- * Gradebook is the class that will hold the information about all the courses in the application.
- *
- * @author Zaid Albirawi
- * @version 1.2 2/28/2014
- */
-
 package cs2212.team4;
 
 import java.io.FileInputStream;
@@ -18,6 +9,16 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
+
+/**
+ *
+ * Gradebook is the class that will hold the information about all the courses in the application.
+ *
+ * team4-gradebook application
+ *
+ * @author Zaid Albirawi
+ * @version 1.2 2/28/2014
+ */
 
 public class Gradebook implements GradebookADT, Serializable
 {

@@ -1,15 +1,16 @@
+package cs2212.team4;
+
+import java.io.Serializable;
+
 /**
+ *
+ * Deliverable is the class that will be used to store all course deliverables information.
+ *
  * team4-gradebook application
- * 
- * Dilverable is the class that will be used to store all course deliverables information.
  *
  * @author Zaid Albirawi
  * @version 1.2 2/28/2014
  */
-
-package cs2212.team4;
-
-import java.io.Serializable;
 
 public class Deliverable implements DeliverableADT, Serializable
 {

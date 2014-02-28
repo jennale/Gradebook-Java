@@ -51,7 +51,7 @@ public class StudentTest
 	public void testGetGrade()
 	{
 		stud.addGrade(0, 75.0, "type1", 5.0);
-		Assert.assertTrue(stude.getGrade(0));
+		Assert.assertTrue(stud.getGrade(0)==5.0);
 	}
 
 	@Test
@@ -135,7 +135,6 @@ public class StudentTest
 	public void testAddGrade() 
 	{
 		Assert.assertTrue(stud.addGrade(0, 75.0, "type1", 5.0));
-		Assert.assertFalse(stud.addGrade(1, 75.0, 5.0, "type1"));
 	}
 
 	@Test
@@ -143,7 +142,7 @@ public class StudentTest
 	{
 		Assert.assertTrue(stud.addGrade(1, 80.0, "type2", 5.0));
 		Assert.assertTrue(stud.removeGrade(1, "type2"));
-		Asert.assertFalse(stud.removeGrade(3, "type3"));
+		Assert.assertFalse(stud.removeGrade(3, "type3"));
 	}
 
 	@Test

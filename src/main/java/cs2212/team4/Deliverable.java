@@ -1,121 +1,128 @@
 /**
  * team4-gradebook application
- * deliverable.java
- * Purpose: deliverable.java is a java object that will hold the information about a course deliverable. The object will
- * have four attributes which are: name, type, weight and grade.
+ * 
+ * Dilverable is the class that will be used to store all course deliverables information.
  *
  * @author Zaid Albirawi
- * @version 1.0 2/2/2014
+ * @version 1.2 2/28/2014
  */
 
 package cs2212.team4;
 
 public class Deliverable implements DeliverableADT
 {
+	/* ************************************************************
+	* Instance Variables
+	************************************************************ */
+	
+	//The Deliverable name and type
 	private String name="", type="";
-	private double weight=0.0, grade=0.0;
+	//The Deliverable weight
+	private double weight;
+	//The Deliverable id
+	private int objId;
 	
 	/**
-	  * A constructor of the deliverable class, will create a deliverable object.
+	  * Constructor.
 	  * 
-	  * @param		name		String, will hold the deliverable name value.
-	  * @param		type		String, will hold the deliverable type value.
-	  * @param		weight		double, will hold the deliverable weight value.
+	  * @param		name		String, the Deliverable object name.
+	  * @param		type		String, the Deliverable object type.
+	  * @param		weight		Double, the Deliverable object weight.
+	  * @param		objId		Integer, the Deliverable object id.
 	  * 
 	  */
-	public Deliverable(String name, String type, double weight)
+	public Deliverable(String name, String type, double weight, int objId)
 	{
 		this.name=name;
 		this.type=type;
 		this.weight=weight;
+		this.objId=objId;
 	}
 	
-	
-	/**
-	  * A constructor of the deliverable class, will create a deliverable object.
-	  * 
-	  * @param		name		String, will hold the deliverable name value.
-	  * @param		type		String, will hold the deliverable type value.
-	  * @param		weight		double, will hold the deliverable weight value.
-	  * @param		grade		double, will hold the deliverable grade value.
-	  * 
-	  */
-	public Deliverable(String name, String type, double weight, double grade)
-	{
-		this.name=name;
-		this.type=type;
-		this.weight=weight;
-		this.grade=grade;
-	}
+	/* ************************************************************
+	* Accessor Methods
+	************************************************************ */
 
 	/**
-	  * A getter for the deliverable name value.
+	  * Gets the Deliverable object name.
 	  * 
-	  * @return		String, will hold the deliverable name value.
+	  * @return		String, the Deliverable object name.
 	  * 
 	  */
 	public String getName(){return name;}
 
 	/**
-	  * A getter for the deliverable type value.
+	  * Gets the Deliverable object type.
 	  * 
-	  * @return		String, will hold the deliverable name type.
+	  * @return		String, the Deliverable object type.
 	  * 
 	  */
 	public String getType(){return type;}
 
 	/**
-	  * A getter for the deliverable weight value.
+	  * Gets the Deliverable object weight.
 	  * 
-	  * @return		double, will hold the deliverable weight value.
+	  * @return		Double, the Deliverable object weight.
 	  * 
 	  */
 	public double getWeight(){return weight;}
-
-	/**
-	  * A getter for the deliverable grade value.
-	  * 
-	  * @return		double, will hold the deliverable grade value.
-	  * 
-	  */
-	public double getGrade(){return grade;}
 	
 	/**
-	  * A setter for the deliverable name value.
+	  * Gets the Deliverable object id.
 	  * 
-	  * @param		name			String, will hold the deliverable name new value.
+	  * @return		Integer, the Deliverable object id.
+	  * 
+	  */
+	public int getObjId(){return objId;}
+	
+	/* ************************************************************
+	* Mutator Methods
+	************************************************************ */
+	
+	/**
+	  * Sets the Deliverable object name.
+	  * 
+	  * @param		name			String,the Deliverable object name.
 	  * 
 	  */
 	public void setName(String name){this.name=name;}
 
 	/**
-	  * A setter for the deliverable type value.
+	  * Sets the Deliverable object type.
 	  * 
-	  * @param		type			String, will hold the deliverable type new value.
+	  * @param		type			String,the Deliverable object type.
 	  * 
 	  */
 	public void setType(String type){this.type=type;}
 
 	/**
-	  * A setter for the deliverable weight value.
+	  * Sets the Deliverable object weight.
 	  * 
-	  * @param		weight			double, will hold the deliverable weight new value.
+	  * @param		weight			Double,the Deliverable object weight.
 	  * 
 	  */
 	public void setWeight(double weight){this.weight=weight;}
-
+	
+	/* ************************************************************
+	* Helper Methods
+	************************************************************ */
+	
 	/**
-	  * A setter for the deliverable grade value.
+	  * An equals method.
 	  * 
-	  * @param		grade			double, will hold the deliverable grade new value.
+	  * return		boolean, true if the Course object is equal to this, false otherwise.
 	  * 
 	  */
-	public void setGrade(double grade){this.grade=grade;}
+	public boolean equals(Deliverable deliver)
+	{
+		if(this.toString().equalsIgnoreCase(deliver.toString()))return true;
+		return false;
+	}
 	
 	/**
 	  * A toString method.
 	  * 
-	  * return		String, will hold the deliverable information.
+	  * return		String, the Deliverable object information string.
 	  * 
 	  */
 	public String toString(){return ("\""+name+"\", \""+type+"\", \""+weight+"\"\n");}

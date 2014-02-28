@@ -1,83 +1,75 @@
-/**
- * team4-gradebook application
- * deliverableADT.java
- *
- * @author Zaid Albirawi
- * @version 1.0 2/2/2014
- */
-
 package cs2212.team4;
 
 public interface DeliverableADT
 {
 	/**
-	  * A getter for the deliverable name value.
+	  * Gets the Deliverable object name.
 	  * 
-	  * @return		String, will hold the deliverable name value.
+	  * @return		String, the Deliverable object name.
 	  * 
 	  */
 	public String getName();
 
 	/**
-	  * A getter for the deliverable type value.
+	  * Gets the Deliverable object type.
 	  * 
-	  * @return		String, will hold the deliverable name type.
+	  * @return		String, the Deliverable object type.
 	  * 
 	  */
 	public String getType();
 
 	/**
-	  * A getter for the deliverable weight value.
+	  * Gets the Deliverable object weight.
 	  * 
-	  * @return		double, will hold the deliverable weight value.
+	  * @return		Double, the Deliverable object weight.
 	  * 
 	  */
 	public double getWeight();
-
-	/**
-	  * A getter for the deliverable grade value.
-	  * 
-	  * @return		double, will hold the deliverable grade value.
-	  * 
-	  */
-	public double getGrade();
 	
 	/**
-	  * A setter for the deliverable name value.
+	  * Gets the Deliverable object id.
 	  * 
-	  * @param		name			String, will hold the deliverable name new value.
+	  * @return		Integer, the Deliverable object id.
+	  * 
+	  */
+	public int getObjId();
+	
+	/**
+	  * Sets the Deliverable object name.
+	  * 
+	  * @param		name			String,the Deliverable object name.
 	  * 
 	  */
 	public void setName(String name);
 
 	/**
-	  * A setter for the deliverable type value.
+	  * Sets the Deliverable object type.
 	  * 
-	  * @param		type			String, will hold the deliverable type new value.
+	  * @param		type			String,the Deliverable object type.
 	  * 
 	  */
 	public void setType(String type);
-	
+
 	/**
-	  * A setter for the deliverable weight value.
+	  * Sets the Deliverable object weight.
 	  * 
-	  * @param		weight			double, will hold the deliverable weight new value.
+	  * @param		weight			Double,the Deliverable object weight.
 	  * 
 	  */
 	public void setWeight(double weight);
-
+	
 	/**
-	  * A setter for the deliverable grade value.
+	  * An equals method.
 	  * 
-	  * @param		grade			double, will hold the deliverable grade new value.
+	  * return		boolean, true if the Course object is equal to this, false otherwise.
 	  * 
 	  */
-	public void setGrade(double grade);
+	public boolean equals(Deliverable deliver);
 	
 	/**
 	  * A toString method.
 	  * 
-	  * return		String, will hold the deliverable information.
+	  * return		String, the Deliverable object information string.
 	  * 
 	  */
 	public String toString();

@@ -1,91 +1,118 @@
-/**
- * team4-gradebook application
- * courseADT.java
- *
- * @author Zaid Albirawi
- * @version 1.0 2/2/2014
- */
-
 package cs2212.team4;
 
 public interface CourseADT
 {
 	/**
-	  * A getter for the course title value.
+	  * Gets the course title.
 	  * 
-	  * @return		String, will hold the course title value.
+	  * @return		String, the Course object title.
 	  * 
 	  */
 	public String getTitle();
 
 	/**
-	  * A getter for the course term value.
+	  * Gets the course term.
 	  * 
-	  * @return		String, will hold the course term value.
+	  * @return		String, the Course object term.
 	  * 
 	  */
 	public String getTerm();
 
 	/**
-	  * A getter for the course code value.
+	  * Gets the course code.
 	  * 
-	  * @return		String, will hold the course code value.
+	  * @return		String, the Course object code.
 	  * 
 	  */
 	public String getCode();
 	
 	/**
-	  * A getter for a student object in the course's studentList.
+	  * Gets the Student object inside the studentList list at location stud.
 	  * 
-	  * @param		int, will hold the position of the student in studentList.
-	  * 
-	  * @return		student, will hold the student object information.
+	  * @return		Student, the Student object.
 	  * 
 	  */
 	public Student getStudent(int stud);
-
+	
 	/**
-	  * A setter for the course title value.
+	  * Gets the Deliverable object inside the DeliverableList list at location deliver.
 	  * 
-	  * @param		title			String, will hold the course title new value.
+	  * @return		Deliverable, the Deliverable object.
+	  * 
+	  */
+	public Deliverable getDeliverable(int deliver);
+	
+	/**
+	  * Gets the grade object inside the Grades object inside the Student object at location grade.
+	  * 
+	  * @return		Double, the grade of the Student object.
+	  * 
+	  */
+	public double getGrade(Student stud, int grade);
+	
+	/**
+	  * Sets the course title.
+	  * 
+	  * @param		title			String, the Course Object title.
 	  * 
 	  */
 	public void setTitle(String title);
 
 	/**
-	  * A setter for the course term value.
+	  * Sets the course term.
 	  * 
-	  * @param		term			String, will hold the course term new value.
+	  * @param		term			String, the Course Object term.
 	  * 
 	  */
 	public void setTerm(String term);
 
 	/**
-	  * A setter for the course code value.
+	  * Sets the course code.
 	  * 
-	  * @param		code			String, will hold the course code new value.
+	  * @param		code			String, the Course Object code.
 	  * 
 	  */
 	public void setCode(String code);
+
+	/**
+	  * Edits the Student object number, if the number does not belong to another Student object inside the studentList list.
+	  * 
+	  * @param		stud			Student, Student object.
+	  * @param		number			Integer, the Student object unique number.
+	  * 
+	  * @return		boolean, true if the number has been edited, false otherwise.
+	  * 
+	  */
+	public boolean editStudentNumber(Student stud, int number);
+
+	/**
+	  * Edits the Student object email, if the email does not belong to another Student object inside the studentList list.
+	  * 
+	  * @param		stud			Student, Student object.
+	  * @param		email			String, the Student object unique email.
+	  * 
+	  * @return		boolean, true if the email has been edited, false otherwise.
+	  * 
+	  */
+	public boolean editStudentEmail(Student stud, String email);
 	
 	/**
-	  * A find method that will iterate through the studentList to find a specific student object. If the student
-	  * object is found, the method returns the position of the student object in the studentList, else it returns -1.
+	  * Finds the Student object inside the StudentList list.
 	  * 
-	  * @param		number			int, will hold the student object's unique number value.
+	  * @param		number			Integer, the Student object's unique number.
 	  * 
-	  * @return		int, will hold the position of the student object in the studentList if the object exists, else -1.
+	  * @return		Integer, the position of the Student object in the studentList if the object exists, otherwise will return -1.
 	  * 
 	  */
 	public int findStudent(int number);
 	
 	/**
-	  * addStudent method will add a student object to the studentList.
+	  * Adds a Student object to the studentList list, if there does not exist a Student object inside the studentList list with the same number or email.
 	  * 
-	  * @param		nameFirst			String, will hold the student object's nameFirst value.
-	  * @param		nameLast			String, will hold the student object's nameLast value.
-	  * @param		number				int, will hold the student object's unique number value.
-	  * @param		email				String, will hold the student object's unique email value.
+	  * @param		nameFirst			String, the Student object first name.
+	  * @param		nameLast			String, the Student object Last name.
+	  * @param		number				Integer, the Student object unique number.
+	  * @param		email				String, the Student object unique email.
 	  * 
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
@@ -93,9 +120,9 @@ public interface CourseADT
 	public boolean addStudent(String nameFirst, String nameLast, int number, String email);
 
 	/**
-	  * removeStudent method will remove a specific student object from the studentList.
+	  * Removes a Student object from the studentList list.
 	  * 
-	  * @param		number				int, will hold the student object's unique number value.
+	  * @param		number				Integer, the Student object unique number.
 	  * 
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
@@ -103,40 +130,22 @@ public interface CourseADT
 	public boolean removeStudent(int number);
 	
 	/**
-	  * importStudents method will import a studentList from a .csv file.
+	  * Finds the Deliverable object inside the deliverableList list.
 	  * 
-	  * @param		path				String, will hold the value of the path were the file is located.
+	  * @param		name			String, the name of the Deliverable object.
+	  * @param		type			String, the type of the deliverable object.
 	  * 
-	  */
-	public void importStudents(String path);
-
-	/**
-	  * exportStudents method will export the studentList to a .csv file.
-	  * 
-	  * @param		path				String, will hold the value of the path were the file will be saved.
-	  * 
-	  * @return		boolean, true if the studentList was exported, false otherwise.
+	  * @return		Integer, the position of the Deliverable object in the deliverableList list if the object exists, otherwise it will return -1.
 	  * 
 	  */
-	public boolean exportStudents(String path);
-
-	/**
-	  * A find method that will iterate through the deliverableList to find a specific deliverable object. If the 
-	  * deliverable object is found, the method returns the position of the deliverable object in the deliverableList,
-	  * else it returns -1.
-	  * 
-	  * @param		name			String, will hold the name value of the deliverable object.
-	  * @param		type			String, will hold the type value of the deliverable object.
-	  * 
-	  * @return		int, will hold the position of the deliverable object in the deliverableList if the object exists, else -1.
-	  * 
-	  */
-	public int findDeliverable(String name, String type);
+	public int findDeliverable(Deliverable deliver);
 	
 	/**
-	  * addDeliverable method will add a deliverable object to the deliverableList.
+	  * Adds a Deliverable object to the deliverableList list, if there does not exist a duplicate Deliverable object inside the deliverableList list.
 	  * 
-	  * @param		deliver				deliverable, will hold the deliverable object's information.
+	  * @param		name				String, the Deliverable object name.
+	  * @param		type				String, the Deliverable object type.
+	  * @param		weight				Double, the Deliverable object weight.
 	  * 
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
@@ -144,46 +153,107 @@ public interface CourseADT
 	public boolean addDeliverable(String name, String type, double weight);
 
 	/**
-	  * removeDeliverable method will remove a specific deliverable object from the deliverableList.
+	  * Removes a Deliverable object from the deliverableList list.
 	  * 
-	  * @param		deliver				deliverable, will hold the deliverable object's information.
+	  * @param		deliver				Deliverable, the Deliverable object.
 	  * 
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeDeliverable(String name, String type);
+	public boolean removeDeliverable(Deliverable deliver);
 	
 	/**
-	  * importDeliverables method will import a deliverableList from a .csv file.
+	  * Adds a grade to a Student object.
 	  * 
-	  * @param		path				String, will hold the value of the path were the file is located.
+	  * @param		stud				Student, the Student object.
+	  * @param		deliver				Deliverable, the Deliverable object.
+	  * @param		grade				Double, the grade.
+	  * 
+	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
 	  * 
 	  */
-	public void importDeliverables(String path);
+	public boolean addGrade(Student stud, Deliverable deliver, double grade);
+	
+	/**
+	  * Removes a grade from a Student object.
+	  * 
+	  * @param		stud				Student, the Student object.
+	  * @param		deliver				Deliverable, the Deliverable object.
+	  * 
+	  * @return		boolean, true if the grade was removed successfully, false otherwise.
+	  * 
+	  */
+	public boolean removeGrade(Student stud, Deliverable deliver);
 
 	/**
-	  * exportDeliverables method will export the deliverableList to a .csv file.
+	  * Imports a Student objects into the Course object.
 	  * 
-	  * @param		path				String, will hold the value of the path were the file will be saved.
+	  * @param		path				String, the path were the file is located.
 	  * 
-	  * @return		boolean, true if the deliverableList was exported, false otherwise.
+	  */
+	public boolean importStudents(String path);
+	
+	/**
+	  * Exports the Student objects located in studentList list to a .csv file.
+	  * 
+	  * @param		path				String, the path were the file is located.
+	  * 
+	  * @return		boolean, true if the Student objects were exported, false otherwise.
+	  * 
+	  */
+	public boolean exportStudents(String path);
+	
+	/**
+	  * Imports a Deliverable objects into the Course object.
+	  * 
+	  * @param		path				String, the path were the file is located.
+	  * 
+	  */
+	public boolean importDeliverables(String path);
+
+	/**
+	  * Exports the Deliverable objects located in deliverableList list to a .csv file.
+	  * 
+	  * @param		path				String, the path were the file is located.
+	  * 
+	  * @return		boolean, true if the Deliverable objects were exported, false otherwise.
 	  * 
 	  */
 	public boolean exportDeliverables(String path);
 	
 	/**
-	  * importGrades method will import grade values for the studentList from a .csv file.
+	  * Imports a Student objects' Grade objects into the Course object.
 	  * 
-	  * @param		path				String, will hold the value of the path were the file is located.
+	  * @param		path				String, the path were the file is located.
 	  * 
 	  */
-	public void importGrades(String path);
+	public boolean importGrades(String path);
 
 	/**
-	  * exportGrades method will export all studentList's student object grades to a .csv file.
+	  * Exports the Grade objects located in every Student object inside the studentList list.
 	  * 
-	  * @param		path				String, will hold the value of the path were the file is located.
+	  * @param		path				String, the path were the file is located.
+	  * 
+	  * @return		boolean, true if the Grade objects were exported, false otherwise.
 	  * 
 	  */
 	public boolean exportGrades(String path);
+
+	/**
+	  * An equals method.
+	  * 
+	  * @param		crs			Course, the Course object.		
+	  * 
+	  * @return		boolean, true if the Course object is equal to this, false otherwise.
+	  * 
+	  */
+	public boolean equals(Course crs);
+	
+	/**
+	  * A toString method.
+	  * 
+	  * @return		String, the Course object information string.
+	  * 
+	  */
+	public String toString();
 }

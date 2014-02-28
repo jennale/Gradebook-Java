@@ -1,255 +1,218 @@
 /**
  * team4-gradebook application
- * student.java
- * Purpose: student.java is a java object that will store information about the students enrolled in an active course.
- * The student object will have a attributes such as, first and last name, unique student number and email, and 
- * exam, assignments and course averages.
+ * 
+ * Student is the class that will store all the student grades and informations.
  *
  * @author Zaid Albirawi
- * @version 1.0 2/2/2014
+ * @version 1.4 2/28/2014
  */
 
 package cs2212.team4;
 
-import java.util.ArrayList;
-
 public class Student implements StudentADT
 {
+	/* ************************************************************
+	* Instance Variables
+	************************************************************ */
+	
+	//The Student object first name, last name, and email.
 	private String nameFirst="", nameLast="", email="";
-	private int number=0;
-	private double avg=0.0, exmAvg=0.0, asnAvg=0.0;
-	private ArrayList<Deliverable> deliverableList;
+	//The Student object number
+	private int number;
+	//The Student object grades.
+	private StudentGrades grades;
 
 	/**
-	  * A constructor of the student class, will create an empty student object.
+	  * Constructor.
 	  * 
-	  * @param		nameFirst		String, will hold the student nameFirst value.
-	  * @param		nameLast		String, will hold the student nameLast value.
-	  * @param		number			String, will hold the student unique number value.
-	  * @param		email			String, will hold the student unique email value.
-	  * @param		deliverableList	ArrayList<deliverable>, will hold the student deliverableList value.
+	  * @param		nameFirst		String, Student object first name.
+	  * @param		nameLast		String, Student object last name.
+	  * @param		number			Integer, Student object unique number.
+	  * @param		email			String, Student object unique email.
 	  * 
 	  */
-	public Student(String nameFirst, String nameLast, int number, String email, ArrayList<Deliverable> deliverableList)
+	public Student(String nameFirst, String nameLast, int number, String email)
 	{
 		this.nameFirst=nameFirst;
 		this.nameLast=nameLast;
 		this.number=number;
 		this.email=email;
-		this.deliverableList=deliverableList;
+		grades = new StudentGrades();
 	}
 
+	/* ************************************************************
+	* Accessor Methods
+	************************************************************ */
+	
 	/**
-	  * A getter for the student nameFirst value.
+	  * Gets the Student object first name.
 	  * 
-	  * @return		String, will hold the student nameFirst value.
+	  * @return		String, the Student object first name.
 	  * 
 	  */
 	public String getNameFirst(){return nameFirst;}
 
 	/**
-	  * A getter for the student nameLast value.
+	  * Gets the Student object last name.
 	  * 
-	  * @return		String, will hold the student nameLast value.
+	  * @return		String, the Student object last name.
 	  * 
 	  */
 	public String getNameLast(){return nameLast;}
 
 	/**
-	  * A getter for the student number value.
+	  * Gets the Student object number.
 	  * 
-	  * @return		int, will hold the student number value.
+	  * @return		Integer, the Student object number.
 	  * 
 	  */
 	public int getNumber(){return number;}
 
 	/**
-	  * A getter for the student email value.
+	  * Gets the Student object email.
 	  * 
-	  * @return		String, will hold the student email value.
+	  * @return		String, the Student object email.
 	  * 
 	  */
 	public String getEmail(){return email;}
 	
 	/**
-	  * A getter for the student avg value.
+	  * Gets a Student object Grade object.
 	  * 
-	  * @return		double, will hold the student avg value.
+	  * @return		Grade, a Student object Grade object.
 	  * 
 	  */
-	public double getAvg()
-	{
-		if (avg==0)return evalAvg();
-		return avg;
-	}
+	public double getGrade(int grade){return grades.getGrade(grade);}
 	
 	/**
-	  * A getter for the student asnAvg value.
+	  * Gets the Student object average.
 	  * 
-	  * @return		double, will hold the student asnAvg value.
+	  * @return		Double, the Student object average.
 	  * 
 	  */
-	public double getAsnAvg()
-	{
-		if (asnAvg==0)return evalAsnAvg();
-		return asnAvg;
-	}
+	public double getAvg(){return grades.getAvg();}
 	
 	/**
-	  * A getter for the student exmAvg value.
+	  * Gets the Student object assignment average.
 	  * 
-	  * @return		double, will hold the student exmAvg value.
-	  * 
-	  */
-	public double getExmAvg()
-	{
-		if (exmAvg==0)return evalExmAvg();
-		return exmAvg;
-	}
-
-	/**
-	  * A method that evaluates the student avg value.
-	  * 
-	  * @return		double, will hold the student avg value.
+	  * @return		Double, the Student object assignment average.
 	  * 
 	  */
-	public double evalAvg()
-	{
-		double sum=0.0, weight=0.0;
-		for (int i=0; i<deliverableList.size(); i++)
-		{
-			sum+=deliverableList.get(i).getGrade();
-			weight+=deliverableList.get(i).getWeight();
-		}avg=sum/weight;return avg;
-	}
+	public double getAsnAvg(){return grades.getAsnAvg();}
 	
 	/**
-	  * A method that evaluates the student asnAvg value.
+	  * Gets the Student object exam average.
 	  * 
-	  * @return		double, will hold the student asnAvg value.
-	  * 
-	  */
-	public double evalAsnAvg()
-	{
-		double sum=0.0, weight=0.0;
-		for (int i=0; i<deliverableList.size(); i++)
-		{
-			if (deliverableList.get(i).getType().toLowerCase().equals("assignment"))
-			{
-				sum+=deliverableList.get(i).getGrade();
-				weight+=deliverableList.get(i).getWeight();
-			}
-		}asnAvg=sum/weight;return asnAvg;
-	}
-	
-	/**
-	  * A method that evaluates the student exmAvg value.
-	  * 
-	  * @return		double, will hold the student exmAvg value.
+	  * @return		Double, the Student object exam average.
 	  * 
 	  */
-	public double evalExmAvg()
-	{
-		double sum=0.0, weight=0.0;
-		for (int i=0; i<deliverableList.size(); i++)
-		{
-			if (deliverableList.get(i).getType().toLowerCase().equals("exam"))
-			{
-				sum+=deliverableList.get(i).getGrade();
-				weight+=deliverableList.get(i).getWeight();
-			}
-		}exmAvg=sum/weight;return exmAvg;
-	}
+	public double getExmAvg(){return grades.getExmAvg();}
+	
+	/* ************************************************************
+	* Mutator Methods
+	************************************************************ */
 	
 	/**
-	  * A setter for the student nameFirst value.
+	  * Sets the Student object first name.
 	  * 
-	  * @param		nameFirst			String, will hold the student nameFirst new value.
+	  * @param		nameFirst		String, the Student object first name.
 	  * 
 	  */
 	public void setNameFirst(String nameFirst){this.nameFirst=nameFirst;}
 
 	/**
-	  * A setter for the student nameLast value.
+	  * Sets the Student object last name.
 	  * 
-	  * @param		nameLast			String, will hold the student nameLast new value.
+	  * @param		nameLast		String, the Student object last name.
 	  * 
 	  */
 	public void setNameLast(String nameLast){this.nameLast=nameLast;}
 
 	/**
-	  * A setter for the student number value.
+	  * Sets the Student object number.
 	  * 
-	  * @param		number			int, will hold the student number new value.
+	  * @param		number		String, the Student object number.
 	  * 
 	  */
 	public void setNumber(int number){this.number=number;}
 
 	/**
-	  * A setter for the student email value.
+	  * Sets the Student object email.
 	  * 
-	  * @param		email			String, will hold the student email new value.
+	  * @param		email			String, the Student object email.
 	  * 
 	  */
 	public void setEmail(String email){this.email=email;}
 	
 	/**
-	  * A setter for the student avg value.
+	  * Sets the Student object average.
 	  * 
-	  * @param		avg				double, will hold the student avg new value.
+	  * @param		avg				Double, the Student object average.
 	  * 
 	  */
-	public void setAvg(double avg){this.avg=avg;}
+	public void setAvg(double avg){grades.setAvg(avg);}
 	
 	/**
-	  * A setter for the student asnAvg value.
+	  * Sets the Student object assignment average.
 	  * 
-	  * @param		asnAvg			double, will hold the student asnAvg new value.
+	  * @param		asnAvg			Double, the Student object assignment average.
 	  * 
 	  */
-	public void setAsnAvg(double asnAvg){this.asnAvg=asnAvg;}
+	public void setAsnAvg(double asnAvg){grades.setAsnAvg(asnAvg);}
 	
 	/**
-	  * A setter for the student exmAvg value.
+	  * Sets the Student object exam average.
 	  * 
-	  * @param		exmAvg			double, will hold the student exmAvg new value.
-	  * 
-	  */
-	public void setExmAvg(double exmAvg){this.exmAvg=exmAvg;}
-
-	/**
-	  * addDeliverable method will add a deliverable object to the deliverableList.
-	  * 
-	  * @param		deliver				deliverable, will hold the deliverable object's information.
+	  * @param		exmAvg			Double, the Student object exam average.
 	  * 
 	  */
-	public void addDeliverable(Deliverable deliver){deliverableList.add(deliver);}
+	public void setExmAvg(double exmAvg){grades.setExmAvg(exmAvg);}
+	
+	/* ************************************************************
+	* Helper Methods
+	************************************************************ */
 	
 	/**
-	  * removeDeliverable method will remove a specific deliverable object from the deliverableList.
+	  * Adds a grade to the StudentGrades object.
 	  * 
-	  * @param		deliver				int, will hold the deliverable object's location in the deliverableList.
+	  * @param		stud				Student, the Student object.
+	  * @param		deliver				Deliverable, the Deliverable object.
+	  * @param		grade				Double, the grade.
+	  * 
+	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
 	  * 
 	  */
-	public void removeDeliverable(int deliver){deliverableList.remove(deliver);}
-
+	public boolean addGrade(int deliver, double grade, String type, double weight){return grades.add(deliver, grade, type, weight);}
+	
 	/**
-	  * gradeExportString method is a helper method for the exportGrades method located in course.java.
+	  * Removes a grade from the StudentGrades object.
 	  * 
-	  * return		String, will hold the student grades information.
+	  * @param		stud				Student, the Student object.
+	  * @param		deliver				Deliverable, the Deliverable object.
+	  * 
+	  * @return		boolean, true if the grade was removed successfully, false otherwise.
 	  * 
 	  */
-	public String gradeExportString()
+	public boolean removeGrade(int deliver, String type){return grades.remove(deliver, type);}
+	
+	/**
+	  * An equals method.
+	  * 
+	  * @param		stud				Student, the Student object.		
+	  * 
+	  * @return		boolean, true if the Student object is equal to this, false otherwise.
+	  * 
+	  */
+	public boolean equals(Student stud)
 	{
-		String str="\""+number+"\"";
-		for (int i=0; i<deliverableList.size(); i++)str=str+", \""+deliverableList.get(i).getGrade()+"\"";
-		return str+"\n";
+		if(this.toString().equalsIgnoreCase(stud.toString()))return true;
+		return false;
 	}
 
 	/**
 	  * A toString method.
 	  * 
-	  * return		String, will hold the student information.
+	  * @return		String, the Student object information string.
 	  * 
 	  */
 	public String toString(){return ("\""+nameLast+"\", \""+nameFirst+"\", \""+number+"\""+", \""+email+"\"\n");}

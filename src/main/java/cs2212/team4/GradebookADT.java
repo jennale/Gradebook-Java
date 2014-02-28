@@ -1,34 +1,23 @@
-/**
- * team4-gradebook application
- * gradebookADT.java
- *
- * @author Zaid Albirawi
- * @version 1.0 2/2/2014
- */
-
 package cs2212.team4;
 
-import java.util.ArrayList;
-
-public interface GradebookADT
+public interface GradebookADT 
 {
 	/**
-	  * A find method that will iterate through the courseList to find a specific course object. If the course
-	  * object is found, the method returns the position of the course object in the courseList, else it returns -1.
+	  * Finds the Course object inside the courseList list.
 	  * 
-	  * @param		crs			course, will hold the course object's information.
+	  * @param		crs			Course, the Course object.
 	  * 
-	  * @return		course, will hold the position of the course object in the courseList if the object exists, else -1.
+	  * @return		Integer, the position of the Course object in the courseList if the object exists, otherwise will return -1.
 	  * 
 	  */
 	public int findCourse(Course crs);
 
 	/**
-	  * addCourse method will add a course object to the courseList.
+	  * Adds a Course object to the courseList list, if there does not exist a duplicate Course object inside the courseList list.
 	  * 
-	  * @param		name				String, will hold the course object's name value.
-	  * @param		term				String, will hold the course object's term value.
-	  * @param		code				String, will hold the course object's code value.
+	  * @param		name			String, the Course object name.
+	  * @param		term			String, the Course object term.
+	  * @param		code			String, the Course object code.
 	  * 
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
@@ -36,37 +25,9 @@ public interface GradebookADT
 	public boolean addCourse(String name, String term, String code);
 
 	/**
-	  * addCourse overloaded method will add a course object to the courseList.
+	  * Removes a Course object from the courseList list.
 	  * 
-	  * @param		name				String, will hold the course object's name value.
-	  * @param		term				String, will hold the course object's term value.
-	  * @param		code				String, will hold the course object's code value.
-	  * @param		studentList			ArrayList<student>, will hold the course objects studentList value.
-	  * 
-	  * @return		boolean, true if the addition was a success, false otherwise.
-	  * 
-	  */
-	public boolean addCourse(String name, String term, String code, ArrayList<Student> studentList);
-
-
-	/**
-	  * addCourse overloaded method will add a course object to the courseList.
-	  * 
-	  * @param		name				String, will hold the course object's name value.
-	  * @param		term				String, will hold the course object's term value.
-	  * @param		code				String, will hold the course object's code value.
-	  * @param		studentList			ArrayList<student>, will hold the course objects studentList value.
-	  * @param		deliverableList		ArrayList<deliverable>, will hold the course objects deliverableList value.
-	  * 
-	  * @return		boolean, true if the addition was a success, false otherwise.
-	  * 
-	  */
-	public boolean addCourse(String name, String term, String code, ArrayList<Student> studentList, ArrayList<Deliverable> deliverableList);
-
-	/**
-	  * removeCourse method will remove a specific course object from the courseList.
-	  * 
-	  * @param		crs				course, will hold the course object's information.
+	  * @param		crs				Course, the Course object.
 	  * 
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 

@@ -1,14 +1,10 @@
 /**
  * team4-gradebook application
- * course.java
- * Purpose: course.java is a java object that holds the information of a specific course in the gradebook application.
- * The course class will contain the list of students enrolled in the class and all the class deliverables. It also allows
- * the user to perform many operations, such as, editing the course title, term and code; adding, removing, importing, 
- * and exporting students; adding, removing, importing, and exporting deliverables; and finally, importing and exporting
- * students' grades.
+ * 
+ * Course is the class that will be used to store all course students, deliverables, grades, and course information.
  *
  * @author Zaid Albirawi
- * @version 1.0 2/2/2014
+ * @version 1.5 2/28/2014
  */
 
 package cs2212.team4;
@@ -23,20 +19,31 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Course implements CourseADT
 {
+	/* ************************************************************
+	* Instance Variables
+	************************************************************ */
+	
+	//The Course object title, term, and code.
 	private String title="", term="", code="";
+	//The Course object student list.
 	private ArrayList<Student> studentList = new ArrayList<Student>();
+	//The Course object deliverable list.
 	private ArrayList<Deliverable> deliverableList = new ArrayList<Deliverable>();
+	//The Course object empty deliverable slots
+	private Stack<Integer> stkDeliver = new Stack<Integer>();
 
 	/**
-	  * A constructor of the course class, will create an empty course object.
+	  * Constructor.
 	  * 
-	  * @param		title		String, will hold the course title value.
-	  * @param		term		String, will hold the course term value.
-	  * @param		code		String, will hold the course code value.
+	  * @param		title		String, the Course object title.
+	  * @param		term		String, the Course object term.
+	  * @param		code		String, the Course object code.
 	  * 
 	  */
 	public Course(String title, String term, String code)
@@ -45,143 +52,124 @@ public class Course implements CourseADT
 		this.term=term;
 		this.code=code;
 	}
+	
+	/* ************************************************************
+	* Accessor Methods
+	************************************************************ */
 
 	/**
-	  * An overloaded constructor of the course class, will create a class object with a list of student objects.
+	  * Gets the course title.
 	  * 
-	  * @param		title			String, will hold the course title value.
-	  * @param		term			String, will hold the course term value.
-	  * @param		code			String, will hold the course code value.
-	  * @param		studentList		ArrayList<student>, will hold a list of student objects.
-	  * 
-	  */
-	public Course(String title, String term, String code, ArrayList<Student> studentList)
-	{
-		this.title=title;
-		this.term=term;
-		this.code=code;
-		this.studentList=studentList;
-	}
-
-	/**
-	  * An overloaded constructor of the course class, will create a class object with a list of student objects and
-	  * a list of deliverable objects.
-	  * 
-	  * @param		title			String, will hold the course title value.
-	  * @param		term			String, will hold the course term value.
-	  * @param		code			String, will hold the course code value.
-	  * @param		studentList		ArrayList<student>, will hold a list of student objects.
-	  * @param		deliverableList	ArrayList<deliverable>, will hold a list of deliverable objects.
-	  * 
-	  */
-	public Course(String title, String term, String code, ArrayList<Student> studentList, ArrayList<Deliverable> deliverableList)
-	{
-		this.title=title;
-		this.term=term;
-		this.code=code;
-		this.studentList=studentList;
-		this.deliverableList=deliverableList;
-	}
-
-	/**
-	  * A getter for the course title value.
-	  * 
-	  * @return		String, will hold the course title value.
+	  * @return		String, the Course object title.
 	  * 
 	  */
 	public String getTitle(){return title;}
 
 	/**
-	  * A getter for the course term value.
+	  * Gets the course term.
 	  * 
-	  * @return		String, will hold the course term value.
+	  * @return		String, the Course object term.
 	  * 
 	  */
 	public String getTerm(){return term;}
 
 	/**
-	  * A getter for the course code value.
+	  * Gets the course code.
 	  * 
-	  * @return		String, will hold the course code value.
+	  * @return		String, the Course object code.
 	  * 
 	  */
 	public String getCode(){return code;}
-
+	
 	/**
-	  * A getter for a student object in the course's studentList.
+	  * Gets the Student object inside the studentList list at location stud.
 	  * 
-	  * @param		int, will hold the position of the student in studentList.
-	  * 
-	  * @return		student, will hold the student object information.
+	  * @return		Student, the Student object.
 	  * 
 	  */
 	public Student getStudent(int stud){return studentList.get(stud);}
 	
 	/**
-	  * A setter for the course title value.
+	  * Gets the Deliverable object inside the DeliverableList list at location deliver.
 	  * 
-	  * @param		title			String, will hold the course title new value.
+	  * @return		Deliverable, the Deliverable object.
+	  * 
+	  */
+	public Deliverable getDeliverable(int deliver){return deliverableList.get(deliver);}
+	
+	/**
+	  * Gets the grade object inside the Grades object inside the Student object at location grade.
+	  * 
+	  * @return		Double, the grade of the Student object.
+	  * 
+	  */
+	public double getGrade(Student stud, int grade){return stud.getGrade(grade);}
+	
+	/* ************************************************************
+	* Mutator Methods
+	************************************************************ */
+	
+	/**
+	  * Sets the course title.
+	  * 
+	  * @param		title			String, the Course Object title.
 	  * 
 	  */
 	public void setTitle(String title){this.title=title;}
 
 	/**
-	  * A setter for the course term value.
+	  * Sets the course term.
 	  * 
-	  * @param		term			String, will hold the course term new value.
+	  * @param		term			String, the Course Object term.
 	  * 
 	  */
 	public void setTerm(String term){this.term=term;}
 
 	/**
-	  * A setter for the course code value.
+	  * Sets the course code.
 	  * 
-	  * @param		code			String, will hold the course code new value.
+	  * @param		code			String, the Course Object code.
 	  * 
 	  */
 	public void setCode(String code){this.code=code;}
-
+	
+	/* ************************************************************
+	* Helper Methods
+	************************************************************ */
+	
 	/**
-	  * checkNumber is a helper method for editStudentNumber and addStudent methods; checkNumber checks if the
-	  * student number is assigned to an already existing student object; if it is the method return true, otherwise
-	  * false.
+	  * Checks if the integer provided already belongs to another Student object inside the studentList list.
 	  * 
-	  * @param		number			int, will hold the student object's unique number value.
+	  * @param		number			Integer, the Student object unique number.
 	  * 
 	  * @return		boolean, true if the number exists, false otherwise.
 	  * 
 	  */
 	private boolean checkNumber(int number)
 	{
-		for (int i=0; i<studentList.size(); i++)
-		{
-			if (studentList.get(i).getNumber()==number)return true;
-		}return false;
+		if (findStudent(number)==-1)return false;
+		return true;
 	}
 
 	/**
-	  * checkEmail is a helper method for editStudentemail and addStudent methods; checkEmail checks if the
-	  * student email is assigned to an already existing student object; if it is the method return true,
-	  * otherwise false.
+	  * Checks if the string provided already belongs to another Student object inside the studentList list.
 	  * 
-	  * @param		email			String, will hold the student object's unique email value.
+	  * @param		email			String,the Student object unique email.
 	  * 
 	  * @return		boolean, true if the email exists, false otherwise.
 	  * 
 	  */
 	private boolean checkEmail(String email)
 	{
-		for (int i=0; i<studentList.size(); i++)
-		{
-			if (studentList.get(i).getEmail()==email)return true;
-		}return false;
+		for (int i=0; i<studentList.size(); i++)if (studentList.get(i).getEmail()==email)return true;
+		return false;
 	}
 
 	/**
-	  * editStudentNumber is a method that allows the user to edit the student object's unique student number.
+	  * Edits the Student object number, if the number does not belong to another Student object inside the studentList list.
 	  * 
-	  * @param		stud			student, will hold the information of a specific student object.
-	  * @param		number			int, will hold the student object's new unique number value.
+	  * @param		stud			Student, Student object.
+	  * @param		number			Integer, the Student object unique number.
 	  * 
 	  * @return		boolean, true if the number has been edited, false otherwise.
 	  * 
@@ -194,62 +182,58 @@ public class Course implements CourseADT
 	}
 
 	/**
-	  * editStudentEmail is a method that allows the user to edit the student object's unique student email.
+	  * Edits the Student object email, if the email does not belong to another Student object inside the studentList list.
 	  * 
-	  * @param		stud			student, will hold the information of a specific student object.
-	  * @param		emal			String, will hold the student object's new unique email value.
+	  * @param		stud			Student, Student object.
+	  * @param		email			String, the Student object unique email.
 	  * 
 	  * @return		boolean, true if the email has been edited, false otherwise.
 	  * 
 	  */
 	public boolean editStudentEmail(Student stud, String email)
 	{
-		if (stud.getEmail()==email)return true;
+		if (stud.getEmail().equals(email))return true;
 		else if (checkEmail(email))return false;
 		else stud.setEmail(email);return true;
 	}
 	
 	/**
-	  * A find method that will iterate through the studentList to find a specific student object. If the student
-	  * object is found, the method returns the position of the student object in the studentList, else it returns -1.
+	  * Finds the Student object inside the StudentList list.
 	  * 
-	  * @param		number			int, will hold the student object's unique number value.
+	  * @param		number			Integer, the Student object's unique number.
 	  * 
-	  * @return		int, will hold the position of the student object in the studentList if the object exists, else -1.
+	  * @return		Integer, the position of the Student object in the studentList if the object exists, otherwise will return -1.
 	  * 
 	  */
 	public int findStudent(int number)
 	{
-		for (int i=0; i<studentList.size(); i++)
-		{
-			if (studentList.get(i).getNumber()==number)return i;
-		}return -1;
+		for (int i=0; i<studentList.size(); i++)if (studentList.get(i).getNumber()==number)return i;
+		return -1;
 	}
 	
 	/**
-	  * addStudent method will add a student object to the studentList.
+	  * Adds a Student object to the studentList list, if there does not exist a Student object inside the studentList list with the same number or email.
 	  * 
-	  * @param		nameFirst			String, will hold the student object's nameFirst value.
-	  * @param		nameLast			String, will hold the student object's nameLast value.
-	  * @param		number				int, will hold the student object's unique number value.
-	  * @param		email				String, will hold the student object's unique email value.
+	  * @param		nameFirst			String, the Student object first name.
+	  * @param		nameLast			String, the Student object Last name.
+	  * @param		number				Integer, the Student object unique number.
+	  * @param		email				String, the Student object unique email.
 	  * 
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
 	public boolean addStudent(String nameFirst, String nameLast, int number, String email)
 	{
-		ArrayList<Deliverable> deliverableList=new ArrayList<Deliverable>();deliverableList.addAll(this.deliverableList);
 		if (!(checkNumber(number)||checkEmail(email)))
 		{
-			studentList.add(new Student(nameFirst, nameLast, number, email, deliverableList));return true;
+			studentList.add(new Student(nameFirst, nameLast, number, email));return true;
 		}return false;
 	}
 
 	/**
-	  * removeStudent method will remove a specific student object from the studentList.
+	  * Removes a Student object from the studentList list.
 	  * 
-	  * @param		number				int, will hold the student object's unique number value.
+	  * @param		number				Integer, the Student object unique number.
 	  * 
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
@@ -258,39 +242,102 @@ public class Course implements CourseADT
 	{
 		int i;
 		if ((i=findStudent(number))==-1)return false;
-		else studentList.remove(i);return true;
+		studentList.remove(i);return true;
 	}
 	
 	/**
-	  * processStudentImport is a helper that will process the imported students.
+	  * Finds the Deliverable object inside the deliverableList list.
 	  * 
-	  * @param		line				String, will hold information about a specific student.
+	  * @param		name			String, the name of the Deliverable object.
+	  * @param		type			String, the type of the deliverable object.
 	  * 
-	  * @return		boolean, true if the student object was imported, and false if it already exists.
+	  * @return		Integer, the position of the Deliverable object in the deliverableList list if the object exists, otherwise it will return -1.
 	  * 
 	  */
-	private boolean processStudentImport(String line)
+	public int findDeliverable(Deliverable deliver)
+	{
+		for (int i=0; i<deliverableList.size(); i++)if (deliverableList.get(i).equals(deliver))return i;
+		return -1;
+	}
+	
+	/**
+	  * Adds a Deliverable object to the deliverableList list, if there does not exist a duplicate Deliverable object inside the deliverableList list.
+	  * 
+	  * @param		name				String, the Deliverable object name.
+	  * @param		type				String, the Deliverable object type.
+	  * @param		weight				Double, the Deliverable object weight.
+	  * 
+	  * @return		boolean, true if the addition was a success, false otherwise.
+	  * 
+	  */
+	public boolean addDeliverable(String name, String type, double weight)
+	{
+		if (findDeliverable(new Deliverable(name, type, weight, 0))!=-1)return false;
+		if (!stkDeliver.isEmpty())deliverableList.add(new Deliverable(name, type, weight, stkDeliver.pop()));
+		else deliverableList.add(new Deliverable(name, type, weight, deliverableList.size()));return true;
+	}
+
+	/**
+	  * Removes a Deliverable object from the deliverableList list.
+	  * 
+	  * @param		deliver				Deliverable, the Deliverable object.
+	  * 
+	  * @return		boolean, true if the object was removed, false otherwise.
+	  * 
+	  */
+	public boolean removeDeliverable(Deliverable deliver)
+	{
+		int i;
+		if ((i= findDeliverable(deliver))==-1)return false;
+		deliverableList.set(i, null);stkDeliver.push(i);return true;
+	}
+	
+	/**
+	  * Adds a grade to a Student object.
+	  * 
+	  * @param		stud				Student, the Student object.
+	  * @param		deliver				Deliverable, the Deliverable object.
+	  * @param		grade				Double, the grade.
+	  * 
+	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
+	  * 
+	  */
+	public boolean addGrade(Student stud, Deliverable deliver, double grade)
+	{
+		return stud.addGrade(deliver.getObjId(), grade, deliver.getType(), deliver.getWeight());
+	}
+	
+	/**
+	  * Removes a grade from a Student object.
+	  * 
+	  * @param		stud				Student, the Student object.
+	  * @param		deliver				Deliverable, the Deliverable object.
+	  * 
+	  * @return		boolean, true if the grade was removed successfully, false otherwise.
+	  * 
+	  */
+	public boolean removeGrade(Student stud, Deliverable deliver)
+	{
+		return stud.removeGrade(deliver.getObjId(), deliver.getType());
+	}
+
+	/**
+	  * Imports a Student objects into the Course object.
+	  * 
+	  * @param		path				String, the path were the file is located.
+	  * 
+	  */
+	public boolean importStudents(String path)
 	{
 		return false;
 	}
 	
 	/**
-	  * importStudents method will import a studentList from a .csv file.
+	  * Exports the Student objects located in studentList list to a .csv file.
 	  * 
-	  * @param		path				String, will hold the value of the path were the file is located.
+	  * @param		path				String, the path were the file is located.
 	  * 
-	  */
-	public void importStudents(String path)
-	{
-		processStudentImport("");
-	}
-
-	/**
-	  * exportStudents method will export the studentList to a .csv file.
-	  * 
-	  * @param		path				String, will hold the value of the path were the file will be saved.
-	  * 
-	  * @return		boolean, true if the studentList was exported, false otherwise.
+	  * @return		boolean, true if the Student objects were exported, false otherwise.
 	  * 
 	  */
 	public boolean exportStudents(String path)
@@ -307,97 +354,24 @@ public class Course implements CourseADT
 			return false;
 		}
 	}
-
-	/**
-	  * A find method that will iterate through the deliverableList to find a specific deliverable object. If the 
-	  * deliverable object is found, the method returns the position of the deliverable object in the deliverableList,
-	  * else it returns -1.
-	  * 
-	  * @param		name			String, will hold the name value of the deliverable object.
-	  * @param		type			String, will hold the type value of the deliverable object.
-	  * 
-	  * @return		int, will hold the position of the deliverable object in the deliverableList if the object exists, else -1.
-	  * 
-	  */
-	public int findDeliverable(String name, String type)
-	{
-		String tempName, tempType;
-		for (int i=0; i<deliverableList.size(); i++)
-		{
-			tempName=deliverableList.get(i).getName();
-			tempType=deliverableList.get(i).getType();
-			if (tempName==name&&tempType==type)return i;
-		}return -1;
-	}
 	
 	/**
-	  * addDeliverable method will add a deliverable object to the deliverableList.
+	  * Imports a Deliverable objects into the Course object.
 	  * 
-	  * @param		deliver				deliverable, will hold the deliverable object's information.
-	  * 
-	  * @return		boolean, true if the addition was a success, false otherwise.
+	  * @param		path				String, the path were the file is located.
 	  * 
 	  */
-	public boolean addDeliverable(String name, String type, double weight)
-	{
-		Deliverable deliver;
-		if (findDeliverable(name, type)!=-1)return false;
-		else
-		{
-			deliverableList.add(deliver = new Deliverable(name, type, weight));
-			for (int i=0; i<studentList.size(); i++)studentList.get(i).addDeliverable(deliver);
-		}return true;
-	}
-
-	/**
-	  * removeDeliverable method will remove a specific deliverable object from the deliverableList.
-	  * 
-	  * @param		deliver				deliverable, will hold the deliverable object's information.
-	  * 
-	  * @return		boolean, true if the object was removed, false otherwise.
-	  * 
-	  */
-	public boolean removeDeliverable(String name, String type)
-	{
-		int i;
-		if ((i= findDeliverable(name, type))==-1)return false;
-		else 
-		{
-			deliverableList.remove(i);
-			for (int j=0; j<studentList.size(); j++)studentList.get(j).removeDeliverable(i);
-		}return true;
-	}
-	
-	/**
-	  * processDeliverableImport is a helper that will process the imported deliverables.
-	  * 
-	  * @param		line				String, will hold information about a specific deliverable.
-	  * 
-	  * @return		boolean, true if the deliverable object was imported, and false if it already exists.
-	  * 
-	  */
-	private boolean processDeliverableImport(String line)
+	public boolean importDeliverables(String path)
 	{
 		return false;
 	}
-	
-	/**
-	  * importDeliverables method will import a deliverableList from a .csv file.
-	  * 
-	  * @param		path				String, will hold the value of the path were the file is located.
-	  * 
-	  */
-	public void importDeliverables(String path)
-	{
-		processDeliverableImport("");
-	}
 
 	/**
-	  * exportDeliverables method will export the deliverableList to a .csv file.
+	  * Exports the Deliverable objects located in deliverableList list to a .csv file.
 	  * 
-	  * @param		path				String, will hold the value of the path were the file will be saved.
+	  * @param		path				String, the path were the file is located.
 	  * 
-	  * @return		boolean, true if the deliverableList was exported, false otherwise.
+	  * @return		boolean, true if the Deliverable objects were exported, false otherwise.
 	  * 
 	  */
 	public boolean exportDeliverables(String path)
@@ -409,6 +383,14 @@ public class Course implements CourseADT
 			for(int i=0; i<deliverableList.size(); i++)bw.write(deliverableList.get(i).toString());
 			bw.close();return true;
 		}
+		catch(FileAlreadyExistsException e)
+		{
+			return false;
+		}
+		catch(FileNotFoundException e)
+		{
+			return false;
+		}
 		catch (IOException e)
 		{
 			return false;
@@ -416,25 +398,12 @@ public class Course implements CourseADT
 	}
 	
 	/**
-	  * processGradeImport is a helper that will process the imported grades.
+	  * Imports a Student objects' Grade objects into the Course object.
 	  * 
-	  * @param		line				String, will hold information about a specific student object grade.
-	  * 
-	  * @return		boolean, true if the grade was imported, and false if the student does not exist.
+	  * @param		path				String, the path were the file is located.
 	  * 
 	  */
-	private boolean processGradeImport(String line)
-	{
-		return false;
-	}
-	
-	/**
-	  * importGrades method will import grade values for the studentList from a .csv file.
-	  * 
-	  * @param		path				String, will hold the value of the path were the file is located.
-	  * 
-	  */
-	public void importGrades(String path)
+	public boolean importGrades(String path)
 	{
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path)));
@@ -445,24 +414,26 @@ public class Course implements CourseADT
 		    }
 		    while ((line = br.readLine()) != null)
 		    {
-		    	processGradeImport(line);
+		    	
 		    }
-		    br.close();
+		    br.close();return true;
 		}
-		catch (FileNotFoundException e)
+		catch(FileNotFoundException e)
 		{
-			//msg
+			return false;
 		}
 		catch (IOException e)
 		{
-			//msg
+			return false;
 		}
 	}
 
 	/**
-	  * exportGrades method will export all studentList's student object grades to a .csv file.
+	  * Exports the Grade objects located in every Student object inside the studentList list.
 	  * 
-	  * @param		path				String, will hold the value of the path were the file is located.
+	  * @param		path				String, the path were the file is located.
+	  * 
+	  * @return		boolean, true if the Grade objects were exported, false otherwise.
 	  * 
 	  */
 	public boolean exportGrades(String path)
@@ -473,7 +444,7 @@ public class Course implements CourseADT
 			String str="\"number\"";
 			for (int i=0; i<deliverableList.size(); i++)str=str+", \""+deliverableList.get(i).getName()+"\"";
 			bw.write(str+"\n");
-			for(int i=0; i<studentList.size(); i++)bw.write(studentList.get(i).gradeExportString());
+			for(int i=0; i<studentList.size(); i++)bw.write(studentList.get(i).toString());
 			bw.close();return true;
 		}
 		catch (IOException e)
@@ -481,4 +452,26 @@ public class Course implements CourseADT
 			return false;
 		}
 	}
+
+	/**
+	  * An equals method.
+	  * 
+	  * @param		crs			Course, the Course object.		
+	  * 
+	  * @return		boolean, true if the Course object is equal to this, false otherwise.
+	  * 
+	  */
+	public boolean equals(Course crs)
+	{
+		if(this.toString().equalsIgnoreCase(crs.toString()))return true;
+		return false;
+	}
+	
+	/**
+	  * A toString method.
+	  * 
+	  * @return		String, the Course object information string.
+	  * 
+	  */
+	public String toString(){return ("\""+title+"\", \""+term+"\", \""+code+"\"\n");}
 }

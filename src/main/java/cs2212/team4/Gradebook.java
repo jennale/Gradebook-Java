@@ -1,11 +1,10 @@
 /**
  * team4-gradebook application
- * gradebook.java
- * Purpose: gradebook.java is a java object that will hold the information about all active course objects. The user
- * will able to perform operations, such as, find, add and remove on the course objects.
+ * 
+ * Gradebook is the class that will hold the information about all the courses in the application.
  *
  * @author Zaid Albirawi
- * @version 1.0 2/2/2014
+ * @version 1.2 2/28/2014
  */
 
 package cs2212.team4;
@@ -14,38 +13,42 @@ import java.util.ArrayList;
 
 public class Gradebook implements GradebookADT
 {
-	private ArrayList<Course> courseList = new ArrayList<Course>();
+	/* ************************************************************
+	* Instance Variables
+	************************************************************ */
+	
+	//The Gradebook object Course object list.
+	private ArrayList<Course> courseList;
 
 	/**
 	  * A constructor of the gradebook class, will create an empty gradebook object.
 	  */
-	public Gradebook(){}
+	public Gradebook(){courseList = new ArrayList<Course>();}
+	
+	/* ************************************************************
+	* Helper Methods
+	************************************************************ */
 	
 	/**
-	  * A find method that will iterate through the courseList to find a specific course object. If the course
-	  * object is found, the method returns the position of the course object in the courseList, else it returns -1.
+	  * Finds the Course object inside the courseList list.
 	  * 
-	  * @param		crs			course, will hold the course object's information.
+	  * @param		crs			Course, the Course object.
 	  * 
-	  * @return		course, will hold the position of the course object in the courseList if the object exists, else -1.
+	  * @return		Integer, the position of the Course object in the courseList if the object exists, otherwise will return -1.
 	  * 
 	  */
 	public int findCourse(Course crs)
 	{
-		Course tempCourse;
-		for (int i=0; i<courseList.size(); i++)
-		{
-			tempCourse=courseList.get(i);
-			if (tempCourse.getTitle()==crs.getTitle()&&tempCourse.getCode()==crs.getCode()&&tempCourse.getTerm()==crs.getTerm())return i;
-		}return -1;
+		for (int i=0; i<courseList.size(); i++)if (courseList.get(i).equals(crs))return i;
+		return -1;
 	}
 
 	/**
-	  * addCourse method will add a course object to the courseList.
+	  * Adds a Course object to the courseList list, if there does not exist a duplicate Course object inside the courseList list.
 	  * 
-	  * @param		name				String, will hold the course object's name value.
-	  * @param		term				String, will hold the course object's term value.
-	  * @param		code				String, will hold the course object's code value.
+	  * @param		name			String, the Course object name.
+	  * @param		term			String, the Course object term.
+	  * @param		code			String, the Course object code.
 	  * 
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
@@ -58,47 +61,9 @@ public class Gradebook implements GradebookADT
 	}
 
 	/**
-	  * addCourse overloaded method will add a course object to the courseList.
+	  * Removes a Course object from the courseList list.
 	  * 
-	  * @param		name				String, will hold the course object's name value.
-	  * @param		term				String, will hold the course object's term value.
-	  * @param		code				String, will hold the course object's code value.
-	  * @param		studentList			ArrayList<student>, will hold the course objects studentList value.
-	  * 
-	  * @return		boolean, true if the addition was a success, false otherwise.
-	  * 
-	  */
-	public boolean addCourse(String name, String term, String code, ArrayList<Student> studentList)
-	{
-		Course crs;
-		if (findCourse(crs=new Course(name, term, code, studentList))!=-1)return false;
-		else courseList.add(crs);return true;
-	}
-
-
-	/**
-	  * addCourse overloaded method will add a course object to the courseList.
-	  * 
-	  * @param		name				String, will hold the course object's name value.
-	  * @param		term				String, will hold the course object's term value.
-	  * @param		code				String, will hold the course object's code value.
-	  * @param		studentList			ArrayList<student>, will hold the course objects studentList value.
-	  * @param		deliverableList		ArrayList<deliverable>, will hold the course objects deliverableList value.
-	  * 
-	  * @return		boolean, true if the addition was a success, false otherwise.
-	  * 
-	  */
-	public boolean addCourse(String name, String term, String code, ArrayList<Student> studentList, ArrayList<Deliverable> deliverableList)
-	{
-		Course crs;
-		if (findCourse(crs=new Course(name, term, code, studentList, deliverableList))!=-1)return false;
-		else courseList.add(crs);return true;
-	}
-
-	/**
-	  * removeCourse method will remove a specific course object from the courseList.
-	  * 
-	  * @param		crs				course, will hold the course object's information.
+	  * @param		crs				Course, the Course object.
 	  * 
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 

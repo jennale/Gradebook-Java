@@ -53,9 +53,9 @@ public class Gradebook implements GradebookADT, Serializable
 	{ 
 		try
 		{
-			FileOutputStream FOS = new FileOutputStream("data.dat");
+			FileOutputStream FOS = new FileOutputStream(path);
 			ObjectOutputStream OUS = new ObjectOutputStream(FOS);
-			OUS.writeObject((ArrayList<Course>)courseList);
+			for (int i=0; i<courseList.size(); i++)OUS.writeObject(courseList.get(i));
 			OUS.close();FOS.close();return true;
 		}
 		catch(FileAlreadyExistsException e)

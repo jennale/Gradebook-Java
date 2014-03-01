@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 
 /**
@@ -57,10 +56,6 @@ public class Gradebook implements GradebookADT, Serializable
 			ObjectOutputStream OUS = new ObjectOutputStream(FOS);
 			OUS.writeObject((ArrayList<Course>)courseList);
 			OUS.close();FOS.close();return true;
-		}
-		catch(FileAlreadyExistsException e)
-		{
-			return false;
 		}
 		catch(FileNotFoundException e)
 		{

@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.io.Writer;
-import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -383,10 +382,6 @@ public class Course implements CourseADT, Serializable
 			bw.write("\"name\", \"term\", \"type\"\n");
 			for(int i=0; i<deliverableList.size(); i++)bw.write(deliverableList.get(i).toString());
 			bw.close();return true;
-		}
-		catch(FileAlreadyExistsException e)
-		{
-			return false;
 		}
 		catch(FileNotFoundException e)
 		{

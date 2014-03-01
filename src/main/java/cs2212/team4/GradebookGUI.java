@@ -14,6 +14,9 @@ import javax.swing.JList;
  *
  * @author Mike
  */
+
+
+
 public class GradebookGUI extends javax.swing.JFrame {
 
     Gradebook gradebook = new Gradebook();
@@ -841,4 +844,9 @@ public class GradebookGUI extends javax.swing.JFrame {
     private javax.swing.JTextField studentLastName;
     private javax.swing.JTextField studentNumber;
     // End of variables declaration//GEN-END:variables
+}
+
+public static void main(String[] args) {
+{
+GradebookGUI();
 }

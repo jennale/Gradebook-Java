@@ -147,4 +147,10 @@ public class Gradebook implements GradebookADT, Serializable
 		if ((i=findCourse(crs))==-1)return false;
 		else courseList.remove(i);return true;
 	}
+        
+        public Course getCourse(int crs)
+	{
+		if (crs>courseList.size())return null;
+                return courseList.get(crs);
+	}
 }

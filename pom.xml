@@ -38,7 +38,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>cs2212.team4.GradeBookGUI</mainClass>
+                            <mainClass>cs2212.team4.GradebookGUI</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -54,7 +54,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>cs2212.team4.GradeBookGUI</mainClass>
+                            <mainClass>cs2212.team4.GradebookGUI</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

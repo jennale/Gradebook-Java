@@ -6,4 +6,4 @@ target/
 data.dat
 *.css
 *.*~
-
+doc/

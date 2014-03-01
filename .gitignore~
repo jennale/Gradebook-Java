@@ -4,6 +4,7 @@ target/
 *.project
 *.metadata/
 data.dat
+*.java~
 *.css
-*.*~
+*.gitignore~
 

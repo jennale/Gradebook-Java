@@ -846,7 +846,4 @@ public class GradebookGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
-public static void main(String[] args) {
-{
-GradebookGUI();
-}
+

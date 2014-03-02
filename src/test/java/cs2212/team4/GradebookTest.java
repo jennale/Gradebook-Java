@@ -4,6 +4,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+*
+* GradebookTest tests the Gradebook class methods.
+*
+* @author Zaid Albirawi
+* @version 2.0 3/1/2014
+*/
+
 public class GradebookTest 
 {
 	

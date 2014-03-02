@@ -5,7 +5,7 @@ package cs2212.team4;
  * StudentGradesADT implements the method interface for the StudentGrades class.
  *
  * @author Zaid Albirawi
- * @version 1.0 2/28/2014
+ * @version 1.0 3/1/2014
  */
 
 public interface StudentGradesADT
@@ -67,24 +67,25 @@ public interface StudentGradesADT
 	public void setExmAvg(double exmAvg);
 	
 	/**
-	  * A helper method that will add the student grades to the grades list.
+	  * Adds a grade to the StudentGrades object.
 	  * 
-	  * @param		deliver			Integer, will hold the location at which the grade will be inserted in the grades list.
-	  * @param		grade			Double, will hold the student's grade value.
+	  * @param		deliver				Integer, the grade insertion position.
+	  * @param		grade				Double, the grade.
+	  * @param		type				String, the deliverable type.
+	  * @param		weight				Double, the grade weight.
 	  * 
-	  * @return		return a boolean to weather the grade was successfully added or not.
+	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
 	  * 
 	  */
 	public boolean add(int deliver, double grade, String type, double weight);
 	
 	/**
-     * Removes a grade from the StudentGrades object.
-     *
-     * @param		deliver				Integer, the position at where the grade will be inserted.
-     * @param		type				String, the type of the deliverable.
-     *
-     * @return		boolean, true if the grade was removed successfully, false otherwise.
-     * 
-     */
-	public boolean remove(int deliver, String type);
-}
+	  * Removes a grade to the StudentGrades object.
+	  * 
+	  * @param		deliver				Integer, the grade insertion position.
+	  * @param		type				String, the deliverable type.
+	  * 
+	  * @return		boolean, true if the grade was removed successfully, false otherwise.
+	  * 
+	  */
+	public boolean remove(int deliver, String type);}

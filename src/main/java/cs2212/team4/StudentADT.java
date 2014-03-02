@@ -5,12 +5,12 @@ package cs2212.team4;
  * StudentADT implements the method interface for the Student class.
  *
  * @author Zaid Albirawi
- * @version 1.0 2/28/2014
+ * @version 2.0 3/1/2014
  */
 
 
 public interface StudentADT
-{
+{	
 	/**
 	  * Gets the Student object first name.
 	  * 
@@ -33,7 +33,7 @@ public interface StudentADT
 	  * @return		Integer, the Student object number.
 	  * 
 	  */
-	public int getNumber();
+	public String getNumber();
 
 	/**
 	  * Gets the Student object email.
@@ -97,7 +97,7 @@ public interface StudentADT
 	  * @param		number		String, the Student object number.
 	  * 
 	  */
-	public void setNumber(int number);
+	public void setNumber(String number);
 
 	/**
 	  * Sets the Student object email.

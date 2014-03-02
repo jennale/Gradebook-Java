@@ -9,7 +9,7 @@ import java.io.Serializable;
  * team4-gradebook application
  *
  * @author Zaid Albirawi
- * @version 1.4 2/28/2014
+ * @version 20 3/1/2014
  */
 
 
@@ -20,9 +20,7 @@ public class Student implements StudentADT, Serializable
 	************************************************************ */
 	
 	//The Student object first name, last name, and email.
-	private String nameFirst="", nameLast="", email="";
-	//The Student object number
-	private int number;
+	private String nameFirst="", nameLast="", number="", email="";
 	//The Student object grades.
 	private StudentGrades grades;
 
@@ -31,11 +29,11 @@ public class Student implements StudentADT, Serializable
 	  * 
 	  * @param		nameFirst		String, Student object first name.
 	  * @param		nameLast		String, Student object last name.
-	  * @param		number			Integer, Student object unique number.
+	  * @param		number			String, Student object unique number.
 	  * @param		email			String, Student object unique email.
 	  * 
 	  */
-	public Student(String nameFirst, String nameLast, int number, String email)
+	public Student(String nameFirst, String nameLast, String number, String email)
 	{
 		this.nameFirst=nameFirst;
 		this.nameLast=nameLast;
@@ -70,7 +68,7 @@ public class Student implements StudentADT, Serializable
 	  * @return		Integer, the Student object number.
 	  * 
 	  */
-	public int getNumber(){return number;}
+	public String getNumber(){return number;}
 
 	/**
 	  * Gets the Student object email.
@@ -138,7 +136,7 @@ public class Student implements StudentADT, Serializable
 	  * @param		number		String, the Student object number.
 	  * 
 	  */
-	public void setNumber(int number){this.number=number;}
+	public void setNumber(String number){this.number=number;}
 
 	/**
 	  * Sets the Student object email.

@@ -11,10 +11,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
+ * team4-gradebook application
  *
  * Gradebook is the class that will hold the information about all the courses in the application.
- *
- * team4-gradebook application
  *
  * @author Zaid Albirawi
  * @version 2.0 3/1/2014

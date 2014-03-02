@@ -91,7 +91,7 @@ public interface CourseADT
 	  * @return		boolean, true if the number has been edited, false otherwise.
 	  * 
 	  */
-	public boolean editStudentNumber(Student stud, int number);
+	public boolean editStudentNumber(Student stud, String number);
 
 	/**
 	  * Edits the Student object email, if the email does not belong to another Student object inside the studentList list.
@@ -112,7 +112,7 @@ public interface CourseADT
 	  * @return		Integer, the position of the Student object in the studentList if the object exists, otherwise will return -1.
 	  * 
 	  */
-	public int findStudent(int number);
+	public int findStudent(String number);
 	
 	/**
 	  * Adds a Student object to the studentList list, if there does not exist a Student object inside the studentList list with the same number or email.
@@ -125,7 +125,7 @@ public interface CourseADT
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addStudent(String nameFirst, String nameLast, int number, String email);
+	public boolean addStudent(String nameFirst, String nameLast, String number, String email);
 
 	/**
 	  * Removes a Student object from the studentList list.
@@ -135,7 +135,7 @@ public interface CourseADT
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeStudent(int number);
+	public boolean removeStudent(String number);
 	
 	/**
 	  * Finds the Deliverable object inside the deliverableList list.

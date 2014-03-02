@@ -141,12 +141,12 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Checks if the integer provided already belongs to another Student object inside the studentList list.
 	  * 
-	  * @param		number			Integer, the Student object unique number.
+	  * @param		number			String, the Student object unique number.
 	  * 
 	  * @return		boolean, true if the number exists, false otherwise.
 	  * 
 	  */
-	private boolean checkNumber(int number)
+	private boolean checkNumber(String number)
 	{
 		if (findStudent(number)==-1)return false;
 		return true;
@@ -170,14 +170,14 @@ public class Course implements CourseADT, Serializable
 	  * Edits the Student object number, if the number does not belong to another Student object inside the studentList list.
 	  * 
 	  * @param		stud			Student, Student object.
-	  * @param		number			Integer, the Student object unique number.
+	  * @param		number			String, the Student object unique number.
 	  * 
 	  * @return		boolean, true if the number has been edited, false otherwise.
 	  * 
 	  */
-	public boolean editStudentNumber(Student stud, int number)
+	public boolean editStudentNumber(Student stud, String number)
 	{
-		if (stud.getNumber()==number)return true;
+		if (stud.getNumber().equals(number))return true;
 		else if (checkNumber(number))return false;
 		else stud.setNumber(number);return true;
 	}
@@ -201,14 +201,14 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Finds the Student object inside the StudentList list.
 	  * 
-	  * @param		number			Integer, the Student object's unique number.
+	  * @param		number			String, the Student object's unique number.
 	  * 
 	  * @return		Integer, the position of the Student object in the studentList if the object exists, otherwise will return -1.
 	  * 
 	  */
-	public int findStudent(int number)
+	public int findStudent(String number)
 	{
-		for (int i=0; i<studentList.size(); i++)if (studentList.get(i).getNumber()==number)return i;
+		for (int i=0; i<studentList.size(); i++)if (studentList.get(i).getNumber().equals(number))return i;
 		return -1;
 	}
 	
@@ -217,13 +217,13 @@ public class Course implements CourseADT, Serializable
 	  * 
 	  * @param		nameFirst			String, the Student object first name.
 	  * @param		nameLast			String, the Student object Last name.
-	  * @param		number				Integer, the Student object unique number.
+	  * @param		number				String, the Student object unique number.
 	  * @param		email				String, the Student object unique email.
 	  * 
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addStudent(String nameFirst, String nameLast, int number, String email)
+	public boolean addStudent(String nameFirst, String nameLast, String number, String email)
 	{
 		if (!(checkNumber(number)||checkEmail(email)))
 		{
@@ -234,12 +234,12 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Removes a Student object from the studentList list.
 	  * 
-	  * @param		number				Integer, the Student object unique number.
+	  * @param		number				String, the Student object unique number.
 	  * 
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeStudent(int number)
+	public boolean removeStudent(String number)
 	{
 		int i;
 		if ((i=findStudent(number))==-1)return false;

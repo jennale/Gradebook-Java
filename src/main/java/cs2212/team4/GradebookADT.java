@@ -5,21 +5,43 @@ package cs2212.team4;
  * GradebookADT implements the method interface for the Gradebook class.
  *
  * @author Zaid Albirawi
- * @version 1.0 2/28/2014
+ * @version 2.0 3/1/2014
  */
 
 
 public interface GradebookADT 
 {
 	/**
-	  * Finds the Course object inside the courseList list.
+	  * Gets the Course object.
 	  * 
-	  * @param		crs			Course, the Course object.
-	  * 
-	  * @return		Integer, the position of the Course object in the courseList if the object exists, otherwise will return -1.
+	  * @return		Course, the Course object.
 	  * 
 	  */
-	public int findCourse(Course crs);
+    public Course getCourse(int crs);
+    
+    /**
+	  * Gets the data path.
+	  * 
+	  * @return		Course, the Course object.
+	  * 
+	  */
+   public String getPath();
+   
+	/**
+	  * Sets the data path.
+	  * 
+	  * @param		path			String, the data path.
+	  * 
+	  */
+	public void setPath(String path);
+	
+	/**
+	  * Stores the Course objects from the courseList list.
+	  * 
+	  * @return		boolean, true if the objects were successfully exported, false otherwise.
+	  * 
+	  */
+	public boolean store();
 
 	/**
 	  * Adds a Course object to the courseList list, if there does not exist a duplicate Course object inside the courseList list.

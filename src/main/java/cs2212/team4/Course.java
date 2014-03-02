@@ -344,7 +344,9 @@ public class Course implements CourseADT, Serializable
 	{
 		try
 		{
-			Writer bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path+code+term+"student.csv"))));
+			File file = new File(path+code+term+"student.csv");
+			if (file.exists())file.delete();
+			Writer bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
 			bw.write("\"nameLast\", \"nameFirst\", \"number\", \"email\"\n");
 			for(int i=0; i<studentList.size(); i++)bw.write(studentList.get(i).toString());
 			bw.close();return true;

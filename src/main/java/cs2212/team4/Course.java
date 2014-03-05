@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -13,6 +14,8 @@ import java.io.Serializable;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Stack;
+
+import au.com.bytecode.opencsv.CSVReader;
 
 /**
  *
@@ -100,6 +103,9 @@ public class Course implements CourseADT, Serializable
 	
 	/**
 	  * Gets the grade object inside the Grades object inside the Student object at location grade.
+	  * 
+	  * @param		stud		Student, Student object.
+	  * @param		grade		Integer, the location of the grade.
 	  * 
 	  * @return		Double, the grade of the Student object.
 	  * 
@@ -329,7 +335,33 @@ public class Course implements CourseADT, Serializable
 	  */
 	public boolean importStudents(String path)
 	{
-		return false;
+		String [] sAry={"nameLast", "nameFirst", "number", "email"};
+		int line=0;
+		try
+		{
+			CSVReader reader = new CSVReader(new FileReader(path));
+			if (reader.readNext().equals(sAry))
+			{
+				reader.close();return false;
+			}
+			while((sAry=reader.readNext())!=null)
+			{
+				if (sAry.length!=4)
+				{
+					reader.close();return false;
+				}
+				addStudent(sAry[1], sAry[0], sAry[2], sAry[3]);line++;
+			}
+			reader.close();return true;
+		}
+		catch(FileNotFoundException e)
+		{
+			return false;
+		}
+		catch (IOException e)
+		{
+			return false;
+		}
 	}
 	
 	/**
@@ -344,7 +376,7 @@ public class Course implements CourseADT, Serializable
 	{
 		try
 		{
-			File file = new File(path+code+term+"student.csv");
+			File file = new File(path+code+term+"Student.csv");
 			if (file.exists())file.delete();
 			Writer bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
 			bw.write("\"nameLast\", \"nameFirst\", \"number\", \"email\"\n");
@@ -365,7 +397,37 @@ public class Course implements CourseADT, Serializable
 	  */
 	public boolean importDeliverables(String path)
 	{
-		return false;
+		String [] dAry={"name", "type", "weight"};
+		int line=0;
+		try
+		{
+			CSVReader reader = new CSVReader(new FileReader(path));
+			if (reader.readNext().equals(dAry))
+			{
+				reader.close();return false;
+			}
+			while((dAry=reader.readNext())!=null)
+			{
+				if (dAry.length!=3)
+				{
+					reader.close();return false;
+				}
+				addDeliverable(dAry[0], dAry[1], Double.parseDouble(dAry[2]));line++;
+			}
+			reader.close();return true;
+		}
+		catch (NumberFormatException e)
+		{
+			return false;
+		}
+		catch(FileNotFoundException e)
+		{
+			return false;
+		}
+		catch (IOException e)
+		{
+			return false;
+		}
 	}
 
 	/**
@@ -381,13 +443,9 @@ public class Course implements CourseADT, Serializable
 		try
 		{
 			Writer bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path+code+term+"deliver.csv"))));
-			bw.write("\"name\", \"term\", \"type\"\n");
+			bw.write("\"name\", \"type\", \"weight\"\n");
 			for(int i=0; i<deliverableList.size(); i++)bw.write(deliverableList.get(i).toString());
 			bw.close();return true;
-		}
-		catch(FileNotFoundException e)
-		{
-			return false;
 		}
 		catch (IOException e)
 		{
@@ -403,18 +461,24 @@ public class Course implements CourseADT, Serializable
 	  */
 	public boolean importGrades(String path)
 	{
-		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path)));
-		    String line;
-		    if ((line = br.readLine()) != null && !line.substring(0, 15).equals("\"Student Number\""))
-		    {
-		    	//errmsg
-		    }
-		    while ((line = br.readLine()) != null)
-		    {
-		    	
-		    }
-		    br.close();return true;
+		String [] gAry;
+		int line=0;
+		try
+		{
+			CSVReader reader = new CSVReader(new FileReader(path));
+			while((gAry=reader.readNext())!=null)
+			{
+				if (gAry.length!=3)
+				{
+					reader.close();return false;
+				}
+				addDeliverable(gAry[0], gAry[1], Double.parseDouble(gAry[2]));line++;
+			}
+			reader.close();return true;
+		}
+		catch (NumberFormatException e)
+		{
+			return false;
 		}
 		catch(FileNotFoundException e)
 		{
@@ -472,4 +536,14 @@ public class Course implements CourseADT, Serializable
 	  * 
 	  */
 	public String toString(){return ("\""+title+"\", \""+term+"\", \""+code+"\"\n");}
+	
+	
+	public static void main (String [] args)
+	{
+		Course crs = new Course("Computer Eng", "A", "2212");
+		
+		crs.importStudents("2212AStudent.csv");
+		
+		System.out.println(crs.getStudent(0).toString());
+	}
 }

@@ -90,10 +90,9 @@ public class Gradebook implements GradebookADT, Serializable
 		{
 			File file = new File(path+"data.dat");
 			if (file.exists())file.delete();
-			FileOutputStream FOS = new FileOutputStream(file);
-			ObjectOutputStream OUS = new ObjectOutputStream(FOS);
+			ObjectOutputStream OUS = new ObjectOutputStream( new FileOutputStream(file));
 			OUS.writeObject((ArrayList<Course>)courseList);
-			OUS.close();FOS.close();return true;
+			OUS.close();return true;
 		}
 		catch (FileNotFoundException e){return false;}
 		catch (IOException e){return false;}

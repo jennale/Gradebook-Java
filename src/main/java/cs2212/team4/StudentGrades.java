@@ -28,7 +28,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	//The StudentGrades object average, assignment average, and exam average.
 	private double avg, asnAvg, exmAvg;
 	
-	private final String ASN="assignment", EXM="exam";
+	private transient final String ASN="assignment", EXM="exam";
 	
 	/**
 	  * Constructor.

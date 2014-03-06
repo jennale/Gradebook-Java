@@ -18,6 +18,8 @@ public class Deliverable implements DeliverableADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
+	//The Deliverable Class version
+	private static final long serialVersionUID = 1L;
 	//The Deliverable name and type
 	private String name="", type="";
 	//The Deliverable weight

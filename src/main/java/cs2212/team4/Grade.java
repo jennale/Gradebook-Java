@@ -18,6 +18,8 @@ public class Grade implements GradeADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
+	//The Grade Class version
+	private static final long serialVersionUID = 1L;
 	//The Grade object grade and weight.
 	private double grade,weight;
 	

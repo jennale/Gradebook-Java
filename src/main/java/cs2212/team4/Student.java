@@ -19,6 +19,8 @@ public class Student implements StudentADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
+	//The Student Class version
+	private static final long serialVersionUID = 1L;
 	//The Student object first name, last name, and email.
 	private String nameFirst="", nameLast="", number="", email="";
 	//The Student object grades.
@@ -212,6 +214,24 @@ public class Student implements StudentADT, Serializable
 		return false;
 	}
 
+	/**
+	  * A toStringGrade method, creates the string that contains all the information that is to be exported about the student grades.
+	  * 
+	  * @return		String, the Student object information string.
+	  * 
+	  */
+	public String toStringGrade(int deliver)
+	{
+		String str;
+		Double grade;
+		str="\""+nameLast+"\", \""+nameFirst+"\", \""+number+"\""+", \""+email+"\"";
+		for (int i=0; i<deliver; i++)
+		{
+			if ((grade=grades.getGrade(i))==-1)str+=", \"No entry\"";
+			else str+=", \""+grade+"\"";
+		}return str+"\n";
+	}
+	
 	/**
 	  * A toString method.
 	  * 

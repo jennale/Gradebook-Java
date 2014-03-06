@@ -19,6 +19,8 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
+	//The StudentGrades Class version
+	private static final long serialVersionUID = 1L;
 	//The StudentGrades object Grade objects list.
 	private ArrayList<Grade> grades;
 	//The StudentGrades object assignment grades list.
@@ -74,7 +76,11 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return		Double, the grade of the Student object.
 	  * 
 	  */
-	public double getGrade (int grade){return grades.get(grade).getGrade();}
+	public double getGrade (int grade)
+	{
+		if(grades.get(grade)==null)return -1;
+		return grades.get(grade).getGrade();
+	}
 	
 	/* ************************************************************
 	* Mutator Methods

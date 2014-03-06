@@ -1,20 +1,16 @@
 package cs2212.team4;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Stack;
-
 import au.com.bytecode.opencsv.CSVReader;
 
 /**
@@ -33,6 +29,8 @@ public class Course implements CourseADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
+	//The Course Class version
+	private static final long serialVersionUID = 1L;
 	//The Course object title, term, and code.
 	private String title="", term="", code="";
 	//The Course object student list.
@@ -91,7 +89,11 @@ public class Course implements CourseADT, Serializable
 	  * @return		Student, the Student object.
 	  * 
 	  */
-	public Student getStudent(int stud){return studentList.get(stud);}
+	public Student getStudent(int stud)
+	{
+		if (stud>studentList.size()-1)return null;
+		return studentList.get(stud);
+	}
 	
 	/**
 	  * Gets the Deliverable object inside the DeliverableList list at location deliver.
@@ -99,7 +101,11 @@ public class Course implements CourseADT, Serializable
 	  * @return		Deliverable, the Deliverable object.
 	  * 
 	  */
-	public Deliverable getDeliverable(int deliver){return deliverableList.get(deliver);}
+	public Deliverable getDeliverable(int deliver)
+	{
+		if (deliver>studentList.size()-1)return null;
+		return deliverableList.get(deliver);
+	}
 	
 	/**
 	  * Gets the grade object inside the Grades object inside the Student object at location grade.
@@ -110,7 +116,11 @@ public class Course implements CourseADT, Serializable
 	  * @return		Double, the grade of the Student object.
 	  * 
 	  */
-	public double getGrade(Student stud, int grade){return stud.getGrade(grade);}
+	public double getGrade(Student stud, int grade)
+	{
+		if (grade>studentList.size()-1)return -1;
+		return stud.getGrade(grade);
+	}
 	
 	/* ************************************************************
 	* Mutator Methods
@@ -336,7 +346,6 @@ public class Course implements CourseADT, Serializable
 	public boolean importStudents(String path)
 	{
 		String [] sAry={"nameLast", "nameFirst", "number", "email"};
-		int line=0;
 		try
 		{
 			CSVReader reader = new CSVReader(new FileReader(path));
@@ -350,7 +359,7 @@ public class Course implements CourseADT, Serializable
 				{
 					reader.close();return false;
 				}
-				addStudent(sAry[1], sAry[0], sAry[2], sAry[3]);line++;
+				addStudent(sAry[1], sAry[0], sAry[2], sAry[3]);
 			}
 			reader.close();return true;
 		}
@@ -398,7 +407,6 @@ public class Course implements CourseADT, Serializable
 	public boolean importDeliverables(String path)
 	{
 		String [] dAry={"name", "type", "weight"};
-		int line=0;
 		try
 		{
 			CSVReader reader = new CSVReader(new FileReader(path));
@@ -412,7 +420,7 @@ public class Course implements CourseADT, Serializable
 				{
 					reader.close();return false;
 				}
-				addDeliverable(dAry[0], dAry[1], Double.parseDouble(dAry[2]));line++;
+				addDeliverable(dAry[0], dAry[1], Double.parseDouble(dAry[2]));
 			}
 			reader.close();return true;
 		}
@@ -461,18 +469,34 @@ public class Course implements CourseADT, Serializable
 	  */
 	public boolean importGrades(String path)
 	{
+		ArrayList<String>strAry=new ArrayList<String>();
+		ArrayList<Integer>filePlace=new ArrayList<Integer>();
+		ArrayList<Integer>listPlace=new ArrayList<Integer>();
 		String [] gAry;
-		int line=0;
+		Student stud;
 		try
 		{
 			CSVReader reader = new CSVReader(new FileReader(path));
+			gAry=reader.readNext();
+			for (int i=0; i<gAry.length; i++)
+			{
+				if (gAry[i].equalsIgnoreCase("number"))filePlace.add(i);
+				strAry.add(gAry[i]);
+			}
+				
+			for (int i=0; i<deliverableList.size(); i++)
+				if (strAry.contains(deliverableList.get(i).getName()))
+				{
+					filePlace.add(i);
+					listPlace.add(i);
+				}
+			
 			while((gAry=reader.readNext())!=null)
 			{
-				if (gAry.length!=3)
-				{
-					reader.close();return false;
-				}
-				addDeliverable(gAry[0], gAry[1], Double.parseDouble(gAry[2]));line++;
+				stud=getStudent(filePlace.get(0));
+				for(int i=1; i<listPlace.size();i++)
+					stud.addGrade(listPlace.get(i), Double.parseDouble(gAry[filePlace.get(i)]), 
+							deliverableList.get(listPlace.get(i)).getType(), deliverableList.get(listPlace.get(i)).getWeight());
 			}
 			reader.close();return true;
 		}
@@ -503,10 +527,10 @@ public class Course implements CourseADT, Serializable
 		try
 		{
 			Writer bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path+code+term+"grades.csv"))));
-			String str="\"number\"";
+			String str="\"nameLast\", \"nameFirst\", \"number\", \"email\"";
 			for (int i=0; i<deliverableList.size(); i++)str=str+", \""+deliverableList.get(i).getName()+"\"";
 			bw.write(str+"\n");
-			for(int i=0; i<studentList.size(); i++)bw.write(studentList.get(i).toString());
+			for(int i=0; i<studentList.size(); i++)bw.write(studentList.get(i).toStringGrade(deliverableList.size()));
 			bw.close();return true;
 		}
 		catch (IOException e)
@@ -536,14 +560,4 @@ public class Course implements CourseADT, Serializable
 	  * 
 	  */
 	public String toString(){return ("\""+title+"\", \""+term+"\", \""+code+"\"\n");}
-	
-	
-	public static void main (String [] args)
-	{
-		Course crs = new Course("Computer Eng", "A", "2212");
-		
-		crs.importStudents("2212AStudent.csv");
-		
-		System.out.println(crs.getStudent(0).toString());
-	}
 }

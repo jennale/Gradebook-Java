@@ -25,6 +25,8 @@ public class Gradebook implements GradebookADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
+	//The Gradebook Class version
+	private static final long serialVersionUID = 1L;
 	//The Gradebook object Course object list.
 	private ArrayList<Course> courseList;
 	//The path to where the data will be saved.
@@ -104,6 +106,7 @@ public class Gradebook implements GradebookADT, Serializable
 	  * @return		boolean, true if the objects were successfully imported, false otherwise.
 	  * 
 	  */
+	@SuppressWarnings("unchecked")
 	private boolean load()
 	{
 		try

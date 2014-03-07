@@ -4,6 +4,12 @@
 	<artifactId>team4-gradebook</artifactId>
 	<packaging>jar</packaging>
 	<version>0.5-SNAPSHOT</version>
+	
+	 <properties>
+		<maven.compiler.source>7</maven.compiler.source>
+		<maven.compiler.target>7</maven.compiler.target>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -49,6 +55,26 @@
           				</archive>
         			</configuration>
       			</plugin>
+				<plugin>
+				  <groupId>org.jacoco</groupId>
+				  <artifactId>jacoco-maven-plugin</artifactId>
+				  <version>0.6.4.201312101107</version>
+				  <executions>
+					<execution>
+					  <id>pre-unit-test</id>
+					  <goals>
+						<goal>prepare-agent</goal>
+					  </goals>
+					</execution>
+					<execution>
+					  <id>post-unit-test</id>
+					  <phase>test</phase>
+					  <goals>
+						<goal>report</goal>
+					  </goals>
+					</execution>
+				  </executions>
+				</plugin>
     		</plugins>    
   	</build> 
 </project>

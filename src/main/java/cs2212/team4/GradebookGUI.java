@@ -8,7 +8,7 @@ public class GradebookGUI extends javax.swing.JFrame {
     
     public GradebookGUI() {
         initComponents();
-        getContentPane().setBackground(new Color(79,38,131));
+        getContentPane().setBackground(new Color(51,105,232));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -32,6 +32,8 @@ public class GradebookGUI extends javax.swing.JFrame {
         tabReports = new javax.swing.JPanel();
         tabSetup = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        lblMini = new javax.swing.JLabel();
+        lblExit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gradebook Application");
@@ -215,9 +217,9 @@ public class GradebookGUI extends javax.swing.JFrame {
         containerLayout.setVerticalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(tabGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(10, 10, 10))
             .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(containerLayout.createSequentialGroup()
                     .addGap(207, 207, 207)
@@ -237,48 +239,92 @@ public class GradebookGUI extends javax.swing.JFrame {
         jLabel2.setText("File");
         jLabel2.setPreferredSize(new java.awt.Dimension(25, 25));
 
+        lblMini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/miniOff.png"))); // NOI18N
+        lblMini.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMini.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMiniMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblMiniMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblMiniMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblMiniMousePressed(evt);
+            }
+        });
+
+        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/exitOff.png"))); // NOI18N
+        lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExitMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblTabGrades)
-                                .addGap(0, 0, 0)
-                                .addComponent(lblTabSetup)
-                                .addGap(0, 0, 0)
-                                .addComponent(lblTabReport))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
-                        .addComponent(activeCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(myCourses)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblTabGrades)
+                        .addGap(0, 0, 0)
+                        .addComponent(lblTabSetup)
+                        .addGap(0, 0, 0)
+                        .addComponent(lblTabReport))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
+                .addComponent(activeCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblMini)
+                        .addGap(0, 0, 0)
+                        .addComponent(lblExit))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(myCourses)
+                        .addGap(10, 10, 10))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTabSetup, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblTabReport, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(myCourses, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20)
-                            .addComponent(lblTabGrades))
-                        .addComponent(activeCourse, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addGap(0, 0, 0)
-                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTabGrades))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(28, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTabSetup, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTabReport, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(activeCourse, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblExit)
+                                    .addComponent(lblMini))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(myCourses)))
+                        .addGap(0, 0, 0)))
+                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
+                .addGap(10, 10, 10))
         );
 
         pack();
@@ -333,6 +379,34 @@ public class GradebookGUI extends javax.swing.JFrame {
         inCoords = evt.getLocationOnScreen();
     }//GEN-LAST:event_formMousePressed
 
+    private void lblMiniMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMiniMousePressed
+        
+    }//GEN-LAST:event_lblMiniMousePressed
+
+    private void lblMiniMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMiniMouseEntered
+        lblMini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/miniOn.png")));
+    }//GEN-LAST:event_lblMiniMouseEntered
+
+    private void lblMiniMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMiniMouseExited
+        lblMini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/miniOff.png")));
+    }//GEN-LAST:event_lblMiniMouseExited
+
+    private void lblMiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMiniMouseClicked
+        setState(this.ICONIFIED);
+    }//GEN-LAST:event_lblMiniMouseClicked
+
+    private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lblExitMouseClicked
+
+    private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseEntered
+        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/exitOn.png")));
+    }//GEN-LAST:event_lblExitMouseEntered
+
+    private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
+        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/exitOff.png")));
+    }//GEN-LAST:event_lblExitMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -380,6 +454,8 @@ public class GradebookGUI extends javax.swing.JFrame {
     private javax.swing.JTable gradesTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblMini;
     private javax.swing.JLabel lblTabGrades;
     private javax.swing.JLabel lblTabReport;
     private javax.swing.JLabel lblTabSetup;

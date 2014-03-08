@@ -8,7 +8,7 @@ public class GradebookGUI extends javax.swing.JFrame {
     
     public GradebookGUI() {
         initComponents();
-        getContentPane().setBackground(new Color(51,160,200));
+        getContentPane().setBackground(new Color(79,38,131));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -31,16 +31,29 @@ public class GradebookGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         tabReports = new javax.swing.JPanel();
         tabSetup = new javax.swing.JPanel();
-        gradebookMenu = new javax.swing.JMenuBar();
-        menuFile = new javax.swing.JMenu();
-        Exit = new javax.swing.JMenuItem();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gradebook Application");
         setBackground(new java.awt.Color(51, 105, 232));
+        setLocationByPlatform(true);
         setName("Gradebook"); // NOI18N
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(900, 550));
         setResizable(false);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
 
         activeCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/activeCourseTab.png"))); // NOI18N
         activeCourse.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -70,6 +83,7 @@ public class GradebookGUI extends javax.swing.JFrame {
 
         container.setBackground(new java.awt.Color(255, 255, 255));
         container.setOpaque(true);
+        container.setPreferredSize(new java.awt.Dimension(880, 450));
 
         tabGrades.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -124,7 +138,7 @@ public class GradebookGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editCourseIcon))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(gradesScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
@@ -150,7 +164,7 @@ public class GradebookGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
-                .addGap(10, 10, 10))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabReports.setBackground(new java.awt.Color(255, 255, 255));
@@ -184,25 +198,26 @@ public class GradebookGUI extends javax.swing.JFrame {
         containerLayout.setHorizontalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tabGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(tabGrades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(containerLayout.createSequentialGroup()
                     .addGap(448, 448, 448)
                     .addComponent(tabReports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(442, Short.MAX_VALUE)))
+                    .addContainerGap(422, Short.MAX_VALUE)))
             .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(containerLayout.createSequentialGroup()
                     .addGap(448, 448, 448)
                     .addComponent(tabSetup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(442, Short.MAX_VALUE)))
+                    .addContainerGap(422, Short.MAX_VALUE)))
         );
         containerLayout.setVerticalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(tabGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(tabGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(containerLayout.createSequentialGroup()
                     .addGap(207, 207, 207)
@@ -218,61 +233,56 @@ public class GradebookGUI extends javax.swing.JFrame {
         container.setLayer(tabReports, javax.swing.JLayeredPane.DEFAULT_LAYER);
         container.setLayer(tabSetup, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        menuFile.setText("File");
-
-        Exit.setText("Exit");
-        Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitActionPerformed(evt);
-            }
-        });
-        menuFile.add(Exit);
-
-        gradebookMenu.add(menuFile);
-
-        setJMenuBar(gradebookMenu);
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("File");
+        jLabel2.setPreferredSize(new java.awt.Dimension(25, 25));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(container, javax.swing.GroupLayout.PREFERRED_SIZE, 880, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTabGrades)
-                        .addGap(0, 0, 0)
-                        .addComponent(lblTabSetup)
-                        .addGap(0, 0, 0)
-                        .addComponent(lblTabReport)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(lblTabGrades)
+                                .addGap(0, 0, 0)
+                                .addComponent(lblTabSetup)
+                                .addGap(0, 0, 0)
+                                .addComponent(lblTabReport))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
                         .addComponent(activeCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(myCourses)))
-                .addContainerGap())
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTabGrades, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblTabSetup, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblTabReport, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(myCourses, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(activeCourse, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(lblTabGrades))
+                        .addComponent(activeCourse, javax.swing.GroupLayout.Alignment.TRAILING)))
                 .addGap(0, 0, 0)
-                .addComponent(container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-      System.exit(0); 
-    }//GEN-LAST:event_ExitActionPerformed
 
     private void lblTabGradesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTabGradesMouseClicked
         lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/gradesTabOn.png")));
@@ -310,6 +320,19 @@ public class GradebookGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblTabReportMouseClicked
 
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        java.awt.Point currCoords = evt.getLocationOnScreen();
+        setLocation(currCoords.x-inCoords.x, currCoords.y-inCoords.y);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        
+    }//GEN-LAST:event_formMouseClicked
+    java.awt.Point inCoords;
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        inCoords = evt.getLocationOnScreen();
+    }//GEN-LAST:event_formMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -346,7 +369,6 @@ public class GradebookGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem Exit;
     private javax.swing.JLabel activeCourse;
     private javax.swing.JLabel addStudent;
     private javax.swing.JLayeredPane container;
@@ -354,14 +376,13 @@ public class GradebookGUI extends javax.swing.JFrame {
     private javax.swing.JList deliverList;
     private javax.swing.JScrollPane deliversScroll;
     private javax.swing.JLabel editCourseIcon;
-    private javax.swing.JMenuBar gradebookMenu;
     private javax.swing.JScrollPane gradesScroll;
     private javax.swing.JTable gradesTable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblTabGrades;
     private javax.swing.JLabel lblTabReport;
     private javax.swing.JLabel lblTabSetup;
-    private javax.swing.JMenu menuFile;
     private javax.swing.JLabel myCourses;
     private javax.swing.JPanel tabGrades;
     private javax.swing.JPanel tabReports;

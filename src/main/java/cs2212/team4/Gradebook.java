@@ -56,6 +56,14 @@ public class Gradebook implements GradebookADT, Serializable
 		return null;
 	}
     
+	/**
+	  * Gets the Course List size.
+	  * 
+	  * @return		Integer, the Course list size.
+	  * 
+	  */
+   public int getCourseListSize(){return courseList.size();}
+    
     /**
 	  * Gets the data path.
 	  * 

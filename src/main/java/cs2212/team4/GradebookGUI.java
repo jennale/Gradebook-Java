@@ -441,7 +441,7 @@ public class GradebookGUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Frist Name", "Last Name", "Student Number", "E-mail"
+                "First Name", "Last Name", "Student Number", "E-mail"
             }
         ));
         gradesScroll.setViewportView(gradesTable);

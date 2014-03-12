@@ -7,3 +7,4 @@ data.dat
 *.css
 *.*~
 doc/
+*.form

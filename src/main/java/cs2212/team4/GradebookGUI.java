@@ -188,7 +188,7 @@ public class GradebookGUI extends JFrame {
         lblGrades.setPreferredSize(new java.awt.Dimension(125, 40));
         getContentPane().add(lblGrades, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/TabOn.png"))); // NOI18N
+        lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/tabOn.png"))); // NOI18N
         lblTabGrades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblTabGrades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -202,7 +202,7 @@ public class GradebookGUI extends JFrame {
         lblSetup.setPreferredSize(new java.awt.Dimension(125, 40));
         getContentPane().add(lblSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 60, 125, 40));
 
-        lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/TabOff.png"))); // NOI18N
+        lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/tabOff.png"))); // NOI18N
         lblTabSetup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblTabSetup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -216,7 +216,7 @@ public class GradebookGUI extends JFrame {
         lblReports.setPreferredSize(new java.awt.Dimension(125, 40));
         getContentPane().add(lblReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
 
-        lblTabReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/TabOff.png"))); // NOI18N
+        lblTabReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/tabOff.png"))); // NOI18N
         lblTabReport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblTabReport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

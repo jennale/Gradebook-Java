@@ -50,7 +50,7 @@ public class GradebookGUI extends JFrame {
         defaultHighlightBorder = txtCourseName.getBorder();
         try
         {
-            InputStream is = new FileInputStream("helvetica.ttf");
+            InputStream is = new FileInputStream("/cs2212/team4/helvetica.ttf");
             helvetica = Font.createFont(Font.TRUETYPE_FONT, is);
         }
         catch (FileNotFoundException e){}

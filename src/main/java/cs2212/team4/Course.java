@@ -122,7 +122,7 @@ public class Course implements CourseADT, Serializable
 		return stud.getGrade(grade);
 	}
         
-        /**
+     /**
 	  * Gets the deliverableList size.
 	  * 
 	  * @return		Integer, the deliverableList size.
@@ -130,6 +130,13 @@ public class Course implements CourseADT, Serializable
 	  */
 	public int getDeliverableListSize(){return deliverableList.size();}
 	
+	/**
+	  * Gets the studentList size.
+	  * 
+	  * @return		Integer, the studentList size.
+	  * 
+	  */
+	public int getStudentListSize(){return studentList.size();}
 	
 	/* ************************************************************
 	* Mutator Methods

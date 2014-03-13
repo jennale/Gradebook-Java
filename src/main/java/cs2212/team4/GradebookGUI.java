@@ -5,9 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-
 import javax.swing.border.Border;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class GradebookGUI extends JFrame {
 
@@ -21,6 +21,9 @@ public class GradebookGUI extends JFrame {
     private DefaultListModel<String> listCourses= new DefaultListModel<String>();
     private DefaultListModel<String> listDelivers= new DefaultListModel<String>();
     
+    DefaultTableModel tableStudents = new DefaultTableModel();
+    DefaultTableModel tableGrades = new DefaultTableModel();
+    
     private Font helvetica=new java.awt.Font("Times New Roman", 1, 14);
     
     Course currCourse;
@@ -29,7 +32,7 @@ public class GradebookGUI extends JFrame {
         int size;
         
         initComponents();
-        getContentPane().setBackground(new Color(51,105,232));
+        getContentPane().setBackground(new Color(20,150,250));
         tabGrades.setVisible(true);
         tabSetup.setVisible(false);
         tabReports.setVisible(false);
@@ -71,6 +74,14 @@ public class GradebookGUI extends JFrame {
             listCourses.addElement(crs.getTitle()+", "+crs.getCode()+crs.getTerm());
         }
         else listCourses.addElement("No Courses");
+        
+        studentTable.setModel(tableStudents);
+        tableStudents.addColumn("First Name");
+        tableStudents.addColumn("Last Name");
+        tableStudents.addColumn("Number");
+        tableStudents.addColumn("Email");
+        
+        gradesTable.setModel(tableGrades);
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -140,6 +151,7 @@ public class GradebookGUI extends JFrame {
         studentTable = new javax.swing.JTable();
         gradesScroll = new javax.swing.JScrollPane();
         gradesTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         tabSetup = new javax.swing.JPanel();
         tabReports = new javax.swing.JPanel();
         lyrActiveCourse = new javax.swing.JLayeredPane();
@@ -176,7 +188,7 @@ public class GradebookGUI extends JFrame {
         lblGrades.setPreferredSize(new java.awt.Dimension(125, 40));
         getContentPane().add(lblGrades, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/tabOn.png"))); // NOI18N
+        lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/TabOn.png"))); // NOI18N
         lblTabGrades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblTabGrades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -190,7 +202,7 @@ public class GradebookGUI extends JFrame {
         lblSetup.setPreferredSize(new java.awt.Dimension(125, 40));
         getContentPane().add(lblSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 60, 125, 40));
 
-        lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/tabOff.png"))); // NOI18N
+        lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/TabOff.png"))); // NOI18N
         lblTabSetup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblTabSetup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -204,7 +216,7 @@ public class GradebookGUI extends JFrame {
         lblReports.setPreferredSize(new java.awt.Dimension(125, 40));
         getContentPane().add(lblReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
 
-        lblTabReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/tabOff.png"))); // NOI18N
+        lblTabReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/TabOff.png"))); // NOI18N
         lblTabReport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblTabReport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -257,6 +269,7 @@ public class GradebookGUI extends JFrame {
 
         courses.setBorder(null);
 
+        courseMenuList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         courseMenuList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         courseMenuList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -272,6 +285,15 @@ public class GradebookGUI extends JFrame {
         addCourse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addCourseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addCourseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addCourseMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addCourseMousePressed(evt);
             }
         });
 
@@ -599,7 +621,7 @@ public class GradebookGUI extends JFrame {
                 .addGroup(pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblDeliverType, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(comboDeliverType))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)
                 .addComponent(lblDeliverAddErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -869,8 +891,8 @@ public class GradebookGUI extends JFrame {
         pnlTables.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         pnlTables.setPreferredSize(new java.awt.Dimension(825, 440));
 
+        studentScroll.setBackground(new java.awt.Color(255, 255, 255));
         studentScroll.setBorder(null);
-        studentScroll.setPreferredSize(new java.awt.Dimension(450, 400));
 
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -880,14 +902,27 @@ public class GradebookGUI extends JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Frist Name", "Last Name", "Student Number", "E-mail"
+                "First Name", "Last Name", "Number", "Email"
             }
-        ));
-        studentTable.setPreferredSize(new java.awt.Dimension(0, 415));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        studentTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        studentTable.setGridColor(new java.awt.Color(255, 255, 255));
+        studentTable.setOpaque(false);
+        studentTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         studentScroll.setViewportView(studentTable);
 
+        gradesScroll.setBackground(new java.awt.Color(255, 255, 255));
         gradesScroll.setBorder(null);
 
+        gradesTable.setAutoCreateRowSorter(true);
         gradesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -896,9 +931,15 @@ public class GradebookGUI extends JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                null, null, null, null
             }
         ));
+        gradesTable.setToolTipText("");
+        gradesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        gradesTable.setColumnSelectionAllowed(false);
+        gradesTable.setGridColor(new java.awt.Color(255, 255, 255));
+        gradesTable.setOpaque(false);
+        gradesTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         gradesScroll.setViewportView(gradesTable);
 
         javax.swing.GroupLayout pnlTablesLayout = new javax.swing.GroupLayout(pnlTables);
@@ -906,19 +947,17 @@ public class GradebookGUI extends JFrame {
         pnlTablesLayout.setHorizontalGroup(
             pnlTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTablesLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(studentScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(gradesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE))
+                .addComponent(gradesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE))
         );
         pnlTablesLayout.setVerticalGroup(
             pnlTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTablesLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(pnlTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(studentScroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(gradesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)))
+            .addComponent(gradesScroll)
+            .addComponent(studentScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
         );
+
+        jButton1.setText("Import");
 
         javax.swing.GroupLayout tabGradesLayout = new javax.swing.GroupLayout(tabGrades);
         tabGrades.setLayout(tabGradesLayout);
@@ -926,15 +965,18 @@ public class GradebookGUI extends JFrame {
             tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabGradesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(tabGradesLayout.createSequentialGroup()
                         .addComponent(courseName, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editCourseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(deliversScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(addStudent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                        .addComponent(addDeliver, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(tabGradesLayout.createSequentialGroup()
+                        .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(addStudent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(addDeliver, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlTables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -951,12 +993,15 @@ public class GradebookGUI extends JFrame {
                     .addGroup(tabGradesLayout.createSequentialGroup()
                         .addComponent(deliversScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
+        tabSetup.setBackground(new java.awt.Color(255, 255, 255));
         tabSetup.setPreferredSize(new java.awt.Dimension(1080, 500));
 
         javax.swing.GroupLayout tabSetupLayout = new javax.swing.GroupLayout(tabSetup);
@@ -969,6 +1014,8 @@ public class GradebookGUI extends JFrame {
             tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 490, Short.MAX_VALUE)
         );
+
+        tabReports.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout tabReportsLayout = new javax.swing.GroupLayout(tabReports);
         tabReports.setLayout(tabReportsLayout);
@@ -1004,8 +1051,8 @@ public class GradebookGUI extends JFrame {
                 .addComponent(tabReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(containerLayout.createSequentialGroup()
-                    .addComponent(tabGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(tabGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 10, Short.MAX_VALUE)))
         );
         container.setLayer(tabGrades, javax.swing.JLayeredPane.DEFAULT_LAYER);
         container.setLayer(tabSetup, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1380,7 +1427,6 @@ public class GradebookGUI extends JFrame {
                 
                 currCourse=gradebook.getCourse(listCourses.getSize()-1);
                 
-                updateCourseInfo();
                 courseMenuList.setSelectedIndex(listCourses.getSize()-1);
             }
         }
@@ -1710,11 +1756,24 @@ public class GradebookGUI extends JFrame {
                 	
                     lblStudentAddErrorLog.setText("");
                     pnlAddStudent.setVisible(false);
+                    
+                    tableStudents.addRow(new String [] {nameFirst, nameLast, number, email}); 
                 }
             }
         }
-
     }//GEN-LAST:event_lblAddStudentMouseClicked
+
+    private void addCourseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addCourseMouseEntered
+        //addCourse.setBorder(BorderFactory.createLineBorder(new Color(204, 204, 204)));
+    }//GEN-LAST:event_addCourseMouseEntered
+
+    private void addCourseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addCourseMouseExited
+        //addCourse.setBorder(null);
+    }//GEN-LAST:event_addCourseMouseExited
+
+    private void addCourseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addCourseMousePressed
+        //addCourse.setBorder(BorderFactory.createBevelBorder(1, Color.lightGray, Color.lightGray, Color.lightGray, Color.lightGray));
+    }//GEN-LAST:event_addCourseMousePressed
 
     /*****************************************************************************************************************
      ***************************************************************************************************************** 
@@ -1769,17 +1828,36 @@ public class GradebookGUI extends JFrame {
     }
     private void updateCourseInfo()
     {
+    	Deliverable deliver;
+    	Student stud;
+    	
         lblActiveCourseTitleInfo.setText(currCourse.getTitle());
         lblActiveCourseInfo.setText(currCourse.getCode()+currCourse.getTerm());
         courseName.setText(currCourse.getTitle());
         
         listDelivers.clear();
-        Deliverable deliver;
+        
+        tableStudents = new DefaultTableModel();
+        studentTable.setModel(tableStudents);
+        tableStudents.addColumn("First Name");
+        tableStudents.addColumn("Last Name");
+        tableStudents.addColumn("Number");
+        tableStudents.addColumn("Email");
 
+        tableGrades = new DefaultTableModel();
+        gradesTable.setModel(tableGrades);
+        
         for(int i=0; i<currCourse.getDeliverableListSize(); i++)
         {
             deliver=currCourse.getDeliverable(i);
             listDelivers.addElement(deliver.getName()+", "+deliver.getType()+", "+deliver.getWeight());
+            tableGrades.addColumn(deliver.getName());
+        }
+        
+        for(int i=0; i<currCourse.getStudentListSize(); i++)
+        {
+            stud=currCourse.getStudent(i);
+            tableStudents.addRow(new String [] {stud.getNameFirst(), stud.getNameLast(), stud.getNumber(), stud.getEmail()}); 
         }
     }
 
@@ -1798,6 +1876,7 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel editCourseIcon;
     private javax.swing.JScrollPane gradesScroll;
     private javax.swing.JTable gradesTable;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblActiveCourse;
     private javax.swing.JLabel lblActiveCourseInfo;

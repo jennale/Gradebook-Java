@@ -266,15 +266,14 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Removes a Student object from the studentList list.
 	  * 
-	  * @param		number				String, the Student object unique number.
+	  * @param		i					Integer, the Student object number in the studentList.
 	  * 
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeStudent(String number)
+	public boolean removeStudent(int i)
 	{
-		int i;
-		if ((i=findStudent(number))==-1)return false;
+		if (i>=studentList.size())return false;
 		studentList.remove(i);return true;
 	}
 	
@@ -317,10 +316,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeDeliverable(Deliverable deliver)
+	public boolean removeDeliverable(int i)
 	{
-		int i;
-		if ((i= findDeliverable(deliver))==-1)return false;
+		if (i>=deliverableList.size())return false;
 		deliverableList.set(i, null);stkDeliver.push(i);return true;
 	}
 	

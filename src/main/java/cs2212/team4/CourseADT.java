@@ -135,7 +135,7 @@ public interface CourseADT
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeStudent(String number);
+	public boolean removeStudent(int i);
 	
 	/**
 	  * Finds the Deliverable object inside the deliverableList list.
@@ -167,7 +167,7 @@ public interface CourseADT
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeDeliverable(Deliverable deliver);
+	public boolean removeDeliverable(int i);
 	
 	/**
 	  * Adds a grade to a Student object.

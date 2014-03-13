@@ -147,6 +147,26 @@ public class Course implements CourseADT, Serializable
 		return studentList.size();
 	}
 	
+	/**
+	  * Gets the studentList.
+	  * 
+	  * @return		ArrayList<Student>, the studentList.
+	  * 
+	  */
+	public ArrayList<Student> getStudents() {
+		return studentList;
+	}
+	
+	/**
+	  * Gets the deliverableList.
+	  * 
+	  * @return		ArrayList<Deliverable>, the deliverableList.
+	  * 
+	  */
+	public ArrayList<Deliverable> getDeliverables() {
+		return deliverableList;
+	}
+	
 	/* ************************************************************
 	* Mutator Methods
 	************************************************************ */

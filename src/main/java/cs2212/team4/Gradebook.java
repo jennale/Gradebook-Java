@@ -148,7 +148,7 @@ public class Gradebook implements GradebookADT, Serializable
 	  * @return		Integer, the position of the Course object in the courseList if the object exists, otherwise will return -1.
 	  * 
 	  */
-	private int findCourse(Course crs) {
+	public int findCourse(Course crs) {
 		for (int i = 0; i < courseList.size(); i++)
 			if (courseList.get(i).equals(crs))
 				return i;

@@ -332,7 +332,7 @@ public class Course implements CourseADT, Serializable
 	  */
 	public int findDeliverable(Deliverable deliver) {
 		for (int i = 0; i < deliverableList.size(); i++)
-			if (deliverableList.get(i).equals(deliver))
+			if (deliverableList.get(i)!=null&&deliverableList.get(i).equals(deliver))
 				return i;
 		return -1;
 	}

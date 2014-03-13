@@ -18,13 +18,13 @@ public class Deliverable implements DeliverableADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
-	//The Deliverable Class version
+	// The Deliverable Class version
 	private static final long serialVersionUID = 1L;
-	//The Deliverable name and type
-	private String name="", type="";
-	//The Deliverable weight
+	// The Deliverable name and type
+	private String name = "", type = "";
+	// The Deliverable weight
 	private double weight;
-	//The Deliverable id
+	// The Deliverable id
 	private int objId;
 	
 	/**
@@ -36,12 +36,11 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * @param		objId		Integer, the Deliverable object id.
 	  * 
 	  */
-	public Deliverable(String name, String type, double weight, int objId)
-	{
-		this.name=name;
-		this.type=type;
-		this.weight=weight;
-		this.objId=objId;
+	public Deliverable(String name, String type, double weight, int objId) {
+		this.name = name;
+		this.type = type;
+		this.weight = weight;
+		this.objId = objId;
 	}
 	
 	/* ************************************************************
@@ -54,7 +53,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * @return		String, the Deliverable object name.
 	  * 
 	  */
-	public String getName(){return name;}
+	public String getName() {
+		return name;
+	}
 
 	/**
 	  * Gets the Deliverable object type.
@@ -62,7 +63,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * @return		String, the Deliverable object type.
 	  * 
 	  */
-	public String getType(){return type;}
+	public String getType() {
+		return type;
+	}
 
 	/**
 	  * Gets the Deliverable object weight.
@@ -70,7 +73,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * @return		Double, the Deliverable object weight.
 	  * 
 	  */
-	public double getWeight(){return weight;}
+	public double getWeight() {
+		return weight;
+	}
 	
 	/**
 	  * Gets the Deliverable object id.
@@ -78,7 +83,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * @return		Integer, the Deliverable object id.
 	  * 
 	  */
-	public int getObjId(){return objId;}
+	public int getObjId() {
+		return objId;
+	}
 	
 	/* ************************************************************
 	* Mutator Methods
@@ -90,7 +97,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * @param		name			String,the Deliverable object name.
 	  * 
 	  */
-	public void setName(String name){this.name=name;}
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	/**
 	  * Sets the Deliverable object type.
@@ -98,7 +107,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * @param		type			String,the Deliverable object type.
 	  * 
 	  */
-	public void setType(String type){this.type=type;}
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	/**
 	  * Sets the Deliverable object weight.
@@ -106,7 +117,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * @param		weight			Double,the Deliverable object weight.
 	  * 
 	  */
-	public void setWeight(double weight){this.weight=weight;}
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
 	
 	/* ************************************************************
 	* Helper Methods
@@ -118,9 +131,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * return		boolean, true if the Course object is equal to this, false otherwise.
 	  * 
 	  */
-	public boolean equals(Deliverable deliver)
-	{
-		if(this.toString().equalsIgnoreCase(deliver.toString()))return true;
+	public boolean equals(Deliverable deliver) {
+		if (this.toString().equalsIgnoreCase(deliver.toString()))
+			return true;
 		return false;
 	}
 	
@@ -130,5 +143,7 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * return		String, the Deliverable object information string.
 	  * 
 	  */
-	public String toString(){return ("\""+name+"\", \""+type+"\", \""+weight+"\"\n");}
+	public String toString() {
+		return ("\"" + name + "\", \"" + type + "\", \"" + weight + "\"\n");
+	}
 }

@@ -29,15 +29,15 @@ public class Course implements CourseADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
-	//The Course Class version
+	// The Course Class version
 	private static final long serialVersionUID = 1L;
-	//The Course object title, term, and code.
-	private String title="", term="", code="";
-	//The Course object student list.
+	// The Course object title, term, and code.
+	private String title = "", term = "", code = "";
+	// The Course object student list.
 	private ArrayList<Student> studentList = new ArrayList<Student>();
-	//The Course object deliverable list.
+	// The Course object deliverable list.
 	private ArrayList<Deliverable> deliverableList = new ArrayList<Deliverable>();
-	//The Course object empty deliverable slots
+	// The Course object empty deliverable slots
 	private Stack<Integer> stkDeliver = new Stack<Integer>();
 
 	/**
@@ -48,11 +48,10 @@ public class Course implements CourseADT, Serializable
 	  * @param		code		String, the Course object code.
 	  * 
 	  */
-	public Course(String title, String term, String code)
-	{
-		this.title=title;
-		this.term=term;
-		this.code=code;
+	public Course(String title, String term, String code) {
+		this.title = title;
+		this.term = term;
+		this.code = code;
 	}
 	
 	/* ************************************************************
@@ -65,7 +64,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		String, the Course object title.
 	  * 
 	  */
-	public String getTitle(){return title;}
+	public String getTitle() {
+		return title;
+	}
 
 	/**
 	  * Gets the course term.
@@ -73,7 +74,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		String, the Course object term.
 	  * 
 	  */
-	public String getTerm(){return term;}
+	public String getTerm() {
+		return term;
+	}
 
 	/**
 	  * Gets the course code.
@@ -81,7 +84,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		String, the Course object code.
 	  * 
 	  */
-	public String getCode(){return code;}
+	public String getCode() {
+		return code;
+	}
 	
 	/**
 	  * Gets the Student object inside the studentList list at location stud.
@@ -89,9 +94,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		Student, the Student object.
 	  * 
 	  */
-	public Student getStudent(int stud)
-	{
-		if (stud>studentList.size()-1)return null;
+	public Student getStudent(int stud) {
+		if (stud > studentList.size() - 1)
+			return null;
 		return studentList.get(stud);
 	}
 	
@@ -101,9 +106,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		Deliverable, the Deliverable object.
 	  * 
 	  */
-	public Deliverable getDeliverable(int deliver)
-	{
-		if (deliver<deliverableList.size())return deliverableList.get(deliver);
+	public Deliverable getDeliverable(int deliver) {
+		if (deliver < deliverableList.size())
+			return deliverableList.get(deliver);
 		return null;
 	}
 	
@@ -116,9 +121,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		Double, the grade of the Student object.
 	  * 
 	  */
-	public double getGrade(Student stud, int grade)
-	{
-		if (grade>studentList.size()-1)return -1;
+	public double getGrade(Student stud, int grade) {
+		if (grade > studentList.size() - 1)
+			return -1;
 		return stud.getGrade(grade);
 	}
         
@@ -128,7 +133,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		Integer, the deliverableList size.
 	  * 
 	  */
-	public int getDeliverableListSize(){return deliverableList.size();}
+	public int getDeliverableListSize() {
+		return deliverableList.size();
+	}
 	
 	/**
 	  * Gets the studentList size.
@@ -136,7 +143,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		Integer, the studentList size.
 	  * 
 	  */
-	public int getStudentListSize(){return studentList.size();}
+	public int getStudentListSize() {
+		return studentList.size();
+	}
 	
 	/* ************************************************************
 	* Mutator Methods
@@ -148,7 +157,9 @@ public class Course implements CourseADT, Serializable
 	  * @param		title			String, the Course Object title.
 	  * 
 	  */
-	public void setTitle(String title){this.title=title;}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 	/**
 	  * Sets the course term.
@@ -156,7 +167,9 @@ public class Course implements CourseADT, Serializable
 	  * @param		term			String, the Course Object term.
 	  * 
 	  */
-	public void setTerm(String term){this.term=term;}
+	public void setTerm(String term) {
+		this.term = term;
+	}
 
 	/**
 	  * Sets the course code.
@@ -164,7 +177,9 @@ public class Course implements CourseADT, Serializable
 	  * @param		code			String, the Course Object code.
 	  * 
 	  */
-	public void setCode(String code){this.code=code;}
+	public void setCode(String code) {
+		this.code = code;
+	}
 	
 	/* ************************************************************
 	* Helper Methods
@@ -178,9 +193,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the number exists, false otherwise.
 	  * 
 	  */
-	private boolean checkNumber(String number)
-	{
-		if (findStudent(number)==-1)return false;
+	private boolean checkNumber(String number) {
+		if (findStudent(number) == -1)
+			return false;
 		return true;
 	}
 
@@ -192,9 +207,10 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the email exists, false otherwise.
 	  * 
 	  */
-	private boolean checkEmail(String email)
-	{
-		for (int i=0; i<studentList.size(); i++)if (studentList.get(i).getEmail()==email)return true;
+	private boolean checkEmail(String email) {
+		for (int i = 0; i < studentList.size(); i++)
+			if (studentList.get(i).getEmail() == email)
+				return true;
 		return false;
 	}
 
@@ -207,11 +223,14 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the number has been edited, false otherwise.
 	  * 
 	  */
-	public boolean editStudentNumber(Student stud, String number)
-	{
-		if (stud.getNumber().equals(number))return true;
-		else if (checkNumber(number))return false;
-		else stud.setNumber(number);return true;
+	public boolean editStudentNumber(Student stud, String number) {
+		if (stud.getNumber().equals(number))
+			return true;
+		else if (checkNumber(number))
+			return false;
+		else
+			stud.setNumber(number);
+		return true;
 	}
 
 	/**
@@ -223,11 +242,14 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the email has been edited, false otherwise.
 	  * 
 	  */
-	public boolean editStudentEmail(Student stud, String email)
-	{
-		if (stud.getEmail().equals(email))return true;
-		else if (checkEmail(email))return false;
-		else stud.setEmail(email);return true;
+	public boolean editStudentEmail(Student stud, String email) {
+		if (stud.getEmail().equals(email))
+			return true;
+		else if (checkEmail(email))
+			return false;
+		else
+			stud.setEmail(email);
+		return true;
 	}
 	
 	/**
@@ -238,9 +260,10 @@ public class Course implements CourseADT, Serializable
 	  * @return		Integer, the position of the Student object in the studentList if the object exists, otherwise will return -1.
 	  * 
 	  */
-	public int findStudent(String number)
-	{
-		for (int i=0; i<studentList.size(); i++)if (studentList.get(i).getNumber().equals(number))return i;
+	public int findStudent(String number) {
+		for (int i = 0; i < studentList.size(); i++)
+			if (studentList.get(i).getNumber().equals(number))
+				return i;
 		return -1;
 	}
 	
@@ -255,12 +278,13 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addStudent(String nameFirst, String nameLast, String number, String email)
-	{
-		if (!(checkNumber(number)||checkEmail(email)))
-		{
-			studentList.add(new Student(nameFirst, nameLast, number, email));return true;
-		}return false;
+	public boolean addStudent(String nameFirst, String nameLast, String number,
+			String email) {
+		if (!(checkNumber(number) || checkEmail(email))) {
+			studentList.add(new Student(nameFirst, nameLast, number, email));
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -271,10 +295,11 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeStudent(int i)
-	{
-		if (i>=studentList.size())return false;
-		studentList.remove(i);return true;
+	public boolean removeStudent(int i) {
+		if (i >= studentList.size())
+			return false;
+		studentList.remove(i);
+		return true;
 	}
 	
 	/**
@@ -285,9 +310,10 @@ public class Course implements CourseADT, Serializable
 	  * @return		Integer, the position of the Deliverable object in the deliverableList list if the object exists, otherwise it will return -1.
 	  * 
 	  */
-	public int findDeliverable(Deliverable deliver)
-	{
-		for (int i=0; i<deliverableList.size(); i++)if (deliverableList.get(i).equals(deliver))return i;
+	public int findDeliverable(Deliverable deliver) {
+		for (int i = 0; i < deliverableList.size(); i++)
+			if (deliverableList.get(i).equals(deliver))
+				return i;
 		return -1;
 	}
 	
@@ -301,11 +327,16 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the addition was a success, false otherwise.
 	  * 
 	  */
-	public boolean addDeliverable(String name, String type, double weight)
-	{
-		if (findDeliverable(new Deliverable(name, type, weight, 0))!=-1)return false;
-		if (!stkDeliver.isEmpty())deliverableList.add(new Deliverable(name, type, weight, stkDeliver.pop()));
-		else deliverableList.add(new Deliverable(name, type, weight, deliverableList.size()));return true;
+	public boolean addDeliverable(String name, String type, double weight) {
+		if (findDeliverable(new Deliverable(name, type, weight, 0)) != -1)
+			return false;
+		if (!stkDeliver.isEmpty())
+			deliverableList.add(new Deliverable(name, type, weight, stkDeliver
+					.pop()));
+		else
+			deliverableList.add(new Deliverable(name, type, weight,
+					deliverableList.size()));
+		return true;
 	}
 
 	/**
@@ -316,10 +347,12 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
 	  */
-	public boolean removeDeliverable(int i)
-	{
-		if (i>=deliverableList.size())return false;
-		deliverableList.set(i, null);stkDeliver.push(i);return true;
+	public boolean removeDeliverable(int i) {
+		if (i >= deliverableList.size())
+			return false;
+		deliverableList.set(i, null);
+		stkDeliver.push(i);
+		return true;
 	}
 	
 	/**
@@ -332,9 +365,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
 	  * 
 	  */
-	public boolean addGrade(Student stud, Deliverable deliver, double grade)
-	{
-		return stud.addGrade(deliver.getObjId(), grade, deliver.getType(), deliver.getWeight());
+	public boolean addGrade(Student stud, Deliverable deliver, double grade) {
+		return stud.addGrade(deliver.getObjId(), grade, deliver.getType(),
+				deliver.getWeight());
 	}
 	
 	/**
@@ -346,8 +379,7 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the grade was removed successfully, false otherwise.
 	  * 
 	  */
-	public boolean removeGrade(Student stud, Deliverable deliver)
-	{
+	public boolean removeGrade(Student stud, Deliverable deliver) {
 		return stud.removeGrade(deliver.getObjId(), deliver.getType());
 	}
 
@@ -359,34 +391,29 @@ public class Course implements CourseADT, Serializable
 	  */
 	public boolean importStudents(String path)
 	{
-		String [] sAry={"nameLast", "nameFirst", "number", "email"};
-		try
-		{
+		String[] sAry = { "nameLast", "nameFirst", "number", "email" };
+		try {
 			CSVReader reader = new CSVReader(new FileReader(path));
-			if (reader.readNext().equals(sAry))
-			{
-				reader.close();return false;
+			if (reader.readNext().equals(sAry)) {
+				reader.close();
+				return false;
 			}
-			while((sAry=reader.readNext())!=null)
-			{
-				if (sAry.length!=4)
-				{
-					reader.close();return false;
+			while ((sAry = reader.readNext()) != null) {
+				if (sAry.length != 4) {
+					reader.close();
+					return false;
 				}
 				addStudent(sAry[1], sAry[0], sAry[2], sAry[3]);
 			}
-			reader.close();return true;
-		}
-		catch(FileNotFoundException e)
-		{
+			reader.close();
+			return true;
+		} catch (FileNotFoundException e) {
 			return false;
-		}
-		catch (IOException e)
-		{
+		} catch (IOException e) {
 			return false;
 		}
 	}
-	
+
 	/**
 	  * Exports the Student objects located in studentList list to a .csv file.
 	  * 
@@ -395,19 +422,19 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the Student objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportStudents(String path)
-	{
-		try
-		{
-			File file = new File(path+code+term+"Student.csv");
-			if (file.exists())file.delete();
-			Writer bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+	public boolean exportStudents(String path) {
+		try {
+			File file = new File(path + code + term + "Student.csv");
+			if (file.exists())
+				file.delete();
+			Writer bw = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream(file)));
 			bw.write("\"nameLast\", \"nameFirst\", \"number\", \"email\"\n");
-			for(int i=0; i<studentList.size(); i++)bw.write(studentList.get(i).toString());
-			bw.close();return true;
-		}
-		catch (IOException e)
-		{
+			for (int i = 0; i < studentList.size(); i++)
+				bw.write(studentList.get(i).toString());
+			bw.close();
+			return true;
+		} catch (IOException e) {
 			return false;
 		}
 	}
@@ -418,36 +445,28 @@ public class Course implements CourseADT, Serializable
 	  * @param		path				String, the path were the file is located.
 	  * 
 	  */
-	public boolean importDeliverables(String path)
-	{
-		String [] dAry={"name", "type", "weight"};
-		try
-		{
+	public boolean importDeliverables(String path) {
+		String[] dAry = { "name", "type", "weight" };
+		try {
 			CSVReader reader = new CSVReader(new FileReader(path));
-			if (reader.readNext().equals(dAry))
-			{
-				reader.close();return false;
+			if (reader.readNext().equals(dAry)) {
+				reader.close();
+				return false;
 			}
-			while((dAry=reader.readNext())!=null)
-			{
-				if (dAry.length!=3)
-				{
-					reader.close();return false;
+			while ((dAry = reader.readNext()) != null) {
+				if (dAry.length != 3) {
+					reader.close();
+					return false;
 				}
 				addDeliverable(dAry[0], dAry[1], Double.parseDouble(dAry[2]));
 			}
-			reader.close();return true;
-		}
-		catch (NumberFormatException e)
-		{
+			reader.close();
+			return true;
+		} catch (NumberFormatException e) {
 			return false;
-		}
-		catch(FileNotFoundException e)
-		{
+		} catch (FileNotFoundException e) {
 			return false;
-		}
-		catch (IOException e)
-		{
+		} catch (IOException e) {
 			return false;
 		}
 	}
@@ -460,17 +479,17 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the Deliverable objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportDeliverables(String path)
-	{
-		try
-		{
-			Writer bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path+code+term+"deliver.csv"))));
+	public boolean exportDeliverables(String path) {
+		try {
+			Writer bw = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream(new File(path + code + term
+							+ "deliver.csv"))));
 			bw.write("\"name\", \"type\", \"weight\"\n");
-			for(int i=0; i<deliverableList.size(); i++)bw.write(deliverableList.get(i).toString());
-			bw.close();return true;
-		}
-		catch (IOException e)
-		{
+			for (int i = 0; i < deliverableList.size(); i++)
+				bw.write(deliverableList.get(i).toString());
+			bw.close();
+			return true;
+		} catch (IOException e) {
 			return false;
 		}
 	}
@@ -481,49 +500,42 @@ public class Course implements CourseADT, Serializable
 	  * @param		path				String, the path were the file is located.
 	  * 
 	  */
-	public boolean importGrades(String path)
-	{
-		ArrayList<String>strAry=new ArrayList<String>();
-		ArrayList<Integer>filePlace=new ArrayList<Integer>();
-		ArrayList<Integer>listPlace=new ArrayList<Integer>();
-		String [] gAry;
+	public boolean importGrades(String path) {
+		ArrayList<String> strAry = new ArrayList<String>();
+		ArrayList<Integer> filePlace = new ArrayList<Integer>();
+		ArrayList<Integer> listPlace = new ArrayList<Integer>();
+		String[] gAry;
 		Student stud;
-		try
-		{
+		try {
 			CSVReader reader = new CSVReader(new FileReader(path));
-			gAry=reader.readNext();
-			for (int i=0; i<gAry.length; i++)
-			{
-				if (gAry[i].equalsIgnoreCase("number"))filePlace.add(i);
+			gAry = reader.readNext();
+			for (int i = 0; i < gAry.length; i++) {
+				if (gAry[i].equalsIgnoreCase("number"))
+					filePlace.add(i);
 				strAry.add(gAry[i]);
 			}
-				
-			for (int i=0; i<deliverableList.size(); i++)
-				if (strAry.contains(deliverableList.get(i).getName()))
-				{
+
+			for (int i = 0; i < deliverableList.size(); i++)
+				if (strAry.contains(deliverableList.get(i).getName())) {
 					filePlace.add(i);
 					listPlace.add(i);
 				}
-			
-			while((gAry=reader.readNext())!=null)
-			{
-				stud=getStudent(filePlace.get(0));
-				for(int i=1; i<listPlace.size();i++)
-					stud.addGrade(listPlace.get(i), Double.parseDouble(gAry[filePlace.get(i)]), 
-							deliverableList.get(listPlace.get(i)).getType(), deliverableList.get(listPlace.get(i)).getWeight());
+
+			while ((gAry = reader.readNext()) != null) {
+				stud = getStudent(filePlace.get(0));
+				for (int i = 1; i < listPlace.size(); i++)
+					stud.addGrade(listPlace.get(i),
+							Double.parseDouble(gAry[filePlace.get(i)]),
+							deliverableList.get(listPlace.get(i)).getType(),
+							deliverableList.get(listPlace.get(i)).getWeight());
 			}
-			reader.close();return true;
-		}
-		catch (NumberFormatException e)
-		{
+			reader.close();
+			return true;
+		} catch (NumberFormatException e) {
 			return false;
-		}
-		catch(FileNotFoundException e)
-		{
+		} catch (FileNotFoundException e) {
 			return false;
-		}
-		catch (IOException e)
-		{
+		} catch (IOException e) {
 			return false;
 		}
 	}
@@ -536,19 +548,21 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the Grade objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportGrades(String path)
-	{
-		try
-		{
-			Writer bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path+code+term+"grades.csv"))));
-			String str="\"nameLast\", \"nameFirst\", \"number\", \"email\"";
-			for (int i=0; i<deliverableList.size(); i++)str=str+", \""+deliverableList.get(i).getName()+"\"";
-			bw.write(str+"\n");
-			for(int i=0; i<studentList.size(); i++)bw.write(studentList.get(i).toStringGrade(deliverableList.size()));
-			bw.close();return true;
-		}
-		catch (IOException e)
-		{
+	public boolean exportGrades(String path) {
+		try {
+			Writer bw = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream(new File(path + code + term
+							+ "grades.csv"))));
+			String str = "\"nameLast\", \"nameFirst\", \"number\", \"email\"";
+			for (int i = 0; i < deliverableList.size(); i++)
+				str = str + ", \"" + deliverableList.get(i).getName() + "\"";
+			bw.write(str + "\n");
+			for (int i = 0; i < studentList.size(); i++)
+				bw.write(studentList.get(i).toStringGrade(
+						deliverableList.size()));
+			bw.close();
+			return true;
+		} catch (IOException e) {
 			return false;
 		}
 	}
@@ -561,9 +575,9 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the Course object is equal to this, false otherwise.
 	  * 
 	  */
-	public boolean equals(Course crs)
-	{
-		if(this.toString().equalsIgnoreCase(crs.toString()))return true;
+	public boolean equals(Course crs) {
+		if (this.toString().equalsIgnoreCase(crs.toString()))
+			return true;
 		return false;
 	}
 	
@@ -573,5 +587,7 @@ public class Course implements CourseADT, Serializable
 	  * @return		String, the Course object information string.
 	  * 
 	  */
-	public String toString(){return ("\""+title+"\", \""+term+"\", \""+code+"\"\n");}
+	public String toString() {
+		return ("\"" + title + "\", \"" + term + "\", \"" + code + "\"\n");
+	}
 }

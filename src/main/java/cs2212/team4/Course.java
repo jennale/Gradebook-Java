@@ -574,4 +574,14 @@ public class Course implements CourseADT, Serializable
 	  * 
 	  */
 	public String toString(){return ("\""+title+"\", \""+term+"\", \""+code+"\"\n");}
+	
+	public ArrayList<Student> getStudents()
+	{
+		return studentList;
+	}
+	
+	public ArrayList<Deliverable> getDeliverables()
+	{
+		return deliverableList;
+	}
 }

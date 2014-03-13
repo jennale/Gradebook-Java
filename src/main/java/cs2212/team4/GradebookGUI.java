@@ -2069,7 +2069,6 @@ public class GradebookGUI extends JFrame {
 	 ***************************************************************************************************************** 
 	 ***************************************************************************************************************** 
 	 */
-
 	private void myCoursesMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_myCoursesMouseClicked
 		if (!pnlCourseMenu.isVisible())
 			pnlCourseMenu.setVisible(true);
@@ -2083,8 +2082,27 @@ public class GradebookGUI extends JFrame {
 
 	private void addCourseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addCourseMouseClicked
 		hideMenu();
+		restPnlCourse();
+		restPnlDeliver();
+		restPnlStudent();
 		pnlAddCourse.setVisible(true);
 	}// GEN-LAST:event_addCourseMouseClicked
+
+	private void addCourseMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addCourseMouseEntered
+		addCourse.setBorder(BorderFactory.createLineBorder(new Color(51, 255,
+				51)));
+	}// GEN-LAST:event_addCourseMouseEntered
+
+	private void addCourseMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addCourseMouseExited
+		addCourse.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
+				204)));
+	}// GEN-LAST:event_addCourseMouseExited
+
+	private void addCourseMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addCourseMousePressed
+		addCourse.setBorder(BorderFactory.createBevelBorder(1, new Color(51,
+				255, 51), new Color(51, 255, 51), new Color(51, 255, 51),
+				new Color(51, 255, 51)));
+	}// GEN-LAST:event_addCourseMousePressed
 
 	private void courseMenuListValueChanged(
 			javax.swing.event.ListSelectionEvent evt) {// GEN-FIRST:event_courseMenuListValueChanged
@@ -2128,15 +2146,129 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_editCourseIconMouseClicked
 
+	/** Add deliverable button **************************************************************************************/
 	private void addDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseClicked
 		hideMenu();
+		restPnlCourse();
+		restPnlDeliver();
+		restPnlStudent();
 		pnlAddDeliver.setVisible(true);
 	}// GEN-LAST:event_addDeliverMouseClicked
 
+	private void addDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseEntered
+		addDeliver.setBorder(BorderFactory.createLineBorder(new Color(51, 255,
+				51)));
+	}// GEN-LAST:event_addDeliverMouseEntered
+
+	private void addDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseExited
+		addDeliver.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
+				204)));
+	}// GEN-LAST:event_addDeliverMouseExited
+
+	private void addDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMousePressed
+		addDeliver.setBorder(BorderFactory.createBevelBorder(1, new Color(51,
+				255, 51), new Color(51, 255, 51), new Color(51, 255, 51),
+				new Color(51, 255, 51)));
+	}// GEN-LAST:event_addDeliverMousePressed
+
+	/** Add student button *****************************************************************************************/
 	private void addStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseClicked
 		hideMenu();
+		restPnlCourse();
+		restPnlDeliver();
+		restPnlStudent();
 		pnlAddStudent.setVisible(true);
 	}// GEN-LAST:event_addStudentMouseClicked
+
+	private void addStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseEntered
+		addStudent.setBorder(BorderFactory.createLineBorder(new Color(51, 255,
+				51)));
+	}// GEN-LAST:event_addStudentMouseEntered
+
+	private void addStudentMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseExited
+		addStudent.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
+				204)));
+	}// GEN-LAST:event_addStudentMouseExited
+
+	private void addStudentMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMousePressed
+		addStudent.setBorder(BorderFactory.createBevelBorder(1, new Color(51,
+				255, 51), new Color(51, 255, 51), new Color(51, 255, 51),
+				new Color(51, 255, 51)));
+	}// GEN-LAST:event_addStudentMousePressed
+
+	/** Delete deliverable button **************************************************************************************/
+	private void deleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseClicked
+		String name = "", type = "", w = "", temp = listDelivers
+				.getElementAt(deliverList.getSelectedIndex());
+		Double weight;
+		int i = 0;
+		while (temp.charAt(i) != ',') {
+			name += temp.charAt(i);
+			i++;
+		}
+		i += 2;
+		while (temp.charAt(i) != ',') {
+			type += temp.charAt(i);
+			i++;
+		}
+		i += 2;
+		while (i < temp.length()) {
+			w += temp.charAt(i);
+			i++;
+		}
+		weight = Double.parseDouble(w);
+		currCourse.removeDeliverable(currCourse
+				.findDeliverable(new Deliverable(name, type, weight, 0)));
+		updateInfo();
+	}// GEN-LAST:event_deleteDeliverMouseClicked
+
+	private void deleteDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseEntered
+		deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(255,
+				51, 51)));
+	}// GEN-LAST:event_deleteDeliverMouseEntered
+
+	private void deleteDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseExited
+		deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_deleteDeliverMouseExited
+
+	private void deleteDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMousePressed
+		deleteDeliver.setBorder(BorderFactory.createBevelBorder(1, new Color(
+				255, 51, 51), new Color(255, 51, 51), new Color(255, 51, 51),
+				new Color(255, 51, 51)));
+	}// GEN-LAST:event_deleteDeliverMousePressed
+
+	/** Delete student button ********************************************************************************************/
+	private void deleteStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseClicked
+		currCourse.removeStudent(studentTable.getSelectedRow());
+		updateInfo();
+	}// GEN-LAST:event_deleteStudentMouseClicked
+
+	private void deleteStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseEntered
+		deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(255,
+				51, 51)));
+	}// GEN-LAST:event_deleteStudentMouseEntered
+
+	private void deleteStudentMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseExited
+		deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_deleteStudentMouseExited
+
+	private void deleteStudentMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMousePressed
+		deleteStudent.setBorder(BorderFactory.createBevelBorder(1, new Color(
+				255, 51, 51), new Color(255, 51, 51), new Color(255, 51, 51),
+				new Color(255, 51, 51)));
+	}// GEN-LAST:event_deleteStudentMousePressed
+
+	/** Delete buttons visibility **************************************************************************************/
+	private void deliverListValueChanged(
+			javax.swing.event.ListSelectionEvent evt) {// GEN-FIRST:event_deliverListValueChanged
+		deleteDeliver.setVisible(true);
+	}// GEN-LAST:event_deliverListValueChanged
+
+	private void studentTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_studentTableMouseClicked
+		deleteStudent.setVisible(true);
+	}// GEN-LAST:event_studentTableMouseClicked
 
 	/*****************************************************************************************************************
 	 ***************************************************************************************************************** 
@@ -2196,20 +2328,7 @@ public class GradebookGUI extends JFrame {
 
 	private void lblCancelCourseAdditionMouseClicked(
 			java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblCancelCourseAdditionMouseClicked
-		txtCourseName.setText("ex. Computer Engineering");
-		txtCourseName.setForeground(new Color(204, 204, 204));
-
-		txtCourseCode.setText("ex. CS2212");
-		txtCourseCode.setForeground(new Color(204, 204, 204));
-
-		comboCourseTerm.setSelectedIndex(0);
-
-		txtCourseName.setBorder(defaultHighlightBorder);
-		txtCourseCode.setBorder(defaultHighlightBorder);
-
-		lblCourseAddErrorLog.setText("");
-
-		pnlAddCourse.setVisible(false);
+		restPnlCourse();
 	}// GEN-LAST:event_lblCancelCourseAdditionMouseClicked
 
 	private void lblAddCourseMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddCourseMouseEntered
@@ -2329,20 +2448,7 @@ public class GradebookGUI extends JFrame {
 
 	private void lblCancelDeliverAdditionMouseClicked(
 			java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblCancelDeliverAdditionMouseClicked
-		txtDeliverName.setText("ex. Group Project");
-		txtDeliverName.setForeground(new Color(204, 204, 204));
-
-		txtDeliverWeight.setText("ex. 0.54");
-		txtDeliverWeight.setForeground(new Color(204, 204, 204));
-
-		comboDeliverType.setSelectedIndex(0);
-
-		txtDeliverName.setBorder(defaultHighlightBorder);
-		txtDeliverWeight.setBorder(defaultHighlightBorder);
-
-		lblDeliverAddErrorLog.setText("");
-
-		pnlAddDeliver.setVisible(false);
+		restPnlDeliver();
 	}// GEN-LAST:event_lblCancelDeliverAdditionMouseClicked
 
 	private void lblAddDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddDeliverMouseEntered
@@ -2434,7 +2540,6 @@ public class GradebookGUI extends JFrame {
 	 ***************************************************************************************************************** 
 	 ***************************************************************************************************************** 
 	 */
-
 	private void txtStudentNameFirstFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtStudentNameFirstFocusGained
 		if (txtStudentNameFirst.getText().equals("")
 				|| txtStudentNameFirst.getText().equals("ex. John"))
@@ -2503,25 +2608,7 @@ public class GradebookGUI extends JFrame {
 
 	private void lblCancelStudentAdditionMouseClicked(
 			java.awt.event.MouseEvent evt) {
-		txtStudentNameFirst.setText("ex. John");
-		txtStudentNameFirst.setForeground(new Color(204, 204, 204));
-
-		txtStudentNameLast.setText("ex. Doe");
-		txtStudentNameLast.setForeground(new Color(204, 204, 204));
-
-		txtStudentNumber.setText("ex. 250626000");
-		txtStudentNumber.setForeground(new Color(204, 204, 204));
-
-		txtStudentEmail.setText("ex. john-doe@example.com");
-		txtStudentEmail.setForeground(new Color(204, 204, 204));
-
-		txtStudentNameFirst.setBorder(defaultHighlightBorder);
-		txtStudentNameLast.setBorder(defaultHighlightBorder);
-		txtStudentNumber.setBorder(defaultHighlightBorder);
-		txtStudentEmail.setBorder(defaultHighlightBorder);
-
-		lblStudentAddErrorLog.setText("");
-		pnlAddStudent.setVisible(false);
+		restPnlStudent();
 	}
 
 	private void lblAddStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddStudentMouseEntered
@@ -2620,125 +2707,6 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_lblAddStudentMouseClicked
 
-	private void addCourseMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addCourseMouseEntered
-		addCourse.setBorder(BorderFactory.createLineBorder(new Color(51, 255,
-				51)));
-	}// GEN-LAST:event_addCourseMouseEntered
-
-	private void addCourseMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addCourseMouseExited
-		addCourse.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
-				204)));
-	}// GEN-LAST:event_addCourseMouseExited
-
-	private void addCourseMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addCourseMousePressed
-		addCourse.setBorder(BorderFactory.createBevelBorder(1, new Color(51,
-				255, 51), new Color(51, 255, 51), new Color(51, 255, 51),
-				new Color(51, 255, 51)));
-	}// GEN-LAST:event_addCourseMousePressed
-
-	private void addDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseEntered
-		addDeliver.setBorder(BorderFactory.createLineBorder(new Color(51, 255,
-				51)));
-	}// GEN-LAST:event_addDeliverMouseEntered
-
-	private void addDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseExited
-		addDeliver.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
-				204)));
-	}// GEN-LAST:event_addDeliverMouseExited
-
-	private void addStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseEntered
-		addStudent.setBorder(BorderFactory.createLineBorder(new Color(51, 255,
-				51)));
-	}// GEN-LAST:event_addStudentMouseEntered
-
-	private void addStudentMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseExited
-		addStudent.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
-				204)));
-	}// GEN-LAST:event_addStudentMouseExited
-
-	private void addDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMousePressed
-		addDeliver.setBorder(BorderFactory.createBevelBorder(1, new Color(51,
-				255, 51), new Color(51, 255, 51), new Color(51, 255, 51),
-				new Color(51, 255, 51)));
-	}// GEN-LAST:event_addDeliverMousePressed
-
-	private void addStudentMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMousePressed
-		addStudent.setBorder(BorderFactory.createBevelBorder(1, new Color(51,
-				255, 51), new Color(51, 255, 51), new Color(51, 255, 51),
-				new Color(51, 255, 51)));
-	}// GEN-LAST:event_addStudentMousePressed
-
-	private void deleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseClicked
-		String name = "", type = "", w = "", temp = listDelivers
-				.getElementAt(deliverList.getSelectedIndex());
-		Double weight;
-		int i = 0;
-		while (temp.charAt(i) != ',') {
-			name += temp.charAt(i);
-			i++;
-		}
-		i += 2;
-		while (temp.charAt(i) != ',') {
-			type += temp.charAt(i);
-			i++;
-		}
-		i += 2;
-		while (i < temp.length()) {
-			w += temp.charAt(i);
-			i++;
-		}
-		weight = Double.parseDouble(w);
-		currCourse.removeDeliverable(currCourse
-				.findDeliverable(new Deliverable(name, type, weight, 0)));
-		updateInfo();
-	}// GEN-LAST:event_deleteDeliverMouseClicked
-
-	private void deleteDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseEntered
-		deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(255,
-				51, 51)));
-	}// GEN-LAST:event_deleteDeliverMouseEntered
-
-	private void deleteDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseExited
-		deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(204,
-				204, 204)));
-	}// GEN-LAST:event_deleteDeliverMouseExited
-
-	private void deleteDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMousePressed
-		deleteDeliver.setBorder(BorderFactory.createBevelBorder(1, new Color(
-				255, 51, 51), new Color(255, 51, 51), new Color(255, 51, 51),
-				new Color(255, 51, 51)));
-	}// GEN-LAST:event_deleteDeliverMousePressed
-
-	private void deleteStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseClicked
-		currCourse.removeStudent(studentTable.getSelectedRow());
-		updateInfo();
-	}// GEN-LAST:event_deleteStudentMouseClicked
-
-	private void deleteStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseEntered
-		deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(255,
-				51, 51)));
-	}// GEN-LAST:event_deleteStudentMouseEntered
-
-	private void deleteStudentMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseExited
-		deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(204,
-				204, 204)));
-	}// GEN-LAST:event_deleteStudentMouseExited
-
-	private void deleteStudentMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMousePressed
-		deleteStudent.setBorder(BorderFactory.createBevelBorder(1, new Color(
-				255, 51, 51), new Color(255, 51, 51), new Color(255, 51, 51),
-				new Color(255, 51, 51)));
-	}// GEN-LAST:event_deleteStudentMousePressed
-
-	private void deliverListValueChanged(
-			javax.swing.event.ListSelectionEvent evt) {// GEN-FIRST:event_deliverListValueChanged
-		deleteDeliver.setVisible(true);
-	}// GEN-LAST:event_deliverListValueChanged
-
-	private void studentTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_studentTableMouseClicked
-		deleteStudent.setVisible(true);
-	}// GEN-LAST:event_studentTableMouseClicked
-
 	/*****************************************************************************************************************
 	 ***************************************************************************************************************** 
 	 * End: Add Students Panel
@@ -2746,47 +2714,16 @@ public class GradebookGUI extends JFrame {
 	 ***************************************************************************************************************** 
 	 */
 
-	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
-		// <editor-fold defaultstate="collapsed"
-		// desc=" Look and feel setting code (optional) ">
-		/*
-		 * If Nimbus (introduced in Java SE 6) is not available, stay with the
-		 * default look and feel. For details see
-		 * http://download.oracle.com/javase
-		 * /tutorial/uiswing/lookandfeel/plaf.html
-		 */
-		try {
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
-					.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					javax.swing.UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(GradebookGUI.class.getName())
-					.log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(GradebookGUI.class.getName())
-					.log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(GradebookGUI.class.getName())
-					.log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(GradebookGUI.class.getName())
-					.log(java.util.logging.Level.SEVERE, null, ex);
-		}
-		// </editor-fold>
-
-		/* Create and display the form */
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new GradebookGUI().setVisible(true);
-			}
-		});
-	}
-
+	/*****************************************************************************************************************
+	 ***************************************************************************************************************** 
+	 ***************************************************************************************************************** 
+	 * 
+	 * Start: Helper Methods
+	 * 
+	 ***************************************************************************************************************** 
+	 ***************************************************************************************************************** 
+	 ***************************************************************************************************************** 
+	 */
 	private String elimSpaces(String str) {
 		int i = 0;
 		for (; i < str.length() - 1; i++)
@@ -2847,6 +2784,110 @@ public class GradebookGUI extends JFrame {
 
 		deleteDeliver.setVisible(false);
 		deleteStudent.setVisible(false);
+	}
+
+	private void restPnlCourse() {
+		txtCourseName.setText("ex. Computer Engineering");
+		txtCourseName.setForeground(new Color(204, 204, 204));
+
+		txtCourseCode.setText("ex. CS2212");
+		txtCourseCode.setForeground(new Color(204, 204, 204));
+
+		comboCourseTerm.setSelectedIndex(0);
+
+		txtCourseName.setBorder(defaultHighlightBorder);
+		txtCourseCode.setBorder(defaultHighlightBorder);
+
+		lblCourseAddErrorLog.setText("");
+
+		pnlAddCourse.setVisible(false);
+	}
+
+	private void restPnlDeliver() {
+		txtDeliverName.setText("ex. Group Project");
+		txtDeliverName.setForeground(new Color(204, 204, 204));
+
+		txtDeliverWeight.setText("ex. 0.54");
+		txtDeliverWeight.setForeground(new Color(204, 204, 204));
+
+		comboDeliverType.setSelectedIndex(0);
+
+		txtDeliverName.setBorder(defaultHighlightBorder);
+		txtDeliverWeight.setBorder(defaultHighlightBorder);
+
+		lblDeliverAddErrorLog.setText("");
+
+		pnlAddDeliver.setVisible(false);
+	}
+
+	private void restPnlStudent() {
+		txtStudentNameFirst.setText("ex. John");
+		txtStudentNameFirst.setForeground(new Color(204, 204, 204));
+
+		txtStudentNameLast.setText("ex. Doe");
+		txtStudentNameLast.setForeground(new Color(204, 204, 204));
+
+		txtStudentNumber.setText("ex. 250626000");
+		txtStudentNumber.setForeground(new Color(204, 204, 204));
+
+		txtStudentEmail.setText("ex. john-doe@example.com");
+		txtStudentEmail.setForeground(new Color(204, 204, 204));
+
+		txtStudentNameFirst.setBorder(defaultHighlightBorder);
+		txtStudentNameLast.setBorder(defaultHighlightBorder);
+		txtStudentNumber.setBorder(defaultHighlightBorder);
+		txtStudentEmail.setBorder(defaultHighlightBorder);
+
+		lblStudentAddErrorLog.setText("");
+		pnlAddStudent.setVisible(false);
+	}
+
+	/*****************************************************************************************************************
+	 ***************************************************************************************************************** 
+	 * End: Helper Methods
+	 ***************************************************************************************************************** 
+	 ***************************************************************************************************************** 
+	 */
+
+	public static void main(String args[]) {
+		/* Set the Nimbus look and feel */
+		// <editor-fold defaultstate="collapsed"
+		// desc=" Look and feel setting code (optional) ">
+		/*
+		 * If Nimbus (introduced in Java SE 6) is not available, stay with the
+		 * default look and feel. For details see
+		 * http://download.oracle.com/javase
+		 * /tutorial/uiswing/lookandfeel/plaf.html
+		 */
+		try {
+			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
+					.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					javax.swing.UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
+		} catch (ClassNotFoundException ex) {
+			java.util.logging.Logger.getLogger(GradebookGUI.class.getName())
+					.log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			java.util.logging.Logger.getLogger(GradebookGUI.class.getName())
+					.log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			java.util.logging.Logger.getLogger(GradebookGUI.class.getName())
+					.log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+			java.util.logging.Logger.getLogger(GradebookGUI.class.getName())
+					.log(java.util.logging.Level.SEVERE, null, ex);
+		}
+		// </editor-fold>
+
+		/* Create and display the form */
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new GradebookGUI().setVisible(true);
+			}
+		});
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1944,7 +1944,7 @@ public class GradebookGUI extends JFrame {
      ***************************************************************************************************************** 
      */
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1974,6 +1974,11 @@ public class GradebookGUI extends JFrame {
                 new GradebookGUI().setVisible(true);
             }
         });
+        
+        Course course1 = new Course("Engineering", "A", "2222");
+		course1.addStudent("Tom", "Jones", "27045897", "tomjones123@uwo.ca");
+		Report report = new Report(course1, "27045897");
+		report.generateReport();
     }
     
     private String elimSpaces(String str)

@@ -22,8 +22,8 @@ public class GradebookGUI extends JFrame {
 	private DefaultListModel<String> listCourses = new DefaultListModel<String>();
 	private DefaultListModel<String> listDelivers = new DefaultListModel<String>();
 
-	DefaultTableModel tableStudents = new DefaultTableModel();
-	DefaultTableModel tableGrades = new DefaultTableModel();
+	UsersTable tableStudents = new UsersTable();
+	GradesTable tableGrades = tableStudents.getGradesTable();
 
 	private Font helvetica = new java.awt.Font("Times New Roman", 1, 14);
 
@@ -77,12 +77,7 @@ public class GradebookGUI extends JFrame {
 			listCourses.addElement("No Courses");
 
 		studentTable.setModel(tableStudents);
-		tableStudents.addColumn("First Name");
-		tableStudents.addColumn("Last Name");
-		tableStudents.addColumn("Number");
-		tableStudents.addColumn("Email");
-
-		gradesTable.setModel(tableGrades);
+		gradesTable.setModel(tableStudents.getGradesTable());
 
 		addCourse.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
 				204)));
@@ -954,25 +949,6 @@ public class GradebookGUI extends JFrame {
         studentScroll.setBackground(new java.awt.Color(255, 255, 255));
         studentScroll.setBorder(null);
 
-        studentTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "First Name", "Last Name", "Number", "Email"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
         studentTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         studentTable.setGridColor(new java.awt.Color(255, 255, 255));
         studentTable.setOpaque(false);
@@ -988,17 +964,7 @@ public class GradebookGUI extends JFrame {
         gradesScroll.setBorder(null);
 
         gradesTable.setAutoCreateRowSorter(true);
-        gradesTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                null, null, null, null
-            }
-        ));
+
         gradesTable.setToolTipText("");
         gradesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         gradesTable.setGridColor(new java.awt.Color(255, 255, 255));
@@ -2252,6 +2218,7 @@ public class GradebookGUI extends JFrame {
 				}
 			}
 		}
+                updateInfo();
 	}// GEN-LAST:event_lblAddStudentMouseClicked
 
 	/*****************************************************************************************************************
@@ -2622,7 +2589,10 @@ public class GradebookGUI extends JFrame {
 		deleteDeliver.setVisible(false);
 		deleteStudent.setVisible(false);
 	}
-
+/**
+ * UPDATE INFO - REFRESHES AND REPAINTS THE PAGE 
+ * 
+ */
 	private void updateInfo() {
 		Deliverable deliver;
 		Student stud;
@@ -2641,6 +2611,9 @@ public class GradebookGUI extends JFrame {
 			listCourses.set(courseMenuList.getSelectedIndex(), crs.getTitle()
 					+ ", " + crs.getCode() + crs.getTerm());
 
+<<<<<<< HEAD
+            updateTables();
+=======
 			if (delete) {
 				DefaultListModel<String> listCourses = new DefaultListModel<String>();
 				for (int i = 0; i < gradebook.getCourseListSize(); i++) {
@@ -2679,7 +2652,17 @@ public class GradebookGUI extends JFrame {
 
 			tableGrades = new DefaultTableModel();
 			gradesTable.setModel(tableGrades);
+>>>>>>> FETCH_HEAD
 
+            listDelivers.clear();
+            for (int i = 0; i < currCourse.getDeliverableListSize(); i++) {
+                deliver = currCourse.getDeliverable(i);
+                if (deliver != null) {
+                    listDelivers.addElement(deliver.getName() + ", "
+                            + deliver.getType() + ", " + deliver.getWeight());
+                    tableGrades.addColumn(deliver.getName());
+                }
+            }
 			deleteDeliver.setVisible(false);
 			deleteStudent.setVisible(false);
 
@@ -2693,12 +2676,16 @@ public class GradebookGUI extends JFrame {
 			lblCourseSetup.setText("Course Setup: ");
 			courseName.setText("select course");
 			listDelivers.clear();
+<<<<<<< HEAD
+            updateTables();
+=======
 			tableStudents = new DefaultTableModel();
 			tableGrades = new DefaultTableModel();
 			txtEditCourseTitle.setText("Please select a course");
 			txtEditCourseCode.setText("Please select a course");
 			comboEditCourseTerm.setSelectedItem(0);
 			lblEditCourseErrorLog.setText("");
+>>>>>>> FETCH_HEAD
 		}
 	}
 
@@ -2805,6 +2792,21 @@ public class GradebookGUI extends JFrame {
 			}
 		});
 	}
+
+    /**
+     * Update tables
+     */
+    private void updateTables(){
+        if(currCourse!=null)
+            makeTables();
+        studentTable.setModel(tableStudents);
+        gradesTable.setModel(tableGrades);
+    }
+
+    private void makeTables(){
+        tableStudents = new UsersTable(currCourse);
+        tableGrades = tableStudents.getGradesTable();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addCourse;

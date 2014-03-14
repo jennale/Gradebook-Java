@@ -11,23 +11,54 @@ import java.util.List;
 public class UsersTable extends DefaultTableModel{
     
     private GradesTable grades;
+    private final List<Student> studentNames = new ArrayList<>();
+    Course currCourse;
+
 
     private int COLUMN_COUNT = 5;
     private final String[] columnNames = {"First Name", "Last Name", "Email", "Student No."};
-    Object[] values = {"String", 10, 20.0, 30.2, new Boolean(false)};
 
-    private final List<Student> studentNames;
-   /**
+    /**
     * Constructor, takes no parameters to create a default UserTable
     */
-    public UsersTable() {
-        studentNames = new ArrayList<Student>();
+    public UsersTable(Course currCourse) {
+        this.currCourse = currCourse;
+        int numStud=currCourse.getStudentListSize();
         for (int i = 0; i < columnNames.length; i++){
             addColumn(columnNames[i]);
         }
+        grades = new GradesTable(currCourse);
+
+        for (int i = 0; i < numStud; i++) {
+            Student stud = currCourse.getStudent(i);
+            studentNames.add(stud);
+            addStudent(stud);
+            grades.addGrades(stud);
+        }
+
         refreshNames();
     }
-    
+
+    public GradesTable getGradesTable(){
+        return grades;
+    }
+
+////    public void add(Student s) {
+////        double[] grades = new Grades();
+////        addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
+//////        refreshNames();
+////        fireTableDataChanged();
+//
+//    }
+
+    public UsersTable() {
+        for (int i = 0; i < columnNames.length; i++){
+            addColumn(columnNames[i]);
+        }
+        grades = new GradesTable();
+
+        refreshNames();
+    }
     /**
      * Overloaded constructor, allows for the deactivation of some initial columns.
      * 
@@ -38,7 +69,6 @@ public class UsersTable extends DefaultTableModel{
      */
     public UsersTable(int first,int last, int email, int num) {
         int[] columns = {first,last,email,num};
-        studentNames = new ArrayList<Student>();
         for (int i = 0; i < COLUMN_COUNT; i++){
             if (columns[i]==1)
                 addColumn(columnNames[i]);
@@ -51,9 +81,8 @@ public class UsersTable extends DefaultTableModel{
  * @param s Student object to be added
  */
     public void addStudent(Student s){
-        studentNames.add(s);
         addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
-        refreshNames();
+//        refreshNames();
         fireTableDataChanged();
     }
 /**
@@ -64,25 +93,23 @@ public class UsersTable extends DefaultTableModel{
  */
     public void addStudent (Course c, String studNum){
         Student s = c.getStudent(c.findStudent(studNum));
-        studentNames.add(s);
         addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
 //        refreshNames();
         fireTableDataChanged();
     }
-/**
- * Returns the list of students objects currently in the table. 
- * @return List of students currently in UsersTable
- */
-    public List<Student> getStudentNames() {
-        return studentNames;
-    }
+///**
+// * Returns the list of students objects currently in the table. 
+// * @return List of students currently in UsersTable
+// */
+//    public List<Student> getStudentNames() {
+//        return studentNames;
+//    }
 
   /**
    * Removes student from table. 
    * @param rowIndex row of table where student is to be removed.
    */
     public void removeStudent(int rowIndex){
-        studentNames.remove(rowIndex-1);
         removeRow(rowIndex);
         fireTableDataChanged();
     }
@@ -94,9 +121,44 @@ public class UsersTable extends DefaultTableModel{
         for (int i = 0; i < getRowCount()-1; i++){
             if((getValueAt(i,0)).equals("New Student")){
                 removeRow(i);
+                grades.removeRow(i);
             }
         }
-        if((getRowCount()>0) && !(getValueAt(getRowCount()-1,0)).equals("New Student"))
+        if((getRowCount()>0)){
            addRow(new String[]{"New Student"});
+           grades.addRow(new Object[]{null});
+        }
+
+    }
+
+    /**
+     * Overrides the superclass' setValueat method, to edit the student object's information in the Course
+     * @param aValue        String to change the attribute of the student
+     * @param rowIndex      Row where attribute is selected
+     * @param columnIndex   Column where attribute is selected
+     */
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        if ((rowIndex < 0) || (rowIndex >= studentNames.size()))
+            return;
+        else {
+            if(aValue.equals(""))
+                return;
+            switch (columnIndex) {
+                case 0:
+                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameFirst((String)aValue);
+                    return;
+                case 1:
+                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameLast((String) aValue);
+                    return;
+                case 2:
+                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setEmail((String) aValue);
+                    return;
+                case 3:
+                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNumber((String) aValue);
+                    return;
+            }
+        }
+
     }
 }

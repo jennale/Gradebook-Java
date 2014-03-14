@@ -7,4 +7,5 @@ data.dat
 *.css
 *.*~
 doc/
-
+*.iml
+.idea/*

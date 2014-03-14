@@ -52,7 +52,7 @@ public class Email {
 	htmlPart.setContent(loadTemplate("email.html.vm"), "text/html; charset=utf-8");
 	
 	MimeBodyPart fileAttachmentPart = new MimeBodyPart();
-	URL attachmentUrl = App.class.getClassLoader().getResource("student_report.jrmxml");
+	URL attachmentUrl = Report.class.getClassLoader().getResource("student_report.jrmxml");
 	DataSource source = new URLDataSource(attachmentUrl);
 	fileAttachmentPart.setDataHandler(new DataHandler(source));
 	fileAttachmentPart.setFileName("student_report.jrxml");
@@ -80,7 +80,7 @@ public class Email {
   
   private static Properties loadProperties() throws Exception {
 	Properties properties = new Properties();
-	InputStream stream = App.class.getClassLoader().getResourceAsStream("mail.properties");
+	InputStream stream = Report.class.getClassLoader().getResourceAsStream("mail.properties");
 	properties.load(stream);
 	
 	return properties;

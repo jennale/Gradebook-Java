@@ -1,27 +1,31 @@
 package cs2212.team4;
 
+import net.sf.jasperreports.engine.export.tabulator.Column;
+
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.String;
+
 
 /**
  * Created by Jenna on 2014-03-12.
  */
 public class UsersTable extends DefaultTableModel{
-    
+
     private GradesTable grades;
     private final List<Student> studentNames = new ArrayList<>();
+    private final List<Student> selected = new ArrayList<>();
     Course currCourse;
 
-
-    private int COLUMN_COUNT = 5;
     private final String[] columnNames = {"First Name", "Last Name", "Email", "Student No."};
 
     /**
     * Constructor, takes no parameters to create a default UserTable
     */
     public UsersTable(Course currCourse) {
+        addColumn("");
         this.currCourse = currCourse;
         int numStud=currCourse.getStudentListSize();
         for (int i = 0; i < columnNames.length; i++){
@@ -52,6 +56,7 @@ public class UsersTable extends DefaultTableModel{
 //    }
 
     public UsersTable() {
+        addColumn("");
         for (int i = 0; i < columnNames.length; i++){
             addColumn(columnNames[i]);
         }
@@ -61,15 +66,15 @@ public class UsersTable extends DefaultTableModel{
     }
     /**
      * Overloaded constructor, allows for the deactivation of some initial columns.
-     * 
+     *
      * @param first
      * @param last
      * @param email
-     * @param num 
+     * @param num
      */
     public UsersTable(int first,int last, int email, int num) {
         int[] columns = {first,last,email,num};
-        for (int i = 0; i < COLUMN_COUNT; i++){
+        for (int i = 0; i < columnNames.length; i++){
             if (columns[i]==1)
                 addColumn(columnNames[i]);
         }
@@ -77,11 +82,11 @@ public class UsersTable extends DefaultTableModel{
     }
 
 /**
- * Adds a new student ROW to the usersTable. 
+ * Adds a new student ROW to the usersTable.
  * @param s Student object to be added
  */
     public void addStudent(Student s){
-        addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
+        addRow(new Object [] {new Boolean(false),s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
 //        refreshNames();
         fireTableDataChanged();
     }
@@ -93,7 +98,7 @@ public class UsersTable extends DefaultTableModel{
  */
     public void addStudent (Course c, String studNum){
         Student s = c.getStudent(c.findStudent(studNum));
-        addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
+        addRow(new Object [] {new Boolean(false),s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
 //        refreshNames();
         fireTableDataChanged();
     }
@@ -106,7 +111,7 @@ public class UsersTable extends DefaultTableModel{
 //    }
 
   /**
-   * Removes student from table. 
+   * Removes student from table.
    * @param rowIndex row of table where student is to be removed.
    */
     public void removeStudent(int rowIndex){
@@ -119,13 +124,13 @@ public class UsersTable extends DefaultTableModel{
  */
     public void refreshNames(){
         for (int i = 0; i < getRowCount()-1; i++){
-            if((getValueAt(i,0)).equals("New Student")){
+            if((getValueAt(i,1)).equals("New Student")){
                 removeRow(i);
                 grades.removeRow(i);
             }
         }
-        if((getRowCount()>0)){
-           addRow(new String[]{"New Student"});
+        if((getRowCount()>0)||studentNames.isEmpty()){
+           addRow(new Object[]{new Boolean(false),"New Student","(Doesnt","actually","work yet :) )"});
            grades.addRow(new Object[]{null});
         }
 
@@ -146,19 +151,37 @@ public class UsersTable extends DefaultTableModel{
                 return;
             switch (columnIndex) {
                 case 0:
-                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameFirst((String)aValue);
+                    if(getValueAt(rowIndex, columnIndex)==1)
+                        selected.add(currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())));
+                    else
+                        selected.remove(currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())));
                     return;
                 case 1:
-                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameLast((String) aValue);
+                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameFirst((String)aValue);
                     return;
                 case 2:
-                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setEmail((String) aValue);
+                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameLast((String) aValue);
                     return;
                 case 3:
-                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNumber((String) aValue);
+                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setEmail((String) aValue);
                     return;
+                case 4:
+                    if(((String)aValue).matches("^[0-9]+$")){
+                        currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNumber((String) aValue);
+                        return;
+                    }
+                    else return;
             }
         }
 
     }
+    @Override
+    public Class<?> getColumnClass(int colIndex) {
+        return getValueAt(0, colIndex).getClass();
+    }
+
+//
+//    public void setBool(int rowIndex){
+//        [0][rowIndex]=1;
+//    }
 }

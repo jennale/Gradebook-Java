@@ -33,7 +33,7 @@ public class GradesTable extends DefaultTableModel {
         if (currCourse.getDeliverableListSize()>0){
         for (int i = 0; i < currCourse.getDeliverableListSize(); i++){
             if(currCourse.getDeliverable(i)!=null){
-                addColumn(currCourse.getDeliverable(i).getName());
+                addColumn(currCourse.getDeliverable(i).getName()+" ["+(int)currCourse.getDeliverable(i).getWeight()+"%]");
             }
         }
         delivSize = currCourse.getDeliverableListSize();

@@ -2610,10 +2610,7 @@ public class GradebookGUI extends JFrame {
 			crs = gradebook.getCourse(courseMenuList.getSelectedIndex());
 			listCourses.set(courseMenuList.getSelectedIndex(), crs.getTitle()
 					+ ", " + crs.getCode() + crs.getTerm());
-
-<<<<<<< HEAD
-            updateTables();
-=======
+			
 			if (delete) {
 				DefaultListModel<String> listCourses = new DefaultListModel<String>();
 				for (int i = 0; i < gradebook.getCourseListSize(); i++) {
@@ -2624,7 +2621,7 @@ public class GradebookGUI extends JFrame {
 				courseMenuList.setModel(listCourses);
 				delete = false;
 			}
-
+			
 			listDelivers.clear();
 			for (int i = 0; i < currCourse.getDeliverableListSize(); i++) {
 				deliver = currCourse.getDeliverable(i);
@@ -2634,38 +2631,11 @@ public class GradebookGUI extends JFrame {
 					tableGrades.addColumn(deliver.getName());
 				}
 			}
-
-			tableStudents = new DefaultTableModel();
-			studentTable.setModel(tableStudents);
-			tableStudents.addColumn("First Name");
-			tableStudents.addColumn("Last Name");
-			tableStudents.addColumn("Number");
-			tableStudents.addColumn("Email");
-
-			for (int i = 0; i < currCourse.getStudentListSize(); i++) {
-				stud = currCourse.getStudent(i);
-				tableStudents
-						.addRow(new String[] { stud.getNameFirst(),
-								stud.getNameLast(), stud.getNumber(),
-								stud.getEmail() });
-			}
-
-			tableGrades = new DefaultTableModel();
-			gradesTable.setModel(tableGrades);
->>>>>>> FETCH_HEAD
-
-            listDelivers.clear();
-            for (int i = 0; i < currCourse.getDeliverableListSize(); i++) {
-                deliver = currCourse.getDeliverable(i);
-                if (deliver != null) {
-                    listDelivers.addElement(deliver.getName() + ", "
-                            + deliver.getType() + ", " + deliver.getWeight());
-                    tableGrades.addColumn(deliver.getName());
-                }
-            }
 			deleteDeliver.setVisible(false);
 			deleteStudent.setVisible(false);
-
+			
+			updateTables();
+			
 			txtEditCourseTitle.setText(currCourse.getTitle());
 			txtEditCourseCode.setText(currCourse.getCode());
 			comboEditCourseTerm.setSelectedItem(currCourse.getTerm());
@@ -2676,16 +2646,11 @@ public class GradebookGUI extends JFrame {
 			lblCourseSetup.setText("Course Setup: ");
 			courseName.setText("select course");
 			listDelivers.clear();
-<<<<<<< HEAD
             updateTables();
-=======
-			tableStudents = new DefaultTableModel();
-			tableGrades = new DefaultTableModel();
 			txtEditCourseTitle.setText("Please select a course");
 			txtEditCourseCode.setText("Please select a course");
 			comboEditCourseTerm.setSelectedItem(0);
 			lblEditCourseErrorLog.setText("");
->>>>>>> FETCH_HEAD
 		}
 	}
 

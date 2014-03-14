@@ -1,5 +1,7 @@
 package cs2212.team4;
 
+import java.io.File;
+
 /**
  *
  * CourseADT implements the method interface for the Course class.
@@ -216,7 +218,7 @@ public interface CourseADT
 	  * @param		path				String, the path were the file is located.
 	  * 
 	  */
-	public boolean importDeliverables(String path);
+	public boolean importDeliverables(File file);
 
 	/**
 	  * Exports the Deliverable objects located in deliverableList list to a .csv file.
@@ -226,7 +228,7 @@ public interface CourseADT
 	  * @return		boolean, true if the Deliverable objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportDeliverables(String path);
+	public boolean exportDeliverables(File file);
 	
 	/**
 	  * Imports a Student objects' Grade objects into the Course object.

@@ -1,6 +1,6 @@
 package cs2212.team4;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -48,57 +48,57 @@ public class GradebookTest
 	@Test
 	public void testGetCourse()
 	{
-		assertTrue(crs0.equals(gradebook.getCourse(0)));
-		assertFalse(crs.equals(gradebook.getCourse(0)));
+		Assert.assertTrue(crs0.equals(gradebook.getCourse(0)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(0)));
 		
-		assertTrue(crs1.equals(gradebook.getCourse(1)));
-		assertFalse(crs.equals(gradebook.getCourse(1)));
+		Assert.assertTrue(crs1.equals(gradebook.getCourse(1)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(1)));
 		
-		assertTrue(crs2.equals(gradebook.getCourse(2)));
-		assertFalse(crs.equals(gradebook.getCourse(2)));
+		Assert.assertTrue(crs2.equals(gradebook.getCourse(2)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(2)));
 		
-		assertTrue(crs3.equals(gradebook.getCourse(3)));
-		assertFalse(crs.equals(gradebook.getCourse(3)));
+		Assert.assertTrue(crs3.equals(gradebook.getCourse(3)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(3)));
 		
-		assertTrue(crs4.equals(gradebook.getCourse(4)));
-		assertFalse(crs.equals(gradebook.getCourse(4)));
+		Assert.assertTrue(crs4.equals(gradebook.getCourse(4)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(4)));
 		
-		assertTrue(crs5.equals(gradebook.getCourse(5)));
-		assertFalse(crs.equals(gradebook.getCourse(5)));
+		Assert.assertTrue(crs5.equals(gradebook.getCourse(5)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(5)));
 		
-		assertTrue(crs6.equals(gradebook.getCourse(6)));
-		assertFalse(crs.equals(gradebook.getCourse(6)));
+		Assert.assertTrue(crs6.equals(gradebook.getCourse(6)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(6)));
 		
-		assertTrue(crs7.equals(gradebook.getCourse(7)));
-		assertFalse(crs.equals(gradebook.getCourse(7)));
+		Assert.assertTrue(crs7.equals(gradebook.getCourse(7)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(7)));
 		
-		assertTrue(crs8.equals(gradebook.getCourse(8)));
-		assertFalse(crs.equals(gradebook.getCourse(8)));
+		Assert.assertTrue(crs8.equals(gradebook.getCourse(8)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(8)));
 		
-		assertTrue(crs9.equals(gradebook.getCourse(9)));
-		assertFalse(crs.equals(gradebook.getCourse(9)));
+		Assert.assertTrue(crs9.equals(gradebook.getCourse(9)));
+		Assert.assertFalse(crs.equals(gradebook.getCourse(9)));
 		
-		assertTrue(gradebook.getCourse(10)==null);
+		Assert.assertTrue(gradebook.getCourse(10)==null);
 	}
 
 	@Test
 	public void testGetPath()
 	{
-		assertTrue(gradebook.getPath().equals(""));
+		Assert.assertTrue(gradebook.getPath().equals(""));
 	}
 
 	@Test
 	public void testSetPath()
 	{
 		gradebook.setPath("New Path");
-		assertTrue(gradebook.getPath().equals("New Path"));
+		Assert.assertTrue(gradebook.getPath().equals("New Path"));
 	}
 
 	@Test
 	public void testStore()
 	{
-		assertTrue(gradebook.store());
-		assertTrue(gradebook.store());
+		Assert.assertTrue(gradebook.store());
+		Assert.assertTrue(gradebook.store());
 	}
 	
 	@Test
@@ -107,70 +107,70 @@ public class GradebookTest
 		gradebook.store();
 		Gradebook gradebook2=new Gradebook();
 		
-		assertTrue(crs0.equals(gradebook2.getCourse(0)));
-		assertFalse(crs.equals(gradebook2.getCourse(0)));
+		Assert.assertTrue(crs0.equals(gradebook2.getCourse(0)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(0)));
 		
-		assertTrue(crs1.equals(gradebook2.getCourse(1)));
-		assertFalse(crs.equals(gradebook2.getCourse(1)));
+		Assert.assertTrue(crs1.equals(gradebook2.getCourse(1)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(1)));
 		
-		assertTrue(crs2.equals(gradebook2.getCourse(2)));
-		assertFalse(crs.equals(gradebook2.getCourse(2)));
+		Assert.assertTrue(crs2.equals(gradebook2.getCourse(2)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(2)));
 		
-		assertTrue(crs3.equals(gradebook2.getCourse(3)));
-		assertFalse(crs.equals(gradebook2.getCourse(3)));
+		Assert.assertTrue(crs3.equals(gradebook2.getCourse(3)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(3)));
 		
-		assertTrue(crs4.equals(gradebook2.getCourse(4)));
-		assertFalse(crs.equals(gradebook2.getCourse(4)));
+		Assert.assertTrue(crs4.equals(gradebook2.getCourse(4)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(4)));
 		
-		assertTrue(crs5.equals(gradebook2.getCourse(5)));
-		assertFalse(crs.equals(gradebook2.getCourse(5)));
+		Assert.assertTrue(crs5.equals(gradebook2.getCourse(5)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(5)));
 		
-		assertTrue(crs6.equals(gradebook2.getCourse(6)));
-		assertFalse(crs.equals(gradebook2.getCourse(6)));
+		Assert.assertTrue(crs6.equals(gradebook2.getCourse(6)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(6)));
 		
-		assertTrue(crs7.equals(gradebook2.getCourse(7)));
-		assertFalse(crs.equals(gradebook2.getCourse(7)));
+		Assert.assertTrue(crs7.equals(gradebook2.getCourse(7)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(7)));
 		
-		assertTrue(crs8.equals(gradebook2.getCourse(8)));
-		assertFalse(crs.equals(gradebook2.getCourse(8)));
+		Assert.assertTrue(crs8.equals(gradebook2.getCourse(8)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(8)));
 		
-		assertTrue(crs9.equals(gradebook2.getCourse(9)));
-		assertFalse(crs.equals(gradebook2.getCourse(9)));
+		Assert.assertTrue(crs9.equals(gradebook2.getCourse(9)));
+		Assert.assertFalse(crs.equals(gradebook2.getCourse(9)));
 		
-		assertTrue(gradebook2.getCourse(10)==null);
+		Assert.assertTrue(gradebook2.getCourse(10)==null);
 	}
 
 	@Test
 	public void testAddCourse()
 	{
 		//Add none-existent Course objects to the Gradebook object.
-		assertTrue(gradebook.addCourse("Title0", "Term0", "Code0"));
-		assertTrue(gradebook.addCourse("Title1", "Term1", "Code1"));
-		assertTrue(gradebook.addCourse("Title2", "Term2", "Code2"));
-		assertTrue(gradebook.addCourse("Title3", "Term3", "Code3"));
-		assertTrue(gradebook.addCourse("Title4", "Term4", "Code4"));
+		Assert.assertTrue(gradebook.addCourse("Title0", "Term0", "Code0"));
+		Assert.assertTrue(gradebook.addCourse("Title1", "Term1", "Code1"));
+		Assert.assertTrue(gradebook.addCourse("Title2", "Term2", "Code2"));
+		Assert.assertTrue(gradebook.addCourse("Title3", "Term3", "Code3"));
+		Assert.assertTrue(gradebook.addCourse("Title4", "Term4", "Code4"));
 		//Add existent Course objects to the Gradebook object.
-		assertFalse(gradebook.addCourse("Computer Science", "B", "2209"));
-		assertFalse(gradebook.addCourse("Computer Science", "B", "2212"));
-		assertFalse(gradebook.addCourse("Computer Science", "B", "3340"));
-		assertFalse(gradebook.addCourse("Computer Science", "B", "3342"));
-		assertFalse(gradebook.addCourse("Writing", "G", "2207"));
+		Assert.assertFalse(gradebook.addCourse("Computer Science", "B", "2209"));
+		Assert.assertFalse(gradebook.addCourse("Computer Science", "B", "2212"));
+		Assert.assertFalse(gradebook.addCourse("Computer Science", "B", "3340"));
+		Assert.assertFalse(gradebook.addCourse("Computer Science", "B", "3342"));
+		Assert.assertFalse(gradebook.addCourse("Writing", "G", "2207"));
 	}
 
 	@Test
 	public void testRemoveCourse()
 	{
 		//Remove existent Course objects to the Gradebook object.
-		assertTrue(gradebook.removeCourse(crs0));
-		assertTrue(gradebook.removeCourse(crs1));
-		assertTrue(gradebook.removeCourse(crs2));
-		assertTrue(gradebook.removeCourse(crs3));
-		assertTrue(gradebook.removeCourse(crs4));
+		Assert.assertTrue(gradebook.removeCourse(crs0));
+		Assert.assertTrue(gradebook.removeCourse(crs1));
+		Assert.assertTrue(gradebook.removeCourse(crs2));
+		Assert.assertTrue(gradebook.removeCourse(crs3));
+		Assert.assertTrue(gradebook.removeCourse(crs4));
 		//Remove none-existent Course objects to the Gradebook object.
-		assertFalse(gradebook.removeCourse(new Course ("Title0", "Term0", "Code0")));
-		assertFalse(gradebook.removeCourse(new Course ("Title1", "Term1", "Code1")));
-		assertFalse(gradebook.removeCourse(new Course ("Title2", "Term2", "Code2")));
-		assertFalse(gradebook.removeCourse(new Course ("Title3", "Term3", "Code3")));
-		assertFalse(gradebook.removeCourse(new Course ("Title4", "Term4", "Code4")));
+		Assert.assertFalse(gradebook.removeCourse(new Course ("Title0", "Term0", "Code0")));
+		Assert.assertFalse(gradebook.removeCourse(new Course ("Title1", "Term1", "Code1")));
+		Assert.assertFalse(gradebook.removeCourse(new Course ("Title2", "Term2", "Code2")));
+		Assert.assertFalse(gradebook.removeCourse(new Course ("Title3", "Term3", "Code3")));
+		Assert.assertFalse(gradebook.removeCourse(new Course ("Title4", "Term4", "Code4")));
 	}
 }

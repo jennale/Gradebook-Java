@@ -1,6 +1,6 @@
 package cs2212.team4;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,33 +28,33 @@ public class GradeTest
 	@Test
 	public void testGetGrade() 
 	{
-		assertTrue(grd0.getGrade()==91);
-		assertTrue(grd1.getGrade()==91);
-		assertTrue(grd2.getGrade()==50);
-		assertTrue(grd3.getGrade()==100);
-		assertTrue(grd4.getGrade()==95);
+		Assert.assertTrue(grd0.getGrade()==91);
+		Assert.assertTrue(grd1.getGrade()==91);
+		Assert.assertTrue(grd2.getGrade()==50);
+		Assert.assertTrue(grd3.getGrade()==100);
+		Assert.assertTrue(grd4.getGrade()==95);
 		
-		assertFalse(grd0.getGrade()==0);
-		assertFalse(grd1.getGrade()==0);
-		assertFalse(grd2.getGrade()==0);
-		assertFalse(grd3.getGrade()==0);
-		assertFalse(grd4.getGrade()==0);
+		Assert.assertFalse(grd0.getGrade()==0);
+		Assert.assertFalse(grd1.getGrade()==0);
+		Assert.assertFalse(grd2.getGrade()==0);
+		Assert.assertFalse(grd3.getGrade()==0);
+		Assert.assertFalse(grd4.getGrade()==0);
 	}
 
 	@Test
 	public void testGetWeight()
 	{
-		assertTrue(grd0.getWeight()==0.01);
-		assertTrue(grd1.getWeight()==0.07);
-		assertTrue(grd2.getWeight()==0.07);
-		assertTrue(grd3.getWeight()==0.50);
-		assertTrue(grd4.getWeight()==0.35);
+		Assert.assertTrue(grd0.getWeight()==0.01);
+		Assert.assertTrue(grd1.getWeight()==0.07);
+		Assert.assertTrue(grd2.getWeight()==0.07);
+		Assert.assertTrue(grd3.getWeight()==0.50);
+		Assert.assertTrue(grd4.getWeight()==0.35);
 		
-		assertFalse(grd0.getWeight()==0);
-		assertFalse(grd1.getWeight()==0);
-		assertFalse(grd2.getWeight()==0);
-		assertFalse(grd3.getWeight()==0);
-		assertFalse(grd4.getWeight()==0);
+		Assert.assertFalse(grd0.getWeight()==0);
+		Assert.assertFalse(grd1.getWeight()==0);
+		Assert.assertFalse(grd2.getWeight()==0);
+		Assert.assertFalse(grd3.getWeight()==0);
+		Assert.assertFalse(grd4.getWeight()==0);
 	}
 
 	@Test
@@ -66,17 +66,17 @@ public class GradeTest
 		grd3.setGrade(90);
 		grd4.setGrade(85);
 		
-		assertTrue(grd0.getGrade()==91);
-		assertTrue(grd1.getGrade()==94);
-		assertTrue(grd2.getGrade()==50);
-		assertTrue(grd3.getGrade()==90);
-		assertTrue(grd4.getGrade()==85);
+		Assert.assertTrue(grd0.getGrade()==91);
+		Assert.assertTrue(grd1.getGrade()==94);
+		Assert.assertTrue(grd2.getGrade()==50);
+		Assert.assertTrue(grd3.getGrade()==90);
+		Assert.assertTrue(grd4.getGrade()==85);
 		
-		assertFalse(grd0.getGrade()==0);
-		assertFalse(grd1.getGrade()==0);
-		assertFalse(grd2.getGrade()==0);
-		assertFalse(grd3.getGrade()==0);
-		assertFalse(grd4.getGrade()==0);
+		Assert.assertFalse(grd0.getGrade()==0);
+		Assert.assertFalse(grd1.getGrade()==0);
+		Assert.assertFalse(grd2.getGrade()==0);
+		Assert.assertFalse(grd3.getGrade()==0);
+		Assert.assertFalse(grd4.getGrade()==0);
 	}
 
 	@Test
@@ -88,16 +88,16 @@ public class GradeTest
 		grd3.setWeight(0.45);
 		grd4.setWeight(0.30);
 		
-		assertTrue(grd0.getWeight()==0.05);
-		assertTrue(grd1.getWeight()==0.10);
-		assertTrue(grd2.getWeight()==0.10);
-		assertTrue(grd3.getWeight()==0.45);
-		assertTrue(grd4.getWeight()==0.30);
+		Assert.assertTrue(grd0.getWeight()==0.05);
+		Assert.assertTrue(grd1.getWeight()==0.10);
+		Assert.assertTrue(grd2.getWeight()==0.10);
+		Assert.assertTrue(grd3.getWeight()==0.45);
+		Assert.assertTrue(grd4.getWeight()==0.30);
 		
-		assertFalse(grd0.getWeight()==0);
-		assertFalse(grd1.getWeight()==0);
-		assertFalse(grd2.getWeight()==0);
-		assertFalse(grd3.getWeight()==0);
-		assertFalse(grd4.getWeight()==0);
+		Assert.assertFalse(grd0.getWeight()==0);
+		Assert.assertFalse(grd1.getWeight()==0);
+		Assert.assertFalse(grd2.getWeight()==0);
+		Assert.assertFalse(grd3.getWeight()==0);
+		Assert.assertFalse(grd4.getWeight()==0);
 	}
 }

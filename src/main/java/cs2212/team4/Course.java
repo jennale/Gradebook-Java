@@ -412,9 +412,10 @@ public class Course implements CourseADT, Serializable
 	public boolean importStudents(String path)
 	{
 		String[] sAry = { "nameLast", "nameFirst", "number", "email" };
+		String[] tempAry;
 		try {
 			CSVReader reader = new CSVReader(new FileReader(path));
-			if (reader.readNext().equals(sAry)) {
+			if ((tempAry=reader.readNext())!=null&&reader.readNext().equals(sAry)) {
 				reader.close();
 				return false;
 			}
@@ -462,13 +463,13 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Imports a Deliverable objects into the Course object.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file				File, the path were the file is located.
 	  * 
 	  */
-	public boolean importDeliverables(String path) {
+	public boolean importDeliverables(File file) {
 		String[] dAry = { "name", "type", "weight" };
 		try {
-			CSVReader reader = new CSVReader(new FileReader(path));
+			CSVReader reader = new CSVReader(new FileReader(file));
 			if (reader.readNext().equals(dAry)) {
 				reader.close();
 				return false;
@@ -499,14 +500,14 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the Deliverable objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportDeliverables(String path) {
+	public boolean exportDeliverables(File file) {
 		try {
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(new File(path + code + term
-							+ "deliver.csv"))));
+					new FileOutputStream(file)));
 			bw.write("\"name\", \"type\", \"weight\"\n");
 			for (int i = 0; i < deliverableList.size(); i++)
-				bw.write(deliverableList.get(i).toString());
+				if (deliverableList.get(i)!=null)
+					bw.write(deliverableList.get(i).toString());
 			bw.close();
 			return true;
 		} catch (IOException e) {

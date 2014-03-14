@@ -1,11 +1,14 @@
 package cs2212.team4;
 
 import java.awt.*;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
 import javax.swing.border.Border;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -79,20 +82,16 @@ public class GradebookGUI extends JFrame {
 		studentTable.setModel(tableStudents);
 		gradesTable.setModel(tableStudents.getGradesTable());
 
-		addCourse.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
-				204)));
-		addDeliver.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
-				204)));
-		addStudent.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
-				204)));
-		deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(204,
-				204, 204)));
-		deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(204,
-				204, 204)));
 		deleteDeliver.setVisible(false);
 		deleteStudent.setVisible(false);
+
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height
+				/ 2 - this.getSize().height / 2);
 	}
 
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
@@ -168,6 +167,8 @@ public class GradebookGUI extends JFrame {
 		gradesTable = new javax.swing.JTable();
 		deleteDeliver = new javax.swing.JLabel();
 		deleteStudent = new javax.swing.JLabel();
+		lblExportStudents = new javax.swing.JLabel();
+		lblImportStudents = new javax.swing.JLabel();
 		tabSetup = new javax.swing.JPanel();
 		lblCourseSetup = new javax.swing.JLabel();
 		lblEditCourseTtile = new javax.swing.JLabel();
@@ -189,8 +190,8 @@ public class GradebookGUI extends JFrame {
 		txtEditDeliverWeight = new javax.swing.JTextField();
 		lblEditDeliverErrorLog = new javax.swing.JLabel();
 		lblEditDeliver = new javax.swing.JLabel();
-		lblImportDelivers = new javax.swing.JLabel();
 		lblExportDelivers = new javax.swing.JLabel();
+		lblImportDelivers = new javax.swing.JLabel();
 		lblCourseDeliverables = new javax.swing.JLabel();
 		tabReports = new javax.swing.JPanel();
 		lyrActiveCourse = new javax.swing.JLayeredPane();
@@ -365,6 +366,8 @@ public class GradebookGUI extends JFrame {
 		addCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource(
 				"/cs2212/team4/addCourse.png"))); // NOI18N
 		addCourse.setText("Add Course");
+		addCourse.setBorder(javax.swing.BorderFactory
+				.createLineBorder(java.awt.Color.lightGray));
 		addCourse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		addCourse.setPreferredSize(new java.awt.Dimension(110, 30));
 		addCourse.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1410,7 +1413,7 @@ public class GradebookGUI extends JFrame {
 		container.setPreferredSize(new java.awt.Dimension(1080, 500));
 
 		tabGrades.setBackground(new java.awt.Color(255, 255, 255));
-		tabGrades.setPreferredSize(new java.awt.Dimension(1080, 480));
+		tabGrades.setPreferredSize(new java.awt.Dimension(1080, 490));
 
 		deliverList
 				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -1448,6 +1451,8 @@ public class GradebookGUI extends JFrame {
 		addDeliver.setIcon(new javax.swing.ImageIcon(getClass().getResource(
 				"/cs2212/team4/addDeliver.png"))); // NOI18N
 		addDeliver.setText("Add Deliverable");
+		addDeliver.setBorder(javax.swing.BorderFactory
+				.createLineBorder(java.awt.Color.lightGray));
 		addDeliver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		addDeliver.setMaximumSize(new java.awt.Dimension(95, 40));
 		addDeliver.setMinimumSize(new java.awt.Dimension(95, 40));
@@ -1474,8 +1479,10 @@ public class GradebookGUI extends JFrame {
 		addStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource(
 				"/cs2212/team4/addStudent.png"))); // NOI18N
 		addStudent.setText("Add Student");
+		addStudent.setBorder(javax.swing.BorderFactory
+				.createLineBorder(java.awt.Color.lightGray));
 		addStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		addStudent.setPreferredSize(new java.awt.Dimension(110, 30));
+		addStudent.setPreferredSize(new java.awt.Dimension(120, 30));
 		addStudent.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				addStudentMouseClicked(evt);
@@ -1551,6 +1558,7 @@ public class GradebookGUI extends JFrame {
 				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				pnlTablesLayout
 						.createSequentialGroup()
+						.addGap(0, 0, 0)
 						.addComponent(studentScroll,
 								javax.swing.GroupLayout.PREFERRED_SIZE,
 								javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -1570,6 +1578,8 @@ public class GradebookGUI extends JFrame {
 
 		deleteDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		deleteDeliver.setText("Delete Deliverable");
+		deleteDeliver.setBorder(javax.swing.BorderFactory
+				.createLineBorder(java.awt.Color.lightGray));
 		deleteDeliver
 				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		deleteDeliver.setPreferredSize(new java.awt.Dimension(110, 30));
@@ -1593,9 +1603,11 @@ public class GradebookGUI extends JFrame {
 
 		deleteStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		deleteStudent.setText("Delete Student");
+		deleteStudent.setBorder(javax.swing.BorderFactory
+				.createLineBorder(java.awt.Color.lightGray));
 		deleteStudent
 				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		deleteStudent.setPreferredSize(new java.awt.Dimension(110, 30));
+		deleteStudent.setPreferredSize(new java.awt.Dimension(120, 30));
 		deleteStudent.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				deleteStudentMouseClicked(evt);
@@ -1614,6 +1626,66 @@ public class GradebookGUI extends JFrame {
 			}
 		});
 
+		lblExportStudents
+				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblExportStudents.setText("Export Students");
+		lblExportStudents.setBorder(javax.swing.BorderFactory
+				.createLineBorder(java.awt.Color.lightGray));
+		lblExportStudents.setCursor(new java.awt.Cursor(
+				java.awt.Cursor.HAND_CURSOR));
+		lblExportStudents.setPreferredSize(new java.awt.Dimension(120, 30));
+		lblExportStudents.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblExportStudentsMouseClicked(evt);
+			}
+
+			public void mouseEntered(java.awt.event.MouseEvent evt) {
+				lblExportStudentsMouseEntered(evt);
+			}
+
+			public void mouseExited(java.awt.event.MouseEvent evt) {
+				lblExportStudentsMouseExited(evt);
+			}
+
+			public void mousePressed(java.awt.event.MouseEvent evt) {
+				lblExportStudentsMousePressed(evt);
+			}
+
+			public void mouseReleased(java.awt.event.MouseEvent evt) {
+				lblExportStudentsMouseReleased(evt);
+			}
+		});
+
+		lblImportStudents
+				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblImportStudents.setText("Import Students");
+		lblImportStudents.setBorder(javax.swing.BorderFactory
+				.createLineBorder(java.awt.Color.lightGray));
+		lblImportStudents.setCursor(new java.awt.Cursor(
+				java.awt.Cursor.HAND_CURSOR));
+		lblImportStudents.setPreferredSize(new java.awt.Dimension(120, 30));
+		lblImportStudents.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblImportStudentsMouseClicked(evt);
+			}
+
+			public void mouseEntered(java.awt.event.MouseEvent evt) {
+				lblImportStudentsMouseEntered(evt);
+			}
+
+			public void mouseExited(java.awt.event.MouseEvent evt) {
+				lblImportStudentsMouseExited(evt);
+			}
+
+			public void mousePressed(java.awt.event.MouseEvent evt) {
+				lblImportStudentsMousePressed(evt);
+			}
+
+			public void mouseReleased(java.awt.event.MouseEvent evt) {
+				lblImportStudentsMouseReleased(evt);
+			}
+		});
+
 		javax.swing.GroupLayout tabGradesLayout = new javax.swing.GroupLayout(
 				tabGrades);
 		tabGrades.setLayout(tabGradesLayout);
@@ -1624,7 +1696,7 @@ public class GradebookGUI extends JFrame {
 						.addGroup(
 								tabGradesLayout
 										.createSequentialGroup()
-										.addContainerGap()
+										.addGap(10, 10, 10)
 										.addGroup(
 												tabGradesLayout
 														.createParallelGroup(
@@ -1668,25 +1740,46 @@ public class GradebookGUI extends JFrame {
 										.addGroup(
 												tabGradesLayout
 														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
+																javax.swing.GroupLayout.Alignment.LEADING,
+																false)
 														.addComponent(
 																pnlTables,
-																javax.swing.GroupLayout.Alignment.TRAILING,
 																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																addStudent,
-																javax.swing.GroupLayout.Alignment.TRAILING,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																deleteStudent,
-																javax.swing.GroupLayout.Alignment.TRAILING,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
+														.addGroup(
+																tabGradesLayout
+																		.createSequentialGroup()
+																		.addComponent(
+																				addStudent,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		.addGap(10,
+																				10,
+																				10)
+																		.addComponent(
+																				deleteStudent,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		.addPreferredGap(
+																				javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				Short.MAX_VALUE)
+																		.addComponent(
+																				lblExportStudents,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		.addGap(10,
+																				10,
+																				10)
+																		.addComponent(
+																				lblImportStudents,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)))
 										.addContainerGap()));
 		tabGradesLayout
 				.setVerticalGroup(tabGradesLayout
@@ -1696,21 +1789,50 @@ public class GradebookGUI extends JFrame {
 								javax.swing.GroupLayout.Alignment.TRAILING,
 								tabGradesLayout
 										.createSequentialGroup()
+										.addGap(5, 5, 5)
 										.addGroup(
 												tabGradesLayout
 														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(
-																courseName,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																40,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																editCourseIcon,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(0, 0, 0)
+																javax.swing.GroupLayout.Alignment.TRAILING)
+														.addGroup(
+																tabGradesLayout
+																		.createParallelGroup(
+																				javax.swing.GroupLayout.Alignment.LEADING)
+																		.addComponent(
+																				courseName,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				40,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		.addComponent(
+																				editCourseIcon,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE))
+														.addGroup(
+																tabGradesLayout
+																		.createParallelGroup(
+																				javax.swing.GroupLayout.Alignment.BASELINE)
+																		.addComponent(
+																				addStudent,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		.addComponent(
+																				deleteStudent,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		.addComponent(
+																				lblImportStudents,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		.addComponent(
+																				lblExportStudents,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)))
+										.addGap(5, 5, 5)
 										.addGroup(
 												tabGradesLayout
 														.createParallelGroup(
@@ -1725,43 +1847,21 @@ public class GradebookGUI extends JFrame {
 																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												tabGradesLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																tabGradesLayout
-																		.createSequentialGroup()
-																		.addComponent(
-																				addDeliver,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				deleteDeliver,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addGroup(
-																tabGradesLayout
-																		.createSequentialGroup()
-																		.addComponent(
-																				addStudent,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				deleteStudent,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addGap(18, 18, 18)));
+										.addGap(10, 10, 10)
+										.addComponent(
+												addDeliver,
+												javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addGap(10, 10, 10)
+										.addComponent(
+												deleteDeliver,
+												javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addContainerGap(
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												Short.MAX_VALUE)));
 
 		tabSetup.setBackground(new java.awt.Color(255, 255, 255));
 		tabSetup.setPreferredSize(new java.awt.Dimension(1080, 480));
@@ -1819,7 +1919,7 @@ public class GradebookGUI extends JFrame {
 		comboEditCourseTerm.setPreferredSize(new java.awt.Dimension(80, 30));
 
 		lblEditCourseErrorLog.setForeground(new java.awt.Color(255, 0, 0));
-		lblEditCourseErrorLog.setPreferredSize(new java.awt.Dimension(330, 30));
+		lblEditCourseErrorLog.setPreferredSize(new java.awt.Dimension(330, 20));
 
 		lblEditCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		lblEditCourse.setText("Submit Changes");
@@ -1971,36 +2071,6 @@ public class GradebookGUI extends JFrame {
 			}
 		});
 
-		lblImportDelivers
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblImportDelivers.setText("Import Deliverables");
-		lblImportDelivers.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblImportDelivers.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblImportDelivers.setPreferredSize(new java.awt.Dimension(200, 30));
-		lblImportDelivers.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMouseReleased(evt);
-			}
-		});
-
 		lblExportDelivers
 				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		lblExportDelivers.setText("Export Deliverables");
@@ -2008,7 +2078,7 @@ public class GradebookGUI extends JFrame {
 				.createLineBorder(java.awt.Color.lightGray));
 		lblExportDelivers.setCursor(new java.awt.Cursor(
 				java.awt.Cursor.HAND_CURSOR));
-		lblExportDelivers.setPreferredSize(new java.awt.Dimension(200, 30));
+		lblExportDelivers.setPreferredSize(new java.awt.Dimension(150, 30));
 		lblExportDelivers.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				lblExportDeliversMouseClicked(evt);
@@ -2028,6 +2098,36 @@ public class GradebookGUI extends JFrame {
 
 			public void mouseReleased(java.awt.event.MouseEvent evt) {
 				lblExportDeliversMouseReleased(evt);
+			}
+		});
+
+		lblImportDelivers
+				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblImportDelivers.setText("Import Deliverables");
+		lblImportDelivers.setBorder(javax.swing.BorderFactory
+				.createLineBorder(java.awt.Color.lightGray));
+		lblImportDelivers.setCursor(new java.awt.Cursor(
+				java.awt.Cursor.HAND_CURSOR));
+		lblImportDelivers.setPreferredSize(new java.awt.Dimension(150, 30));
+		lblImportDelivers.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblImportDeliversMouseClicked(evt);
+			}
+
+			public void mouseEntered(java.awt.event.MouseEvent evt) {
+				lblImportDeliversMouseEntered(evt);
+			}
+
+			public void mouseExited(java.awt.event.MouseEvent evt) {
+				lblImportDeliversMouseExited(evt);
+			}
+
+			public void mousePressed(java.awt.event.MouseEvent evt) {
+				lblImportDeliversMousePressed(evt);
+			}
+
+			public void mouseReleased(java.awt.event.MouseEvent evt) {
+				lblImportDeliversMouseReleased(evt);
 			}
 		});
 
@@ -2208,32 +2308,28 @@ public class GradebookGUI extends JFrame {
 										.addGroup(
 												tabSetupLayout
 														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																tabSetupLayout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.LEADING,
-																				false)
-																		.addComponent(
-																				lblExportDelivers,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(
-																				lblImportDelivers,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(
-																				editDeliverListScroll,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				0,
-																				Short.MAX_VALUE))
+																javax.swing.GroupLayout.Alignment.LEADING,
+																false)
+														.addComponent(
+																editDeliverListScroll,
+																javax.swing.GroupLayout.PREFERRED_SIZE,
+																0,
+																Short.MAX_VALUE)
 														.addComponent(
 																lblCourseDeliverables,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																Short.MAX_VALUE)
+														.addComponent(
+																lblImportDelivers,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																Short.MAX_VALUE)
+														.addComponent(
+																lblExportDelivers,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																Short.MAX_VALUE))
 										.addGap(520, 520, 520)));
 		tabSetupLayout
 				.setVerticalGroup(tabSetupLayout
@@ -2249,17 +2345,17 @@ public class GradebookGUI extends JFrame {
 														.addGroup(
 																tabSetupLayout
 																		.createSequentialGroup()
-																		.addGap(20,
-																				20,
-																				20)
+																		.addGap(10,
+																				10,
+																				10)
 																		.addComponent(
 																				lblCourseSetup))
 														.addGroup(
 																tabSetupLayout
 																		.createSequentialGroup()
-																		.addGap(35,
-																				35,
-																				35)
+																		.addGap(25,
+																				25,
+																				25)
 																		.addComponent(
 																				lblCourseDeliverables,
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -2330,8 +2426,9 @@ public class GradebookGUI extends JFrame {
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
 																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+																		.addGap(5,
+																				5,
+																				5)
 																		.addComponent(
 																				lblEditCourse,
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -2345,9 +2442,9 @@ public class GradebookGUI extends JFrame {
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
 																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(10,
-																				10,
-																				10)
+																		.addGap(15,
+																				15,
+																				15)
 																		.addGroup(
 																				tabSetupLayout
 																						.createParallelGroup(
@@ -2398,26 +2495,23 @@ public class GradebookGUI extends JFrame {
 																								javax.swing.GroupLayout.PREFERRED_SIZE)))
 														.addComponent(
 																editDeliverListScroll))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
+										.addGap(5, 5, 5)
 										.addGroup(
 												tabSetupLayout
 														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING,
-																false)
-														.addComponent(
-																lblImportDelivers,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE)
+																javax.swing.GroupLayout.Alignment.LEADING)
 														.addComponent(
 																lblEditDeliverErrorLog,
+																javax.swing.GroupLayout.PREFERRED_SIZE,
+																30,
+																javax.swing.GroupLayout.PREFERRED_SIZE)
+														.addComponent(
+																lblImportDelivers,
+																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
-										.addGap(5, 5, 5)
+																javax.swing.GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(
+												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 										.addGroup(
 												tabSetupLayout
 														.createParallelGroup(
@@ -2432,7 +2526,7 @@ public class GradebookGUI extends JFrame {
 																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(20, 20, 20)));
+										.addContainerGap(36, Short.MAX_VALUE)));
 
 		tabReports.setBackground(new java.awt.Color(255, 255, 255));
 		tabReports.setPreferredSize(new java.awt.Dimension(1080, 480));
@@ -2444,7 +2538,7 @@ public class GradebookGUI extends JFrame {
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGap(0, 1090, Short.MAX_VALUE));
 		tabReportsLayout.setVerticalGroup(tabReportsLayout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 490,
+				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 500,
 				Short.MAX_VALUE));
 
 		javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(
@@ -2490,7 +2584,7 @@ public class GradebookGUI extends JFrame {
 				.setVerticalGroup(containerLayout
 						.createParallelGroup(
 								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGap(0, 490, Short.MAX_VALUE)
+						.addGap(0, 500, Short.MAX_VALUE)
 						.addGroup(
 								containerLayout
 										.createParallelGroup(
@@ -2507,7 +2601,7 @@ public class GradebookGUI extends JFrame {
 										.addComponent(
 												tabReports,
 												javax.swing.GroupLayout.DEFAULT_SIZE,
-												490, Short.MAX_VALUE))
+												500, Short.MAX_VALUE))
 						.addGroup(
 								containerLayout
 										.createParallelGroup(
@@ -2529,7 +2623,7 @@ public class GradebookGUI extends JFrame {
 		getContentPane().add(
 				container,
 				new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1,
-						490));
+						-1));
 
 		lyrActiveCourse
 				.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -3383,6 +3477,111 @@ public class GradebookGUI extends JFrame {
 		updateInfo();
 	}// GEN-LAST:event_lblAddStudentMouseClicked
 
+	private void lblExportStudentsMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseClicked
+		if (currCourse != null) {
+			final JFileChooser exportStudents = new JFileChooser();
+			exportStudents.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			int returnVal = exportStudents.showSaveDialog(this);
+
+			if (returnVal == 0) {
+				File file = new File(exportStudents.getSelectedFile(),
+						currCourse.getCode() + currCourse.getTerm()
+								+ "Students.csv");
+				if (!currCourse.exportDeliverables(file)) {
+					System.out.println("dghrwhdteqthjgrwte");
+				}
+				updateInfo();
+			}
+		}
+	}// GEN-LAST:event_lblExportStudentsMouseClicked
+
+	private void lblExportStudentsMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseEntered
+		if (currCourse != null)
+			lblExportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblExportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblExportStudentsMouseEntered
+
+	private void lblExportStudentsMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseExited
+		lblExportStudents.setBorder(BorderFactory.createLineBorder(new Color(
+				204, 204, 204)));
+	}// GEN-LAST:event_lblExportStudentsMouseExited
+
+	private void lblExportStudentsMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMousePressed
+		if (currCourse != null)
+			lblExportStudents.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(20, 150, 250), new Color(20, 150, 250),
+					new Color(20, 150, 250), new Color(20, 150, 250)));
+		else {
+			lblExportStudents.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+			// lblEditCourseErrorLog.setText("Please select a course");
+		}
+	}// GEN-LAST:event_lblExportStudentsMousePressed
+
+	private void lblExportStudentsMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseReleased
+		if (currCourse != null)
+			lblExportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblExportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblExportStudentsMouseReleased
+
+	private void lblImportStudentsMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseClicked
+		if (currCourse != null) {
+			final JFileChooser importStudents = new JFileChooser();
+			int returnVal = importStudents.showOpenDialog(this);
+
+			if (returnVal == 0) {
+				if (!currCourse.importDeliverables(importStudents
+						.getSelectedFile())) {
+					System.out.println("dghrwhdteqthjgrwte");
+				}
+				updateInfo();
+			}
+		}
+	}// GEN-LAST:event_lblImportStudentsMouseClicked
+
+	private void lblImportStudentsMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseEntered
+		if (currCourse != null)
+			lblImportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblImportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblImportStudentsMouseEntered
+
+	private void lblImportStudentsMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseExited
+		lblImportStudents.setBorder(BorderFactory.createLineBorder(new Color(
+				204, 204, 204)));
+	}// GEN-LAST:event_lblImportStudentsMouseExited
+
+	private void lblImportStudentsMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMousePressed
+		if (currCourse != null)
+			lblImportStudents.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(20, 150, 250), new Color(20, 150, 250),
+					new Color(20, 150, 250), new Color(20, 150, 250)));
+		else {
+			lblImportStudents.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+			// lblEditCourseErrorLog.setText("Please select a course");
+		}
+	}// GEN-LAST:event_lblImportStudentsMousePressed
+
+	private void lblImportStudentsMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseReleased
+		if (currCourse != null)
+			lblImportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblImportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblImportStudentsMouseReleased
+
 	/*****************************************************************************************************************
 	 ***************************************************************************************************************** 
 	 * End: Add Students Panel
@@ -3547,7 +3746,6 @@ public class GradebookGUI extends JFrame {
 	 ***************************************************************************************************************** 
 	 ***************************************************************************************************************** 
 	 */
-
 	/*****************************************************************************************************************
 	 ***************************************************************************************************************** 
 	 ***************************************************************************************************************** 
@@ -3725,9 +3923,18 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblEditDeliverMouseReleased
 
 	private void lblImportDeliversMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseClicked
-		if (currCourse != null)
-			currCourse.importDeliverables("2212Bdeliver.csv");
-		updateInfo();
+		if (currCourse != null) {
+			final JFileChooser importDeliver = new JFileChooser();
+			int returnVal = importDeliver.showOpenDialog(this);
+
+			if (returnVal == 0) {
+				if (!currCourse.importDeliverables(importDeliver
+						.getSelectedFile())) {
+					System.out.println("dghrwhdteqthjgrwte");
+				}
+				updateInfo();
+			}
+		}
 	}// GEN-LAST:event_lblImportDeliversMouseClicked
 
 	private void lblImportDeliversMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseEntered
@@ -3767,8 +3974,20 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblImportDeliversMouseReleased
 
 	private void lblExportDeliversMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseClicked
-		if (currCourse != null)
-			currCourse.exportDeliverables("");
+		if (currCourse != null) {
+			final JFileChooser importDeliver = new JFileChooser();
+			importDeliver.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			int returnVal = importDeliver.showSaveDialog(this);
+
+			if (returnVal == 0) {
+				File file = new File(importDeliver.getSelectedFile(),
+						currCourse.getCode() + currCourse.getTerm() + ".csv");
+				if (!currCourse.exportDeliverables(file)) {
+					System.out.println("dghrwhdteqthjgrwte");
+				}
+				updateInfo();
+			}
+		}
 	}// GEN-LAST:event_lblExportDeliversMouseClicked
 
 	private void lblExportDeliversMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseEntered
@@ -4088,8 +4307,10 @@ public class GradebookGUI extends JFrame {
 	private javax.swing.JLabel lblEditDeliverWeight;
 	private javax.swing.JLabel lblExit;
 	private javax.swing.JLabel lblExportDelivers;
+	private javax.swing.JLabel lblExportStudents;
 	private javax.swing.JLabel lblGrades;
 	private javax.swing.JLabel lblImportDelivers;
+	private javax.swing.JLabel lblImportStudents;
 	private javax.swing.JLabel lblMini;
 	private javax.swing.JLabel lblReports;
 	private javax.swing.JLabel lblSetup;

@@ -22,8 +22,8 @@ public class GradebookGUI extends JFrame {
 	private DefaultListModel<String> listCourses = new DefaultListModel<String>();
 	private DefaultListModel<String> listDelivers = new DefaultListModel<String>();
 
-	UsersTable tableStudents;
-	GradesTable tableGrades;
+	UsersTable tableStudents = new UsersTable();
+	GradesTable tableGrades = tableStudents.getGradesTable();
 
 	private Font helvetica = new java.awt.Font("Times New Roman", 1, 14);
 
@@ -76,7 +76,8 @@ public class GradebookGUI extends JFrame {
 		else
 			listCourses.addElement("No Courses");
 
-        updateTables();
+		studentTable.setModel(tableStudents);
+		gradesTable.setModel(tableStudents.getGradesTable());
 
 		addCourse.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
 				204)));
@@ -2788,15 +2789,10 @@ public class GradebookGUI extends JFrame {
      * Update tables
      */
     private void updateTables(){
-        if(currCourse==null)
-            return;
-        else {
+        if(currCourse!=null)
             makeTables();
-        }
         studentTable.setModel(tableStudents);
-        studentTable.getColumnModel().getColumn(0).setPreferredWidth(15);
         gradesTable.setModel(tableGrades);
-
     }
 
     private void makeTables(){

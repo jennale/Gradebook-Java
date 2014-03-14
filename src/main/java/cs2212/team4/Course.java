@@ -219,7 +219,7 @@ public class Course implements CourseADT, Serializable
 		return true;
 	}
 
-	/**
+	/**s
 	  * Checks if the string provided already belongs to another Student object inside the studentList list.
 	  * 
 	  * @param		email			String,the Student object unique email.
@@ -229,7 +229,7 @@ public class Course implements CourseADT, Serializable
 	  */
 	private boolean checkEmail(String email) {
 		for (int i = 0; i < studentList.size(); i++)
-			if (studentList.get(i).getEmail() == email)
+			if (studentList.get(i).getEmail().equals(email))
 				return true;
 		return false;
 	}

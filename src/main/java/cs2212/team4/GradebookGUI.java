@@ -4244,6 +4244,10 @@ public class GradebookGUI extends JFrame {
 			makeTables();
 		studentTable.setModel(tableStudents);
 		gradesTable.setModel(tableGrades);
+
+        gradesTable.setCellSelectionEnabled(true);
+        studentTable.setCellSelectionEnabled(true);
+
 	}
 
 	private void makeTables() {

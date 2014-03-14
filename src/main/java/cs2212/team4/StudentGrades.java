@@ -257,12 +257,4 @@ public class StudentGrades implements StudentGradesADT, Serializable
 		calcAvg();
 		return true;
 	}
-
-        /**
-         * Returns a reference to the grades Arraylist of the student
-         * @return 
-         */
-        public ArrayList<Grade> getGradeList(){
-            return grades;
-        }
 }

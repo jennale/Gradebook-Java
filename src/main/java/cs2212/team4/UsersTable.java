@@ -69,7 +69,7 @@ public class UsersTable extends DefaultTableModel{
      */
     public UsersTable(int first,int last, int email, int num) {
         int[] columns = {first,last,email,num};
-        for (int i = 0; i < COLUMN_COUNT; i++){
+        for (int i = 0; i < columnNames.length; i++){
             if (columns[i]==1)
                 addColumn(columnNames[i]);
         }
@@ -155,8 +155,11 @@ public class UsersTable extends DefaultTableModel{
                     currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setEmail((String) aValue);
                     return;
                 case 3:
-                    currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNumber((String) aValue);
-                    return;
+                    if((((String)aValue).matches("^[0-9]+$")) && !(currCourse.studentExists(studentNames.get(rowIndex).getNumber()))){
+                        currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNumber((String) aValue);
+                        return;
+                    }
+                    else return;
             }
         }
 

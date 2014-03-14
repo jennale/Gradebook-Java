@@ -19,11 +19,11 @@ public class Student implements StudentADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
-	//The Student Class version
+	// The Student Class version
 	private static final long serialVersionUID = 1L;
-	//The Student object first name, last name, and email.
-	private String nameFirst="", nameLast="", number="", email="";
-	//The Student object grades.
+	// The Student object first name, last name, and email.
+	private String nameFirst = "", nameLast = "", number = "", email = "";
+	// The Student object grades.
 	private StudentGrades grades;
 
 	/**
@@ -35,12 +35,12 @@ public class Student implements StudentADT, Serializable
 	  * @param		email			String, Student object unique email.
 	  * 
 	  */
-	public Student(String nameFirst, String nameLast, String number, String email)
-	{
-		this.nameFirst=nameFirst;
-		this.nameLast=nameLast;
-		this.number=number;
-		this.email=email;
+	public Student(String nameFirst, String nameLast, String number,
+			String email) {
+		this.nameFirst = nameFirst;
+		this.nameLast = nameLast;
+		this.number = number;
+		this.email = email;
 		grades = new StudentGrades();
 	}
 
@@ -54,7 +54,9 @@ public class Student implements StudentADT, Serializable
 	  * @return		String, the Student object first name.
 	  * 
 	  */
-	public String getNameFirst(){return nameFirst;}
+	public String getNameFirst() {
+		return nameFirst;
+	}
 
 	/**
 	  * Gets the Student object last name.
@@ -62,7 +64,9 @@ public class Student implements StudentADT, Serializable
 	  * @return		String, the Student object last name.
 	  * 
 	  */
-	public String getNameLast(){return nameLast;}
+	public String getNameLast() {
+		return nameLast;
+	}
 
 	/**
 	  * Gets the Student object number.
@@ -70,7 +74,9 @@ public class Student implements StudentADT, Serializable
 	  * @return		Integer, the Student object number.
 	  * 
 	  */
-	public String getNumber(){return number;}
+	public String getNumber() {
+		return number;
+	}
 
 	/**
 	  * Gets the Student object email.
@@ -78,7 +84,9 @@ public class Student implements StudentADT, Serializable
 	  * @return		String, the Student object email.
 	  * 
 	  */
-	public String getEmail(){return email;}
+	public String getEmail() {
+		return email;
+	}
 	
 	/**
 	  * Gets a Student object Grade object.
@@ -86,7 +94,9 @@ public class Student implements StudentADT, Serializable
 	  * @return		Grade, a Student object Grade object.
 	  * 
 	  */
-	public double getGrade(int grade){return grades.getGrade(grade);}
+	public double getGrade(int grade) {
+		return grades.getGrade(grade);
+	}
 	
 	/**
 	  * Gets the Student object average.
@@ -94,7 +104,9 @@ public class Student implements StudentADT, Serializable
 	  * @return		Double, the Student object average.
 	  * 
 	  */
-	public double getAvg(){return grades.getAvg();}
+	public double getAvg() {
+		return grades.getAvg();
+	}
 	
 	/**
 	  * Gets the Student object assignment average.
@@ -102,7 +114,9 @@ public class Student implements StudentADT, Serializable
 	  * @return		Double, the Student object assignment average.
 	  * 
 	  */
-	public double getAsnAvg(){return grades.getAsnAvg();}
+	public double getAsnAvg() {
+		return grades.getAsnAvg();
+	}
 	
 	/**
 	  * Gets the Student object exam average.
@@ -110,7 +124,17 @@ public class Student implements StudentADT, Serializable
 	  * @return		Double, the Student object exam average.
 	  * 
 	  */
-	public double getExmAvg(){return grades.getExmAvg();}
+	public double getExmAvg() {
+		return grades.getExmAvg();
+	}
+	
+	/**
+	 * Returns the number of grades associated with this student.
+	 * @return int grades associated with this student
+	 */
+	public int getNumGrades() {
+		return grades.getGradeList().size();
+	}
 	
 	/* ************************************************************
 	* Mutator Methods
@@ -122,7 +146,9 @@ public class Student implements StudentADT, Serializable
 	  * @param		nameFirst		String, the Student object first name.
 	  * 
 	  */
-	public void setNameFirst(String nameFirst){this.nameFirst=nameFirst;}
+	public void setNameFirst(String nameFirst) {
+		this.nameFirst = nameFirst;
+	}
 
 	/**
 	  * Sets the Student object last name.
@@ -130,7 +156,9 @@ public class Student implements StudentADT, Serializable
 	  * @param		nameLast		String, the Student object last name.
 	  * 
 	  */
-	public void setNameLast(String nameLast){this.nameLast=nameLast;}
+	public void setNameLast(String nameLast) {
+		this.nameLast = nameLast;
+	}
 
 	/**
 	  * Sets the Student object number.
@@ -138,7 +166,9 @@ public class Student implements StudentADT, Serializable
 	  * @param		number		String, the Student object number.
 	  * 
 	  */
-	public void setNumber(String number){this.number=number;}
+	public void setNumber(String number) {
+		this.number = number;
+	}
 
 	/**
 	  * Sets the Student object email.
@@ -146,7 +176,9 @@ public class Student implements StudentADT, Serializable
 	  * @param		email			String, the Student object email.
 	  * 
 	  */
-	public void setEmail(String email){this.email=email;}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	/**
 	  * Sets the Student object average.
@@ -154,7 +186,9 @@ public class Student implements StudentADT, Serializable
 	  * @param		avg				Double, the Student object average.
 	  * 
 	  */
-	public void setAvg(double avg){grades.setAvg(avg);}
+	public void setAvg(double avg) {
+		grades.setAvg(avg);
+	}
 	
 	/**
 	  * Sets the Student object assignment average.
@@ -162,7 +196,9 @@ public class Student implements StudentADT, Serializable
 	  * @param		asnAvg			Double, the Student object assignment average.
 	  * 
 	  */
-	public void setAsnAvg(double asnAvg){grades.setAsnAvg(asnAvg);}
+	public void setAsnAvg(double asnAvg) {
+		grades.setAsnAvg(asnAvg);
+	}
 	
 	/**
 	  * Sets the Student object exam average.
@@ -170,7 +206,9 @@ public class Student implements StudentADT, Serializable
 	  * @param		exmAvg			Double, the Student object exam average.
 	  * 
 	  */
-	public void setExmAvg(double exmAvg){grades.setExmAvg(exmAvg);}
+	public void setExmAvg(double exmAvg) {
+		grades.setExmAvg(exmAvg);
+	}
 	
 	/* ************************************************************
 	* Helper Methods
@@ -187,7 +225,10 @@ public class Student implements StudentADT, Serializable
 	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
 	  * 
 	  */
-	public boolean addGrade(int deliver, double grade, String type, double weight){return grades.add(deliver, grade, type, weight);}
+	public boolean addGrade(int deliver, double grade, String type,
+			double weight) {
+		return grades.add(deliver, grade, type, weight);
+	}
 	
 	/**
 	  * Removes a grade from the StudentGrades object.
@@ -198,7 +239,9 @@ public class Student implements StudentADT, Serializable
 	  * @return		boolean, true if the grade was removed successfully, false otherwise.
 	  * 
 	  */
-	public boolean removeGrade(int deliver, String type){return grades.remove(deliver, type);}
+	public boolean removeGrade(int deliver, String type) {
+		return grades.remove(deliver, type);
+	}
 	
 	/**
 	  * An equals method.
@@ -208,9 +251,9 @@ public class Student implements StudentADT, Serializable
 	  * @return		boolean, true if the Student object is equal to this, false otherwise.
 	  * 
 	  */
-	public boolean equals(Student stud)
-	{
-		if(this.toString().equalsIgnoreCase(stud.toString()))return true;
+	public boolean equals(Student stud) {
+		if (this.toString().equalsIgnoreCase(stud.toString()))
+			return true;
 		return false;
 	}
 
@@ -220,16 +263,18 @@ public class Student implements StudentADT, Serializable
 	  * @return		String, the Student object information string.
 	  * 
 	  */
-	public String toStringGrade(int deliver)
-	{
+	public String toStringGrade(int deliver) {
 		String str;
 		Double grade;
-		str="\""+nameLast+"\", \""+nameFirst+"\", \""+number+"\""+", \""+email+"\"";
-		for (int i=0; i<deliver; i++)
-		{
-			if ((grade=grades.getGrade(i))==-1)str+=", \"No entry\"";
-			else str+=", \""+grade+"\"";
-		}return str+"\n";
+		str = "\"" + nameLast + "\", \"" + nameFirst + "\", \"" + number + "\""
+				+ ", \"" + email + "\"";
+		for (int i = 0; i < deliver; i++) {
+			if ((grade = grades.getGrade(i)) == -1)
+				str += ", \"No entry\"";
+			else
+				str += ", \"" + grade + "\"";
+		}
+		return str + "\n";
 	}
 	
 	/**
@@ -238,5 +283,8 @@ public class Student implements StudentADT, Serializable
 	  * @return		String, the Student object information string.
 	  * 
 	  */
-	public String toString(){return ("\""+nameLast+"\", \""+nameFirst+"\", \""+number+"\""+", \""+email+"\"\n");}
+	public String toString() {
+		return ("\"" + nameLast + "\", \"" + nameFirst + "\", \"" + number
+				+ "\"" + ", \"" + email + "\"\n");
+	}
 }

@@ -18,10 +18,10 @@ public class Grade implements GradeADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
-	//The Grade Class version
+	// The Grade Class version
 	private static final long serialVersionUID = 1L;
-	//The Grade object grade and weight.
-	private double grade,weight;
+	// The Grade object grade and weight.
+	private double grade, weight;
 	
 	/**
 	  * Constructor.
@@ -30,10 +30,9 @@ public class Grade implements GradeADT, Serializable
 	  * @param		weight		Double, the Grade object weight.
 	  * 
 	  */
-	public Grade(double grade, double weight)
-	{
-		this.grade=grade;
-		this.weight=weight;
+	public Grade(double grade, double weight) {
+		this.grade = grade;
+		this.weight = weight;
 	}
 	
 	/* ************************************************************
@@ -46,7 +45,9 @@ public class Grade implements GradeADT, Serializable
 	  * @return		Double, the Grade object grade.
 	  * 
 	  */
-	public double getGrade(){return grade;}
+	public double getGrade() {
+		return grade;
+	}
 	
 	/**
 	  * Gets the Grade object weight.
@@ -54,7 +55,9 @@ public class Grade implements GradeADT, Serializable
 	  * @return		Double, the Grade object weight.
 	  * 
 	  */
-	public double getWeight(){return weight;}
+	public double getWeight() {
+		return weight;
+	}
 	
 	/* ************************************************************
 	* Mutator Methods
@@ -66,7 +69,9 @@ public class Grade implements GradeADT, Serializable
 	  * @param		grade			Double,the Grade object grade.
 	  * 
 	  */
-	public void setGrade(double grade){this.grade=grade;}
+	public void setGrade(double grade) {
+		this.grade = grade;
+	}
 	
 	/**
 	  * Sets the Grade object weight.
@@ -74,5 +79,7 @@ public class Grade implements GradeADT, Serializable
 	  * @param		weight			Double,the Grade object weight.
 	  * 
 	  */
-	public void setWeight(double weight){this.weight=weight;}
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
 }

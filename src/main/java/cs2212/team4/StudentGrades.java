@@ -19,24 +19,23 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
-	//The StudentGrades Class version
+	// The StudentGrades Class version
 	private static final long serialVersionUID = 1L;
-	//The StudentGrades object Grade objects list.
+	// The StudentGrades object Grade objects list.
 	private ArrayList<Grade> grades;
-	//The StudentGrades object assignment grades list.
+	// The StudentGrades object assignment grades list.
 	private ArrayList<Integer> asn;
-	//The StudentGrades object exam grades list.
+	// The StudentGrades object exam grades list.
 	private ArrayList<Integer> exm;
-	//The StudentGrades object average, assignment average, and exam average.
+	// The StudentGrades object average, assignment average, and exam average.
 	private double avg, asnAvg, exmAvg;
-	
-	private transient final String ASN="assignment", EXM="exam";
+
+	private transient final String ASN = "assignment", EXM = "exam";
 	
 	/**
 	  * Constructor.
 	  */
-	public StudentGrades()
-	{
+	public StudentGrades() {
 		grades = new ArrayList<Grade>();
 		asn = new ArrayList<Integer>();
 		exm = new ArrayList<Integer>();
@@ -52,7 +51,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return		Double, the Student object average.
 	  * 
 	  */
-	public double getAvg(){return avg;}
+	public double getAvg() {
+		return avg;
+	}
 	
 	/**
 	  * Gets the Student object assignment average.
@@ -60,7 +61,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return		Double, the Student object assignment average.
 	  * 
 	  */
-	public double getAsnAvg(){return asnAvg;}
+	public double getAsnAvg() {
+		return asnAvg;
+	}
 
 	/**
 	  * Gets the Student object exam average.
@@ -68,7 +71,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return		Double, the Student object exam average.
 	  * 
 	  */
-	public double getExmAvg(){return exmAvg;}
+	public double getExmAvg() {
+		return exmAvg;
+	}
 	
 	/**
 	  * Gets the Grade object at grade from grades list.
@@ -76,12 +81,20 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return		Double, the grade of the Student object.
 	  * 
 	  */
-	public double getGrade (int grade)
-	{
-		if(grades.get(grade)==null)return -1;
+	public double getGrade(int grade) {
+		if (grades.get(grade) == null)
+			return -1;
 		return grades.get(grade).getGrade();
 	}
 	
+	/**
+	 * Returns a reference to the grades Arraylist of the student
+	 * 
+	 * @return
+	 */
+	public ArrayList<Grade> getGradeList() {
+		return grades;
+	}
 	/* ************************************************************
 	* Mutator Methods
 	************************************************************ */
@@ -92,7 +105,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @param		avg				Double, the Student object average.
 	  * 
 	  */
-	public void setAvg(double avg){this.avg=avg;}
+	public void setAvg(double avg) {
+		this.avg = avg;
+	}
 	
 	/**
 	  * Sets the Student object assignment average.
@@ -100,7 +115,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @param		asnAvg			Double, the Student object assignment average.
 	  * 
 	  */
-	public void setAsnAvg(double asnAvg){this.asnAvg=asnAvg;}
+	public void setAsnAvg(double asnAvg) {
+		this.asnAvg = asnAvg;
+	}
 	
 	/**
 	  * Sets the Student object exam average.
@@ -108,7 +125,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @param		exmAvg			Double, the Student object exam average.
 	  * 
 	  */
-	public void setExmAvg(double exmAvg){this.exmAvg=exmAvg;}
+	public void setExmAvg(double exmAvg) {
+		this.exmAvg = exmAvg;
+	}
 	
 	/* ************************************************************
 	* Helper Methods
@@ -120,21 +139,21 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return 	Double, the Student object average.
 	  * 
 	  */
-	private void calcAvg()
-	{
-		double avg=0;
-		double weight=0;
+	private void calcAvg() {
+		double avg = 0;
+		double weight = 0;
 		Grade temp;
-		if (grades.isEmpty())
-		{
-			avg=-1;return;
+		if (grades.isEmpty()) {
+			avg = -1;
+			return;
 		}
-		for (int i=0; i<grades.size(); i++)if (grades.get(i)!=null)
-		{
-			temp = grades.get(i);
-			weight+=temp.getWeight();
-			avg+=temp.getGrade()*temp.getWeight();
-		}this.avg=avg/weight;
+		for (int i = 0; i < grades.size(); i++)
+			if (grades.get(i) != null) {
+				temp = grades.get(i);
+				weight += temp.getWeight();
+				avg += temp.getGrade() * temp.getWeight();
+			}
+		this.avg = avg / weight;
 	}
 	
 	/**
@@ -143,21 +162,20 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return 	Double, the Student object assignment average.
 	  * 
 	  */
-	private void calcAsnAvg()
-	{
-		double avg=0;
-		double weight=0;
+	private void calcAsnAvg() {
+		double avg = 0;
+		double weight = 0;
 		Grade temp;
-		if (asn.isEmpty())
-		{
-			asnAvg=-1;return;
+		if (asn.isEmpty()) {
+			asnAvg = -1;
+			return;
 		}
-		for (int i=0; i<asn.size(); i++)
-		{
+		for (int i = 0; i < asn.size(); i++) {
 			temp = grades.get(asn.get(i));
-			weight+=temp.getWeight();
-			avg+=temp.getGrade()*temp.getWeight();
-		}asnAvg=avg/weight;
+			weight += temp.getWeight();
+			avg += temp.getGrade() * temp.getWeight();
+		}
+		asnAvg = avg / weight;
 	}
 	
 	/**
@@ -166,21 +184,20 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return 	Double, the Student object exam average.
 	  * 
 	  */
-	private void calcExmAvg()
-	{
-		double avg=0;
+	private void calcExmAvg() {
+		double avg = 0;
 		Grade temp;
-		double weight=0;
-		if (exm.isEmpty())
-		{
-			exmAvg=-1;return;
+		double weight = 0;
+		if (exm.isEmpty()) {
+			exmAvg = -1;
+			return;
 		}
-		for (int i=0; i<exm.size(); i++)
-		{
+		for (int i = 0; i < exm.size(); i++) {
 			temp = grades.get(exm.get(i));
-			weight+=temp.getWeight();
-			avg+=temp.getGrade()*temp.getWeight();
-		}exmAvg=avg/weight;
+			weight += temp.getWeight();
+			avg += temp.getGrade() * temp.getWeight();
+		}
+		exmAvg = avg / weight;
 	}
 	
 	/**
@@ -194,24 +211,27 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
 	  * 
 	  */
-	public boolean add(int deliver, double grade, String type, double weight)
-	{
-		boolean boolExm=false, boolAsn=false;
-		if (deliver>=grades.size())for (int i=grades.size(); i<deliver+1; i++)grades.add(null);
-		if (type.equalsIgnoreCase(EXM))
-		{
-			exm.add(deliver);boolExm=true;
-		}
-		else if (type.equalsIgnoreCase(ASN))
-		{
-			asn.add(deliver);boolAsn=true;
+	public boolean add(int deliver, double grade, String type, double weight) {
+		boolean boolExm = false, boolAsn = false;
+		if (deliver >= grades.size())
+			for (int i = grades.size(); i < deliver + 1; i++)
+				grades.add(null);
+		if (type.equalsIgnoreCase(EXM)) {
+			exm.add(deliver);
+			boolExm = true;
+		} else if (type.equalsIgnoreCase(ASN)) {
+			asn.add(deliver);
+			boolAsn = true;
 		}
 		grades.set(deliver, (new Grade(grade, weight)));
-		if (boolExm)calcExmAvg();
-		else if(boolAsn)calcAsnAvg();
-		calcAvg();return true;
+		if (boolExm)
+			calcExmAvg();
+		else if (boolAsn)
+			calcAsnAvg();
+		calcAvg();
+		return true;
 	}
-	
+
 	/**
 	  * Removes a grade to the StudentGrades object.
 	  * 
@@ -221,21 +241,28 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * @return		boolean, true if the grade was removed successfully, false otherwise.
 	  * 
 	  */
-	public boolean remove(int deliver, String type)
-	{
-		boolean boolExm=false, boolAsn=false;
-		if (grades.get(deliver)==null)return false;
-		if (type.equalsIgnoreCase(EXM))if(exm.contains(deliver))
-		{
-			exm.remove(exm.indexOf(deliver));boolExm=true;			
-		}else return false;
-		else if (type.equalsIgnoreCase(ASN))if(asn.contains(deliver))
-		{
-			asn.remove(asn.indexOf(deliver));boolAsn=true;
-		}else return false;
+	public boolean remove(int deliver, String type) {
+		boolean boolExm = false, boolAsn = false;
+		if (grades.get(deliver) == null)
+			return false;
+		if (type.equalsIgnoreCase(EXM))
+			if (exm.contains(deliver)) {
+				exm.remove(exm.indexOf(deliver));
+				boolExm = true;
+			} else
+				return false;
+		else if (type.equalsIgnoreCase(ASN))
+			if (asn.contains(deliver)) {
+				asn.remove(asn.indexOf(deliver));
+				boolAsn = true;
+			} else
+				return false;
 		grades.set(deliver, null);
-		if (boolExm)calcExmAvg();
-		else if(boolAsn)calcAsnAvg();
-		calcAvg();return true;
+		if (boolExm)
+			calcExmAvg();
+		else if (boolAsn)
+			calcAsnAvg();
+		calcAvg();
+		return true;
 	}
 }

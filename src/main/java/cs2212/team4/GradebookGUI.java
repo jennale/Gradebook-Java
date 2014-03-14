@@ -2439,7 +2439,28 @@ public class GradebookGUI extends JFrame {
     	if (currCourse!=null)
     	{
     		if (editDeliverList.getSelectedIndex() != -1) {
-    			currDeliver=currCourse.getDeliverable(editDeliverList.getSelectedIndex());
+    			
+    			
+    			String name = "", type = "", w = "", temp = listDelivers
+    					.getElementAt(editDeliverList.getSelectedIndex());
+    			Double weight;
+    			int i = 0;
+    			while (temp.charAt(i) != ',') {
+    				name += temp.charAt(i);
+    				i++;
+    			}
+    			i += 2;
+    			while (temp.charAt(i) != ',') {
+    				type += temp.charAt(i);
+    				i++;
+    			}
+    			i += 2;
+    			while (i < temp.length()) {
+    				w += temp.charAt(i);
+    				i++;
+    			}
+    			weight = Double.parseDouble(w);
+    			currDeliver=currCourse.getDeliverable(currCourse.findDeliverable(new Deliverable(name, type, weight, 0)));
     			if (currDeliver!=null)
     			{
     				txtEditDeliverName.setText(currDeliver.getName());

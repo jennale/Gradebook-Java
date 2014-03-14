@@ -128,6 +128,14 @@ public class Student implements StudentADT, Serializable
 		return grades.getExmAvg();
 	}
 	
+	/**
+	 * Returns the number of grades associated with this student.
+	 * @return int grades associated with this student
+	 */
+	public int getNumGrades() {
+		return grades.getGradeList().size();
+	}
+	
 	/* ************************************************************
 	* Mutator Methods
 	************************************************************ */

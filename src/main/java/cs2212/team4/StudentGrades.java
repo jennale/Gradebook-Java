@@ -87,6 +87,14 @@ public class StudentGrades implements StudentGradesADT, Serializable
 		return grades.get(grade).getGrade();
 	}
 	
+	/**
+	 * Returns a reference to the grades Arraylist of the student
+	 * 
+	 * @return
+	 */
+	public ArrayList<Grade> getGradeList() {
+		return grades;
+	}
 	/* ************************************************************
 	* Mutator Methods
 	************************************************************ */

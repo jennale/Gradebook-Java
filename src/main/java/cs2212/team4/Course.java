@@ -610,4 +610,16 @@ public class Course implements CourseADT, Serializable
 	public String toString() {
 		return ("\"" + title + "\", \"" + term + "\", \"" + code + "\"\n");
 	}
+
+    /**
+     * Returns a boolean value as to whether a student with the given UserID already exists in the course or not.
+     * @param number
+     * @return
+     */
+    public boolean studentExists(String number){
+        if (findStudent(number)!=-1){
+            return true;
+        }
+        else return false;
+    }
 }

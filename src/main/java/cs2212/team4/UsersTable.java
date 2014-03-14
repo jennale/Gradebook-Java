@@ -128,7 +128,6 @@ public class UsersTable extends DefaultTableModel{
            addRow(new String[]{"New Student"});
            grades.addRow(new Object[]{null});
         }
-
     }
 
     /**
@@ -142,6 +141,7 @@ public class UsersTable extends DefaultTableModel{
         if ((rowIndex < 0) || (rowIndex >= studentNames.size()))
             return;
         else {
+            //Checks whether changed value is an empty string -- does not allow the user to change any attribute to blank.
             if(aValue.equals(""))
                 return;
             switch (columnIndex) {
@@ -155,6 +155,7 @@ public class UsersTable extends DefaultTableModel{
                     currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setEmail((String) aValue);
                     return;
                 case 3:
+                    //Checks whether the student number inputted are only numbers, and does not belong to an already existing student.
                     if((((String)aValue).matches("^[0-9]+$")) && !(currCourse.studentExists(studentNames.get(rowIndex).getNumber()))){
                         currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNumber((String) aValue);
                         return;

@@ -306,14 +306,6 @@ public class Course implements CourseADT, Serializable
 		}
 		return false;
 	}
-        
-        public boolean addStudent(Student student){
-            if (!(checkNumber(student.getNumber()) || checkEmail(student.getEmail()))) {
-			studentList.add(student);
-			return true;
-		}
-		return false;
-        }
 
 	/**
 	  * Removes a Student object from the studentList list.

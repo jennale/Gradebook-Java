@@ -22,7 +22,7 @@ public class GradebookGUI extends JFrame {
 	private DefaultListModel<String> listCourses = new DefaultListModel<String>();
 	private DefaultListModel<String> listDelivers = new DefaultListModel<String>();
 
-	DefaultTableModel tableStudents = new DefaultTableModel();
+	UsersTable tableStudents = new UsersTable();
 	DefaultTableModel tableGrades = new DefaultTableModel();
 
 	private Font helvetica = new java.awt.Font("Times New Roman", 1, 14);
@@ -77,13 +77,7 @@ public class GradebookGUI extends JFrame {
 			listCourses.addElement("No Courses");
 
 		studentTable.setModel(tableStudents);
-		tableStudents.addColumn("First Name");
-		tableStudents.addColumn("Last Name");
-		tableStudents.addColumn("Number");
-		tableStudents.addColumn("Email");
-
 		gradesTable.setModel(tableGrades);
-
 		addCourse.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
 				204)));
 		addDeliver.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
@@ -1427,16 +1421,15 @@ public class GradebookGUI extends JFrame {
 	 ***************************************************************************************************************** 
 	 ***************************************************************************************************************** 
 	 */
-	Point inCoords;
-
+        Point inCoords;
 	private void formMouseDragged(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMouseDragged
-		hideMenu();
+            hideMenu();
 		java.awt.Point currCoords = evt.getLocationOnScreen();
 		setLocation(currCoords.x - inCoords.x, currCoords.y - inCoords.y);
 	}// GEN-LAST:event_formMouseDragged
 
 	private void formMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMousePressed
-		inCoords = evt.getLocationOnScreen();
+		Point inCoords = evt.getLocationOnScreen();
 	}// GEN-LAST:event_formMousePressed
 
 	/*****************************************************************************************************************
@@ -1945,8 +1938,10 @@ public class GradebookGUI extends JFrame {
 				txtDeliverWeight.setBorder(errorHighlightBorder);
 			} else {
 				try {
+                                        Deliverable d = new Deliverable(name,type,Double.parseDouble(weight),currCourse.getDeliverableListSize());
 					boolExists = currCourse.addDeliverable(name, type,
 							Double.parseDouble(weight));
+                                        updateInfo();
 				} catch (NumberFormatException e) {
 					txtDeliverWeight.setBorder(errorHighlightBorder);
 					boolFormat = false;
@@ -2133,6 +2128,8 @@ public class GradebookGUI extends JFrame {
 				if (!currCourse.addStudent(nameFirst, nameLast, number, email))
 					lblStudentAddErrorLog.setText("Student Already exists!");
 				else {
+                                    Student s = new Student (nameFirst, nameLast, number, email);
+                                        currCourse.addStudent(s);
 					txtStudentNameFirst.setText("ex. John");
 					txtStudentNameFirst.setForeground(new Color(204, 204, 204));
 
@@ -2153,11 +2150,13 @@ public class GradebookGUI extends JFrame {
 					lblStudentAddErrorLog.setText("");
 					pnlAddStudent.setVisible(false);
 
-					tableStudents.addRow(new String[] { nameFirst, nameLast,
-							number, email });
+					tableStudents.addStudent(s);
+                                       
+                                        
 				}
 			}
 		}
+                 updateInfo();
 	}// GEN-LAST:event_lblAddStudentMouseClicked
 
 	/*****************************************************************************************************************
@@ -2215,27 +2214,21 @@ public class GradebookGUI extends JFrame {
 		for (int i = 0; i < currCourse.getDeliverableListSize(); i++) {
 			deliver = currCourse.getDeliverable(i);
 			if (deliver != null) {
+                            	tableGrades.addColumn(deliver.getName());
 				listDelivers.addElement(deliver.getName() + ", "
 						+ deliver.getType() + ", " + deliver.getWeight());
-				tableGrades.addColumn(deliver.getName());
 			}
 		}
                 
                 
-		tableStudents = new DefaultTableModel();
+		tableStudents = new UsersTable();
 		studentTable.setModel(tableStudents);
-		tableStudents.addColumn("First Name");
-		tableStudents.addColumn("Last Name");
-		tableStudents.addColumn("Number");
-		tableStudents.addColumn("Email");
 
 		tableGrades = new DefaultTableModel();
 		gradesTable.setModel(tableGrades);
 
 		for (int i = 0; i < currCourse.getStudentListSize(); i++) {
-			stud = currCourse.getStudent(i);
-			tableStudents.addRow(new String[] { stud.getNameFirst(),
-					stud.getNameLast(), stud.getNumber(), stud.getEmail() });
+			tableStudents.addStudent(currCourse.getStudent(i));
 		}
 
 		deleteDeliver.setVisible(false);

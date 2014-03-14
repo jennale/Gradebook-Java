@@ -279,4 +279,12 @@ public class Student implements StudentADT, Serializable
 		return ("\"" + nameLast + "\", \"" + nameFirst + "\", \"" + number
 				+ "\"" + ", \"" + email + "\"\n");
 	}
+        
+        /**
+         * Returns the number of grades associated with this student.
+         * @return int grades associated with this student
+         */
+        public int getNumGrades(){
+            return grades.getGradeList().size();
+        }
 }

@@ -409,13 +409,13 @@ public class Course implements CourseADT, Serializable
 	  * @param		path				String, the path were the file is located.
 	  * 
 	  */
-	public boolean importStudents(String path)
+	public boolean importStudents(File file)
 	{
 		String[] sAry = { "nameLast", "nameFirst", "number", "email" };
 		String[] tempAry;
 		try {
-			CSVReader reader = new CSVReader(new FileReader(path));
-			if ((tempAry=reader.readNext())!=null&&reader.readNext().equals(sAry)) {
+			CSVReader reader = new CSVReader(new FileReader(file));
+			if ((tempAry=reader.readNext())!=null&&tempAry.equals(sAry)) {
 				reader.close();
 				return false;
 			}
@@ -443,9 +443,8 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the Student objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportStudents(String path) {
+	public boolean exportStudents(File file) {
 		try {
-			File file = new File(path + code + term + "Student.csv");
 			if (file.exists())
 				file.delete();
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
@@ -611,16 +610,4 @@ public class Course implements CourseADT, Serializable
 	public String toString() {
 		return ("\"" + title + "\", \"" + term + "\", \"" + code + "\"\n");
 	}
-
-    /**
-     * Returns a boolean value as to whether a student with the given UserID already exists in the course or not.
-     * @param number
-     * @return
-     */
-    public boolean studentExists(String number){
-        if (findStudent(number)!=-1){
-            return true;
-        }
-        else return false;
-    }
 }

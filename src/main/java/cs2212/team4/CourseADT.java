@@ -200,7 +200,7 @@ public interface CourseADT
 	  * @param		path				String, the path were the file is located.
 	  * 
 	  */
-	public boolean importStudents(String path);
+	public boolean importStudents(File file);
 	
 	/**
 	  * Exports the Student objects located in studentList list to a .csv file.
@@ -210,7 +210,7 @@ public interface CourseADT
 	  * @return		boolean, true if the Student objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportStudents(String path);
+	public boolean exportStudents(File file);
 	
 	/**
 	  * Imports a Deliverable objects into the Course object.

@@ -50,8 +50,8 @@ public class Course implements CourseADT, Serializable
 	  */
 	public Course(String title, String term, String code) {
 		this.title = title;
-		this.term = term;
-		this.code = code;
+		this.term  = term;
+		this.code  = code;
 	}
 	
 	/* ************************************************************
@@ -362,7 +362,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Removes a Deliverable object from the deliverableList list.
 	  * 
-	  * @param		deliver				Deliverable, the Deliverable object.
+	  * @param		i deliver - Deliverable, the Deliverable object.
 	  * 
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
@@ -406,15 +406,16 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Imports a Student objects into the Course object.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file path - String, the path were the file is located.
 	  * 
 	  */
-	public boolean importStudents(String path)
+	public boolean importStudents(File file)
 	{
 		String[] sAry = { "nameLast", "nameFirst", "number", "email" };
+		String[] tempAry;
 		try {
-			CSVReader reader = new CSVReader(new FileReader(path));
-			if (reader.readNext().equals(sAry)) {
+			CSVReader reader = new CSVReader(new FileReader(file));
+			if ((tempAry=reader.readNext())!=null&&tempAry.equals(sAry)) {
 				reader.close();
 				return false;
 			}
@@ -437,14 +438,13 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Exports the Student objects located in studentList list to a .csv file.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file path - String, the path were the file is located.
 	  * 
 	  * @return		boolean, true if the Student objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportStudents(String path) {
+	public boolean exportStudents(File file) {
 		try {
-			File file = new File(path + code + term + "Student.csv");
 			if (file.exists())
 				file.delete();
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
@@ -462,13 +462,13 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Imports a Deliverable objects into the Course object.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file				File, the path were the file is located.
 	  * 
 	  */
-	public boolean importDeliverables(String path) {
+	public boolean importDeliverables(File file) {
 		String[] dAry = { "name", "type", "weight" };
 		try {
-			CSVReader reader = new CSVReader(new FileReader(path));
+			CSVReader reader = new CSVReader(new FileReader(file));
 			if (reader.readNext().equals(dAry)) {
 				reader.close();
 				return false;
@@ -494,19 +494,19 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Exports the Deliverable objects located in deliverableList list to a .csv file.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file path - String, the path were the file is located.
 	  * 
 	  * @return		boolean, true if the Deliverable objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportDeliverables(String path) {
+	public boolean exportDeliverables(File file) {
 		try {
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(new File(path + code + term
-							+ "deliver.csv"))));
+					new FileOutputStream(file)));
 			bw.write("\"name\", \"type\", \"weight\"\n");
 			for (int i = 0; i < deliverableList.size(); i++)
-				bw.write(deliverableList.get(i).toString());
+				if (deliverableList.get(i)!=null)
+					bw.write(deliverableList.get(i).toString());
 			bw.close();
 			return true;
 		} catch (IOException e) {
@@ -610,16 +610,4 @@ public class Course implements CourseADT, Serializable
 	public String toString() {
 		return ("\"" + title + "\", \"" + term + "\", \"" + code + "\"\n");
 	}
-
-    /**
-     * Returns a boolean value as to whether a student with the given UserID already exists in the course or not.
-     * @param number
-     * @return
-     */
-    public boolean studentExists(String number){
-        if (findStudent(number)!=-1){
-            return true;
-        }
-        else return false;
-    }
 }

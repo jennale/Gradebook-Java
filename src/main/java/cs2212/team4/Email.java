@@ -57,9 +57,10 @@ public class Email {
 	htmlPart.setContent(loadTemplate("email.html.vm"), "text/html; charset=utf-8");
 	
 	MimeBodyPart fileAttachmentPart = new MimeBodyPart();									// create another mimebodypart object for the attachment
-	URL attachmentUrl = App.class.getClassLoader().getResource("student_report.jrmxml");	// obtain the URL of the reports to attach from the JAR file
+	URL attachmentUrl = Report.class.getClassLoader().getResource("student_report.jrmxml");	// obtain the URL of the reports to attach from the JAR file
 	DataSource source = new URLDataSource(attachmentUrl);									// instantiate Datasource object from the URL
 	fileAttachmentPart.setDataHandler(new DataHandler(source));								// read the data from the logo file stored in the JAR and store in attachment body part
+
 	fileAttachmentPart.setFileName("student_report.jrxml");
 	
 	multiPart.addBodyPart(textPart);														// add text body part to multipart object
@@ -72,9 +73,10 @@ public class Email {
   }
   
   private static Properties loadProperties() throws Exception {
-	Properties properties = new Properties();												// instantiates properties object
-	InputStream stream = App.class.getClassLoader().getResourceAsStream("mail.properties");
-	properties.load(stream);																//mail.properties file from the JAR file into a Properties object
+
+	Properties properties = new Properties();
+	InputStream stream = Report.class.getClassLoader().getResourceAsStream("mail.properties");
+	properties.load(stream);
 	
 	return properties;
   }

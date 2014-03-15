@@ -95,7 +95,7 @@ public class Email {
 
 	VelocityContext context = new VelocityContext();
 	context.put("studentName", "A variable containing a student name");
-	context.put("professor", "A variable containing the professor's name"
+	context.put("professor", "A variable containing the professor's name");
 
 	StringWriter out = new StringWriter();
 	template.merge(context, out);

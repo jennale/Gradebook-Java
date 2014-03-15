@@ -16,59 +16,109 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
+
 /**
  * Created by Jenna on 2014-03-11.
  */
 
-//Not yet complete - waiting for deliverables bug to be fixed
-
 public class GradesTable extends DefaultTableModel {
     int delivSize;
-    private final List<Student> studentNames = new ArrayList<>();
+    private final List<Student> studentGrades = new ArrayList<>();
+    private final List<Deliverable> deliverableGrades = new ArrayList<>();
     Course currCourse;
 
+    /**
+     * Constructor method to create a table for student grades
+     *
+     * @param currCourse
+     */
     public GradesTable(Course currCourse) {
         addColumn("Course Grade");
         this.currCourse = currCourse;
-        if (currCourse.getDeliverableListSize()>0){
-        for (int i = 0; i < currCourse.getDeliverableListSize(); i++){
-            if(currCourse.getDeliverable(i)!=null){
-                addColumn(currCourse.getDeliverable(i).getName());
+        if (currCourse.getDeliverableListSize() > 0) {
+            for (int i = 0; i < currCourse.getDeliverableListSize(); i++) {
+                //Creates a column header read as: DeliverableName [Weight%]
+                if (currCourse.getDeliverable(i) != null) {
+                    deliverableGrades.add(currCourse.getDeliverable(i));
+                    addColumn(currCourse.getDeliverable(i).getName() + " [" + (int) currCourse.getDeliverable(i).getWeight() + "%]");
+                }
             }
-        }
-        delivSize = currCourse.getDeliverableListSize();
+            delivSize = currCourse.getDeliverableListSize();
         }
     }
 
-    public GradesTable(){
+    /**
+     * Overloaded constructor method to create new Grades table.
+     */
+    public GradesTable() {
         addColumn("Course Grade");
-        delivSize=0;
+        delivSize = 0;
     }
 
-//    @Override
-//    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-//        if ((rowIndex < 0) || (rowIndex > getRowCount()))
-//            return;
-//        else {
-//            Deliverable d = currCourse.getDeliverable(rowIndex);
-//            currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).addGrade(rowIndex,(double)aValue,d.getType(),d.getWeight());
-//        }
-//    }
+    /**
+     * Adds the grades of a student in a row.
+     *
+     * @param s
+     */
+    public void addGrades(Student s) {
+        String[] grades = new String[delivSize + 2];
+        studentGrades.add(s);
+        if (s.getNumGrades() > 0) {
+            if (s.getAvg() != 0.0) {
+                grades[0] = String.format("%.2f", s.getAvg());
+            } else
+                grades[0] = "";
+            for (int i = 0; i < deliverableGrades.size(); i++) {
+                if (deliverableGrades.get(i) != null) {
+                    int id = deliverableGrades.get(i).getObjId();
+                    if (s.getGrade(id) > 0) {
+                        grades[i + 1] = Double.toString(s.getGrade(id));
+                    } else
+                        grades[i + 1] = "";
+                }
+            }
+            addRow(grades);
+        } else addRow(new Object[]{null});
+    }
 
-    public void addGrades(Student s){
-        double[] grades = new double[delivSize];
-        if(s.getNumGrades()>0){
-        for (int i = 0; i < grades.length;i++){
-            if(s.getGrade(i)>=0){
-                grades[i]=s.getGrade(i);
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        if ((rowIndex < 0) || (rowIndex >= currCourse.getDeliverableListSize()))
+            return;
+        else if (columnIndex > 0) {
+            Deliverable d = deliverableGrades.get(columnIndex - 1);
+            if (((String)aValue).equals(""))
+                currCourse
+                        .getStudent(currCourse
+                                .findStudent(studentGrades.get(rowIndex).getNumber()))
+                        .removeGrade(d.getObjId(), d.getType());
+            else {
+            currCourse
+                    .getStudent(currCourse
+                            .findStudent(studentGrades.get(rowIndex).getNumber()))
+                    .addGrade(d.getObjId(), Double.parseDouble((String) aValue), d.getType(), d.getWeight());
             }
         }
-        }
-        else addRow(new Object[] {null});
     }
+
+    /**
+     * Method to restrict the user from manually editing a student's calculated course grade.
+     * This grade is calculated automatically by the program, and so does not need to be edited.
+     *
+     * @param rowIndex
+     * @param columnIndex
+     * @return
+     */
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        if (columnIndex == 0 || columnIndex > deliverableGrades.size() || rowIndex > studentGrades.size()-1)
+            return false;
+        else
+            return true;
     }
 
 
+}
 
 
 //    public void add(Student s) {
@@ -150,23 +200,9 @@ public class GradesTable extends DefaultTableModel {
 //        }
 //    }
 //
-//    @Override
-//    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-//        if ((rowIndex < 0) || (rowIndex >= studentGrades.size()))
-//            return;
-//        else if (columnIndex >= 4) {
-//            studentGrades.get(rowIndex).addGrade(columnIndex,90,"Exam",20);
-//            fireTableCellUpdated(rowIndex, columnIndex);
-//        }
-//    }
+
 //
-//    @Override
-//    public boolean isCellEditable(int rowIndex, int columnIndex) {
-//        if(columnIndex>=4)
-//            return true;
-//        else
-//            return false;
-//    }
+
 
 
 

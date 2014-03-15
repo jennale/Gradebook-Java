@@ -50,8 +50,8 @@ public class Course implements CourseADT, Serializable
 	  */
 	public Course(String title, String term, String code) {
 		this.title = title;
-		this.term = term;
-		this.code = code;
+		this.term  = term;
+		this.code  = code;
 	}
 	
 	/* ************************************************************

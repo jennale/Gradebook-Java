@@ -82,7 +82,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * 
 	  */
 	public double getGrade(int grade) {
-		if (grades.get(grade) == null)
+		if (grade >= grades.size() ||grades.get(grade)==null )
 			return -1;
 		return grades.get(grade).getGrade();
 	}
@@ -262,7 +262,8 @@ public class StudentGrades implements StudentGradesADT, Serializable
 			calcExmAvg();
 		else if (boolAsn)
 			calcAsnAvg();
-		calcAvg();
+
+        calcAvg();
 		return true;
 	}
 }

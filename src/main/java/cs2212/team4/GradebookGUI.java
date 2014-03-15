@@ -3098,7 +3098,7 @@ public class GradebookGUI extends JFrame {
 				if (deliver != null) {
 					listDelivers.addElement(deliver.getName() + ", "
 							+ deliver.getType() + ", " + deliver.getWeight());
-					tableGrades.addColumn(deliver.getName());
+//					tableGrades.addColumn(deliver.getName());
 				}
 			}
 			deleteDeliver.setVisible(false);
@@ -3237,15 +3237,45 @@ public class GradebookGUI extends JFrame {
 	 */
 	private void updateTables() {
 		if (currCourse != null)
-			makeTables();
+			makeTables(1,1,1,1);
 		studentTable.setModel(tableStudents);
-		gradesTable.setModel(tableGrades);
+        gradesTable.setModel(tableGrades);
+
+        initTables();
+        gradesScroll.setRowHeaderView( studentTable );
+
+        gradesScroll.getRowHeader().addChangeListener();
 	}
 
-	private void makeTables() {
-		tableStudents = new UsersTable(currCourse);
+	private void makeTables(int first, int last, int email, int num) {
+		tableStudents = new UsersTable(currCourse,first,last,email,num);
 		tableGrades = tableStudents.getGradesTable();
 	}
+
+    private void initTables() {
+        //Create a fixed-size table
+        studentTable.setPreferredScrollableViewportSize(studentTable.getPreferredSize());
+        gradesTable.setPreferredScrollableViewportSize(gradesTable.getPreferredSize());
+        studentTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+        //Fill with columns/rows if there is empty space in the screen
+        int width = tableStudents.getColumnCount() + tableGrades.getColumnCount();
+        int height = tableStudents.getRowCount();
+
+        if (width<9){
+            for (int i=0; i < 9-width; i++){
+                tableGrades.addColumn("");
+            }
+        }
+        if (height<20){
+            for (int i=0; i < 20-height; i++){
+                tableStudents.addRow(new String[] {""});
+                tableGrades.addRow(new String[] {""});
+            }
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addCourse;

@@ -15,11 +15,15 @@ import org.apache.velocity.tools.generic.NumberTool;
 
 public class Email {
 
+  /**
+  *	getSession method
+  *
+  */
   private static Session getSession(final Properties properties) {
 
-    Session session = Session.getInstance(properties ,
-		new javax.mail.Authenticator() {
-			protected PasswordAuthentication getPasswordAuthentication() {
+    Session session = Session.getInstance(properties ,	//instantiate a new mail session, passing in the properties parameter to Session.getInstance
+		new javax.mail.Authenticator() {				// instantiate and pass an Authenticator, which is used to pass a username and password to the
+			protected PasswordAuthentication getPasswordAuthentication() {	// SMTP server to authenticate with it
 				String username = properties.getProperty("smtp.username");
 				String password = properties.getProperty("smtp.password");
 				return new PasswordAuthentication(username , password);
@@ -31,77 +35,65 @@ public class Email {
 
   private static void sendMessage(Session session, Properties properties, String[] recipients) throws
 	Exception {
-	Message msg = new MimeMessage(session);
-	String senderName = properties.getProperty("sender.name");
-	String senderEmail = properties.getProperty("sender.email");
+	Message msg = new MimeMessage(session);							// Instantiate mime message object, initialize with session object so
+																	//that the message effectively knows exactly how it is to be sent (details of SMTP server)
+	String senderName = properties.getProperty("sender.name");		// get sender name
+	String senderEmail = properties.getProperty("sender.email");	// get sender email
 	
-	Address sender = new InternetAddress(senderEmail, senderName);
-	msg.setFrom(sender);
+	Address sender = new InternetAddress(senderEmail, senderName);	// sender object represents sender of the email
+	msg.setFrom(sender);											// set "From" attribute in message as sender
 	
-	for (String address : recipients)
-		msg.addRecipient(Message.RecipientType.TO, new InternetAddress(address));
+	for (String address : recipients)								// iterate over the array of recipient email addresses
+		msg.addRecipient(Message.RecipientType.TO, new InternetAddress(address));	// add Recipient with the following attributes
+																					// instead of using TO, we can also use CC, or BCC
+	msg.setSubject(properties.getProperty("message.subject"));						// set message's subject
 	
-	msg.setSubject(properties.getProperty("message.subject"));
+	Multipart multiPart = new MimeMultipart();										// instantiate a new multipart object
 	
-	Multipart multiPart = new MimeMultipart();
-	
-	MimeBodyPart textPart = new MimeBodyPart();
+	MimeBodyPart textPart = new MimeBodyPart();										// create mimebodypart object first with template plaintext version of email
 	textPart.setText(loadTemplate("email.text.vm"), "utf-8");
 	
-	MimeBodyPart htmlPart = new MimeBodyPart();
+	MimeBodyPart htmlPart = new MimeBodyPart();										// create another mimebodypart object with template html version of email
 	htmlPart.setContent(loadTemplate("email.html.vm"), "text/html; charset=utf-8");
 	
-	MimeBodyPart fileAttachmentPart = new MimeBodyPart();
-	URL attachmentUrl = App.class.getClassLoader().getResource("student_report.jrmxml");
-	DataSource source = new URLDataSource(attachmentUrl);
-	fileAttachmentPart.setDataHandler(new DataHandler(source));
+	MimeBodyPart fileAttachmentPart = new MimeBodyPart();									// create another mimebodypart object for the attachment
+	URL attachmentUrl = App.class.getClassLoader().getResource("student_report.jrmxml");	// obtain the URL of the reports to attach from the JAR file
+	DataSource source = new URLDataSource(attachmentUrl);									// instantiate Datasource object from the URL
+	fileAttachmentPart.setDataHandler(new DataHandler(source));								// read the data from the logo file stored in the JAR and store in attachment body part
 	fileAttachmentPart.setFileName("student_report.jrxml");
 	
-	multiPart.addBodyPart(textPart);
-	multiPart.addBodyPart(htmlPart);
-	multiPart.addBodyPart(fileAttachmentPart);
+	multiPart.addBodyPart(textPart);														// add text body part to multipart object
+	multiPart.addBodyPart(htmlPart);														// add html body part to multipart object
+	multiPart.addBodyPart(fileAttachmentPart);												// add attachment part to multipart object
 	
-	msg.setContent(multiPart);
+	msg.setContent(multiPart);																// set the content of the message to be the multiPart object
 	
-	Transport.send(msg);
-  }
-
-  public static void main(String[] args) throws Exception {
-    
-    if (args.length == 0) {
-        System.out.println("Please specify a space-separated list of email addresses as arguments.");
-        System.exit(-1);        
-    }
-
-    Properties properties = loadProperties();
-	Session session = getSession(properties);
-	sendMessage(session, properties, args);
+	Transport.send(msg);																	// send message using this method
   }
   
   private static Properties loadProperties() throws Exception {
-	Properties properties = new Properties();
+	Properties properties = new Properties();												// instantiates properties object
 	InputStream stream = App.class.getClassLoader().getResourceAsStream("mail.properties");
-	properties.load(stream);
+	properties.load(stream);																//mail.properties file from the JAR file into a Properties object
 	
 	return properties;
   }
   
+  /**
+  * Takes the name of the file in which the template is stored
+  *
+  */
   private static String loadTemplate(String filename) {
 
-	VelocityEngine ve = new VelocityEngine();
+	VelocityEngine ve = new VelocityEngine();	// instantiate a VelocityEngine object to load and render the template.
 	ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
 	ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
 
 	Template template = ve.getTemplate(filename);
 
-	/*List <Product > productsOrdered = new ArrayList <Product >();
-	
-	productsOrdered.add(new Product("Xbox 360", 299.0));
-	productsOrdered.add(new Product("The Saboteur", 26.23));
-	productsOrdered.add(new Product("Red Dead Redemption", 20.99));
-	*/
 	VelocityContext context = new VelocityContext();
 	context.put("studentName", "A variable containing a student name");
+	context.put("professor", "A variable containing the professor's name"
 
 	StringWriter out = new StringWriter();
 	template.merge(context, out);

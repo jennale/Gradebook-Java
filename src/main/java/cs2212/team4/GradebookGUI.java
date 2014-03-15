@@ -3243,8 +3243,6 @@ public class GradebookGUI extends JFrame {
 
         initTables();
         gradesScroll.setRowHeaderView( studentTable );
-
-        gradesScroll.getRowHeader().addChangeListener();
 	}
 
 	private void makeTables(int first, int last, int email, int num) {

@@ -3233,11 +3233,10 @@ public class GradebookGUI extends JFrame {
     private void initTables() {
         //Create a fixed-size table (adjusting to view settings/number of columns)
         studentTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-        if(gradesTable.getColumnCount()<9) gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        if(gradesTable.getColumnCount()+studentTable.getColumnCount()<11) gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         else gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         studentTable.setPreferredScrollableViewportSize(studentTable.getPreferredSize());
         gradesTable.setPreferredScrollableViewportSize(gradesTable.getPreferredSize());
-
 
         BoundedRangeModel model = gradesScroll.getVerticalScrollBar().getModel();
         studentScroll.getVerticalScrollBar().setPreferredSize(new Dimension(0,0));

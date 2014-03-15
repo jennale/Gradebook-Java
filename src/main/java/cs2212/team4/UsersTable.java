@@ -50,7 +50,7 @@ public class UsersTable extends DefaultTableModel{
         for (int i = 0; i < numStud; i++) {
             Student stud = currCourse.getStudent(i);
             studentNames.add(stud);
-            addStudent(stud);
+            addStudent(stud, first, last, email, num);
             grades.addGrades(stud);
         }
         fillScreen();
@@ -81,8 +81,18 @@ public class UsersTable extends DefaultTableModel{
      * Adds a new student ROW to the usersTable.
      * @param s Student object to be added
      */
-    public void addStudent(Student s){
-        addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
+    public void addStudent(Student s, int firstName, int lastName, int number, int email){
+    	String[] ary = new String [4];
+        int ctr=0;
+        if (firstName==1)
+        	ary[ctr++]=s.getNameFirst();
+        if (lastName==1)
+        	ary[ctr++]=s.getNameLast();
+        if (number==1)
+        	ary[ctr++]=s.getEmail();
+        if (email==1)
+        	ary[ctr++]=s.getNumber();
+        addRow(ary);
     }
 
 /**

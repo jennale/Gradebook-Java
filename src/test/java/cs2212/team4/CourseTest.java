@@ -135,6 +135,9 @@ public class CourseTest
 
 	@Test
 	public void testAddStudent() {
+        for (int i=0;i<=1000;i++){
+            crs0.addStudent(String.valueOf(i),String.valueOf(i),String.valueOf(i),String.valueOf(i));
+        }
 		
 	}
 

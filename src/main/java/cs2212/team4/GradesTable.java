@@ -21,7 +21,7 @@ import javax.swing.table.AbstractTableModel;
  * Created by Jenna on 2014-03-11.
  */
 
-public class GradesTable extends DefaultTableModel {
+public class GradesTable extends DefaultTableModel{
     int delivSize;
     private final List<Student> studentGrades = new ArrayList<>();
     private final List<Deliverable> deliverableGrades = new ArrayList<>();
@@ -103,6 +103,7 @@ public class GradesTable extends DefaultTableModel {
                     .addGrade(d.getObjId(), Double.parseDouble((String) aValue), d.getType(), d.getWeight());
             }
         }
+        fireTableCellUpdated(rowIndex,columnIndex);
     }
 
     /**

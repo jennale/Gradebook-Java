@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.swing.border.Border;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -3210,17 +3212,32 @@ public class GradebookGUI extends JFrame {
 	}
 
 	private void makeTables(int first, int last, int email, int num) {
+
 		tableStudents = new UsersTable(currCourse,first,last,email,num);
-		tableGrades = tableStudents.getGradesTable();
-	}
+        tableStudents.addTableModelListener(new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                updateTables();
+            }
+        });
+        tableStudents.getGradesTable().addTableModelListener(new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                updateTables();
+            }
+        });
+        tableGrades = tableStudents.getGradesTable();
+
+    }
 
     private void initTables() {
         //Create a fixed-size table (adjusting to view settings/number of columns)
         studentTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-        if(gradesTable.getColumnCount()<8) gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        if(gradesTable.getColumnCount()<9) gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         else gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         studentTable.setPreferredScrollableViewportSize(studentTable.getPreferredSize());
         gradesTable.setPreferredScrollableViewportSize(gradesTable.getPreferredSize());
+
 
         BoundedRangeModel model = gradesScroll.getVerticalScrollBar().getModel();
         studentScroll.getVerticalScrollBar().setPreferredSize(new Dimension(0,0));

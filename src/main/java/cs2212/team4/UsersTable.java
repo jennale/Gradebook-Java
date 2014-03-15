@@ -119,22 +119,27 @@ public class UsersTable extends DefaultTableModel{
             switch (columnIndex) {
                 case 0:
                     currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameFirst((String) aValue);
+                    fireTableCellUpdated(rowIndex,columnIndex);
                     return;
                 case 1:
                     currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameLast((String) aValue);
+                    fireTableCellUpdated(rowIndex,columnIndex);
                     return;
                 case 2:
                     currCourse.editStudentEmail(currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())), (String) aValue);
+                    fireTableCellUpdated(rowIndex,columnIndex);
                     return;
                 case 3:
                     //Checks whether the student number inputted are only numbers, and does not belong to an already existing student.
                     if((((String)aValue).matches("^[0-9]+$"))){
                         currCourse.editStudentNumber(currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())),(String)aValue);
+                        fireTableCellUpdated(rowIndex,columnIndex);
                         return;
                     }
                     else return;
             }
         }
+
 
     }
 

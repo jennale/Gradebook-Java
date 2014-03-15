@@ -3242,7 +3242,6 @@ public class GradebookGUI extends JFrame {
         gradesTable.setModel(tableGrades);
 
         initTables();
-        gradesScroll.setRowHeaderView( studentTable );
 	}
 
 	private void makeTables(int first, int last, int email, int num) {

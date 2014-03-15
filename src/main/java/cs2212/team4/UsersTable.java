@@ -12,47 +12,30 @@ public class UsersTable extends DefaultTableModel{
 
     private GradesTable grades;
     private final List<Student> studentNames = new ArrayList<>();
-    Course currCourse;
-
-    private int COLUMN_COUNT = 5;
-    private final String[] columnNames = {"First Name", "Last Name", "Email", "Student No."};
+    private Course currCourse;
+    private final String[] columnNames = {"First Name", "Last Name", "Email", "Student #"};
 
     /**
-     * Constructor, takes no parameters to create a default UserTable
+     * Constructor, takes no parameters to create a default empty UserTable
      */
-
-    public UsersTable(Course currCourse) {
-        this.currCourse = currCourse;
-        int numStud=currCourse.getStudentListSize();
-        for (int i = 0; i < columnNames.length; i++){
-            addColumn(columnNames[i]);
-        }
-        grades = new GradesTable(currCourse);
-
-        for (int i = 0; i < numStud; i++) {
-            Student stud = currCourse.getStudent(i);
-            studentNames.add(stud);
-            addStudent(stud);
-            grades.addGrades(stud);
-        }
-    }
 
     public UsersTable() {
         for (int i = 0; i < columnNames.length; i++){
             addColumn(columnNames[i]);
         }
         grades = new GradesTable();
-
     }
 
     /**
-     * Overloaded constructor, allows for the deactivation of some initial columns.
+     * Overloaded constructor, allows for the deactivation of some columns. User
+     * will input '0' or '1', whether they want to hide or show the column, respectively.
      *
-     * @param first
-     * @param last
-     * @param email
-     * @param num
+     * @param first     0 - hide, 1 - show first name column
+     * @param last      0 - hide, 1 - show last name column
+     * @param email     0 - hide, 1 - show email column
+     * @param num       0 - hide, 1 - show stud. no column
      */
+
     public UsersTable(Course currCourse, int first,int last, int email, int num) {
         this.currCourse = currCourse;
         int numStud=currCourse.getStudentListSize();
@@ -70,20 +53,18 @@ public class UsersTable extends DefaultTableModel{
             addStudent(stud);
             grades.addGrades(stud);
         }
+        fillScreen();
     }
 
+    /**
+     * Returns the GradesTable - the other half of the Jtables on the GUI.
+     * @return
+     */
     public GradesTable getGradesTable(){
         return grades;
     }
 
-    /**
-     * Adds a new student ROW to the usersTable.
-     * @param s Student object to be added
-     */
-    public void addStudent(Student s){
-        addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
-        fireTableDataChanged();
-    }
+
     /**
      * Adds a new student ROW to the usersTable, overloaded method
      * Assumes the student already exists in the course.
@@ -94,6 +75,14 @@ public class UsersTable extends DefaultTableModel{
         Student s = c.getStudent(c.findStudent(studNum));
         addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
         fireTableDataChanged();
+    }
+
+    /**
+     * Adds a new student ROW to the usersTable.
+     * @param s Student object to be added
+     */
+    public void addStudent(Student s){
+        addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
     }
 
 /**
@@ -155,6 +144,24 @@ public class UsersTable extends DefaultTableModel{
             return false;
         else
             return true;
+    }
+
+    public void fillScreen(){
+        //Fill with columns/rows if there is empty space in the screen
+        int width = this.getColumnCount() + grades.getColumnCount();
+        int height = this.getRowCount();
+
+        if (width<9){
+            for (int i=0; i < 10-width; i++){
+                grades.addColumn("");
+            }
+        }
+        if (height<20){
+            for (int i=0; i < 30-height; i++){
+                this.addRow(new String[]{""});
+                grades.addRow(new String[] {""});
+            }
+        }
     }
 
 }

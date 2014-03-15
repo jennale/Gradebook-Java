@@ -362,7 +362,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Removes a Deliverable object from the deliverableList list.
 	  * 
-	  * @param		deliver				Deliverable, the Deliverable object.
+	  * @param		i deliver - Deliverable, the Deliverable object.
 	  * 
 	  * @return		boolean, true if the object was removed, false otherwise.
 	  * 
@@ -406,7 +406,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Imports a Student objects into the Course object.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file path - String, the path were the file is located.
 	  * 
 	  */
 	public boolean importStudents(File file)
@@ -438,7 +438,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Exports the Student objects located in studentList list to a .csv file.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file path - String, the path were the file is located.
 	  * 
 	  * @return		boolean, true if the Student objects were exported, false otherwise.
 	  * 
@@ -494,7 +494,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Exports the Deliverable objects located in deliverableList list to a .csv file.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file path - String, the path were the file is located.
 	  * 
 	  * @return		boolean, true if the Deliverable objects were exported, false otherwise.
 	  * 

@@ -33,7 +33,7 @@ public class GradesTable extends DefaultTableModel {
      * @param currCourse
      */
     public GradesTable(Course currCourse) {
-        addColumn("Course Grade");
+        addColumn("COURSE");
         this.currCourse = currCourse;
         if (currCourse.getDeliverableListSize() > 0) {
             for (int i = 0; i < currCourse.getDeliverableListSize(); i++) {
@@ -72,7 +72,7 @@ public class GradesTable extends DefaultTableModel {
                 if (deliverableGrades.get(i) != null) {
                     int id = deliverableGrades.get(i).getObjId();
                     if (s.getGrade(id) > 0) {
-                        grades[i + 1] = Double.toString(s.getGrade(id));
+                        grades[i + 1] = String.format("%.2f",s.getGrade(id));
                     } else
                         grades[i + 1] = "";
                 }
@@ -92,7 +92,11 @@ public class GradesTable extends DefaultTableModel {
                         .getStudent(currCourse
                                 .findStudent(studentGrades.get(rowIndex).getNumber()))
                         .removeGrade(d.getObjId(), d.getType());
+            else if(!(((String)aValue).matches("\\d+(\\.\\d+)?")))
+                return;
             else {
+                if (Double.parseDouble((String) aValue)>100||Double.parseDouble((String) aValue)<0)
+                    return;
             currCourse
                     .getStudent(currCourse
                             .findStudent(studentGrades.get(rowIndex).getNumber()))

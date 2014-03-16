@@ -4780,7 +4780,7 @@ public class GradebookGUI extends JFrame {
 		// Create a fixed-size table (adjusting to view settings/number of
 		// columns)
 		studentTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-		if (gradesTable.getColumnCount() < 9)
+		if (gradesTable.getColumnCount() + studentTable.getColumnCount() < 11)
 			gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		else
 			gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -4797,7 +4797,6 @@ public class GradebookGUI extends JFrame {
 		gradesScroll.getVerticalScrollBar().setPreferredSize(
 				new Dimension(15, 5));
 		gradesScroll.setWheelScrollingEnabled(true);
-
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
@@ -4821,6 +4820,9 @@ public class GradebookGUI extends JFrame {
 	private javax.swing.JScrollPane editDeliverListScroll;
 	private javax.swing.JScrollPane gradesScroll;
 	private javax.swing.JTable gradesTable;
+	private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+	private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+	private javax.swing.JMenu jMenu1;
 	private javax.swing.JLabel lblActiveCourse;
 	private javax.swing.JLabel lblActiveCourseInfo;
 	private javax.swing.JLabel lblActiveCourseTitleInfo;
@@ -4833,6 +4835,10 @@ public class GradebookGUI extends JFrame {
 	private javax.swing.JLabel lblCancelCourseAddition;
 	private javax.swing.JLabel lblCancelDeliverAddition;
 	private javax.swing.JLabel lblCancelStudentAddition;
+	private javax.swing.JLabel lblEmail;
+	private javax.swing.JLabel lblFirstName;
+	private javax.swing.JLabel lblLastName;
+	private javax.swing.JLabel lblNumber;
 	private javax.swing.JLabel lblCourseAddErrorLog;
 	private javax.swing.JLabel lblCourseCode;
 	private javax.swing.JLabel lblCourseDeliverables;
@@ -4854,19 +4860,15 @@ public class GradebookGUI extends JFrame {
 	private javax.swing.JLabel lblEditDeliverName;
 	private javax.swing.JLabel lblEditDeliverType;
 	private javax.swing.JLabel lblEditDeliverWeight;
-	private javax.swing.JLabel lblEmail;
 	private javax.swing.JLabel lblExit;
 	private javax.swing.JLabel lblExportDelivers;
 	private javax.swing.JLabel lblExportStudents;
-	private javax.swing.JLabel lblFirstName;
 	private javax.swing.JLabel lblGrades;
 	private javax.swing.JLabel lblGradesErrorLog;
 	private javax.swing.JLabel lblImportDelivers;
 	private javax.swing.JLabel lblImportExportErrorLog;
 	private javax.swing.JLabel lblImportStudents;
-	private javax.swing.JLabel lblLastName;
 	private javax.swing.JLabel lblMini;
-	private javax.swing.JLabel lblNumber;
 	private javax.swing.JLabel lblReports;
 	private javax.swing.JLabel lblSetup;
 	private javax.swing.JLabel lblStudentAddErrorLog;

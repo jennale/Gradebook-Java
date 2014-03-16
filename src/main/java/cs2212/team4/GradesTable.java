@@ -64,7 +64,7 @@ public class GradesTable extends DefaultTableModel{
         String[] grades = new String[delivSize + 2];
         studentGrades.add(s);
         if (s.getNumGrades() > 0) {
-            if (s.getAvg() != 0.0) {
+            if (s.getAvg() > 0) {
                 grades[0] = String.format("%.2f", s.getAvg());
             } else
                 grades[0] = "";

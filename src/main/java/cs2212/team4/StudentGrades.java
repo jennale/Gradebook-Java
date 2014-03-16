@@ -148,7 +148,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 			return;
 		}
 		for (int i = 0; i < grades.size(); i++)
-			if (grades.get(i) != null) {
+			if (grades.get(i)!=null) {
 				temp = grades.get(i);
 				weight += temp.getWeight();
 				avg += temp.getGrade() * temp.getWeight();
@@ -258,12 +258,11 @@ public class StudentGrades implements StudentGradesADT, Serializable
 			} else
 				return false;
 		grades.set(deliver, null);
-		if (boolExm)
+        calcAvg();
+        if (boolExm)
 			calcExmAvg();
 		else if (boolAsn)
 			calcAsnAvg();
-
-        calcAvg();
 		return true;
 	}
 }

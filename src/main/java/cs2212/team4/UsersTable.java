@@ -1,6 +1,5 @@
 package cs2212.team4;
 
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -120,26 +119,28 @@ public class UsersTable extends DefaultTableModel{
      */
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+
+    	String clmn = getColumnName(columnIndex);
         if ((rowIndex < 0) || (rowIndex >= studentNames.size()))
             return;
         else {
             //Checks whether changed value is an empty string -- does not allow the user to change any attribute to blank.
             if(aValue.equals(""))
                 return;
-            switch (columnIndex) {
-                case 0:
+            switch (clmn) {
+                case "First Name":
                     currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameFirst((String) aValue);
                     fireTableCellUpdated(rowIndex,columnIndex);
                     return;
-                case 1:
+                case "Last Name":
                     currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())).setNameLast((String) aValue);
                     fireTableCellUpdated(rowIndex,columnIndex);
                     return;
-                case 2:
+                case "Email":
                     currCourse.editStudentEmail(currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())), (String) aValue);
                     fireTableCellUpdated(rowIndex,columnIndex);
                     return;
-                case 3:
+                case "Student #":
                     //Checks whether the student number inputted are only numbers, and does not belong to an already existing student.
                     if((((String)aValue).matches("^[0-9]+$"))){
                         currCourse.editStudentNumber(currCourse.getStudent(currCourse.findStudent(studentNames.get(rowIndex).getNumber())),(String)aValue);
@@ -172,7 +173,7 @@ public class UsersTable extends DefaultTableModel{
             }
         }
         if (height<20){
-            for (int i=0; i < 30-height; i++){
+            for (int i=0; i < 20-height; i++){
                 this.addRow(new String[]{""});
                 grades.addRow(new String[] {""});
             }

@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
-			<version>5.5.0</version>
+			<version>5.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>3.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.netbeans.external</groupId>
@@ -47,9 +47,14 @@
 			<version>1.7</version>
 		</dependency>
 		<dependency>
-			<groupId>velocity-tools</groupId>
+			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity-tools</artifactId>
-			<version>1.4</version>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+  			<groupId>com.dropbox.core</groupId>
+  			<artifactId>dropbox-core-sdk</artifactId>
+  			<version>[1.7,1.8)</version>
 		</dependency>
 	</dependencies>
 

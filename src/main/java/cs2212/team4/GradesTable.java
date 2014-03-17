@@ -4,17 +4,9 @@ package cs2212.team4;
  * Created by Jenna on 2014-03-12.
  */
 
-import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.event.*;
 import javax.swing.table.*;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.table.AbstractTableModel;
 
 
 /**
@@ -22,7 +14,9 @@ import javax.swing.table.AbstractTableModel;
  */
 
 public class GradesTable extends DefaultTableModel{
-    int delivSize;
+
+	private static final long serialVersionUID = 1L;
+	int delivSize;
     private final List<Student> studentGrades = new ArrayList<>();
     private final List<Deliverable> deliverableGrades = new ArrayList<>();
     Course currCourse;

@@ -31,6 +31,8 @@ public class Gradebook implements GradebookADT, Serializable
 	private ArrayList<Course> courseList;
 	// The path to where the data will be saved.
 	private String path = "";
+        
+        private Course prevCourse=null;
 
 	/**
 	  * Constructor.
@@ -75,6 +77,10 @@ public class Gradebook implements GradebookADT, Serializable
 	public String getPath() {
 		return path;
 	}
+        
+	public Course getPrevCourse() {
+		return prevCourse;
+	}
    
 	/* ************************************************************
 	* Mutator Methods
@@ -88,6 +94,10 @@ public class Gradebook implements GradebookADT, Serializable
 	  */
 	public void setPath(String path) {
 		this.path = path;
+	}
+        
+	public void setPrevCourse(Course prevCourse) {
+			this.prevCourse = prevCourse;
 	}
 
 	/* ************************************************************
@@ -107,6 +117,7 @@ public class Gradebook implements GradebookADT, Serializable
 				file.delete();
 			ObjectOutputStream OUS = new ObjectOutputStream(
 					new FileOutputStream(file));
+			OUS.writeObject((Course) prevCourse);
 			OUS.writeObject((ArrayList<Course>) courseList);
 			OUS.close();
 			return true;
@@ -128,6 +139,7 @@ public class Gradebook implements GradebookADT, Serializable
 		try {
 			ObjectInputStream OIS = new ObjectInputStream(new FileInputStream(
 					path + "data.dat"));
+			prevCourse = (Course)OIS.readObject();
 			courseList = (ArrayList<Course>) OIS.readObject();
 			OIS.close();
 			return true;
@@ -150,8 +162,10 @@ public class Gradebook implements GradebookADT, Serializable
 	  */
 	public int findCourse(Course crs) {
 		for (int i = 0; i < courseList.size(); i++)
+		{
 			if (courseList.get(i).equals(crs))
 				return i;
+		}
 		return -1;
 	}
 

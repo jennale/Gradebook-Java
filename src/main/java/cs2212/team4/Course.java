@@ -32,7 +32,7 @@ public class Course implements CourseADT, Serializable
 	// The Course Class version
 	private static final long serialVersionUID = 1L;
 	// The Course object title, term, and code.
-	private String title = "", term = "", code = "";
+	private String title = "", term = "", code = "", description="";
 	// The Course object student list.
 	private ArrayList<Student> studentList = new ArrayList<Student>();
 	// The Course object deliverable list.
@@ -87,6 +87,10 @@ public class Course implements CourseADT, Serializable
 	public String getCode() {
 		return code;
 	}
+        
+        public String getDescription(){
+        return description;
+}
 	
 	/**
 	  * Gets the Student object inside the studentList list at location stud.
@@ -200,6 +204,10 @@ public class Course implements CourseADT, Serializable
 	public void setCode(String code) {
 		this.code = code;
 	}
+        
+        public void setDescription(String description){
+            this.description=description;
+        }
 	
 	/* ************************************************************
 	* Helper Methods
@@ -596,7 +604,7 @@ public class Course implements CourseADT, Serializable
 	  * 
 	  */
 	public boolean equals(Course crs) {
-		if (this.toString().equalsIgnoreCase(crs.toString()))
+		if (this.toString().equals(crs.toString()))
 			return true;
 		return false;
 	}

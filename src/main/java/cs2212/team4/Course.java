@@ -604,7 +604,7 @@ public class Course implements CourseADT, Serializable
 	  * 
 	  */
 	public boolean equals(Course crs) {
-		if (this.toString().equals(crs.toString()))
+		if (this.toString().equalsIgnoreCase(crs.toString()))
 			return true;
 		return false;
 	}

@@ -9,7 +9,8 @@ import java.util.List;
  */
 public class UsersTable extends DefaultTableModel{
 
-    private GradesTable grades;
+	private static final long serialVersionUID = 1L;
+	private GradesTable grades;
     private final List<Student> studentNames = new ArrayList<>();
     private Course currCourse;
     private final String[] columnNames = {"First Name", "Last Name", "Email", "Student #"};

@@ -89,14 +89,15 @@ public class GradebookGUI extends JFrame {
 
 		txtCourseDesc.setText("Enter a course description...");
 
-		if (gradebook.getPrevCourse() != null){
+		if (gradebook.getPrevCourse() != null) {
 			currCourse = gradebook.getPrevCourse();
 			courseMenuList.setSelectedIndex(gradebook.findCourse(currCourse));
 		}
-			
+
 		updateInfo();
 	}
 
+	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
@@ -1875,148 +1876,160 @@ public class GradebookGUI extends JFrame {
 						.addGroup(
 								tabGradesLayout
 										.createSequentialGroup()
-										.addGap(10, 10, 10)
 										.addGroup(
 												tabGradesLayout
 														.createParallelGroup(
 																javax.swing.GroupLayout.Alignment.LEADING)
 														.addGroup(
 																tabGradesLayout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.TRAILING,
-																				false)
-																		.addComponent(
-																				addDeliver,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(
-																				deliversScroll,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				230,
+																		.createSequentialGroup()
+																		.addGap(10,
+																				10,
+																				10)
+																		.addGroup(
+																				tabGradesLayout
+																						.createParallelGroup(
+																								javax.swing.GroupLayout.Alignment.LEADING)
+																						.addGroup(
+																								tabGradesLayout
+																										.createParallelGroup(
+																												javax.swing.GroupLayout.Alignment.TRAILING,
+																												false)
+																										.addComponent(
+																												addDeliver,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												Short.MAX_VALUE)
+																										.addComponent(
+																												deliversScroll,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												230,
+																												Short.MAX_VALUE))
+																						.addGroup(
+																								tabGradesLayout
+																										.createSequentialGroup()
+																										.addComponent(
+																												courseName,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												180,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addPreferredGap(
+																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+																										.addComponent(
+																												editCourseIcon,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE))
+																						.addComponent(
+																								deleteDeliver,
+																								javax.swing.GroupLayout.PREFERRED_SIZE,
+																								230,
+																								javax.swing.GroupLayout.PREFERRED_SIZE))
+																		.addGap(10,
+																				10,
+																				10)
+																		.addGroup(
+																				tabGradesLayout
+																						.createParallelGroup(
+																								javax.swing.GroupLayout.Alignment.LEADING)
+																						.addComponent(
+																								pnlTables,
+																								javax.swing.GroupLayout.PREFERRED_SIZE,
+																								javax.swing.GroupLayout.DEFAULT_SIZE,
+																								javax.swing.GroupLayout.PREFERRED_SIZE)
+																						.addGroup(
+																								tabGradesLayout
+																										.createSequentialGroup()
+																										.addComponent(
+																												addStudent,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(6,
+																												6,
+																												6)
+																										.addComponent(
+																												deleteStudent,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addPreferredGap(
+																												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												Short.MAX_VALUE)
+																										.addComponent(
+																												lblExportStudents,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(6,
+																												6,
+																												6)
+																										.addComponent(
+																												lblImportStudents,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(6,
+																												6,
+																												6)
+																										.addComponent(
+																												lblExportGrades,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(6,
+																												6,
+																												6)
+																										.addComponent(
+																												lblImportGrades,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE))
+																						.addGroup(
+																								tabGradesLayout
+																										.createSequentialGroup()
+																										.addComponent(
+																												lblFirstName,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(5,
+																												5,
+																												5)
+																										.addComponent(
+																												lblLastName,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(5,
+																												5,
+																												5)
+																										.addComponent(
+																												lblEmail,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(5,
+																												5,
+																												5)
+																										.addComponent(
+																												lblNumber,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)))
+																		.addGap(0,
+																				0,
 																				Short.MAX_VALUE))
 														.addGroup(
 																tabGradesLayout
 																		.createSequentialGroup()
+																		.addContainerGap()
 																		.addComponent(
-																				courseName,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				180,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				editCourseIcon,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				lblGradesErrorLog,
 																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addComponent(
-																deleteDeliver,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																230,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(10, 10, 10)
-										.addGroup(
-												tabGradesLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(
-																pnlTables,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGroup(
-																tabGradesLayout
-																		.createSequentialGroup()
-																		.addComponent(
-																				addStudent,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(6,
-																				6,
-																				6)
-																		.addComponent(
-																				deleteStudent,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(
-																				lblExportStudents,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(6,
-																				6,
-																				6)
-																		.addComponent(
-																				lblImportStudents,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(6,
-																				6,
-																				6)
-																		.addComponent(
-																				lblExportGrades,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(6,
-																				6,
-																				6)
-																		.addComponent(
-																				lblImportGrades,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addGroup(
-																tabGradesLayout
-																		.createSequentialGroup()
-																		.addComponent(
-																				lblFirstName,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(5,
-																				5,
-																				5)
-																		.addComponent(
-																				lblLastName,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(5,
-																				5,
-																				5)
-																		.addComponent(
-																				lblEmail,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(5,
-																				5,
-																				5)
-																		.addComponent(
-																				lblNumber,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addContainerGap(
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE))
-						.addGroup(
-								tabGradesLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(
-												lblGradesErrorLog,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												0, Short.MAX_VALUE)
+																				0,
+																				Short.MAX_VALUE)))
 										.addContainerGap()));
 		tabGradesLayout
 				.setVerticalGroup(tabGradesLayout
@@ -2042,27 +2055,7 @@ public class GradebookGUI extends JFrame {
 																javax.swing.GroupLayout.Alignment.TRAILING,
 																tabGradesLayout
 																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																		.addComponent(
-																				addStudent,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addComponent(
-																				deleteStudent,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addComponent(
-																				lblImportStudents,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addComponent(
-																				lblExportStudents,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																				javax.swing.GroupLayout.Alignment.LEADING)
 																		.addGroup(
 																				tabGradesLayout
 																						.createParallelGroup(
@@ -2074,6 +2067,30 @@ public class GradebookGUI extends JFrame {
 																								javax.swing.GroupLayout.PREFERRED_SIZE)
 																						.addComponent(
 																								lblExportGrades,
+																								javax.swing.GroupLayout.PREFERRED_SIZE,
+																								javax.swing.GroupLayout.DEFAULT_SIZE,
+																								javax.swing.GroupLayout.PREFERRED_SIZE))
+																		.addGroup(
+																				tabGradesLayout
+																						.createParallelGroup(
+																								javax.swing.GroupLayout.Alignment.BASELINE)
+																						.addComponent(
+																								addStudent,
+																								javax.swing.GroupLayout.PREFERRED_SIZE,
+																								javax.swing.GroupLayout.DEFAULT_SIZE,
+																								javax.swing.GroupLayout.PREFERRED_SIZE)
+																						.addComponent(
+																								deleteStudent,
+																								javax.swing.GroupLayout.PREFERRED_SIZE,
+																								javax.swing.GroupLayout.DEFAULT_SIZE,
+																								javax.swing.GroupLayout.PREFERRED_SIZE)
+																						.addComponent(
+																								lblImportStudents,
+																								javax.swing.GroupLayout.PREFERRED_SIZE,
+																								javax.swing.GroupLayout.DEFAULT_SIZE,
+																								javax.swing.GroupLayout.PREFERRED_SIZE)
+																						.addComponent(
+																								lblExportStudents,
 																								javax.swing.GroupLayout.PREFERRED_SIZE,
 																								javax.swing.GroupLayout.DEFAULT_SIZE,
 																								javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2539,6 +2556,8 @@ public class GradebookGUI extends JFrame {
 																												javax.swing.GroupLayout.PREFERRED_SIZE,
 																												502,
 																												javax.swing.GroupLayout.PREFERRED_SIZE)))
+																		.addPreferredGap(
+																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 																		.addGroup(
 																				tabSetupLayout
 																						.createParallelGroup(
@@ -2546,146 +2565,132 @@ public class GradebookGUI extends JFrame {
 																						.addGroup(
 																								tabSetupLayout
 																										.createSequentialGroup()
-																										.addGap(18,
-																												18,
-																												18)
+																										.addGroup(
+																												tabSetupLayout
+																														.createParallelGroup(
+																																javax.swing.GroupLayout.Alignment.TRAILING,
+																																false)
+																														.addGroup(
+																																javax.swing.GroupLayout.Alignment.LEADING,
+																																tabSetupLayout
+																																		.createSequentialGroup()
+																																		.addComponent(
+																																				lblEditDeliverName,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																																		.addPreferredGap(
+																																				javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+																																		.addComponent(
+																																				txtEditDeliverName,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																																				200,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE))
+																														.addGroup(
+																																javax.swing.GroupLayout.Alignment.LEADING,
+																																tabSetupLayout
+																																		.createSequentialGroup()
+																																		.addComponent(
+																																				lblEditDeliverWeight,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																																		.addPreferredGap(
+																																				javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+																																		.addComponent(
+																																				txtEditDeliverWeight,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																																				200,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE))
+																														.addComponent(
+																																lblDeleteCourse,
+																																javax.swing.GroupLayout.Alignment.LEADING,
+																																javax.swing.GroupLayout.DEFAULT_SIZE,
+																																javax.swing.GroupLayout.DEFAULT_SIZE,
+																																Short.MAX_VALUE)
+																														.addComponent(
+																																lblEditCourse,
+																																javax.swing.GroupLayout.Alignment.LEADING,
+																																javax.swing.GroupLayout.DEFAULT_SIZE,
+																																javax.swing.GroupLayout.DEFAULT_SIZE,
+																																Short.MAX_VALUE)
+																														.addGroup(
+																																javax.swing.GroupLayout.Alignment.LEADING,
+																																tabSetupLayout
+																																		.createSequentialGroup()
+																																		.addComponent(
+																																				lblEditCourseTerm,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																																		.addGap(10,
+																																				10,
+																																				10)
+																																		.addComponent(
+																																				comboEditCourseTerm,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																																				50,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE))
+																														.addGroup(
+																																javax.swing.GroupLayout.Alignment.LEADING,
+																																tabSetupLayout
+																																		.createSequentialGroup()
+																																		.addComponent(
+																																				lblEditDeliverType,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																																		.addPreferredGap(
+																																				javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+																																		.addComponent(
+																																				comboEditDeliverType,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																																				200,
+																																				javax.swing.GroupLayout.PREFERRED_SIZE)))
+																										.addGap(0,
+																												0,
+																												Short.MAX_VALUE))
+																						.addGroup(
+																								tabSetupLayout
+																										.createSequentialGroup()
 																										.addGroup(
 																												tabSetupLayout
 																														.createParallelGroup(
 																																javax.swing.GroupLayout.Alignment.LEADING)
-																														.addGroup(
-																																tabSetupLayout
-																																		.createSequentialGroup()
-																																		.addGroup(
-																																				tabSetupLayout
-																																						.createParallelGroup(
-																																								javax.swing.GroupLayout.Alignment.TRAILING,
-																																								false)
-																																						.addGroup(
-																																								javax.swing.GroupLayout.Alignment.LEADING,
-																																								tabSetupLayout
-																																										.createSequentialGroup()
-																																										.addComponent(
-																																												lblEditDeliverName,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																																										.addPreferredGap(
-																																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																																										.addComponent(
-																																												txtEditDeliverName,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																																												200,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE))
-																																						.addGroup(
-																																								javax.swing.GroupLayout.Alignment.LEADING,
-																																								tabSetupLayout
-																																										.createSequentialGroup()
-																																										.addComponent(
-																																												lblEditDeliverWeight,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																																										.addPreferredGap(
-																																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																																										.addComponent(
-																																												txtEditDeliverWeight,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																																												200,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE))
-																																						.addComponent(
-																																								lblDeleteCourse,
-																																								javax.swing.GroupLayout.Alignment.LEADING,
-																																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																																								Short.MAX_VALUE)
-																																						.addComponent(
-																																								lblEditCourse,
-																																								javax.swing.GroupLayout.Alignment.LEADING,
-																																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																																								Short.MAX_VALUE)
-																																						.addGroup(
-																																								javax.swing.GroupLayout.Alignment.LEADING,
-																																								tabSetupLayout
-																																										.createSequentialGroup()
-																																										.addComponent(
-																																												lblEditCourseTerm,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																																										.addGap(10,
-																																												10,
-																																												10)
-																																										.addComponent(
-																																												comboEditCourseTerm,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																																												50,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE))
-																																						.addGroup(
-																																								javax.swing.GroupLayout.Alignment.LEADING,
-																																								tabSetupLayout
-																																										.createSequentialGroup()
-																																										.addComponent(
-																																												lblEditDeliverType,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																																										.addPreferredGap(
-																																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																																										.addComponent(
-																																												comboEditDeliverType,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																																												200,
-																																												javax.swing.GroupLayout.PREFERRED_SIZE)))
-																																		.addGap(0,
-																																				0,
-																																				Short.MAX_VALUE))
-																														.addGroup(
-																																tabSetupLayout
-																																		.createSequentialGroup()
-																																		.addGroup(
-																																				tabSetupLayout
-																																						.createParallelGroup(
-																																								javax.swing.GroupLayout.Alignment.LEADING)
-																																						.addComponent(
-																																								lblEditCourseCode,
-																																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																																								120,
-																																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																																						.addComponent(
-																																								lblEditCourseTtile,
-																																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																																								javax.swing.GroupLayout.PREFERRED_SIZE))
-																																		.addPreferredGap(
-																																				javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				Short.MAX_VALUE)
-																																		.addGroup(
-																																				tabSetupLayout
-																																						.createParallelGroup(
-																																								javax.swing.GroupLayout.Alignment.LEADING)
-																																						.addComponent(
-																																								txtEditCourseCode,
-																																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																																								200,
-																																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																																						.addComponent(
-																																								txtEditCourseTitle,
-																																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																																								200,
-																																								javax.swing.GroupLayout.PREFERRED_SIZE))))
-																										.addGap(10,
-																												10,
-																												10))
+																														.addComponent(
+																																lblEditCourseCode,
+																																javax.swing.GroupLayout.PREFERRED_SIZE,
+																																120,
+																																javax.swing.GroupLayout.PREFERRED_SIZE)
+																														.addComponent(
+																																lblEditCourseTtile,
+																																javax.swing.GroupLayout.PREFERRED_SIZE,
+																																javax.swing.GroupLayout.DEFAULT_SIZE,
+																																javax.swing.GroupLayout.PREFERRED_SIZE))
+																										.addPreferredGap(
+																												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												Short.MAX_VALUE)
+																										.addGroup(
+																												tabSetupLayout
+																														.createParallelGroup(
+																																javax.swing.GroupLayout.Alignment.LEADING)
+																														.addComponent(
+																																txtEditCourseCode,
+																																javax.swing.GroupLayout.PREFERRED_SIZE,
+																																200,
+																																javax.swing.GroupLayout.PREFERRED_SIZE)
+																														.addComponent(
+																																txtEditCourseTitle,
+																																javax.swing.GroupLayout.PREFERRED_SIZE,
+																																200,
+																																javax.swing.GroupLayout.PREFERRED_SIZE)))
 																						.addGroup(
 																								javax.swing.GroupLayout.Alignment.TRAILING,
 																								tabSetupLayout
 																										.createSequentialGroup()
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																										.addGap(0,
+																												0,
 																												Short.MAX_VALUE)
 																										.addGroup(
 																												tabSetupLayout
@@ -2712,10 +2717,10 @@ public class GradebookGUI extends JFrame {
 																																				lblEditDeleteDeliver,
 																																				javax.swing.GroupLayout.PREFERRED_SIZE,
 																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-																										.addGap(10,
-																												10,
-																												10)))
+																																				javax.swing.GroupLayout.PREFERRED_SIZE)))))
+																		.addGap(10,
+																				10,
+																				10)
 																		.addGroup(
 																				tabSetupLayout
 																						.createParallelGroup(
@@ -3062,108 +3067,192 @@ public class GradebookGUI extends JFrame {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void txtCourtxtCourseDesceDescFocusLost(
-			java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtCourtxtCourseDesceDescFocusLost
-		if (!txtCourseDesc.getText().equals("Enter a course description..."))
-			currCourse.setDescription(txtCourseDesc.getText());
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * Start: CUSTOM CODE
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * Start: Grades Tab
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * Start: Deliverable Side bar
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+	private void editCourseIconMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_editCourseIconMouseClicked
+		tabSwitch(1);
+	}// GEN-LAST:event_editCourseIconMouseClicked
+
+	private void addDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseClicked
+		hideMenu();
+		if (currCourse != null) {
+			restPnlCourse();
+			restPnlDeliver();
+			restPnlStudent();
+			pnlAddDeliver.setVisible(true);
+		} else
+			lblGradesErrorLog.setText("Please select a course");
+	}// GEN-LAST:event_addDeliverMouseClicked
+
+	private void addDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseEntered
+		if (currCourse != null)
+			addDeliver.setBorder(BorderFactory.createLineBorder(new Color(51,
+					255, 51)));
 		else
-			txtCourseDesc.setForeground(Color.lightGray);
-	}// GEN-LAST:event_txtCourtxtCourseDesceDescFocusLost
+			addDeliver.setBorder(BorderFactory.createLineBorder(new Color(204,
+					204, 204)));
+	}// GEN-LAST:event_addDeliverMouseEntered
 
-	private void txtCourtxtCourseDesceDescFocusGained(
-			java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtCourtxtCourseDesceDescFocusGained
-		if (txtCourseDesc.getText().equals("Enter a course description..."))
-			;
-		txtCourseDesc.select(0, txtCourseDesc.getText().length());
-		txtCourseDesc.setForeground(Color.black);
-	}// GEN-LAST:event_txtCourtxtCourseDesceDescFocusGained
+	private void addDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseExited
+		addDeliver.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
+				204)));
+	}// GEN-LAST:event_addDeliverMouseExited
 
-	private void lblEditAddDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMouseClicked
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditAddDeliverMouseClicked
+	private void addDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMousePressed
+		if (currCourse != null)
+			addDeliver.setBorder(BorderFactory.createBevelBorder(1, new Color(
+					51, 255, 51), new Color(51, 255, 51),
+					new Color(51, 255, 51), new Color(51, 255, 51)));
+		else
+			addDeliver.setBorder(BorderFactory.createBevelBorder(1, new Color(
+					204, 204, 204), new Color(204, 204, 204), new Color(204,
+					204, 204), new Color(204, 204, 204)));
+	}// GEN-LAST:event_addDeliverMousePressed
 
-	private void lblEditAddDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMouseEntered
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditAddDeliverMouseEntered
+	private void deleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseClicked
+		if (currCourse != null) {
+			if (deliverList.getSelectedIndex() != -1) {
+				String temp = listDelivers.getElementAt(deliverList
+						.getSelectedIndex());
+				currCourse.removeDeliverable(findDeliver(temp));
+				updateInfo();
+			} else
+				lblGradesErrorLog.setText("Please select a deliverable");
+		} else
+			lblGradesErrorLog.setText("Please select a course");
+	}// GEN-LAST:event_deleteDeliverMouseClicked
 
-	private void lblEditAddDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMouseExited
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditAddDeliverMouseExited
+	private void deleteDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseEntered
+		if (currCourse != null)
+			deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(
+					255, 51, 51)));
+		else
+			deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(
+					204, 204, 204)));
+	}// GEN-LAST:event_deleteDeliverMouseEntered
 
-	private void lblEditAddDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMousePressed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditAddDeliverMousePressed
+	private void deleteDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseExited
+		deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_deleteDeliverMouseExited
 
-	private void lblEditAddDeliverMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMouseReleased
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditAddDeliverMouseReleased
+	private void deleteDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMousePressed
+		if (currCourse != null)
+			deleteDeliver.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(255, 51, 51), new Color(255, 51, 51), new Color(
+							255, 51, 51), new Color(255, 51, 51)));
+		else
+			deleteDeliver.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+	}// GEN-LAST:event_deleteDeliverMousePressed
 
-	private void lblEditDeleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseClicked
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditDeleteDeliverMouseClicked
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * End: Deliverable Side bar
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
 
-	private void lblEditDeleteDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseEntered
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditDeleteDeliverMouseEntered
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * Start: Tables
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+	int firstName = 1, lastName = 1, number = 1, email = 1;
 
-	private void lblEditDeleteDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseExited
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditDeleteDeliverMouseExited
+	private void deliverListValueChanged(
+			javax.swing.event.ListSelectionEvent evt) {// GEN-FIRST:event_deliverListValueChanged
+		deleteDeliver.setVisible(true);
+	}// GEN-LAST:event_deliverListValueChanged
 
-	private void lblEditDeleteDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMousePressed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditDeleteDeliverMousePressed
-
-	private void lblEditDeleteDeliverMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseReleased
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblEditDeleteDeliverMouseReleased
-
-	private void lblImportGradesMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMouseClicked
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblImportGradesMouseClicked
-
-	private void lblImportGradesMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMouseEntered
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblImportGradesMouseEntered
-
-	private void lblImportGradesMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMouseExited
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblImportGradesMouseExited
-
-	private void lblImportGradesMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMousePressed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblImportGradesMousePressed
-
-	private void lblImportGradesMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMouseReleased
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblImportGradesMouseReleased
-
-	private void lblExportGradesMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMouseClicked
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblExportGradesMouseClicked
-
-	private void lblExportGradesMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMouseEntered
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblExportGradesMouseEntered
-
-	private void lblExportGradesMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMouseExited
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblExportGradesMouseExited
-
-	private void lblExportGradesMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMousePressed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblExportGradesMousePressed
-
-	private void lblExportGradesMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMouseReleased
-		// TODO add your handling code here:
-	}// GEN-LAST:event_lblExportGradesMouseReleased
+	private void studentTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_studentTableMouseClicked
+		hideMenu();
+		if (currCourse != null) {
+			if (currCourse.getStudent(studentTable.getSelectedRow()) != null)
+				deleteStudent.setVisible(true);
+		} else
+			deleteStudent.setVisible(false);
+		int i = studentTable.getSelectedRow();
+		gradesTable.setRowSelectionInterval(i, i);
+	}// GEN-LAST:event_studentTableMouseClicked
 
 	private void gradesTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_gradesTableMouseClicked
+		hideMenu();
+		if (currCourse != null) {
+			if (currCourse.getStudent(gradesTable.getSelectedRow()) != null)
+				deleteStudent.setVisible(true);
+		} else
+			deleteStudent.setVisible(false);
 		int i = gradesTable.getSelectedRow();
 		studentTable.setRowSelectionInterval(i, i);
 	}// GEN-LAST:event_gradesTableMouseClicked
-
-	int firstName = 1, lastName = 1, number = 1, email = 1;
 
 	private void lblFirstNameMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblFirstNameMouseClicked
 		if (currCourse != null) {
@@ -3284,7 +3373,6 @@ public class GradebookGUI extends JFrame {
 				lblNumber.setText("Hide");
 			} else
 				lblNumber.setText("Show");
-
 		else
 			lblNumber.setBorder(BorderFactory.createLineBorder(new Color(204,
 					204, 204)));
@@ -3335,7 +3423,6 @@ public class GradebookGUI extends JFrame {
 				lblEmail.setText("Hide");
 			} else
 				lblEmail.setText("Show");
-
 		else
 			lblEmail.setBorder(BorderFactory.createLineBorder(new Color(204,
 					204, 204)));
@@ -3368,59 +3455,1011 @@ public class GradebookGUI extends JFrame {
 					204, 204)));
 	}// GEN-LAST:event_lblEmailMouseReleased
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	private void addStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseClicked
+		hideMenu();
+		if (currCourse != null) {
+			restPnlCourse();
+			restPnlDeliver();
+			restPnlStudent();
+			pnlAddStudent.setVisible(true);
+		} else
+			lblGradesErrorLog.setText("Please select a course");
+	}// GEN-LAST:event_addStudentMouseClicked
+
+	private void addStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseEntered
+		if (currCourse != null)
+			addStudent.setBorder(BorderFactory.createLineBorder(new Color(51,
+					255, 51)));
+		else
+			addStudent.setBorder(BorderFactory.createLineBorder(new Color(204,
+					204, 204)));
+	}// GEN-LAST:event_addStudentMouseEntered
+
+	private void addStudentMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseExited
+		addStudent.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
+				204)));
+	}// GEN-LAST:event_addStudentMouseExited
+
+	private void addStudentMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMousePressed
+		if (currCourse != null)
+			addStudent.setBorder(BorderFactory.createBevelBorder(1, new Color(
+					51, 255, 51), new Color(51, 255, 51),
+					new Color(51, 255, 51), new Color(51, 255, 51)));
+		else
+			addStudent.setBorder(BorderFactory.createBevelBorder(1, new Color(
+					204, 204, 204), new Color(204, 204, 204), new Color(204,
+					204, 204), new Color(204, 204, 204)));
+	}// GEN-LAST:event_addStudentMousePressed
+
+	private void deleteStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseClicked
+		if (currCourse != null) {
+			currCourse.removeStudent(studentTable.getSelectedRow());
+			updateInfo();
+		} else
+			lblGradesErrorLog.setText("Please select a course");
+	}// GEN-LAST:event_deleteStudentMouseClicked
+
+	private void deleteStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseEntered
+		if (currCourse != null)
+			deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(
+					255, 51, 51)));
+		else
+			deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(
+					204, 204, 204)));
+	}// GEN-LAST:event_deleteStudentMouseEntered
+
+	private void deleteStudentMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseExited
+		deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_deleteStudentMouseExited
+
+	private void deleteStudentMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMousePressed
+		if (currCourse != null)
+			deleteStudent.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(255, 51, 51), new Color(255, 51, 51), new Color(
+							255, 51, 51), new Color(255, 51, 51)));
+		else
+			deleteStudent.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+	}// GEN-LAST:event_deleteStudentMousePressed
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * End: Tables
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * Start: Imports/Exports
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+
+	private void lblImportGradesMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMouseClicked
+		if (currCourse != null) {
+			final JFileChooser importGrades = new JFileChooser();
+			int returnVal = importGrades.showOpenDialog(this);
+			if (returnVal == 0) {
+				if (!currCourse.importGrades(importGrades.getSelectedFile()))
+					lblGradesErrorLog
+							.setText("An error occured while importing the data, the file selected seems to be corrupt");
+				else
+					updateInfo();
+			} else
+				lblGradesErrorLog.setText("No file selected.");
+		} else
+			lblGradesErrorLog.setText("Please select a course");
+	}// GEN-LAST:event_lblImportGradesMouseClicked
+
+	private void lblImportGradesMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMouseEntered
+		if (currCourse != null)
+			lblImportGrades.setBorder(BorderFactory.createLineBorder(new Color(
+					20, 150, 250)));
+		else
+			lblImportGrades.setBorder(BorderFactory.createLineBorder(new Color(
+					204, 204, 204)));
+	}// GEN-LAST:event_lblImportGradesMouseEntered
+
+	private void lblImportGradesMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMouseExited
+		lblImportGrades.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_lblImportGradesMouseExited
+
+	private void lblImportGradesMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMousePressed
+		if (currCourse != null)
+			lblImportGrades.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(20, 150, 250), new Color(20, 150, 250),
+					new Color(20, 150, 250), new Color(20, 150, 250)));
+		else {
+			lblImportGrades.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+		}
+	}// GEN-LAST:event_lblImportGradesMousePressed
+
+	private void lblImportGradesMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMouseReleased
+		if (currCourse != null)
+			lblImportGrades.setBorder(BorderFactory.createLineBorder(new Color(
+					20, 150, 250)));
+		else
+			lblImportGrades.setBorder(BorderFactory.createLineBorder(new Color(
+					204, 204, 204)));
+	}// GEN-LAST:event_lblImportGradesMouseReleased
+
+	private void lblExportGradesMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMouseClicked
+		if (currCourse != null) {
+			final JFileChooser exportGrades = new JFileChooser();
+			exportGrades.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			int returnVal = exportGrades.showSaveDialog(this);
+
+			if (returnVal == 0) {
+				File file = new File(exportGrades.getSelectedFile(),
+						currCourse.getTitle() + currCourse.getCode()
+								+ currCourse.getTerm() + "Grades.csv");
+				if (!currCourse.exportGrades(file))
+					lblGradesErrorLog
+							.setText("An error occured while exporting the data.");
+				else
+					updateInfo();
+			} else
+				lblGradesErrorLog.setText("Please select a valid directory.");
+		} else
+			lblGradesErrorLog.setText("Please select a course");
+
+	}// GEN-LAST:event_lblExportGradesMouseClicked
+
+	private void lblExportGradesMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMouseEntered
+		if (currCourse != null)
+			lblExportGrades.setBorder(BorderFactory.createLineBorder(new Color(
+					20, 150, 250)));
+		else
+			lblExportGrades.setBorder(BorderFactory.createLineBorder(new Color(
+					204, 204, 204)));
+	}// GEN-LAST:event_lblExportGradesMouseEntered
+
+	private void lblExportGradesMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMouseExited
+		lblExportGrades.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_lblExportGradesMouseExited
+
+	private void lblExportGradesMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMousePressed
+		if (currCourse != null)
+			lblExportGrades.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(20, 150, 250), new Color(20, 150, 250),
+					new Color(20, 150, 250), new Color(20, 150, 250)));
+		else
+			lblExportGrades.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+
+	}// GEN-LAST:event_lblExportGradesMousePressed
+
+	private void lblExportGradesMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportGradesMouseReleased
+		if (currCourse != null)
+			lblExportGrades.setBorder(BorderFactory.createLineBorder(new Color(
+					20, 150, 250)));
+		else
+			lblExportGrades.setBorder(BorderFactory.createLineBorder(new Color(
+					204, 204, 204)));
+	}// GEN-LAST:event_lblExportGradesMouseReleased
+
+	private void lblImportStudentsMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseClicked
+		if (currCourse != null) {
+			final JFileChooser importStudents = new JFileChooser();
+			int returnVal = importStudents.showOpenDialog(this);
+			if (returnVal == 0) {
+				if (!currCourse.importStudents((importStudents
+						.getSelectedFile())))
+					lblGradesErrorLog
+							.setText("An error occured while importing the data, the file selected seems to be corrupt");
+				else
+					updateInfo();
+			} else
+				lblGradesErrorLog.setText("Please select a valid directory.");
+
+		} else
+			lblGradesErrorLog.setText("Please select a course");
+	}// GEN-LAST:event_lblImportStudentsMouseClicked
+
+	private void lblImportStudentsMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseEntered
+		if (currCourse != null)
+			lblImportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblImportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblImportStudentsMouseEntered
+
+	private void lblImportStudentsMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseExited
+		lblImportStudents.setBorder(BorderFactory.createLineBorder(new Color(
+				204, 204, 204)));
+	}// GEN-LAST:event_lblImportStudentsMouseExited
+
+	private void lblImportStudentsMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMousePressed
+		if (currCourse != null)
+			lblImportStudents.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(20, 150, 250), new Color(20, 150, 250),
+					new Color(20, 150, 250), new Color(20, 150, 250)));
+		else {
+			lblImportStudents.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+			// lblEditCourseErrorLog.setText("Please select a course");
+		}
+	}// GEN-LAST:event_lblImportStudentsMousePressed
+
+	private void lblImportStudentsMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseReleased
+		if (currCourse != null)
+			lblImportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblImportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblImportStudentsMouseReleased
+
+	private void lblExportStudentsMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseClicked
+		if (currCourse != null) {
+			final JFileChooser exportStudents = new JFileChooser();
+			exportStudents.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			int returnVal = exportStudents.showSaveDialog(this);
+
+			if (returnVal == 0) {
+				File file = new File(exportStudents.getSelectedFile(),
+						currCourse.getTitle() + currCourse.getCode()
+								+ currCourse.getTerm() + "Students.csv");
+				if (!currCourse.exportStudents(file))
+					lblGradesErrorLog
+							.setText("An error occured while importing the data.");
+				else
+					updateInfo();
+			}
+		} else
+			lblGradesErrorLog.setText("Please select a course");
+
+	}// GEN-LAST:event_lblExportStudentsMouseClicked
+
+	private void lblExportStudentsMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseEntered
+		if (currCourse != null)
+			lblExportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblExportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblExportStudentsMouseEntered
+
+	private void lblExportStudentsMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseExited
+		lblExportStudents.setBorder(BorderFactory.createLineBorder(new Color(
+				204, 204, 204)));
+	}// GEN-LAST:event_lblExportStudentsMouseExited
+
+	private void lblExportStudentsMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMousePressed
+		if (currCourse != null)
+			lblExportStudents.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(20, 150, 250), new Color(20, 150, 250),
+					new Color(20, 150, 250), new Color(20, 150, 250)));
+		else {
+			lblExportStudents.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+		}
+	}// GEN-LAST:event_lblExportStudentsMousePressed
+
+	private void lblExportStudentsMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseReleased
+		if (currCourse != null)
+			lblExportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblExportStudents.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblExportStudentsMouseReleased
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * End: Imports/Exports
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * End: Grades Tab
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * Start: Setup Tab
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * Start: Course Config
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+	int boolCourse = 2;
+	Color colorCourse = Color.lightGray;
+
+	private void txtCourtxtCourseDesceDescFocusLost(
+			java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtCourtxtCourseDesceDescFocusLost
+		if (!txtCourseDesc.getText().equals("Enter a course description..."))
+			currCourse.setDescription(txtCourseDesc.getText());
+		else
+			txtCourseDesc.setForeground(Color.lightGray);
+	}// GEN-LAST:event_txtCourtxtCourseDesceDescFocusLost
+
+	private void txtCourtxtCourseDesceDescFocusGained(
+			java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtCourtxtCourseDesceDescFocusGained
+		if (txtCourseDesc.getText().equals("Enter a course description...")) {
+			txtCourseDesc.select(0, txtCourseDesc.getText().length());
+			txtCourseDesc.setForeground(Color.black);
+		}
+	}// GEN-LAST:event_txtCourtxtCourseDesceDescFocusGained
+
+	private void txtEditCourseTitleFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditCourseTitleFocusGained
+		txtEditCourseTitle.setForeground(Color.black);
+		txtEditCourseTitle.select(0, txtEditCourseTitle.getText().length());
+	}// GEN-LAST:event_txtEditCourseTitleFocusGained
+
+	private void txtEditCourseTitleFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditCourseTitleFocusLost
+		if (currCourse != null
+				&& txtEditCourseTitle.getText().equals(currCourse.getTitle())
+				|| txtEditCourseTitle.getText()
+						.equals("Please select a course")) {
+			txtEditCourseTitle.setForeground(Color.lightGray);
+		}
+	}// GEN-LAST:event_txtEditCourseTitleFocusLost
+
+	private void txtEditCourseCodeFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditCourseCodeFocusGained
+		txtEditCourseCode.setForeground(Color.black);
+		txtEditCourseCode.select(0, txtEditCourseCode.getText().length());
+	}// GEN-LAST:event_txtEditCourseCodeFocusGained
+
+	private void txtEditCourseCodeFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditCourseCodeFocusLost
+		if (currCourse != null
+				&& txtEditCourseCode.getText().equals(currCourse.getCode())
+				|| txtEditCourseCode.getText().equals("Please select a course")) {
+			txtEditCourseCode.setForeground(Color.lightGray);
+		}
+	}// GEN-LAST:event_txtEditCourseCodeFocusLost
+
+	private void lblEditCourseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMouseClicked
+		if (currCourse != null) {
+			if (boolCourse == 1) {
+				currCourse.setTitle(txtEditCourseTitle.getText());
+				currCourse.setCode(txtEditCourseCode.getText());
+				currCourse.setTerm((String) comboEditCourseTerm
+						.getSelectedItem());
+				updateInfo();
+			} else if (boolCourse == 0)
+				lblSetupErrorLog.setText("The course"
+						+ txtEditCourseTitle.getText() + ", "
+						+ txtEditCourseCode.getText()
+						+ (String) comboEditCourseTerm.getSelectedItem()
+						+ " already exists!");
+		} else {
+			lblSetupErrorLog.setText("Please select a course");
+		}
+	}// GEN-LAST:event_lblEditCourseMouseClicked
+
+	private void lblEditCourseMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMouseEntered
+		if (currCourse != null
+				&& (!currCourse.getTitle().equals(txtEditCourseTitle.getText())
+						|| !currCourse.getCode().equals(
+								txtEditCourseCode.getText()) || !currCourse
+						.getTerm()
+						.equals(comboEditCourseTerm.getSelectedItem()))) {
+			int i = gradebook.findCourse(new Course(txtEditCourseTitle
+					.getText(), (String) comboEditCourseTerm.getSelectedItem(),
+					txtEditCourseCode.getText()));
+			if (i == -1) {
+				lblEditCourse.setBorder(BorderFactory
+						.createLineBorder(new Color(51, 255, 51)));
+				boolCourse = 1;
+			} else {
+				lblEditCourse.setBorder(BorderFactory
+						.createLineBorder(new Color(255, 51, 51)));
+				boolCourse = 0;
+			}
+		} else {
+			lblEditCourse.setBorder(BorderFactory.createLineBorder(new Color(
+					204, 204, 204)));
+			boolCourse = 2;
+		}
+	}// GEN-LAST:event_lblEditCourseMouseEntered
+
+	private void lblEditCourseMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMouseExited
+		lblEditCourse.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_lblEditCourseMouseExited
+
+	private void lblEditCourseMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMousePressed
+		if (boolCourse == 0)
+			colorCourse = new Color(255, 51, 51);
+		else if (boolCourse == 1)
+			colorCourse = new Color(51, 255, 51);
+		else
+			colorCourse = new Color(204, 204, 204);
+		lblEditCourse.setBorder(BorderFactory.createBevelBorder(1, colorCourse,
+				colorCourse, colorCourse, colorCourse));
+	}// GEN-LAST:event_lblEditCourseMousePressed
+
+	private void lblEditCourseMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMouseReleased
+		if (boolCourse == 0)
+			colorCourse = new Color(255, 51, 51);
+		else if (boolCourse == 1)
+			colorCourse = new Color(51, 255, 51);
+		else
+			colorCourse = new Color(204, 204, 204);
+		lblEditCourse.setBorder(BorderFactory.createLineBorder(colorCourse));
+	}// GEN-LAST:event_lblEditCourseMouseReleased
+
+	boolean delete = false;
+
+	private void lblDeleteCourseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMouseClicked
+		if (currCourse != null) {
+			gradebook.removeCourse(gradebook.getCourse(courseMenuList
+					.getSelectedIndex()));
+			listCourses.remove(courseMenuList.getSelectedIndex());
+			currCourse = gradebook.getPrevCourse();
+			if (currCourse != null && gradebook.findCourse(currCourse) != -1)
+				courseMenuList.setSelectedIndex(gradebook
+						.findCourse(currCourse));
+			else
+				currCourse = null;
+			updateInfo();
+		} else
+			lblSetupErrorLog.setText("Please select a course");
+
+	}// GEN-LAST:event_lblDeleteCourseMouseClicked
+
+	private void lblDeleteCourseMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMouseEntered
+		if (currCourse != null) {
+			lblDeleteCourse.setBorder(BorderFactory.createLineBorder(new Color(
+					255, 51, 51)));
+		} else {
+			lblDeleteCourse.setBorder(BorderFactory.createLineBorder(new Color(
+					204, 204, 204)));
+		}
+	}// GEN-LAST:event_lblDeleteCourseMouseEntered
+
+	private void lblDeleteCourseMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMouseExited
+		lblDeleteCourse.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_lblDeleteCourseMouseExited
+
+	private void lblDeleteCourseMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMousePressed
+		if (currCourse != null) {
+			lblDeleteCourse.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(255, 51, 51), new Color(255, 51, 51), new Color(
+							255, 51, 51), new Color(255, 51, 51)));
+		} else {
+			lblDeleteCourse.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+		}
+	}// GEN-LAST:event_lblDeleteCourseMousePressed
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * End: Course Config
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * End: Deliverable Config
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+	int boolDeliver = 2;
+	Color colorDeliver = Color.lightGray;
+	Deliverable currDeliver = null;
+
+	private void editDeliverListValueChanged(
+			javax.swing.event.ListSelectionEvent evt) {// GEN-FIRST:event_editDeliverListValueChanged
+		hideMenu();
+		if (currCourse != null) {
+			if (editDeliverList.getSelectedIndex() != -1) {
+
+				String temp = listDelivers.getElementAt(editDeliverList
+						.getSelectedIndex());
+
+				currDeliver = currCourse.getDeliverable(findDeliver(temp));
+
+				if (currDeliver != null) {
+					txtEditDeliverName.setText(currDeliver.getName());
+					txtEditDeliverWeight.setText(currDeliver.getWeight() + "");
+					comboEditDeliverType.setSelectedItem(currDeliver.getType());
+				}
+			} else {
+				txtEditDeliverName.setText("Please select a deliverable");
+				txtEditDeliverWeight.setText("Please select a deliverable");
+				comboEditDeliverType.setSelectedIndex(0);
+			}
+		}
+	}// GEN-LAST:event_editDeliverListValueChanged
+
+	private void txtEditDeliverNameFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditDeliverNameFocusGained
+		txtEditDeliverName.setForeground(Color.black);
+		txtEditDeliverName.select(0, txtEditDeliverName.getText().length());
+	}// GEN-LAST:event_txtEditDeliverNameFocusGained
+
+	private void txtEditDeliverNameFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditDeliverNameFocusLost
+		if (currDeliver != null
+				&& txtEditDeliverName.getText().equals(currDeliver.getName())
+				|| txtEditDeliverName.getText().equals(
+						"Please select a deliverable")) {
+			txtEditDeliverName.setForeground(Color.lightGray);
+		}
+	}// GEN-LAST:event_txtEditDeliverNameFocusLost
+
+	private void txtEditDeliverWeightFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditDeliverWeightFocusGained
+		txtEditDeliverWeight.setForeground(Color.black);
+		txtEditDeliverWeight.select(0, txtEditDeliverWeight.getText().length());
+	}// GEN-LAST:event_txtEditDeliverWeightFocusGained
+
+	private void txtEditDeliverWeightFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditDeliverWeightFocusLost
+		if (currDeliver != null
+				&& txtEditDeliverWeight.getText().equals(
+						currDeliver.getWeight())
+				|| txtEditDeliverWeight.getText().equals(
+						"Please select a deliverable")) {
+			txtEditDeliverWeight.setForeground(Color.lightGray);
+		}
+	}// GEN-LAST:event_txtEditDeliverWeightFocusLost
+
+	private void lblEditDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMouseClicked
+		if (currDeliver != null) {
+			if (!weightException) {
+				if (boolDeliver == 1) {
+					currDeliver.setName(txtEditDeliverName.getText());
+					currDeliver.setWeight(weight);
+					currDeliver.setType((String) comboEditDeliverType
+							.getSelectedItem());
+					updateInfo();
+					currDeliver = null;
+				} else if (boolCourse == 0)
+					lblSetupErrorLog.setText("The deliverable"
+							+ txtEditDeliverName.getText() + ", " + weight
+							+ (String) comboEditDeliverType.getSelectedItem()
+							+ " already exists!");
+			} else {
+				lblSetupErrorLog.setText("Please enter a valid weight.");
+				txtEditDeliverWeight.setBorder(errorHighlightBorder);
+			}
+		} else
+			lblSetupErrorLog.setText("Please select a deliverable");
+
+	}// GEN-LAST:event_lblEditDeliverMouseClicked
+
+	double weight = -1;
+	boolean weightException = false;
+
+	private void lblEditDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMouseEntered
+		try {
+			weight = Double.parseDouble(txtEditDeliverWeight.getText());
+
+			if (lblSetupErrorLog.getText().equals(
+					"Please enter a valid weight."))
+				lblSetupErrorLog.setText("");
+			weightException = false;
+			txtDeliverWeight.setBorder(defaultHighlightBorder);
+			if (currDeliver != null
+					&& (!currDeliver.getName().equals(
+							txtEditDeliverName.getText())
+							|| currDeliver.getWeight() != weight || !currDeliver
+							.getType().equals(
+									comboEditDeliverType.getSelectedItem()))) {
+				int i = currCourse.findDeliverable(new Deliverable(
+						txtEditDeliverName.getText(),
+						(String) comboEditDeliverType.getSelectedItem(),
+						weight, 0));
+				if (i == -1) {
+					lblEditDeliver.setBorder(BorderFactory
+							.createLineBorder(new Color(51, 255, 51)));
+					boolDeliver = 1;
+				} else {
+					lblEditDeliver.setBorder(BorderFactory
+							.createLineBorder(new Color(255, 51, 51)));
+					boolDeliver = 0;
+				}
+			} else {
+				lblEditDeliver.setBorder(BorderFactory
+						.createLineBorder(new Color(204, 204, 204)));
+				boolDeliver = 2;
+			}
+		} catch (NumberFormatException e) {
+			weightException = true;
+		}
+	}// GEN-LAST:event_lblEditDeliverMouseEntered
+
+	private void lblEditDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMouseExited
+		lblEditDeliver.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_lblEditDeliverMouseExited
+
+	private void lblEditDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMousePressed
+		if (boolDeliver == 0)
+			colorDeliver = new Color(255, 51, 51);
+		else if (boolDeliver == 1)
+			colorDeliver = new Color(51, 255, 51);
+		else
+			colorCourse = new Color(204, 204, 204);
+		lblEditDeliver.setBorder(BorderFactory.createBevelBorder(1,
+				colorDeliver, colorDeliver, colorDeliver, colorDeliver));
+	}// GEN-LAST:event_lblEditDeliverMousePressed
+
+	private void lblEditDeliverMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMouseReleased
+		if (boolDeliver == 0)
+			colorDeliver = new Color(255, 51, 51);
+		else if (boolDeliver == 1)
+			colorDeliver = new Color(51, 255, 51);
+		else
+			colorDeliver = new Color(204, 204, 204);
+		lblEditDeliver.setBorder(BorderFactory.createLineBorder(colorDeliver));
+	}// GEN-LAST:event_lblEditDeliverMouseReleased
+
+	private void lblImportDeliversMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseClicked
+		if (currCourse != null) {
+			final JFileChooser importDeliver = new JFileChooser();
+			int returnVal = importDeliver.showOpenDialog(this);
+
+			if (returnVal == 0) {
+				if (!currCourse.importDeliverables(importDeliver
+						.getSelectedFile())) {
+					lblSetupErrorLog.setText("Fail to import, corrupt file.");
+				} else
+					updateInfo();
+			}
+		} else
+			lblSetupErrorLog.setText("Please select a course.");
+	}// GEN-LAST:event_lblImportDeliversMouseClicked
+
+	private void lblImportDeliversMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseEntered
+		if (currCourse != null)
+			lblImportDelivers.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblImportDelivers.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblImportDeliversMouseEntered
+
+	private void lblImportDeliversMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseExited
+		lblImportDelivers.setBorder(BorderFactory.createLineBorder(new Color(
+				204, 204, 204)));
+	}// GEN-LAST:event_lblImportDeliversMouseExited
+
+	private void lblImportDeliversMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMousePressed
+		if (currCourse != null)
+			lblImportDelivers.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(20, 150, 250), new Color(20, 150, 250),
+					new Color(20, 150, 250), new Color(20, 150, 250)));
+		else
+			lblImportDelivers.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+
+	}// GEN-LAST:event_lblImportDeliversMousePressed
+
+	private void lblImportDeliversMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseReleased
+		if (currCourse != null)
+			lblImportDelivers.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblImportDelivers.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblImportDeliversMouseReleased
+
+	private void lblExportDeliversMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseClicked
+		if (currCourse != null) {
+			final JFileChooser exportDeliver = new JFileChooser();
+			exportDeliver.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			int returnVal = exportDeliver.showSaveDialog(this);
+
+			if (returnVal == 0) {
+				File file = new File(exportDeliver.getSelectedFile(),
+						currCourse.getCode() + currCourse.getTerm()
+								+ "Deliverables.csv");
+				if (!currCourse.exportDeliverables(file))
+					lblSetupErrorLog.setText("Fail to export.");
+				updateInfo();
+			}
+		} else
+			lblSetupErrorLog.setText("Please selcet a course.");
+	}// GEN-LAST:event_lblExportDeliversMouseClicked
+
+	private void lblExportDeliversMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseEntered
+		if (currCourse != null)
+			lblExportDelivers.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblExportDelivers.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblExportDeliversMouseEntered
+
+	private void lblExportDeliversMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseExited
+		lblExportDelivers.setBorder(BorderFactory.createLineBorder(new Color(
+				204, 204, 204)));
+	}// GEN-LAST:event_lblExportDeliversMouseExited
+
+	private void lblExportDeliversMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMousePressed
+		if (currCourse != null)
+			lblExportDelivers.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(20, 150, 250), new Color(20, 150, 250),
+					new Color(20, 150, 250), new Color(20, 150, 250)));
+		else
+			lblExportDelivers.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+
+	}// GEN-LAST:event_lblExportDeliversMousePressed
+
+	private void lblExportDeliversMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseReleased
+		if (currCourse != null)
+			lblExportDelivers.setBorder(BorderFactory
+					.createLineBorder(new Color(20, 150, 250)));
+		else
+			lblExportDelivers.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblExportDeliversMouseReleased
+
+	private void lblEditAddDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMouseClicked
+		hideMenu();
+		if (currCourse != null) {
+			restPnlCourse();
+			restPnlDeliver();
+			restPnlStudent();
+			pnlAddDeliver.setVisible(true);
+		} else {
+			lblSetupErrorLog.setText("Please select a course");
+		}
+	}// GEN-LAST:event_lblEditAddDeliverMouseClicked
+
+	private void lblEditAddDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMouseEntered
+		if (currCourse != null)
+			lblEditAddDeliver.setBorder(BorderFactory
+					.createLineBorder(new Color(51, 255, 51)));
+		else
+			lblEditAddDeliver.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblEditAddDeliverMouseEntered
+
+	private void lblEditAddDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMouseExited
+		lblEditAddDeliver.setBorder(BorderFactory.createLineBorder(new Color(
+				204, 204, 204)));
+	}// GEN-LAST:event_lblEditAddDeliverMouseExited
+
+	private void lblEditAddDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMousePressed
+		if (currCourse != null)
+			lblEditAddDeliver.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(51, 255, 51), new Color(51, 255, 51), new Color(
+							51, 255, 51), new Color(51, 255, 51)));
+		else
+			lblEditAddDeliver.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblEditAddDeliverMousePressed
+
+	private void lblEditAddDeliverMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditAddDeliverMouseReleased
+		if (currCourse != null)
+			lblEditAddDeliver.setBorder(BorderFactory
+					.createLineBorder(new Color(51, 255, 51)));
+		else
+			lblEditAddDeliver.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblEditAddDeliverMouseReleased
+
+	private void lblEditDeleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseClicked
+		if (currCourse != null) {
+			if (editDeliverList.getSelectedIndex() != -1) {
+				String temp = listDelivers.getElementAt(editDeliverList
+						.getSelectedIndex());
+				currCourse.removeDeliverable(findDeliver(temp));
+				updateInfo();
+			} else
+				lblSetupErrorLog.setText("Please select a deliverable");
+		} else
+			lblSetupErrorLog.setText("Please select a course");
+	}// GEN-LAST:event_lblEditDeleteDeliverMouseClicked
+
+	private void lblEditDeleteDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseEntered
+		if (currCourse != null)
+			lblEditDeleteDeliver.setBorder(BorderFactory
+					.createLineBorder(new Color(255, 51, 51)));
+		else
+			lblEditDeleteDeliver.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblEditDeleteDeliverMouseEntered
+
+	private void lblEditDeleteDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseExited
+		lblEditDeleteDeliver.setBorder(BorderFactory
+				.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblEditDeleteDeliverMouseExited
+
+	private void lblEditDeleteDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMousePressed
+		if (currCourse != null)
+			lblEditDeleteDeliver.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(255, 51, 51), new Color(255, 51, 51), new Color(
+							255, 51, 51), new Color(255, 51, 51)));
+		else
+			lblEditDeleteDeliver.setBorder(BorderFactory.createBevelBorder(1,
+					new Color(204, 204, 204), new Color(204, 204, 204),
+					new Color(204, 204, 204), new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblEditDeleteDeliverMousePressed
+
+	private void lblEditDeleteDeliverMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseReleased
+		if (currCourse != null)
+			lblEditDeleteDeliver.setBorder(BorderFactory
+					.createLineBorder(new Color(255, 51, 51)));
+		else
+			lblEditDeleteDeliver.setBorder(BorderFactory
+					.createLineBorder(new Color(204, 204, 204)));
+	}// GEN-LAST:event_lblEditDeleteDeliverMouseReleased
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * End: Deliverable Config
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * End: Setup Tab
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * Start: Extras
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
 	 * Start: Tabs
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/** Grades tab switch *********************************************************************************************/
 	private void lblTabGradesMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblTabGradesMouseClicked
-		hideMenu();
-		lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/tabOn.png")));
-		lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/tabOff.png")));
-		if (!tabGrades.isVisible()) {
-			tabGrades.setVisible(true);
-			tabSetup.setVisible(false);
-		}
+		tabSwitch(0);
 	}// GEN-LAST:event_lblTabGradesMouseClicked
 
-	/** Setup tab switch *********************************************************************************************/
 	private void lblTabSetupMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblTabSetupMouseClicked
-		hideMenu();
-		lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/tabOff.png")));
-		lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/tabOn.png")));
-		if (!tabSetup.isVisible()) {
-			tabGrades.setVisible(false);
-			tabSetup.setVisible(true);
-		}
+		tabSwitch(1);
 	}// GEN-LAST:event_lblTabSetupMouseClicked
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
 	 * End: Tabs
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
 	 * Start: Drag
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 	Point inWinCoords;
 
@@ -3434,22 +4473,26 @@ public class GradebookGUI extends JFrame {
 		inWinCoords = evt.getPoint();
 	}// GEN-LAST:event_formMousePressed
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
 	 * End: Drag
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
 	 * Start: Minimize
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
 	private void lblMiniMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblMiniMouseEntered
@@ -3467,22 +4510,26 @@ public class GradebookGUI extends JFrame {
 		setState(Frame.ICONIFIED);
 	}// GEN-LAST:event_lblMiniMouseClicked
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
 	 * End: Minimize
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
 	 * Start: Exit
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
 	private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExitMouseEntered
@@ -3501,25 +4548,29 @@ public class GradebookGUI extends JFrame {
 		System.exit(0);
 	}// GEN-LAST:event_lblExitMouseClicked
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
 	 * End: Exit
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
 	 * Start: My Courses Menu
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
+	int check = 0;
 
-	/** Add course button configurations ******************************************************************************/
 	private void myCoursesMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_myCoursesMouseClicked
 		if (!pnlCourseMenu.isVisible())
 			pnlCourseMenu.setVisible(true);
@@ -3555,9 +4606,6 @@ public class GradebookGUI extends JFrame {
 				new Color(51, 255, 51)));
 	}// GEN-LAST:event_addCourseMousePressed
 
-	/** List selection changed ******************************************************************************/
-	int check = 0;
-
 	private void courseMenuListValueChanged(
 			javax.swing.event.ListSelectionEvent evt) {// GEN-FIRST:event_courseMenuListValueChanged
 		hideMenu();
@@ -3575,237 +4623,28 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_courseMenuListValueChanged
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
 	 * End: My Courses Menu
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
-	 * Start: Deliverable Side bar
+	 * Start: Add New Course Panel
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 */
-	private void editCourseIconMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_editCourseIconMouseClicked
-		hideMenu();
-		lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/tabOff.png")));
-		lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/tabOn.png")));
-		if (!tabSetup.isVisible()) {
-			tabGrades.setVisible(false);
-			tabSetup.setVisible(true);
-		}
-	}// GEN-LAST:event_editCourseIconMouseClicked
-
-	/** Add deliverable button **************************************************************************************/
-	private void addDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseClicked
-		hideMenu();
-		if (currCourse != null) {
-			restPnlCourse();
-			restPnlDeliver();
-			restPnlStudent();
-			pnlAddDeliver.setVisible(true);
-		} else {
-			lblGradesErrorLog.setText("Please select a course");
-		}
-	}// GEN-LAST:event_addDeliverMouseClicked
-
-	private void addDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseEntered
-		if (currCourse != null)
-
-			addDeliver.setBorder(BorderFactory.createLineBorder(new Color(51,
-					255, 51)));
-
-		else
-			addDeliver.setBorder(BorderFactory.createLineBorder(new Color(204,
-					204, 204)));
-
-	}// GEN-LAST:event_addDeliverMouseEntered
-
-	private void addDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMouseExited
-		addDeliver.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
-				204)));
-	}// GEN-LAST:event_addDeliverMouseExited
-
-	private void addDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addDeliverMousePressed
-		if (currCourse != null)
-			addDeliver.setBorder(BorderFactory.createBevelBorder(1, new Color(
-					51, 255, 51), new Color(51, 255, 51),
-					new Color(51, 255, 51), new Color(51, 255, 51)));
-		else
-			addDeliver.setBorder(BorderFactory.createBevelBorder(1, new Color(
-					204, 204, 204), new Color(204, 204, 204), new Color(204,
-					204, 204), new Color(204, 204, 204)));
-	}// GEN-LAST:event_addDeliverMousePressed
-
-	/** Add student button *****************************************************************************************/
-	private void addStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseClicked
-		hideMenu();
-		if (currCourse != null) {
-			restPnlCourse();
-			restPnlDeliver();
-			restPnlStudent();
-			pnlAddStudent.setVisible(true);
-		} else
-			lblGradesErrorLog.setText("Please select a course");
-	}// GEN-LAST:event_addStudentMouseClicked
-
-	private void addStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseEntered
-		if (currCourse != null)
-			addStudent.setBorder(BorderFactory.createLineBorder(new Color(51,
-					255, 51)));
-		else
-			addStudent.setBorder(BorderFactory.createLineBorder(new Color(204,
-					204, 204)));
-	}// GEN-LAST:event_addStudentMouseEntered
-
-	private void addStudentMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseExited
-		addStudent.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
-				204)));
-	}// GEN-LAST:event_addStudentMouseExited
-
-	private void addStudentMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMousePressed
-		if (currCourse != null)
-
-			addStudent.setBorder(BorderFactory.createBevelBorder(1, new Color(
-					51, 255, 51), new Color(51, 255, 51),
-					new Color(51, 255, 51), new Color(51, 255, 51)));
-
-		else
-
-			addStudent.setBorder(BorderFactory.createBevelBorder(1, new Color(
-					204, 204, 204), new Color(204, 204, 204), new Color(204,
-					204, 204), new Color(204, 204, 204)));
-	}// GEN-LAST:event_addStudentMousePressed
-
-	/** Delete deliverable button **************************************************************************************/
-	private void deleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseClicked
-		if (currCourse != null) {
-			String name = "", type = "", w = "", temp = listDelivers
-					.getElementAt(deliverList.getSelectedIndex());
-			Double weight;
-			int i = 0;
-			while (temp.charAt(i) != ',') {
-				name += temp.charAt(i);
-				i++;
-			}
-			i += 2;
-			while (temp.charAt(i) != ',') {
-				type += temp.charAt(i);
-				i++;
-			}
-			i += 2;
-			while (i < temp.length()) {
-				w += temp.charAt(i);
-				i++;
-			}
-			weight = Double.parseDouble(w);
-			currCourse.removeDeliverable(currCourse
-					.findDeliverable(new Deliverable(name, type, weight, 0)));
-		} else {
-			lblGradesErrorLog.setText("Please select a course");
-		}
-		updateInfo();
-	}// GEN-LAST:event_deleteDeliverMouseClicked
-
-	private void deleteDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseEntered
-		if (currCourse != null)
-
-			deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(
-					255, 51, 51)));
-		else
-			deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(
-					204, 204, 204)));
-	}// GEN-LAST:event_deleteDeliverMouseEntered
-
-	private void deleteDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseExited
-		deleteDeliver.setBorder(BorderFactory.createLineBorder(new Color(204,
-				204, 204)));
-	}// GEN-LAST:event_deleteDeliverMouseExited
-
-	private void deleteDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMousePressed
-		if (currCourse != null)
-			deleteDeliver.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(255, 51, 51), new Color(255, 51, 51), new Color(
-							255, 51, 51), new Color(255, 51, 51)));
-		else
-			deleteDeliver.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(204, 204, 204), new Color(204, 204, 204),
-					new Color(204, 204, 204), new Color(204, 204, 204)));
-	}// GEN-LAST:event_deleteDeliverMousePressed
-
-	/** Delete student button ********************************************************************************************/
-	private void deleteStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseClicked
-		if (currCourse != null) {
-			currCourse.removeStudent(studentTable.getSelectedRow());
-			updateInfo();
-		} else
-			lblGradesErrorLog.setText("Please select a course");
-	}// GEN-LAST:event_deleteStudentMouseClicked
-
-	private void deleteStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseEntered
-		if (currCourse != null)
-			deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(
-					255, 51, 51)));
-		else
-			deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(
-					204, 204, 204)));
-	}// GEN-LAST:event_deleteStudentMouseEntered
-
-	private void deleteStudentMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseExited
-		deleteStudent.setBorder(BorderFactory.createLineBorder(new Color(204,
-				204, 204)));
-	}// GEN-LAST:event_deleteStudentMouseExited
-
-	private void deleteStudentMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMousePressed
-		if (currCourse != null)
-			deleteStudent.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(255, 51, 51), new Color(255, 51, 51), new Color(
-							255, 51, 51), new Color(255, 51, 51)));
-		else
-			deleteStudent.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(204, 204, 204), new Color(204, 204, 204),
-					new Color(204, 204, 204), new Color(204, 204, 204)));
-	}// GEN-LAST:event_deleteStudentMousePressed
-
-	/** Delete buttons visibility **************************************************************************************/
-	private void deliverListValueChanged(
-			javax.swing.event.ListSelectionEvent evt) {// GEN-FIRST:event_deliverListValueChanged
-		deleteDeliver.setVisible(true);
-	}// GEN-LAST:event_deliverListValueChanged
-
-	private void studentTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_studentTableMouseClicked
-		deleteStudent.setVisible(true);
-		int i = studentTable.getSelectedRow();
-		gradesTable.setRowSelectionInterval(i, i);
-	}// GEN-LAST:event_studentTableMouseClicked
-
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 * End: Deliverable Side bar
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 * 
-	 * Start: Add Courses Panel
-	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 */
-
-	/** Text box configurations Course Name *************************************************************************/
 	private void txtCourseNameFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtCourseNameFocusGained
 		if (txtCourseName.getText().equals("")
 				|| txtCourseName.getText().equals("ex. Computer Engineering"))
@@ -3820,7 +4659,6 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_txtCourseNameFocusLost
 
-	/** Text box configurations Course Code *************************************************************************/
 	private void txtCourseCodeFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtCourseCodeFocusGained
 		if (txtCourseCode.getText().equals("")
 				|| txtCourseCode.getText().equals("ex. CS2212"))
@@ -3835,7 +4673,6 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_txtCourseCodeFocusLost
 
-	/** Cancel Button configurations ******************************************************************************/
 	private void lblCancelCourseAdditionMouseEntered(
 			java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblCancelCourseAdditionMouseEntered
 		lblCancelCourseAddition.setBackground(new Color(255, 51, 51));
@@ -3851,7 +4688,6 @@ public class GradebookGUI extends JFrame {
 		restPnlCourse();
 	}// GEN-LAST:event_lblCancelCourseAdditionMouseClicked
 
-	/** Add Button configurations ******************************************************************************/
 	private void lblAddCourseMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddCourseMouseEntered
 		lblAddCourse.setBackground(new Color(51, 255, 51));
 	}// GEN-LAST:event_lblAddCourseMouseEntered
@@ -3860,7 +4696,6 @@ public class GradebookGUI extends JFrame {
 		lblAddCourse.setBackground(Color.white);
 	}// GEN-LAST:event_lblAddCourseMouseExited
 
-	/** Add a course *******************************************************************************************/
 	private void lblAddCourseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddCourseMouseClicked
 		String name, code, getName, getCode, info, term;
 
@@ -3888,15 +4723,7 @@ public class GradebookGUI extends JFrame {
 			if (!gradebook.addCourse(name, term, code))
 				lblCourseAddErrorLog.setText("Course Already exists!");
 			else {
-				txtCourseName.setText("ex. Computer Engineering");
-				txtCourseName.setForeground(new Color(204, 204, 204));
-
-				txtCourseCode.setText("ex. CS2212");
-				txtCourseCode.setForeground(new Color(204, 204, 204));
-
-				comboCourseTerm.setSelectedIndex(0);
-
-				pnlAddCourse.setVisible(false);
+				restPnlCourse();
 
 				info = name + ", " + code + term;
 				if (listCourses.size() == 1
@@ -3912,25 +4739,28 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_lblAddCourseMouseClicked
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 * End: Add Courses Panel
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * End: Add New Course Panel
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
-	 * Start: Add Deliverables Panel
+	 * Start: Add New Deliverable Panel
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/** Text box configurations Deliver Name *************************************************************************/
 	private void txtDeliverNameFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtDeliverNameFocusGained
 		if (txtDeliverName.getText().equals("")
 				|| txtDeliverName.getText().equals("ex. Group Project"))
@@ -3945,7 +4775,6 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_txtDeliverNameFocusLost
 
-	/** Text box configurations Deliver Weight *************************************************************************/
 	private void txtDeliverWeightFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtDeliverWeightFocusGained
 		if (txtDeliverWeight.getText().equals("")
 				|| txtDeliverWeight.getText().equals("ex. 0.54"))
@@ -3960,7 +4789,6 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_txtDeliverWeightFocusLost
 
-	/** Cancel Button configurations ********************************************************************************/
 	private void lblCancelDeliverAdditionMouseEntered(
 			java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblCancelDeliverAdditionMouseEntered
 		lblCancelDeliverAddition.setBackground(new Color(255, 51, 51));
@@ -3976,7 +4804,6 @@ public class GradebookGUI extends JFrame {
 		restPnlDeliver();
 	}// GEN-LAST:event_lblCancelDeliverAdditionMouseClicked
 
-	/** Add Button configurations ***********************************************************************************/
 	private void lblAddDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddDeliverMouseEntered
 		lblAddDeliver.setBackground(new Color(51, 255, 51));
 	}// GEN-LAST:event_lblAddDeliverMouseEntered
@@ -4031,15 +4858,7 @@ public class GradebookGUI extends JFrame {
 				else if (!boolExists)
 					lblDeliverAddErrorLog.setText("Deliver Already exists!");
 				else {
-					txtDeliverName.setText("ex. Group Project");
-					txtDeliverName.setForeground(new Color(204, 204, 204));
-					txtDeliverWeight.setText("ex. 0.54");
-					txtDeliverWeight.setForeground(new Color(204, 204, 204));
-					comboDeliverType.setSelectedIndex(0);
-					txtDeliverName.setBorder(defaultHighlightBorder);
-					txtDeliverWeight.setBorder(defaultHighlightBorder);
-					lblDeliverAddErrorLog.setText("");
-					pnlAddDeliver.setVisible(false);
+					restPnlDeliver();
 
 					info = name + ", " + type + ", "
 							+ Double.parseDouble(weight);
@@ -4049,22 +4868,26 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_lblAddDeliverMouseClicked
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 * End: Add Deliverables Panel
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
+	 * End: Add New Deliverable Panel
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
-	 * Start: Add Students Panel
+	 * Start: Add New Student Panel
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 	private void txtStudentNameFirstFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtStudentNameFirstFocusGained
 		if (txtStudentNameFirst.getText().equals("")
@@ -4206,607 +5029,54 @@ public class GradebookGUI extends JFrame {
 				if (!currCourse.addStudent(nameFirst, nameLast, number, email))
 					lblStudentAddErrorLog.setText("Student Already exists!");
 				else {
-					txtStudentNameFirst.setText("ex. John");
-					txtStudentNameFirst.setForeground(new Color(204, 204, 204));
-
-					txtStudentNameLast.setText("ex. Doe");
-					txtStudentNameLast.setForeground(new Color(204, 204, 204));
-
-					txtStudentNumber.setText("ex. 250626000");
-					txtStudentNumber.setForeground(new Color(204, 204, 204));
-
-					txtStudentEmail.setText("ex. john-doe@example.com");
-					txtStudentEmail.setForeground(new Color(204, 204, 204));
-
-					txtStudentNameFirst.setBorder(defaultHighlightBorder);
-					txtStudentNameLast.setBorder(defaultHighlightBorder);
-					txtStudentNumber.setBorder(defaultHighlightBorder);
-					txtStudentEmail.setBorder(defaultHighlightBorder);
-
-					lblStudentAddErrorLog.setText("");
-					pnlAddStudent.setVisible(false);
-
-					tableStudents.addRow(new String[] { nameFirst, nameLast,
-							number, email });
+					restPnlStudent();
 					updateInfo();
 				}
 			}
 		}
 	}// GEN-LAST:event_lblAddStudentMouseClicked
 
-	private void lblExportStudentsMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseClicked
-		if (currCourse != null) {
-			final JFileChooser exportStudents = new JFileChooser();
-			exportStudents.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			int returnVal = exportStudents.showSaveDialog(this);
-
-			if (returnVal == 0) {
-				File file = new File(exportStudents.getSelectedFile(),
-						currCourse.getCode() + currCourse.getTerm()
-								+ "Students.csv");
-				if (!currCourse.exportStudents(file)) {
-					lblGradesErrorLog.setText("Failed to export.");
-				}
-				updateInfo();
-			}
-		}
-	}// GEN-LAST:event_lblExportStudentsMouseClicked
-
-	private void lblExportStudentsMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseEntered
-		if (currCourse != null)
-			lblExportStudents.setBorder(BorderFactory
-					.createLineBorder(new Color(20, 150, 250)));
-		else
-			lblExportStudents.setBorder(BorderFactory
-					.createLineBorder(new Color(204, 204, 204)));
-	}// GEN-LAST:event_lblExportStudentsMouseEntered
-
-	private void lblExportStudentsMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseExited
-		lblExportStudents.setBorder(BorderFactory.createLineBorder(new Color(
-				204, 204, 204)));
-	}// GEN-LAST:event_lblExportStudentsMouseExited
-
-	private void lblExportStudentsMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMousePressed
-		if (currCourse != null)
-			lblExportStudents.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(20, 150, 250), new Color(20, 150, 250),
-					new Color(20, 150, 250), new Color(20, 150, 250)));
-		else {
-			lblExportStudents.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(204, 204, 204), new Color(204, 204, 204),
-					new Color(204, 204, 204), new Color(204, 204, 204)));
-			// lblEditCourseErrorLog.setText("Please select a course");
-		}
-	}// GEN-LAST:event_lblExportStudentsMousePressed
-
-	private void lblExportStudentsMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportStudentsMouseReleased
-		if (currCourse != null)
-			lblExportStudents.setBorder(BorderFactory
-					.createLineBorder(new Color(20, 150, 250)));
-		else
-			lblExportStudents.setBorder(BorderFactory
-					.createLineBorder(new Color(204, 204, 204)));
-	}// GEN-LAST:event_lblExportStudentsMouseReleased
-
-	private void lblImportStudentsMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseClicked
-		if (currCourse != null) {
-			final JFileChooser importStudents = new JFileChooser();
-			int returnVal = importStudents.showOpenDialog(this);
-			if (returnVal == 0) {
-				if (!currCourse.importStudents((importStudents
-						.getSelectedFile()))) {
-					lblGradesErrorLog.setText("Failed to import.");
-				} else
-					updateInfo();
-			}
-		} else
-			lblGradesErrorLog.setText("Please select a course");
-	}// GEN-LAST:event_lblImportStudentsMouseClicked
-
-	private void lblImportStudentsMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseEntered
-		if (currCourse != null)
-			lblImportStudents.setBorder(BorderFactory
-					.createLineBorder(new Color(20, 150, 250)));
-		else
-			lblImportStudents.setBorder(BorderFactory
-					.createLineBorder(new Color(204, 204, 204)));
-	}// GEN-LAST:event_lblImportStudentsMouseEntered
-
-	private void lblImportStudentsMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseExited
-		lblImportStudents.setBorder(BorderFactory.createLineBorder(new Color(
-				204, 204, 204)));
-	}// GEN-LAST:event_lblImportStudentsMouseExited
-
-	private void lblImportStudentsMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMousePressed
-		if (currCourse != null)
-			lblImportStudents.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(20, 150, 250), new Color(20, 150, 250),
-					new Color(20, 150, 250), new Color(20, 150, 250)));
-		else {
-			lblImportStudents.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(204, 204, 204), new Color(204, 204, 204),
-					new Color(204, 204, 204), new Color(204, 204, 204)));
-			// lblEditCourseErrorLog.setText("Please select a course");
-		}
-	}// GEN-LAST:event_lblImportStudentsMousePressed
-
-	private void lblImportStudentsMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportStudentsMouseReleased
-		if (currCourse != null)
-			lblImportStudents.setBorder(BorderFactory
-					.createLineBorder(new Color(20, 150, 250)));
-		else
-			lblImportStudents.setBorder(BorderFactory
-					.createLineBorder(new Color(204, 204, 204)));
-	}// GEN-LAST:event_lblImportStudentsMouseReleased
-
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 * End: Add Students Panel
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 */
-
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
-	 * Start: Course Configurations
+	 * End: Add New Student Panel
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 */
-	int boolCourse = 2;
-	Color colorCourse = Color.lightGray;
-
-	private void txtEditCourseTitleFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditCourseTitleFocusGained
-		txtEditCourseTitle.setForeground(Color.black);
-		txtEditCourseTitle.select(0, txtEditCourseTitle.getText().length());
-	}// GEN-LAST:event_txtEditCourseTitleFocusGained
-
-	private void txtEditCourseTitleFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditCourseTitleFocusLost
-		if (currCourse != null
-				&& txtEditCourseTitle.getText().equals(currCourse.getTitle())
-				|| txtEditCourseTitle.getText()
-						.equals("Please select a course")) {
-			txtEditCourseTitle.setForeground(Color.lightGray);
-		}
-	}// GEN-LAST:event_txtEditCourseTitleFocusLost
-
-	private void txtEditCourseCodeFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditCourseCodeFocusGained
-		txtEditCourseCode.setForeground(Color.black);
-		txtEditCourseCode.select(0, txtEditCourseCode.getText().length());
-	}// GEN-LAST:event_txtEditCourseCodeFocusGained
-
-	private void txtEditCourseCodeFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditCourseCodeFocusLost
-		if (currCourse != null
-				&& txtEditCourseCode.getText().equals(currCourse.getCode())
-				|| txtEditCourseCode.getText().equals("Please select a course")) {
-			txtEditCourseCode.setForeground(Color.lightGray);
-		}
-	}// GEN-LAST:event_txtEditCourseCodeFocusLost
-
-	private void lblEditCourseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMouseClicked
-		if (currCourse != null) {
-			if (boolCourse == 1) {
-				currCourse.setTitle(txtEditCourseTitle.getText());
-				currCourse.setCode(txtEditCourseCode.getText());
-				currCourse.setTerm((String) comboEditCourseTerm
-						.getSelectedItem());
-				updateInfo();
-			} else if (boolCourse == 0)
-				lblSetupErrorLog.setText("The course"
-						+ txtEditCourseTitle.getText() + ", "
-						+ txtEditCourseCode.getText()
-						+ (String) comboEditCourseTerm.getSelectedItem()
-						+ " already exists!");
-		} else {
-			lblSetupErrorLog.setText("Please select a course");
-		}
-	}// GEN-LAST:event_lblEditCourseMouseClicked
-
-	private void lblEditCourseMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMouseEntered
-		if (currCourse != null
-				&& (!currCourse.getTitle().equals(txtEditCourseTitle.getText())
-						|| !currCourse.getCode().equals(
-								txtEditCourseCode.getText()) || !currCourse
-						.getTerm()
-						.equals(comboEditCourseTerm.getSelectedItem()))) {
-			int i = gradebook.findCourse(new Course(txtEditCourseTitle
-					.getText(), (String) comboEditCourseTerm.getSelectedItem(),
-					txtEditCourseCode.getText()));
-			if (i == -1) {
-				lblEditCourse.setBorder(BorderFactory
-						.createLineBorder(new Color(51, 255, 51)));
-				boolCourse = 1;
-			} else {
-				lblEditCourse.setBorder(BorderFactory
-						.createLineBorder(new Color(255, 51, 51)));
-				boolCourse = 0;
-			}
-		} else {
-			lblEditCourse.setBorder(BorderFactory.createLineBorder(new Color(
-					204, 204, 204)));
-			boolCourse = 2;
-		}
-	}// GEN-LAST:event_lblEditCourseMouseEntered
-
-	private void lblEditCourseMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMouseExited
-		lblEditCourse.setBorder(BorderFactory.createLineBorder(new Color(204,
-				204, 204)));
-	}// GEN-LAST:event_lblEditCourseMouseExited
-
-	private void lblEditCourseMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMousePressed
-		if (boolCourse == 0)
-			colorCourse = new Color(255, 51, 51);
-		else if (boolCourse == 1)
-			colorCourse = new Color(51, 255, 51);
-		else
-			colorCourse = new Color(204, 204, 204);
-		lblEditCourse.setBorder(BorderFactory.createBevelBorder(1, colorCourse,
-				colorCourse, colorCourse, colorCourse));
-	}// GEN-LAST:event_lblEditCourseMousePressed
-
-	private void lblEditCourseMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMouseReleased
-		if (boolCourse == 0)
-			colorCourse = new Color(255, 51, 51);
-		else if (boolCourse == 1)
-			colorCourse = new Color(51, 255, 51);
-		else
-			colorCourse = new Color(204, 204, 204);
-		lblEditCourse.setBorder(BorderFactory.createLineBorder(colorCourse));
-	}// GEN-LAST:event_lblEditCourseMouseReleased
-
-	boolean delete = false;
-
-	private void lblDeleteCourseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMouseClicked
-		if (currCourse != null) {
-			gradebook.removeCourse(gradebook.getCourse(courseMenuList
-					.getSelectedIndex()));
-			listCourses.remove(courseMenuList.getSelectedIndex());
-			currCourse = gradebook.getPrevCourse();
-			if (currCourse!=null&&gradebook.findCourse(currCourse) != -1)
-				courseMenuList.setSelectedIndex(gradebook
-						.findCourse(currCourse));
-			else
-				currCourse = null;
-			updateInfo();
-		} else
-			lblSetupErrorLog.setText("Please select a course");
-
-	}// GEN-LAST:event_lblDeleteCourseMouseClicked
-
-	private void lblDeleteCourseMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMouseEntered
-		if (currCourse != null) {
-			lblDeleteCourse.setBorder(BorderFactory.createLineBorder(new Color(
-					255, 51, 51)));
-		} else {
-			lblDeleteCourse.setBorder(BorderFactory.createLineBorder(new Color(
-					204, 204, 204)));
-		}
-	}// GEN-LAST:event_lblDeleteCourseMouseEntered
-
-	private void lblDeleteCourseMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMouseExited
-		lblDeleteCourse.setBorder(BorderFactory.createLineBorder(new Color(204,
-				204, 204)));
-	}// GEN-LAST:event_lblDeleteCourseMouseExited
-
-	private void lblDeleteCourseMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMousePressed
-		if (currCourse != null) {
-			lblDeleteCourse.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(255, 51, 51), new Color(255, 51, 51), new Color(
-							255, 51, 51), new Color(255, 51, 51)));
-		} else {
-			lblDeleteCourse.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(204, 204, 204), new Color(204, 204, 204),
-					new Color(204, 204, 204), new Color(204, 204, 204)));
-		}
-	}// GEN-LAST:event_lblDeleteCourseMousePressed
-
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 * End: Course Configurations
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 */
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 * 
-	 * Start: Deliverable Configurations
-	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 */
-	int boolDeliver = 2;
-	Color colorDeliver = Color.lightGray;
-	Deliverable currDeliver = null;
-
-	private void editDeliverListValueChanged(
-			javax.swing.event.ListSelectionEvent evt) {// GEN-FIRST:event_editDeliverListValueChanged
-		hideMenu();
-		if (currCourse != null) {
-			if (editDeliverList.getSelectedIndex() != -1) {
-
-				String name = "", type = "", w = "", temp = listDelivers
-						.getElementAt(editDeliverList.getSelectedIndex());
-				Double weight;
-				int i = 0;
-				while (temp.charAt(i) != ',') {
-					name += temp.charAt(i);
-					i++;
-				}
-				i += 2;
-				while (temp.charAt(i) != ',') {
-					type += temp.charAt(i);
-					i++;
-				}
-				i += 2;
-				while (i < temp.length()) {
-					w += temp.charAt(i);
-					i++;
-				}
-				weight = Double.parseDouble(w);
-				currDeliver = currCourse
-						.getDeliverable(currCourse
-								.findDeliverable(new Deliverable(name, type,
-										weight, 0)));
-				if (currDeliver != null) {
-					txtEditDeliverName.setText(currDeliver.getName());
-					txtEditDeliverWeight.setText(currDeliver.getWeight() + "");
-					comboEditDeliverType.setSelectedItem(currDeliver.getType());
-				}
-			} else {
-				txtEditDeliverName.setText("Please select a deliverable");
-				txtEditDeliverWeight.setText("Please select a deliverable");
-				comboEditDeliverType.setSelectedIndex(0);
-			}
-		}
-	}// GEN-LAST:event_editDeliverListValueChanged
-
-	private void txtEditDeliverNameFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditDeliverNameFocusGained
-		txtEditDeliverName.setForeground(Color.black);
-		txtEditDeliverName.select(0, txtEditDeliverName.getText().length());
-	}// GEN-LAST:event_txtEditDeliverNameFocusGained
-
-	private void txtEditDeliverNameFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditDeliverNameFocusLost
-		if (currDeliver != null
-				&& txtEditDeliverName.getText().equals(currDeliver.getName())
-				|| txtEditDeliverName.getText().equals(
-						"Please select a deliverable")) {
-			txtEditDeliverName.setForeground(Color.lightGray);
-		}
-	}// GEN-LAST:event_txtEditDeliverNameFocusLost
-
-	private void txtEditDeliverWeightFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditDeliverWeightFocusGained
-		txtEditDeliverWeight.setForeground(Color.black);
-		txtEditDeliverWeight.select(0, txtEditDeliverWeight.getText().length());
-	}// GEN-LAST:event_txtEditDeliverWeightFocusGained
-
-	private void txtEditDeliverWeightFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEditDeliverWeightFocusLost
-		if (currDeliver != null
-				&& txtEditDeliverWeight.getText().equals(
-						currDeliver.getWeight())
-				|| txtEditDeliverWeight.getText().equals(
-						"Please select a deliverable")) {
-			txtEditDeliverWeight.setForeground(Color.lightGray);
-		}
-	}// GEN-LAST:event_txtEditDeliverWeightFocusLost
-
-	private void lblEditDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMouseClicked
-		if (currDeliver != null) {
-			if (!weightException) {
-				if (boolDeliver == 1) {
-					currDeliver.setName(txtEditDeliverName.getText());
-					currDeliver.setWeight(weight);
-					currDeliver.setType((String) comboEditDeliverType
-							.getSelectedItem());
-					updateInfo();
-					currDeliver = null;
-				} else if (boolCourse == 0)
-					lblSetupErrorLog.setText("The deliverable"
-							+ txtEditDeliverName.getText() + ", " + weight
-							+ (String) comboEditDeliverType.getSelectedItem()
-							+ " already exists!");
-			} else {
-				lblSetupErrorLog.setText("Please enter a valid weight.");
-				txtEditDeliverWeight.setBorder(errorHighlightBorder);
-			}
-		} else {
-			lblSetupErrorLog.setText("Please select a deliverable");
-		}
-	}// GEN-LAST:event_lblEditDeliverMouseClicked
-
-	double weight = -1;
-	boolean weightException = false;
-
-	private void lblEditDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMouseEntered
-		try {
-			weight = Double.parseDouble(txtEditDeliverWeight.getText());
-
-			if (lblSetupErrorLog.getText().equals(
-					"Please enter a valid weight."))
-				lblSetupErrorLog.setText("");
-			weightException = false;
-			txtDeliverWeight.setBorder(defaultHighlightBorder);
-			if (currDeliver != null
-					&& (!currDeliver.getName().equals(
-							txtEditDeliverName.getText())
-							|| currDeliver.getWeight() != weight || !currDeliver
-							.getType().equals(
-									comboEditDeliverType.getSelectedItem()))) {
-				int i = currCourse.findDeliverable(new Deliverable(
-						txtEditDeliverName.getText(),
-						(String) comboEditDeliverType.getSelectedItem(),
-						weight, 0));
-				if (i == -1) {
-					lblEditDeliver.setBorder(BorderFactory
-							.createLineBorder(new Color(51, 255, 51)));
-					boolDeliver = 1;
-				} else {
-					lblEditDeliver.setBorder(BorderFactory
-							.createLineBorder(new Color(255, 51, 51)));
-					boolDeliver = 0;
-				}
-			} else {
-				lblEditDeliver.setBorder(BorderFactory
-						.createLineBorder(new Color(204, 204, 204)));
-				boolDeliver = 2;
-			}
-		} catch (NumberFormatException e) {
-			weightException = true;
-		}
-	}// GEN-LAST:event_lblEditDeliverMouseEntered
-
-	private void lblEditDeliverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMouseExited
-		lblEditDeliver.setBorder(BorderFactory.createLineBorder(new Color(204,
-				204, 204)));
-	}// GEN-LAST:event_lblEditDeliverMouseExited
-
-	private void lblEditDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMousePressed
-		if (boolDeliver == 0)
-			colorDeliver = new Color(255, 51, 51);
-		else if (boolDeliver == 1)
-			colorDeliver = new Color(51, 255, 51);
-		else
-			colorCourse = new Color(204, 204, 204);
-		lblEditDeliver.setBorder(BorderFactory.createBevelBorder(1,
-				colorDeliver, colorDeliver, colorDeliver, colorDeliver));
-	}// GEN-LAST:event_lblEditDeliverMousePressed
-
-	private void lblEditDeliverMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMouseReleased
-		if (boolDeliver == 0)
-			colorDeliver = new Color(255, 51, 51);
-		else if (boolDeliver == 1)
-			colorDeliver = new Color(51, 255, 51);
-		else
-			colorDeliver = new Color(204, 204, 204);
-		lblEditDeliver.setBorder(BorderFactory.createLineBorder(colorDeliver));
-	}// GEN-LAST:event_lblEditDeliverMouseReleased
-
-	private void lblImportDeliversMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseClicked
-		if (currCourse != null) {
-			final JFileChooser importDeliver = new JFileChooser();
-			int returnVal = importDeliver.showOpenDialog(this);
-
-			if (returnVal == 0) {
-				if (!currCourse.importDeliverables(importDeliver
-						.getSelectedFile())) {
-					lblSetupErrorLog.setText("Fail to import, corrupt file.");
-				} else
-					updateInfo();
-			}
-		} else
-			lblSetupErrorLog.setText("Please select a course.");
-	}// GEN-LAST:event_lblImportDeliversMouseClicked
-
-	private void lblImportDeliversMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseEntered
-		if (currCourse != null)
-			lblImportDelivers.setBorder(BorderFactory
-					.createLineBorder(new Color(20, 150, 250)));
-		else
-			lblImportDelivers.setBorder(BorderFactory
-					.createLineBorder(new Color(204, 204, 204)));
-	}// GEN-LAST:event_lblImportDeliversMouseEntered
-
-	private void lblImportDeliversMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseExited
-		lblImportDelivers.setBorder(BorderFactory.createLineBorder(new Color(
-				204, 204, 204)));
-	}// GEN-LAST:event_lblImportDeliversMouseExited
-
-	private void lblImportDeliversMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMousePressed
-		if (currCourse != null)
-			lblImportDelivers.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(20, 150, 250), new Color(20, 150, 250),
-					new Color(20, 150, 250), new Color(20, 150, 250)));
-		else
-			lblImportDelivers.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(204, 204, 204), new Color(204, 204, 204),
-					new Color(204, 204, 204), new Color(204, 204, 204)));
-
-	}// GEN-LAST:event_lblImportDeliversMousePressed
-
-	private void lblImportDeliversMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportDeliversMouseReleased
-		if (currCourse != null)
-			lblImportDelivers.setBorder(BorderFactory
-					.createLineBorder(new Color(20, 150, 250)));
-		else
-			lblImportDelivers.setBorder(BorderFactory
-					.createLineBorder(new Color(204, 204, 204)));
-	}// GEN-LAST:event_lblImportDeliversMouseReleased
-
-	private void lblExportDeliversMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseClicked
-		if (currCourse != null) {
-			final JFileChooser exportDeliver = new JFileChooser();
-			exportDeliver.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			int returnVal = exportDeliver.showSaveDialog(this);
-
-			if (returnVal == 0) {
-				File file = new File(exportDeliver.getSelectedFile(),
-						currCourse.getCode() + currCourse.getTerm()
-								+ "Deliverables.csv");
-				if (!currCourse.exportDeliverables(file)) {
-					lblSetupErrorLog.setText("Fail to export.");
-				}
-				updateInfo();
-			}
-		} else
-			lblSetupErrorLog.setText("Please selcet a course.");
-	}// GEN-LAST:event_lblExportDeliversMouseClicked
-
-	private void lblExportDeliversMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseEntered
-		if (currCourse != null)
-			lblExportDelivers.setBorder(BorderFactory
-					.createLineBorder(new Color(20, 150, 250)));
-		else
-			lblExportDelivers.setBorder(BorderFactory
-					.createLineBorder(new Color(204, 204, 204)));
-	}// GEN-LAST:event_lblExportDeliversMouseEntered
-
-	private void lblExportDeliversMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseExited
-		lblExportDelivers.setBorder(BorderFactory.createLineBorder(new Color(
-				204, 204, 204)));
-	}// GEN-LAST:event_lblExportDeliversMouseExited
-
-	private void lblExportDeliversMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMousePressed
-		if (currCourse != null)
-			lblExportDelivers.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(20, 150, 250), new Color(20, 150, 250),
-					new Color(20, 150, 250), new Color(20, 150, 250)));
-		else
-			lblExportDelivers.setBorder(BorderFactory.createBevelBorder(1,
-					new Color(204, 204, 204), new Color(204, 204, 204),
-					new Color(204, 204, 204), new Color(204, 204, 204)));
-
-	}// GEN-LAST:event_lblExportDeliversMousePressed
-
-	private void lblExportDeliversMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblExportDeliversMouseReleased
-		if (currCourse != null)
-			lblExportDelivers.setBorder(BorderFactory
-					.createLineBorder(new Color(20, 150, 250)));
-		else
-			lblExportDelivers.setBorder(BorderFactory
-					.createLineBorder(new Color(204, 204, 204)));
-	}// GEN-LAST:event_lblExportDeliversMouseReleased
-
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 * End: Deliverable Configurations
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 * 
 	 * Start: Helper Methods
 	 * 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
+
+	private void tabSwitch(int i) {
+		hideMenu();
+		if (i == 0) {
+			lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass()
+					.getResource("/cs2212/team4/tabOn.png")));
+			lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass()
+					.getResource("/cs2212/team4/tabOff.png")));
+			tabGrades.setVisible(true);
+			tabSetup.setVisible(false);
+		} else {
+			lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass()
+					.getResource("/cs2212/team4/tabOff.png")));
+			lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass()
+					.getResource("/cs2212/team4/tabOn.png")));
+			tabGrades.setVisible(false);
+			tabSetup.setVisible(true);
+		}
+	}
+
 	private String elimSpaces(String str) {
 		int i = 0;
 		for (; i < str.length(); i++)
@@ -4814,7 +5084,6 @@ public class GradebookGUI extends JFrame {
 				break;
 		if (i == str.length())
 			return null;
-
 		return str.substring(i);
 	}
 
@@ -4827,10 +5096,6 @@ public class GradebookGUI extends JFrame {
 		deleteStudent.setVisible(false);
 	}
 
-	/**
-	 * UPDATE INFO - REFRESHES AND REPAINTS THE PAGE
-	 * 
-	 */
 	private void updateInfo() {
 		Deliverable deliver;
 		Student stud;
@@ -4838,35 +5103,21 @@ public class GradebookGUI extends JFrame {
 
 		if (currCourse != null) {
 
-			// Set Course Labels
+			/** GRADES TAB */
 			lblActiveCourseTitleInfo.setText(currCourse.getTitle());
 			lblActiveCourseInfo.setText(currCourse.getCode()
 					+ currCourse.getTerm());
 			courseName.setText(currCourse.getTitle());
-			lblCourseSetup.setText("Course Setup: " + currCourse.getTitle()
-					+ ", " + currCourse.getCode() + currCourse.getTerm());
 
-			// Adds the course deliverables
+			updateTables();
+
 			listDelivers.clear();
 			for (int i = 0; i < currCourse.getDeliverableListSize(); i++) {
 				deliver = currCourse.getDeliverable(i);
 				if (deliver != null)
 					listDelivers.addElement(deliver.getName() + ", "
 							+ deliver.getType() + ", " + deliver.getWeight());
-
 			}
-			deleteDeliver.setVisible(false);
-			deleteStudent.setVisible(false);
-
-			updateTables();
-
-			// Setup tab
-			txtEditCourseTitle.setText(currCourse.getTitle());
-			txtEditCourseCode.setText(currCourse.getCode());
-			comboEditCourseTerm.setSelectedItem(currCourse.getTerm());
-			lblSetupErrorLog.setText("");
-			lblGradesErrorLog.setText("");
-			lblSetupErrorLog.setText("");
 
 			if (firstName == 1)
 				lblFirstName.setBorder(BorderFactory
@@ -4880,24 +5131,42 @@ public class GradebookGUI extends JFrame {
 			if (email == 1)
 				lblEmail.setBorder(BorderFactory.createLineBorder(new Color(20,
 						150, 250)));
+
+			deleteDeliver.setVisible(false);
+			deleteStudent.setVisible(false);
+			lblGradesErrorLog.setText("");
+
+			lblCourseSetup.setText("Course Setup: " + currCourse.getTitle()
+					+ ", " + currCourse.getCode() + currCourse.getTerm());
+
 			if (currCourse.getDescription().equals(""))
 				txtCourseDesc.setText("Enter a course description...");
 			else
 				txtCourseDesc.setText(currCourse.getDescription());
+
+			txtEditCourseTitle.setText(currCourse.getTitle());
+			txtEditCourseCode.setText(currCourse.getCode());
+			comboEditCourseTerm.setSelectedItem(currCourse.getTerm());
+
+			lblSetupErrorLog.setText("");
 		} else {
 			lblActiveCourseTitleInfo.setText("Select a course");
 			lblActiveCourseInfo.setText("");
-			lblCourseSetup.setText("Course Setup: ");
 			courseName.setText("select course");
+
 			listDelivers.clear();
 			updateTables();
+
+			lblGradesErrorLog.setText("");
+
+			lblCourseSetup.setText("Course Setup: ");
+
+			txtCourseDesc.setText("Enter a course description...");
 			txtEditCourseTitle.setText("Please select a course");
 			txtEditCourseCode.setText("Please select a course");
 			comboEditCourseTerm.setSelectedItem(0);
+
 			lblSetupErrorLog.setText("");
-			lblGradesErrorLog.setText("");
-			lblSetupErrorLog.setText("");
-			txtCourseDesc.setText("Enter a course description...");
 		}
 	}
 
@@ -4957,9 +5226,6 @@ public class GradebookGUI extends JFrame {
 		pnlAddStudent.setVisible(false);
 	}
 
-	/**
-	 * Update tables
-	 */
 	private void updateTables() {
 
 		if (currCourse != null) {
@@ -5020,11 +5286,63 @@ public class GradebookGUI extends JFrame {
 		gradesScroll.setWheelScrollingEnabled(true);
 	}
 
-	/*****************************************************************************************************************
-	 ***************************************************************************************************************** 
+	private Integer findDeliver(String deliver) {
+		String name = "", type = "", w = "";
+		Double weight;
+		int i = 0;
+		while (deliver.charAt(i) != ',') {
+			name += deliver.charAt(i);
+			i++;
+		}
+		i += 2;
+		while (deliver.charAt(i) != ',') {
+			type += deliver.charAt(i);
+			i++;
+		}
+		i += 2;
+		while (i < deliver.length()) {
+			w += deliver.charAt(i);
+			i++;
+		}
+		weight = Double.parseDouble(w);
+		return currCourse
+				.findDeliverable(new Deliverable(name, type, weight, 0));
+	}
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * 
 	 * End: Helper Methods
-	 ***************************************************************************************************************** 
-	 ***************************************************************************************************************** 
+	 * 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 */
+
+	/****************************************************************************************************
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 * End: Extras
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
+	 **************************************************************************************************** 
 	 */
 
 	public static void main(String args[]) {

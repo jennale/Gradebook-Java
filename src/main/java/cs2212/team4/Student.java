@@ -263,16 +263,17 @@ public class Student implements StudentADT, Serializable
 	  * @return		String, the Student object information string.
 	  * 
 	  */
-	public String toStringGrade(int deliver) {
+	public String toStringGrade(Object [] delivers) {
 		String str;
 		Double grade;
 		str = "\"" + nameLast + "\", \"" + nameFirst + "\", \"" + number + "\""
 				+ ", \"" + email + "\"";
-		for (int i = 0; i < deliver; i++) {
-			if ((grade = grades.getGrade(i)) == -1)
+		
+		for (int i = 0; i < delivers.length; i++) {
+			if ((grade = grades.getGrade((int)delivers[i])) == -1)
 				str += ", \"No entry\"";
 			else
-				str += ", \"" + grade + "\"";
+				str += ", \"" + grade + "\"";				
 		}
 		return str + "\n";
 	}

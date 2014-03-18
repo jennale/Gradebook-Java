@@ -525,37 +525,45 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Imports a Student objects' Grade objects into the Course object.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file				String, the path were the file is located.
 	  * 
 	  */
-	public boolean importGrades(String path) {
-		ArrayList<String> strAry = new ArrayList<String>();
-		ArrayList<Integer> filePlace = new ArrayList<Integer>();
-		ArrayList<Integer> listPlace = new ArrayList<Integer>();
-		String[] gAry;
+	public boolean importGrades(File file) {
+		ArrayList<Integer> fileLoc = new ArrayList<Integer>();
+		ArrayList<Integer> delivers = new ArrayList<Integer>();
+		ArrayList<String> nextLine = new ArrayList<String>();
+		String [] strAry;
+		int numClmn=-1;
 		Student stud;
+		Deliverable deliver;
 		try {
-			CSVReader reader = new CSVReader(new FileReader(path));
-			gAry = reader.readNext();
-			for (int i = 0; i < gAry.length; i++) {
-				if (gAry[i].equalsIgnoreCase("number"))
-					filePlace.add(i);
-				strAry.add(gAry[i]);
-			}
+			CSVReader reader = new CSVReader(new FileReader(file));
+			strAry = reader.readNext();
+			for (int i = 0; i < strAry.length; i++)
+				nextLine.add(strAry[i]);
 
+			if (nextLine.contains("number"))
+				numClmn=nextLine.indexOf("number");
+			else if (nextLine.contains("Number"))
+				numClmn=nextLine.indexOf("Number");
+			
 			for (int i = 0; i < deliverableList.size(); i++)
-				if (strAry.contains(deliverableList.get(i).getName())) {
-					filePlace.add(i);
-					listPlace.add(i);
+				if (nextLine.contains(deliverableList.get(i).getName())) {
+					delivers.add(i);
+					fileLoc.add(nextLine.indexOf(deliverableList.get(i).getName()));
 				}
 
-			while ((gAry = reader.readNext()) != null) {
-				stud = getStudent(filePlace.get(0));
-				for (int i = 1; i < listPlace.size(); i++)
-					stud.addGrade(listPlace.get(i),
-							Double.parseDouble(gAry[filePlace.get(i)]),
-							deliverableList.get(listPlace.get(i)).getType(),
-							deliverableList.get(listPlace.get(i)).getWeight());
+			while ((strAry = reader.readNext()) != null) {
+				int j = findStudent(strAry[numClmn]);
+				if (j != -1) {
+					stud = getStudent(j);
+					for (int i = 0; i < delivers.size(); i++) {
+						deliver = getDeliverable(delivers.get(i));
+						stud.addGrade(delivers.get(i),
+								Double.parseDouble(strAry[fileLoc.get(i)]),
+								deliver.getType(), deliver.getWeight());
+					}
+				}
 			}
 			reader.close();
 			return true;
@@ -576,18 +584,22 @@ public class Course implements CourseADT, Serializable
 	  * @return		boolean, true if the Grade objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportGrades(String path) {
+	public boolean exportGrades(File file) {
+		ArrayList<Integer> dilvers = new ArrayList<Integer>();
+		int ctr = 0;
 		try {
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(new File(path + code + term
-							+ "grades.csv"))));
+					new FileOutputStream(file)));
 			String str = "\"nameLast\", \"nameFirst\", \"number\", \"email\"";
 			for (int i = 0; i < deliverableList.size(); i++)
-				str = str + ", \"" + deliverableList.get(i).getName() + "\"";
+				if (deliverableList.get(i) != null) {
+					str = str + ", \"" + deliverableList.get(i).getName()
+							+ "\"";
+					dilvers.add(i);
+				}
 			bw.write(str + "\n");
 			for (int i = 0; i < studentList.size(); i++)
-				bw.write(studentList.get(i).toStringGrade(
-						deliverableList.size()));
+				bw.write(studentList.get(i).toStringGrade(dilvers.toArray()));
 			bw.close();
 			return true;
 		} catch (IOException e) {

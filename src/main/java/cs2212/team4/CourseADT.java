@@ -236,7 +236,7 @@ public interface CourseADT
 	  * @param		path				String, the path were the file is located.
 	  * 
 	  */
-	public boolean importGrades(String path);
+	public boolean importGrades(File file);
 
 	/**
 	  * Exports the Grade objects located in every Student object inside the studentList list.
@@ -246,7 +246,7 @@ public interface CourseADT
 	  * @return		boolean, true if the Grade objects were exported, false otherwise.
 	  * 
 	  */
-	public boolean exportGrades(String path);
+	public boolean exportGrades(File file);
 
 	/**
 	  * An equals method.

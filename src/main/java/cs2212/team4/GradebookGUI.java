@@ -1,11 +1,13 @@
 package cs2212.team4;
 
 import java.awt.*;
+import java.awt.font.TextAttribute;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Map;
 import javax.swing.border.Border;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -97,6 +99,10 @@ public class GradebookGUI extends JFrame {
 		}
 
 		updateInfo();
+                
+                lblDbxVerify.setVisible(false);
+                lblDbxDownload.setVisible(false);
+                lblDbxUpload.setVisible(false);
 	}
 
 	// <editor-fold defaultstate="collapsed"
@@ -220,6 +226,14 @@ public class GradebookGUI extends JFrame {
         lblEditAddDeliver = new javax.swing.JLabel();
         lblEditDeleteDeliver = new javax.swing.JLabel();
         tabDropbox = new javax.swing.JPanel();
+        lblDbxAuthLink = new javax.swing.JLabel();
+        txtDbxCode = new javax.swing.JTextField();
+        lblDbxGenerate = new javax.swing.JLabel();
+        lblDbxUpload = new javax.swing.JLabel();
+        lblDbxDownload = new javax.swing.JLabel();
+        lblDbxSubmit = new javax.swing.JLabel();
+        lblDbxErrorLog = new javax.swing.JLabel();
+        lblDbxVerify = new javax.swing.JLabel();
         lyrActiveCourse = new javax.swing.JLayeredPane();
         lblActiveCourseTitleInfo = new javax.swing.JLabel();
         lblActiveCourseInfo = new javax.swing.JLabel();
@@ -1775,15 +1789,178 @@ public class GradebookGUI extends JFrame {
         tabDropbox.setBackground(new java.awt.Color(255, 255, 255));
         tabDropbox.setPreferredSize(new java.awt.Dimension(1080, 480));
 
+        lblDbxAuthLink.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxAuthLink.setText("Generate a new link");
+        lblDbxAuthLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxAuthLink.setPreferredSize(new java.awt.Dimension(1000, 30));
+        lblDbxAuthLink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxAuthLinkMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxAuthLinkMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxAuthLinkMouseExited(evt);
+            }
+        });
+
+        txtDbxCode.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtDbxCode.setText("Please enter the code...");
+        txtDbxCode.setPreferredSize(new java.awt.Dimension(1000, 30));
+        txtDbxCode.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDbxCodeFocusGained(evt);
+            }
+        });
+
+        lblDbxGenerate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxGenerate.setText("Generate");
+        lblDbxGenerate.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblDbxGenerate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxGenerate.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxGenerate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMouseReleased(evt);
+            }
+        });
+
+        lblDbxUpload.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxUpload.setText("Upload");
+        lblDbxUpload.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblDbxUpload.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxUpload.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxUpload.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMouseReleased(evt);
+            }
+        });
+
+        lblDbxDownload.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxDownload.setText("Download");
+        lblDbxDownload.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblDbxDownload.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxDownload.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxDownload.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMouseReleased(evt);
+            }
+        });
+
+        lblDbxSubmit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxSubmit.setText("Submit");
+        lblDbxSubmit.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblDbxSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxSubmit.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMouseReleased(evt);
+            }
+        });
+
+        lblDbxErrorLog.setForeground(java.awt.Color.lightGray);
+        lblDbxErrorLog.setText("Disconnected");
+
+        lblDbxVerify.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxVerify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/verify.png"))); // NOI18N
+        lblDbxVerify.setPreferredSize(new java.awt.Dimension(1000, 20));
+
         javax.swing.GroupLayout tabDropboxLayout = new javax.swing.GroupLayout(tabDropbox);
         tabDropbox.setLayout(tabDropboxLayout);
         tabDropboxLayout.setHorizontalGroup(
             tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
+            .addGroup(tabDropboxLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblDbxAuthLink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDbxCode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabDropboxLayout.createSequentialGroup()
+                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblDbxUpload, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDbxGenerate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDbxSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDbxDownload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(40, 40, 40))
+            .addGroup(tabDropboxLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblDbxErrorLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDropboxLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(lblDbxVerify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         tabDropboxLayout.setVerticalGroup(
             tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(tabDropboxLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(lblDbxVerify, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDbxAuthLink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(txtDbxCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDbxGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDbxSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDbxUpload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDbxDownload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(lblDbxErrorLog)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
@@ -1843,6 +2020,8 @@ public class GradebookGUI extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    Dropbox dbx;
+    boolean generated=false;
     private void lblTabDropboxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTabDropboxMouseClicked
         
     }//GEN-LAST:event_lblTabDropboxMouseClicked
@@ -1850,6 +2029,153 @@ public class GradebookGUI extends JFrame {
     private void lblDropboxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDropboxMouseClicked
         tabSwitch(2);
     }//GEN-LAST:event_lblDropboxMouseClicked
+
+    private void lblDbxGenerateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxGenerateMouseClicked
+        dbx = new Dropbox();
+        lblDbxAuthLink.setText(dbx.getAuthorizeUrl());
+        generated=true;
+    }//GEN-LAST:event_lblDbxGenerateMouseClicked
+
+    private void lblDbxUploadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxUploadMouseClicked
+        if(!dbx.upload()) {
+            lblDbxErrorLog.setForeground(Color.red);
+            lblDbxErrorLog.setText("Error, upload failed.");
+        }else{
+            lblDbxErrorLog.setForeground(Color.green);
+            lblDbxErrorLog.setText("Success, upload was successful.");
+        }
+    }//GEN-LAST:event_lblDbxUploadMouseClicked
+
+    private void lblDbxDownloadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxDownloadMouseClicked
+         if(!dbx.download()) {
+            lblDbxErrorLog.setForeground(Color.red);
+            lblDbxErrorLog.setText("Error, download failed.");
+        }else{
+            lblDbxErrorLog.setForeground(Color.green);
+            lblDbxErrorLog.setText("Success, download was successful.");
+        }
+    }//GEN-LAST:event_lblDbxDownloadMouseClicked
+
+    private void lblDbxAuthLinkMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxAuthLinkMouseEntered
+        if (generated){
+            lblDbxAuthLink.setForeground(Color.blue);
+            Font font = lblDbxAuthLink.getFont();
+            Map attributes = font.getAttributes();
+            attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+            lblDbxAuthLink.setFont(font.deriveFont(attributes));
+        }
+    }//GEN-LAST:event_lblDbxAuthLinkMouseEntered
+
+    private void lblDbxAuthLinkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxAuthLinkMouseExited
+            lblDbxAuthLink.setForeground(Color.black);
+            Font font = lblDbxAuthLink.getFont();
+            Map attributes = font.getAttributes();
+            attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE);
+            lblDbxAuthLink.setFont(font.deriveFont(attributes));
+    }//GEN-LAST:event_lblDbxAuthLinkMouseExited
+
+    private void lblDbxAuthLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxAuthLinkMouseClicked
+        if (generated){
+            try {
+                java.awt.Desktop.getDesktop().browse(java.net.URI.create(dbx.getAuthorizeUrl()));
+           }catch (java.io.IOException e) {
+           }
+        }
+    }//GEN-LAST:event_lblDbxAuthLinkMouseClicked
+
+    private void lblDbxSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxSubmitMouseClicked
+        if (generated){
+            if(!dbx.authenticate(txtDbxCode.getText())){
+            lblDbxErrorLog.setForeground(Color.red);
+            lblDbxErrorLog.setText("Invalid Code.");
+        }
+        else{
+            lblDbxErrorLog.setForeground(Color.green);
+            lblDbxErrorLog.setText("Connected.");
+            
+            lblDbxAuthLink.setVisible(false);
+            txtDbxCode.setVisible(false);
+            lblDbxGenerate.setVisible(false);
+            lblDbxSubmit.setVisible(false);
+            
+            lblDbxVerify.setVisible(true);
+            lblDbxDownload.setVisible(true);
+            lblDbxUpload.setVisible(true);
+        }
+        }
+        else{
+            lblDbxErrorLog.setForeground(Color.red);
+            lblDbxErrorLog.setText("Error, please generate a link, and insert the code provided by the Dropbox webpage.");
+        }
+    }//GEN-LAST:event_lblDbxSubmitMouseClicked
+
+    private void txtDbxCodeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDbxCodeFocusGained
+        txtDbxCode.select(0, txtDbxCode.getText().length());
+    }//GEN-LAST:event_txtDbxCodeFocusGained
+
+    private void lblDbxGenerateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxGenerateMouseEntered
+        lblDbxGenerate.setBorder(BorderFactory.createLineBorder(new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblDbxGenerateMouseEntered
+
+    private void lblDbxGenerateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxGenerateMouseExited
+        lblDbxGenerate.setBorder(BorderFactory.createLineBorder(new Color(204, 204, 204)));
+    }//GEN-LAST:event_lblDbxGenerateMouseExited
+
+    private void lblDbxGenerateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxGenerateMousePressed
+        lblDbxGenerate.setBorder(BorderFactory.createBevelBorder(0, new Color(20, 150, 250), new Color(20, 150, 250), new Color(20, 150, 250), new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblDbxGenerateMousePressed
+
+    private void lblDbxGenerateMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxGenerateMouseReleased
+        lblDbxGenerate.setBorder(BorderFactory.createLineBorder(new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblDbxGenerateMouseReleased
+
+    private void lblDbxSubmitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxSubmitMouseEntered
+        lblDbxSubmit.setBorder(BorderFactory.createLineBorder(new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblDbxSubmitMouseEntered
+
+    private void lblDbxSubmitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxSubmitMouseExited
+        lblDbxSubmit.setBorder(BorderFactory.createLineBorder(new Color(204, 204, 204)));
+    }//GEN-LAST:event_lblDbxSubmitMouseExited
+
+    private void lblDbxSubmitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxSubmitMousePressed
+        lblDbxSubmit.setBorder(BorderFactory.createBevelBorder(0, new Color(20, 150, 250), new Color(20, 150, 250), new Color(20, 150, 250), new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblDbxSubmitMousePressed
+
+    private void lblDbxSubmitMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxSubmitMouseReleased
+        lblDbxSubmit.setBorder(BorderFactory.createLineBorder(new Color(204, 204, 204)));
+    }//GEN-LAST:event_lblDbxSubmitMouseReleased
+
+    private void lblDbxUploadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxUploadMouseEntered
+        lblDbxUpload.setBorder(BorderFactory.createLineBorder(new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblDbxUploadMouseEntered
+
+    private void lblDbxUploadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxUploadMouseExited
+        lblDbxUpload.setBorder(BorderFactory.createLineBorder(new Color(204, 204, 204)));
+    }//GEN-LAST:event_lblDbxUploadMouseExited
+
+    private void lblDbxUploadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxUploadMousePressed
+        lblDbxUpload.setBorder(BorderFactory.createBevelBorder(0, new Color(20, 150, 250), new Color(20, 150, 250), new Color(20, 150, 250), new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblDbxUploadMousePressed
+
+    private void lblDbxUploadMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxUploadMouseReleased
+        lblDbxUpload.setBorder(BorderFactory.createLineBorder(new Color(204, 204, 204)));
+    }//GEN-LAST:event_lblDbxUploadMouseReleased
+
+    private void lblDbxDownloadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxDownloadMouseEntered
+        lblDbxDownload.setBorder(BorderFactory.createLineBorder(new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblDbxDownloadMouseEntered
+
+    private void lblDbxDownloadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxDownloadMouseExited
+        lblDbxDownload.setBorder(BorderFactory.createLineBorder(new Color(204, 204, 204)));
+    }//GEN-LAST:event_lblDbxDownloadMouseExited
+
+    private void lblDbxDownloadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxDownloadMousePressed
+        lblDbxDownload.setBorder(BorderFactory.createBevelBorder(0, new Color(20, 150, 250), new Color(20, 150, 250), new Color(20, 150, 250), new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblDbxDownloadMousePressed
+
+    private void lblDbxDownloadMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDbxDownloadMouseReleased
+        lblDbxDownload.setBorder(BorderFactory.createLineBorder(new Color(204, 204, 204)));
+    }//GEN-LAST:event_lblDbxDownloadMouseReleased
 
 	/****************************************************************************************************
 	 **************************************************************************************************** 
@@ -3111,7 +3437,7 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblEditDeleteDeliverMouseClicked
 
 	private void lblEditDeleteDeliverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseEntered
-		if (currCourse != null)
+		if (currCourse != null&&editDeliverList.getSelectedIndex() != -1)
 			lblEditDeleteDeliver.setBorder(BorderFactory
 					.createLineBorder(new Color(255, 51, 51)));
 		else
@@ -3125,7 +3451,7 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblEditDeleteDeliverMouseExited
 
 	private void lblEditDeleteDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMousePressed
-		if (currCourse != null)
+		if (currCourse != null&&editDeliverList.getSelectedIndex() != -1)
 			lblEditDeleteDeliver.setBorder(BorderFactory.createBevelBorder(1,
 					new Color(255, 51, 51), new Color(255, 51, 51), new Color(
 							255, 51, 51), new Color(255, 51, 51)));
@@ -3136,7 +3462,7 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblEditDeleteDeliverMousePressed
 
 	private void lblEditDeleteDeliverMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseReleased
-		if (currCourse != null)
+		if (currCourse != null&&editDeliverList.getSelectedIndex() != -1)
 			lblEditDeleteDeliver.setBorder(BorderFactory
 					.createLineBorder(new Color(255, 51, 51)));
 		else
@@ -4226,6 +4552,13 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblCourseName;
     private javax.swing.JLabel lblCourseSetup;
     private javax.swing.JLabel lblCourseTerm;
+    private javax.swing.JLabel lblDbxAuthLink;
+    private javax.swing.JLabel lblDbxDownload;
+    private javax.swing.JLabel lblDbxErrorLog;
+    private javax.swing.JLabel lblDbxGenerate;
+    private javax.swing.JLabel lblDbxSubmit;
+    private javax.swing.JLabel lblDbxUpload;
+    private javax.swing.JLabel lblDbxVerify;
     private javax.swing.JLabel lblDeleteCourse;
     private javax.swing.JLabel lblDeliverAddErrorLog;
     private javax.swing.JLabel lblDeliverName;
@@ -4284,6 +4617,7 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JTextField txtCourseCode;
     private javax.swing.JTextPane txtCourseDesc;
     private javax.swing.JTextField txtCourseName;
+    private javax.swing.JTextField txtDbxCode;
     private javax.swing.JTextField txtDeliverName;
     private javax.swing.JTextField txtDeliverWeight;
     private javax.swing.JTextField txtEditCourseCode;

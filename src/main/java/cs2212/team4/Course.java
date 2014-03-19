@@ -378,8 +378,14 @@ public class Course implements CourseADT, Serializable
 	public boolean removeDeliverable(int i) {
 		if (i >= deliverableList.size())
 			return false;
+        //Also Remove this grade item from all the students (to have a correct avg calculation)
+        String type = getDeliverable(i).getType();
+        for (int j = 0; j<studentList.size(); j++){
+            getStudent(j).removeGrade(i,type);
+        }
 		deliverableList.set(i, null);
 		stkDeliver.push(i);
+
 		return true;
 	}
 	
@@ -579,7 +585,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Exports the Grade objects located in every Student object inside the studentList list.
 	  * 
-	  * @param		path				String, the path were the file is located.
+	  * @param		file path String, the path were the file is located.
 	  * 
 	  * @return		boolean, true if the Grade objects were exported, false otherwise.
 	  * 

@@ -257,6 +257,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 				boolAsn = true;
 			} else
 				return false;
+
 		grades.set(deliver, null);
         calcAvg();
         if (boolExm)

@@ -17,8 +17,8 @@ public class GradesTable extends DefaultTableModel{
 
 	private static final long serialVersionUID = 1L;
 	int delivSize;
-    private final List<Student> studentGrades = new ArrayList<>();
-    private final List<Deliverable> deliverableGrades = new ArrayList<>();
+    private final List<Student> studentGrades = new ArrayList<Student>();
+    private final List<Deliverable> deliverableGrades = new ArrayList<Deliverable>();
     Course currCourse;
 
     /**
@@ -27,7 +27,7 @@ public class GradesTable extends DefaultTableModel{
      * @param currCourse
      */
     public GradesTable(Course currCourse) {
-        addColumn("COURSE");
+        addColumn("Class Average");
         this.currCourse = currCourse;
         if (currCourse.getDeliverableListSize() > 0) {
             for (int i = 0; i < currCourse.getDeliverableListSize(); i++) {
@@ -82,19 +82,16 @@ public class GradesTable extends DefaultTableModel{
         else if (columnIndex > 0) {
             Deliverable d = deliverableGrades.get(columnIndex - 1);
             if (((String)aValue).equals(""))
-                currCourse
-                        .getStudent(currCourse
-                                .findStudent(studentGrades.get(rowIndex).getNumber()))
-                        .removeGrade(d.getObjId(), d.getType());
+				currCourse.getStudent(rowIndex).removeGrade(d.getObjId(),
+						d.getType());
             else if(!(((String)aValue).matches("\\d+(\\.\\d+)?")))
                 return;
             else {
                 if (Double.parseDouble((String) aValue)>100||Double.parseDouble((String) aValue)<0)
                     return;
-            currCourse
-                    .getStudent(currCourse
-                            .findStudent(studentGrades.get(rowIndex).getNumber()))
-                    .addGrade(d.getObjId(), Double.parseDouble((String) aValue), d.getType(), d.getWeight());
+				currCourse.getStudent(rowIndex).addGrade(d.getObjId(),
+						Double.parseDouble((String) aValue), d.getType(),
+						d.getWeight());
             }
         }
         fireTableCellUpdated(rowIndex,columnIndex);
@@ -115,8 +112,6 @@ public class GradesTable extends DefaultTableModel{
         else
             return true;
     }
-
-
 }
 
 

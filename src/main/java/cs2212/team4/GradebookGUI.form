@@ -1808,7 +1808,7 @@
                                       <Component id="courseDescScroll" min="-2" pref="502" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -1835,14 +1835,14 @@
                                               <Component id="comboEditDeliverType" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblEditCourseCode" min="-2" pref="120" max="-2" attributes="0"/>
                                           <Component id="lblEditCourseTtile" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtEditCourseCode" min="-2" pref="200" max="-2" attributes="0"/>
                                           <Component id="txtEditCourseTitle" min="-2" pref="200" max="-2" attributes="0"/>
@@ -1932,7 +1932,7 @@
                                   <Component id="lblImportDelivers" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblEditDeliver" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblExportDelivers" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblEditAddDeliver" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2455,7 +2455,7 @@
                           <Component id="lblDbxUpload" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblDbxDownload" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="79" max="32767" attributes="0"/>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
                       <Component id="lblDbxErrorLog" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>

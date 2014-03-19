@@ -586,7 +586,6 @@ public class Course implements CourseADT, Serializable
 	  */
 	public boolean exportGrades(File file) {
 		ArrayList<Integer> dilvers = new ArrayList<Integer>();
-		int ctr = 0;
 		try {
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(file)));

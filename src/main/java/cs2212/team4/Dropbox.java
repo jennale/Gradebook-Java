@@ -42,19 +42,19 @@ public class Dropbox {
 	public boolean upload() {
 		File dataFile = new File("data.dat");
 		try {
-			InputStream IS = new FileInputStream(dataFile);
+			FileInputStream FIS = new FileInputStream(dataFile);
 			DbxEntry.File uploadedFile = client.uploadFile(
 					"/gradebook/data.dat", DbxWriteMode.add(),
-					dataFile.length(), IS);
+					dataFile.length(), FIS);
 			if (uploadedFile != null) {
-				IS.close();
+				FIS.close();
 				return true;
 			} else {
-				IS.close();
+				FIS.close();
 				return false;
 			}
 		} catch (DbxException e) {
-			System.out.println(e);return false;
+			return false;
 		} catch (FileNotFoundException e) {
 			return false;
 		} catch (IOException e) {

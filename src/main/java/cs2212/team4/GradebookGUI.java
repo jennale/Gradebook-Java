@@ -1597,7 +1597,7 @@ public class GradebookGUI extends JFrame {
 						null, null, null }));
 		gradesTable.setToolTipText("");
 		gradesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-		gradesTable.setGridColor(new java.awt.Color(255, 255, 255));
+   		gradesTable.setGridColor(new java.awt.Color(255, 255, 255));
 		gradesTable.setOpaque(false);
 		gradesTable
 				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -5870,6 +5870,9 @@ public class GradebookGUI extends JFrame {
 		gradesScroll.getVerticalScrollBar().setPreferredSize(
 				new Dimension(15, 5));
 		gradesScroll.setWheelScrollingEnabled(true);
+
+        studentTable.setSelectionModel(gradesTable.getSelectionModel());
+        studentTable.setRowSorter(gradesTable.getRowSorter());
 	}
 
 	private Integer findDeliver(String deliver) {

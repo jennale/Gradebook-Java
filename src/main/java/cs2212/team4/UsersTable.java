@@ -170,13 +170,13 @@ public class UsersTable extends DefaultTableModel{
 
         if (width<9){
             for (int i=0; i < 10-width; i++){
-                grades.addColumn("");
+                grades.addColumn(" ");
             }
         }
         if (height<20){
             for (int i=0; i < 20-height; i++){
-                this.addRow(new String[]{""});
-                grades.addRow(new String[] {""});
+                this.addRow(new String[]{" "});
+                grades.addRow(new String[] {" "});
             }
         }
     }

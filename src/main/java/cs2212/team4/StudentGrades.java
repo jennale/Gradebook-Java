@@ -243,7 +243,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  */
 	public boolean remove(int deliver, String type) {
 		boolean boolExm = false, boolAsn = false;
-		if (deliver>grades.size()||grades.get(deliver) == null)
+		if (deliver>=grades.size()||grades.get(deliver) == null)
 			return false;
 		if (type.equalsIgnoreCase(EXM))
 			if (exm.contains(deliver)) {

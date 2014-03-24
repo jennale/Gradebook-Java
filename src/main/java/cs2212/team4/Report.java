@@ -17,6 +17,13 @@ public class Report {
 	private static InputStream loadResource (String filename) {
 		return Report.class.getClassLoader().getResourceAsStream (filename);}
 
+	/**
+	  * Constructor that creates a report, using course and student attributes
+	  * 
+	  * @param course A course from which we wish to generate reports
+	  * @param number The index of the student that we wish to fetch from this course
+	  * 
+	  */
 	public Report(Course course, String number)
 	{	
 		if(course.findStudent(number) >= 0)
@@ -34,40 +41,83 @@ public class Report {
 		}
 	}
 
+	/**
+	  * Gets the code representing this report
+	  * 
+	  * @return the code representing this report
+	  * 
+	  */
 	public String getCode()
 	{
 		return code;
 	}
 
+	/**
+	  * Gets the title of this report
+	  * 
+	  * @return the title of this report
+	  * 
+	  */
 	public String getTitle()
 	{
 		return title;
 	}
 
+	/**
+	  * Gets the term of this report
+	  * 
+	  * @return the term of this report
+	  * 
+	  */
 	public String getTerm()
 	{
 		return term;
 	}
 
+	/**
+	  * Gets The first name of the student for whom we are generating the report
+	  * 
+	  * @return the first name of the student for whom this report is for
+	  * 
+	  */
 	public String getFirstName()
 	{
 		return firstName;
 	}
 
+	/**
+	  * Gets The last name of the student for whom we are generating the report
+	  * 
+	  * @return the last name of the student for whom this report is for
+	  * 
+	  */
 	public String getLastName()
 	{
 		return lastName;
 	}
 
+	/**
+	  * Gets The id number of the student for whom we are generating the report
+	  * 
+	  * @return the id number of the student for whom this report is for
+	  * 
+	  */
 	public String getNumber()
 	{
 		return number;
 	}
 
+	/**
+	  * Gets The email of the student for whom we are generating the report
+	  * 
+	  * @return the email of the student for whom this report is for
+	  * 
+	  */
 	public String getEmail()
 	{
 		return email;
 	}
+
 
 	public ArrayList<Deliverable> getDeliverables()
 	{

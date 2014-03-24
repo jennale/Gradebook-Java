@@ -277,8 +277,7 @@ public class Course implements CourseADT, Serializable
 	  * 
 	  * @param stud	The student whose ID number we want to change
 	  * @param number The new ID number we want to change to
-	  * 
-	  * @return true if the ID number was changed or if requested change was already the current number. If the number already belongs to another student, return false
+	  * @return true if the ID number was changed or if requested change was already the current number. Or, if the number already belongs to another student, return false
 	  * 
 	  */
 	public boolean editStudentNumber(Student stud, String number) {
@@ -296,8 +295,7 @@ public class Course implements CourseADT, Serializable
 	  * 
 	  * @param stud The student whose email we want to change
 	  * @param email The new email we want to change to
-	  * 
-	  * @return true if the email was changed or if requested change was already the current email. If the email already belongs to another student, return false
+	  * @return true if the email was changed or if requested change was already the current email. Or, if the email already belongs to another student, return false
 	  * 
 	  */
 	public boolean editStudentEmail(Student stud, String email) {
@@ -311,10 +309,10 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Finds the requested student in the course
+	  * Finds the index number of the requested student within the course's list of students
 	  * 
 	  * @param number The student's ID number
-	  * @return The index at which the requested student sits in the list of students in this course. If the student doesn't exist, return -1
+	  * @return The index at which the requested student sits in the list of students in this course. Or, if the student doesn't exist, return -1
 	  * 
 	  */
 	public int findStudent(String number) {
@@ -325,14 +323,13 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Adds a Student object to the studentList list, if there does not exist a Student object inside the studentList list with the same number or email.
+	  * Adds a student to the course
 	  * 
-	  * @param		nameFirst			String, the Student object first name.
-	  * @param		nameLast			String, the Student object Last name.
-	  * @param		number				String, the Student object unique number.
-	  * @param		email				String, the Student object unique email.
-	  * 
-	  * @return		boolean, true if the addition was a success, false otherwise.
+	  * @param nameFirst The student's first name
+	  * @param nameLast	The student's last name
+	  * @param number The student's unique ID number
+	  * @param email The student's email
+	  * @return	true if the student was added to the course. Or, if a student in the course already shares the same email or ID number, return false
 	  * 
 	  */
 	public boolean addStudent(String nameFirst, String nameLast, String number,
@@ -345,11 +342,10 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Removes a Student object from the studentList list.
+	  * Remove a student from the course
 	  * 
-	  * @param		i					Integer, the Student object number in the studentList.
-	  * 
-	  * @return		boolean, true if the object was removed, false otherwise.
+	  * @param i The student's index number in the list of students in this course
+	  * @return	true if the student was removed. Or, if the index given falls our of bounds of the list of students, return false
 	  * 
 	  */
 	public boolean removeStudent(int i) {
@@ -360,11 +356,10 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Finds the Deliverable object inside the deliverableList list.
+	  * Finds the index number of the requested deliverable within the course's list of deliverables
 	  * 
-	  * @param		deliver			Deliverable, the Deliverable object.
-	  * 
-	  * @return		Integer, the position of the Deliverable object in the deliverableList list if the object exists, otherwise it will return -1.
+	  * @param deliver The deliverable we are searching for
+	  * @return  The index at which the requested deliverable sits in the list of deliverables in this course. Or, if the deliverable doesn't exist, return -1
 	  * 
 	  */
 	public int findDeliverable(Deliverable deliver) {
@@ -375,13 +370,12 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Adds a Deliverable object to the deliverableList list, if there does not exist a duplicate Deliverable object inside the deliverableList list.
+	  * Adds a deliverable to the course
 	  * 
-	  * @param		name				String, the Deliverable object name.
-	  * @param		type				String, the Deliverable object type.
-	  * @param		weight				Double, the Deliverable object weight.
-	  * 
-	  * @return		boolean, true if the addition was a success, false otherwise.
+	  * @param name The name of the dliverable
+	  * @param type	The type of the deliverable
+	  * @param weight The weight of the deliverable
+	  * @return	true if a deliverable was added to the course. Or, if the deliverable already exists, return false
 	  * 
 	  */
 	public boolean addDeliverable(String name, String type, double weight) {
@@ -397,17 +391,16 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Removes a Deliverable object from the deliverableList list.
+	  * Removes a deliverable from the course
 	  * 
-	  * @param		i deliver - Deliverable, the Deliverable object.
-	  * 
-	  * @return		boolean, true if the object was removed, false otherwise.
+	  * @param i The index of the deliverable we want to remove in the list of the deliverables for this course
+	  * @return true if the deliverable was removed. Or, if the index falls out of bounds from our list of deliverables in this course, return false
 	  * 
 	  */
 	public boolean removeDeliverable(int i) {
 		if (i >= deliverableList.size())
 			return false;
-        //Also Remove this grade item from all the students (to have a correct avg calculation)
+    //Also Remove this grade item from all the students (to have a correct avg calculation)
         String type = getDeliverable(i).getType();
         for (int j = 0; j<studentList.size(); j++){
             getStudent(j).removeGrade(i,type);
@@ -419,13 +412,12 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Adds a grade to a Student object.
+	  * Adds a grade for a student in the course
 	  * 
-	  * @param		stud				Student, the Student object.
-	  * @param		deliver				Deliverable, the Deliverable object.
-	  * @param		grade				Double, the grade.
-	  * 
-	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
+	  * @param stud The student who we want to give a grade for
+	  * @param deliver The deliverable for which we are adding the grade
+	  * @param grade The grade we are adding
+	  * @return	true if the grade was inserted. False if the grade failed to be inserted
 	  * 
 	  */
 	public boolean addGrade(Student stud, Deliverable deliver, double grade) {
@@ -434,12 +426,11 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Removes a grade from a Student object.
+	  * removes a grade from a student in the course
 	  * 
-	  * @param		stud				Student, the Student object.
-	  * @param		deliver				Deliverable, the Deliverable object.
-	  * 
-	  * @return		boolean, true if the grade was removed successfully, false otherwise.
+	  * @param stud The student who we want to remove a grade from
+	  * @param deliver The deliverable from which we are removing the grade
+	  * @return true if the grade was removed. False if the grade failed to be removed
 	  * 
 	  */
 	public boolean removeGrade(Student stud, Deliverable deliver) {
@@ -447,9 +438,9 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Imports a Student objects into the Course object.
-	  * 
-	  * @param		file path - String, the path were the file is located.
+	  * Imports students into the course
+	  * @param file The path where the file containing the students to be imported is located
+	  * @return true if the students were imported successfully, otherwise return false
 	  * 
 	  */
 	public boolean importStudents(File file)
@@ -479,11 +470,10 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Exports the Student objects located in studentList list to a .csv file.
+	  * Exports the Students of a course into a .csv file
 	  * 
-	  * @param		file path - String, the path were the file is located.
-	  * 
-	  * @return		boolean, true if the Student objects were exported, false otherwise.
+	  * @param file The path where we want to export the students
+	  * @return true if the students were exported, false otherwise
 	  * 
 	  */
 	public boolean exportStudents(File file) {
@@ -503,9 +493,10 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Imports a Deliverable objects into the Course object.
+	  * Imports deliverables into the course
 	  * 
-	  * @param		file				File, the path were the file is located.
+	  * @param file The path where the file containing the deliverables to be imported is located
+	  * @return true if the deliverables were imported successfully, otherwise return false
 	  * 
 	  */
 	public boolean importDeliverables(File file) {
@@ -535,11 +526,10 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Exports the Deliverable objects located in deliverableList list to a .csv file.
+	  * Exports the deliverables of a course into a .csv file
 	  * 
-	  * @param		file path - String, the path were the file is located.
-	  * 
-	  * @return		boolean, true if the Deliverable objects were exported, false otherwise.
+	  * @param file The path where we want to export the deliverables
+	  * @return true if the deliverables were exported, false otherwise
 	  * 
 	  */
 	public boolean exportDeliverables(File file) {
@@ -558,9 +548,10 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Imports a Student objects' Grade objects into the Course object.
+	  * Imports students' grades into the course
 	  * 
-	  * @param		file				String, the path were the file is located.
+	  * @param file The path where the file containing the students' grades to be imported is located
+	  * @return true if the grades were imported successfully, otherwise return false
 	  * 
 	  */
 	public boolean importGrades(File file) {
@@ -612,11 +603,10 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Exports the Grade objects located in every Student object inside the studentList list.
+	  * Exports students' grades into a .csv file
 	  * 
-	  * @param		file path String, the path were the file is located.
-	  * 
-	  * @return		boolean, true if the Grade objects were exported, false otherwise.
+	  * @param The path where we want to export the grades
+	  * @return	true if the grades were exported, false otherwise
 	  * 
 	  */
 	public boolean exportGrades(File file) {
@@ -642,11 +632,10 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * An equals method.
+	  * A method that test for course equality
 	  * 
-	  * @param		crs			Course, the Course object.		
-	  * 
-	  * @return		boolean, true if the Course object is equal to this, false otherwise.
+	  * @param crs The course we are comparing to	
+	  * @return	true if the course is equal to this course, false otherwise
 	  * 
 	  */
 	public boolean equals(Course crs) {
@@ -656,9 +645,9 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * A toString method.
+	  * A toString method
 	  * 
-	  * @return		String, the Course object information string.
+	  * @return	The course information. Including title, term, and code
 	  * 
 	  */
 	public String toString() {

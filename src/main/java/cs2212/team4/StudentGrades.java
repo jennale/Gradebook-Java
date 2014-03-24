@@ -33,7 +33,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	private transient final String ASN = "assignment", EXM = "exam";
 	
 	/**
-	  * Constructor.
+	  * Constructor that creates a List of a student's grades, and 2 sub-lists based on exams or assignments
 	  */
 	public StudentGrades() {
 		grades = new ArrayList<Grade>();
@@ -46,9 +46,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Gets the Student object average.
+	  * Gets the student's average
 	  * 
-	  * @return		Double, the Student object average.
+	  * @return the student's average
 	  * 
 	  */
 	public double getAvg() {
@@ -56,9 +56,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 	
 	/**
-	  * Gets the Student object assignment average.
+	  * Gets the student's assignment average
 	  * 
-	  * @return		Double, the Student object assignment average.
+	  * @return the student's assignment average
 	  * 
 	  */
 	public double getAsnAvg() {
@@ -66,9 +66,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 
 	/**
-	  * Gets the Student object exam average.
+	  * Gets the student's exam average
 	  * 
-	  * @return		Double, the Student object exam average.
+	  * @return the student's exam average
 	  * 
 	  */
 	public double getExmAvg() {
@@ -76,9 +76,10 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 	
 	/**
-	  * Gets the Grade object at grade from grades list.
+	  * Gets the student's grade based on the index passed
 	  * 
-	  * @return		Double, the grade of the Student object.
+	  * @param grade The index of the grade in the student's list of grades
+	  * @return The student's grade at this index. Return -1 if index is out of bounds of the grades list
 	  * 
 	  */
 	public double getGrade(int grade) {
@@ -88,9 +89,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 	
 	/**
-	 * Returns a reference to the grades Arraylist of the student
+	 * Gets a reference to the grades Arraylist of the student
 	 * 
-	 * @return
+	 * @return A reference to the grades list of the student
 	 */
 	public ArrayList<Grade> getGradeList() {
 		return grades;
@@ -100,9 +101,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Sets the Student object average.
+	  * Sets the student's overall average
 	  * 
-	  * @param		avg				Double, the Student object average.
+	  * @param avg The new overall average for the student
 	  * 
 	  */
 	public void setAvg(double avg) {
@@ -110,9 +111,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 	
 	/**
-	  * Sets the Student object assignment average.
+	  * Sets the student's assignment average
 	  * 
-	  * @param		asnAvg			Double, the Student object assignment average.
+	  * @param avg The new assignment average for the student
 	  * 
 	  */
 	public void setAsnAvg(double asnAvg) {
@@ -120,9 +121,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 	
 	/**
-	  * Sets the Student object exam average.
+	  * Sets the student's exam average
 	  * 
-	  * @param		exmAvg			Double, the Student object exam average.
+	  * @param avg The new exam average for the student
 	  * 
 	  */
 	public void setExmAvg(double exmAvg) {
@@ -134,9 +135,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Calculates the Student object average.
+	  * Calculates the student's overall average
 	  * 
-	  * @return 	Double, the Student object average.
+	  * @return The calculated student's overall average. Returns -1 if the student has no grades availble
 	  * 
 	  */
 	private void calcAvg() {
@@ -157,9 +158,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 	
 	/**
-	  * Calculates the Student object assignment average.
+	  * Calculates the student's assignment average
 	  * 
-	  * @return 	Double, the Student object assignment average.
+	  * @return The calculated student's assignment average. Returns -1 if the student has no assignment grades availble
 	  * 
 	  */
 	private void calcAsnAvg() {
@@ -179,9 +180,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 	
 	/**
-	  * Calculates the Student object exam average.
+	  * Calculates the student's exam average
 	  * 
-	  * @return 	Double, the Student object exam average.
+	  * @return The calculated student's exam average. Returns -1 if the student has no exam grades availble
 	  * 
 	  */
 	private void calcExmAvg() {
@@ -201,14 +202,13 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 	
 	/**
-	  * Adds a grade to the StudentGrades object.
+	  * Adds a grade for the student
 	  * 
-	  * @param		deliver				Integer, the grade insertion position.
-	  * @param		grade				Double, the grade.
-	  * @param		type				String, the deliverable type.
-	  * @param		weight				Double, the grade weight.
-	  * 
-	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
+	  * @param deliver The grade insertion position
+	  * @param grade The grade to be inserted
+	  * @param type	The deliverable type
+	  * @param weight The grade weight
+	  * @return true if the grade was inserted successfully, false otherwise
 	  * 
 	  */
 	public boolean add(int deliver, double grade, String type, double weight) {
@@ -233,12 +233,11 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	}
 
 	/**
-	  * Removes a grade to the StudentGrades object.
+	  * Removes a grade from this student
 	  * 
-	  * @param		deliver				Integer, the grade insertion position.
-	  * @param		type				String, the deliverable type.
-	  * 
-	  * @return		boolean, true if the grade was removed successfully, false otherwise.
+	  * @param deliver The grade removal index point
+	  * @param type	The type of the deliverable
+	  * @return true if the grade was removed successfully, false otherwise
 	  * 
 	  */
 	public boolean remove(int deliver, String type) {

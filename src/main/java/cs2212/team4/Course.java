@@ -59,11 +59,11 @@ public class Course implements CourseADT, Serializable
 	************************************************************ */
 
 	/**
-	  * Gets the course title
-	  * 
-	  * @return The title of the course
-	  * 
-	  */
+	 * Gets the course title
+	 * 
+	 * @return The title of the course
+	 * 
+	 */
 	public String getTitle() {
 		return title;
 	}
@@ -71,7 +71,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * Gets the course term
 	  * 
-	  * @return	The Course object term.
+	  * @return The term of the course
 	  * 
 	  */
 	public String getTerm() {
@@ -79,9 +79,9 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Gets the course code.
+	  * Gets the course code
 	  * 
-	  * @return		String, the Course object code.
+	  * @return The course code
 	  * 
 	  */
 	public String getCode() {
@@ -93,9 +93,10 @@ public class Course implements CourseADT, Serializable
 }
 	
 	/**
-	  * Gets the Student object inside the studentList list at location stud.
+	  * Gets a specified student of this course
 	  * 
-	  * @return		Student, the Student object.
+	  * @param stud An index number pertaining to a student in a list
+	  * @return The student that is indexed at the passed number. If the student index is out of bounds from the list, return null
 	  * 
 	  */
 	public Student getStudent(int stud) {
@@ -105,9 +106,10 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Gets the Deliverable object inside the DeliverableList list at location deliver.
+	  * Gets a specified Deliverable of this course
 	  * 
-	  * @return		Deliverable, the Deliverable object.
+	  * @param deliver An index number pertaining to a deliverable in this course's list of deliverables
+	  * @return The Deliverable that is indexed at the passed number. If the deliverable index is out of bounds from the list, return null
 	  * 
 	  */
 	public Deliverable getDeliverable(int deliver) {
@@ -117,12 +119,11 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Gets the grade object inside the Grades object inside the Student object at location grade.
+	  * Gets a specific student grade
 	  * 
-	  * @param		stud		Student, Student object.
-	  * @param		grade		Integer, the location of the grade.
-	  * 
-	  * @return		Double, the grade of the Student object.
+	  * @param stud	A student of this course
+	  * @param grade An index number pertaining to a grade in this student's list of grades
+	  * @return The specidied student's specified grade. If the grade index is out of bounds from the list, return -1
 	  * 
 	  */
 	public double getGrade(Student stud, int grade) {

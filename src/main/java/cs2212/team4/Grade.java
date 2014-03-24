@@ -24,10 +24,10 @@ public class Grade implements GradeADT, Serializable
 	private double grade, weight;
 	
 	/**
-	  * Constructor.
+	  * Constructor that creates a grade with a given number value and weight
 	  * 
-	  * @param		grade		Double, the Grade object grade.
-	  * @param		weight		Double, the Grade object weight.
+	  * @param grade The number value of the grade
+	  * @param weight The weight value that this grade represents
 	  * 
 	  */
 	public Grade(double grade, double weight) {
@@ -40,9 +40,9 @@ public class Grade implements GradeADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Gets the Grade object grade.
+	  * Gets the grade value
 	  * 
-	  * @return		Double, the Grade object grade.
+	  * @return The quntitative grade value
 	  * 
 	  */
 	public double getGrade() {
@@ -50,9 +50,9 @@ public class Grade implements GradeADT, Serializable
 	}
 	
 	/**
-	  * Gets the Grade object weight.
+	  * Gets the weight that the grade represents
 	  * 
-	  * @return		Double, the Grade object weight.
+	  * @return The weight of this grade
 	  * 
 	  */
 	public double getWeight() {
@@ -64,9 +64,9 @@ public class Grade implements GradeADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Sets the Grade object grade.
+	  * Set the grade value
 	  * 
-	  * @param		grade			Double,the Grade object grade.
+	  * @param The value that we want to set the grade to
 	  * 
 	  */
 	public void setGrade(double grade) {
@@ -74,9 +74,9 @@ public class Grade implements GradeADT, Serializable
 	}
 	
 	/**
-	  * Sets the Grade object weight.
+	  * Sets grade weight
 	  * 
-	  * @param		weight			Double,the Grade object weight.
+	  * @param The value that we want to set the weight to
 	  * 
 	  */
 	public void setWeight(double weight) {

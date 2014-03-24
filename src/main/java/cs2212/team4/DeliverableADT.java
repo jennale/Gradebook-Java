@@ -12,73 +12,74 @@ package cs2212.team4;
 public interface DeliverableADT
 {
 	/**
-	  * Gets the Deliverable object name.
+	  * Gets the name of the deliverable
 	  * 
-	  * @return		String, the Deliverable object name.
+	  * @return The deliverable's name
 	  * 
 	  */
 	public String getName();
 
-	/**
-	  * Gets the Deliverable object type.
+/**
+	  * Gets the type of the deliverable
 	  * 
-	  * @return		String, the Deliverable object type.
+	  * @return The deliverable type
 	  * 
 	  */
 	public String getType();
 
 	/**
-	  * Gets the Deliverable object weight.
+	  * Gets the weight of the deliverable
 	  * 
-	  * @return		Double, the Deliverable object weight.
+	  * @return The deliverable's weight
 	  * 
 	  */
 	public double getWeight();
 	
 	/**
-	  * Gets the Deliverable object id.
+	  * Gets ID of the deliverable
 	  * 
-	  * @return		Integer, the Deliverable object id.
+	  * @return The derliverable's ID
 	  * 
 	  */
 	public int getObjId();
 	
 	/**
-	  * Sets the Deliverable object name.
+	  * Sets name of the deliverable
 	  * 
-	  * @param		name			String,the Deliverable object name.
+	  * @param name The deliverable's requested name
 	  * 
 	  */
 	public void setName(String name);
 
 	/**
-	  * Sets the Deliverable object type.
+	  * Sets type of the deliverable
 	  * 
-	  * @param		type			String,the Deliverable object type.
+	  * @param type	The deliverable's requested type
 	  * 
 	  */
 	public void setType(String type);
 
 	/**
-	  * Sets the Deliverable object weight.
+	  * Sets weight of the deliverable
 	  * 
-	  * @param		weight			Double,the Deliverable object weight.
+	  * @param weight The deliverable's requested weight
 	  * 
 	  */
 	public void setWeight(double weight);
 	
 	/**
-	  * An equals method.
+	  * A method to test for equality between deliverables
 	  * 
-	  * return		boolean, true if the Course object is equal to this, false otherwise.
+	  * @param A deliverable we want to compare to this one
+	  * @return true if the deliverables are the same, false otherwise
 	  * 
 	  */
 	public boolean equals(Deliverable deliver);
 	
 	/**
-	  * A toString method.
+	  * A toString method
 	  * 
-	  * return		String, the Deliverable object information string.
+	  * return the deliverable information. Including name, type, and weight
 	  * 
 	  */
 	public String toString();

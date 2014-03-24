@@ -27,12 +27,12 @@ public class Student implements StudentADT, Serializable
 	private StudentGrades grades;
 
 	/**
-	  * Constructor.
+	  * Constructor that creates a student using a first & last name, an id number, and an email
 	  * 
-	  * @param		nameFirst		String, Student object first name.
-	  * @param		nameLast		String, Student object last name.
-	  * @param		number			String, Student object unique number.
-	  * @param		email			String, Student object unique email.
+	  * @param nameFirst The student's first name
+	  * @param nameLast The student's last name
+	  * @param number The student's number
+	  * @param email The student's email
 	  * 
 	  */
 	public Student(String nameFirst, String nameLast, String number,
@@ -49,9 +49,9 @@ public class Student implements StudentADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Gets the Student object first name.
+	  * Gets the student's first name
 	  * 
-	  * @return		String, the Student object first name.
+	  * @return The student's first name
 	  * 
 	  */
 	public String getNameFirst() {
@@ -59,9 +59,9 @@ public class Student implements StudentADT, Serializable
 	}
 
 	/**
-	  * Gets the Student object last name.
+	  * Gets the student's last name
 	  * 
-	  * @return		String, the Student object last name.
+	  * @return The student's last name
 	  * 
 	  */
 	public String getNameLast() {
@@ -69,9 +69,9 @@ public class Student implements StudentADT, Serializable
 	}
 
 	/**
-	  * Gets the Student object number.
+	  * Gets the student's id number
 	  * 
-	  * @return		Integer, the Student object number.
+	  * @return The student's id number
 	  * 
 	  */
 	public String getNumber() {
@@ -79,9 +79,9 @@ public class Student implements StudentADT, Serializable
 	}
 
 	/**
-	  * Gets the Student object email.
+	  * Gets the student's email
 	  * 
-	  * @return		String, the Student object email.
+	  * @return The student's email
 	  * 
 	  */
 	public String getEmail() {
@@ -89,9 +89,10 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * Gets a Student object Grade object.
+	  * Gets a specific grade of the student at the index passed
 	  * 
-	  * @return		Grade, a Student object Grade object.
+	  * @param grade The grade at the index that we want returned
+	  * @return the grade for this student at the index we passed
 	  * 
 	  */
 	public double getGrade(int grade) {
@@ -99,9 +100,9 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * Gets the Student object average.
+	  * Gets the student's average
 	  * 
-	  * @return		Double, the Student object average.
+	  * @return An average based on all the student's grades
 	  * 
 	  */
 	public double getAvg() {
@@ -109,9 +110,9 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * Gets the Student object assignment average.
+	  * Gets the Student's assignment average
 	  * 
-	  * @return		Double, the Student object assignment average.
+	  * @return An average based solely on this student's assignments
 	  * 
 	  */
 	public double getAsnAvg() {
@@ -119,9 +120,9 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * Gets the Student object exam average.
+	  * Gets the Student's exam average
 	  * 
-	  * @return		Double, the Student object exam average.
+	  * @return An average based solely on this student's exams
 	  * 
 	  */
 	public double getExmAvg() {
@@ -129,8 +130,9 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	 * Returns the number of grades associated with this student.
-	 * @return int grades associated with this student
+	 * Returns the number of grades associated with this student
+	 * 
+	 * @return how many grades are associated with this student
 	 */
 	public int getNumGrades() {
 		return grades.getGradeList().size();
@@ -141,9 +143,9 @@ public class Student implements StudentADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Sets the Student object first name.
+	  * Sets the student's first name
 	  * 
-	  * @param		nameFirst		String, the Student object first name.
+	  * @param nameFirst The first name we want this student to have
 	  * 
 	  */
 	public void setNameFirst(String nameFirst) {
@@ -151,9 +153,9 @@ public class Student implements StudentADT, Serializable
 	}
 
 	/**
-	  * Sets the Student object last name.
+	  * Sets the student's last name
 	  * 
-	  * @param		nameLast		String, the Student object last name.
+	  * @param nameLast The last name we want this student to have
 	  * 
 	  */
 	public void setNameLast(String nameLast) {
@@ -161,9 +163,9 @@ public class Student implements StudentADT, Serializable
 	}
 
 	/**
-	  * Sets the Student object number.
+	  * Sets the student's id number
 	  * 
-	  * @param		number		String, the Student object number.
+	  * @param number The id number we want this student to have
 	  * 
 	  */
 	public void setNumber(String number) {
@@ -171,9 +173,8 @@ public class Student implements StudentADT, Serializable
 	}
 
 	/**
-	  * Sets the Student object email.
-	  * 
-	  * @param		email			String, the Student object email.
+	  * Sets the student's email
+	  * emailnameFirst The email we want this student to have
 	  * 
 	  */
 	public void setEmail(String email) {
@@ -181,9 +182,9 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * Sets the Student object average.
+	  * Sets the student's average
 	  * 
-	  * @param		avg				Double, the Student object average.
+	  * @param avg The new average this student will have
 	  * 
 	  */
 	public void setAvg(double avg) {
@@ -191,9 +192,9 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * Sets the Student object assignment average.
+	  * Sets the student's assignment average
 	  * 
-	  * @param		asnAvg			Double, the Student object assignment average.
+	  * @param asnAvg The new assignment average this student will have
 	  * 
 	  */
 	public void setAsnAvg(double asnAvg) {
@@ -201,9 +202,9 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * Sets the Student object exam average.
+	  * Sets the student's exam average
 	  * 
-	  * @param		exmAvg			Double, the Student object exam average.
+	  * @param exmAavg The new exam average this student will have
 	  * 
 	  */
 	public void setExmAvg(double exmAvg) {
@@ -215,14 +216,13 @@ public class Student implements StudentADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Adds a grade to the StudentGrades object.
+	  * Adds a grade for this student
 	  * 
-	  * @param		deliver				Integer, the grade insertion position.
-	  * @param		grade				Double, the grade.
-	  * @param		type				String, the deliverable type.
-	  * @param		weight				Double, the grade weight.
-	  * 
-	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
+	  * @param deliver The grade insertion position
+	  * @param grade The grade to be inserted
+	  * @param type	The deliverable type
+	  * @param weight The grade weight
+	  * @return true if the grade was inserted successfully, false otherwise
 	  * 
 	  */
 	public boolean addGrade(int deliver, double grade, String type,
@@ -231,12 +231,11 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * Removes a grade from the StudentGrades object.
+	  * Removes a grade from this student
 	  *
-	  * @param		deliver				Integer, the position at where the grade will be inserted.
-	  * @param		type				String, the type of the deliverable.
-	  * 
-	  * @return		boolean, true if the grade was removed successfully, false otherwise.
+	  * @param deliver The grade removal index point
+	  * @param type	The type of the deliverable
+	  * @return true if the grade was removed successfully, false otherwise
 	  * 
 	  */
 	public boolean removeGrade(int deliver, String type) {
@@ -244,11 +243,10 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * An equals method.
+	  * Method that checks for equality between 2 students
 	  * 
-	  * @param		stud				Student, the Student object.		
-	  * 
-	  * @return		boolean, true if the Student object is equal to this, false otherwise.
+	  * @param stud	The student we are comparing to	
+	  * @return If the student is equal to this student, return true. Otherwise return false
 	  * 
 	  */
 	public boolean equals(Student stud) {
@@ -258,9 +256,10 @@ public class Student implements StudentADT, Serializable
 	}
 
 	/**
-	  * A toStringGrade method, creates the string that contains all the information that is to be exported about the student grades.
+	  * A toStringGrade method that creates the string that contains all the information that is to be exported about the student grades
 	  * 
-	  * @return		String, the Student object information string.
+	  * @param delivers An array of grades for this student
+	  * @return all the student information in the form of a string
 	  * 
 	  */
 	public String toStringGrade(Object [] delivers) {
@@ -279,9 +278,9 @@ public class Student implements StudentADT, Serializable
 	}
 	
 	/**
-	  * A toString method.
+	  * A toString method
 	  * 
-	  * @return		String, the Student object information string.
+	  * @return The student's attribute information in the form of a string
 	  * 
 	  */
 	public String toString() {

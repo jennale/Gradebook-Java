@@ -11,81 +11,79 @@ package cs2212.team4;
 public interface StudentGradesADT
 {	
 	/**
-	  * Gets the Student object average.
+	  * Gets the student's average
 	  * 
-	  * @return		Double, the Student object average.
+	  * @return the student's average
 	  * 
 	  */
 	public double getAvg();
 	
 	/**
-	  * Gets the Student object assignment average.
+	  * Gets the student's assignment average
 	  * 
-	  * @return		Double, the Student object assignment average.
+	  * @return the student's assignment average
 	  * 
 	  */
 	public double getAsnAvg();
 
 	/**
-	  * Gets the Student object exam average.
+	  * Gets the student's exam average
 	  * 
-	  * @return		Double, the Student object exam average.
+	  * @return the student's exam average
 	  * 
 	  */
 	public double getExmAvg();
 	
 	/**
-	  * Gets the Grade object at grade from grades list.
+	  * Gets the student's grade based on the index passed
 	  * 
-	  * @return		Double, the grade of the Student object.
+	  * @param grade The index of the grade in the student's list of grades
+	  * @return The student's grade at this index. Return -1 if index is out of bounds of the grades list
 	  * 
 	  */
 	public double getGrade (int grade);
 	
 	/**
-	  * Sets the Student object average.
+	  * Sets the student's overall average
 	  * 
-	  * @param		avg				Double, the Student object average.
+	  * @param avg The new overall average for the student
 	  * 
 	  */
 	public void setAvg(double avg);
 	
 	/**
-	  * Sets the Student object assignment average.
+	  * Sets the student's assignment average
 	  * 
-	  * @param		asnAvg			Double, the Student object assignment average.
+	  * @param avg The new assignment average for the student
 	  * 
 	  */
 	public void setAsnAvg(double asnAvg);
-	
 	/**
-	  * Sets the Student object exam average.
+	  * Sets the student's exam average
 	  * 
-	  * @param		exmAvg			Double, the Student object exam average.
+	  * @param avg The new exam average for the student
 	  * 
 	  */
 	public void setExmAvg(double exmAvg);
 	
 	/**
-	  * Adds a grade to the StudentGrades object.
+	  * Adds a grade for the student
 	  * 
-	  * @param		deliver				Integer, the grade insertion position.
-	  * @param		grade				Double, the grade.
-	  * @param		type				String, the deliverable type.
-	  * @param		weight				Double, the grade weight.
-	  * 
-	  * @return		boolean, true if the grade was inserted successfully, false otherwise.
+	  * @param deliver The grade insertion position
+	  * @param grade The grade to be inserted
+	  * @param type	The deliverable type
+	  * @param weight The grade weight
+	  * @return true if the grade was inserted successfully, false otherwise
 	  * 
 	  */
 	public boolean add(int deliver, double grade, String type, double weight);
 	
 	/**
-	  * Removes a grade to the StudentGrades object.
+	  * Removes a grade from this student
 	  * 
-	  * @param		deliver				Integer, the grade insertion position.
-	  * @param		type				String, the deliverable type.
-	  * 
-	  * @return		boolean, true if the grade was removed successfully, false otherwise.
+	  * @param deliver The grade removal index point
+	  * @param type	The type of the deliverable
+	  * @return true if the grade was removed successfully, false otherwise
 	  * 
 	  */
 	public boolean remove(int deliver, String type);}

@@ -37,6 +37,14 @@ public interface CourseADT
 	public String getCode();
 	
 	/**
+	  * Gets the course description
+	  * 
+	  * @return The course description
+	  * 
+	  */
+        public String getDescription();
+	
+	/**
 	  * Gets a specified student of this course
 	  * 
 	  * @param stud An index number pertaining to a student in a list
@@ -65,6 +73,46 @@ public interface CourseADT
 	public double getGrade(Student stud, int grade);
 	
 	/**
+	  * Gets the average for a course
+	  *
+	  * @return The average between all the students' grades in the course. If there are no students or no deliverables in the course, return -1
+	  *
+	  */
+	public double getClassAvg();
+	
+	/**
+	  * Gets the size of a list of deliverables pertaining to the course
+	  * 
+	  * @return The size of the list of the delicerables in this course
+	  * 
+	  */
+	public int getDeliverableListSize();
+	
+	/**
+	  * Gets the size of a list of students pertaining to the course
+	  * 
+	  * @return The size of the list of the students in this course
+	  * 
+	  */
+	public int getStudentListSize();
+	
+	/**
+	  * Gets the list of students pertaining to the course
+	  * 
+	  * @return The list of students in this course
+	  * 
+	  */
+	public ArrayList<Student> getStudents();
+	
+	/**
+	  * Gets the list of deliverables pertaining to the course
+	  * 
+	  * @return The list of deliverables in this course
+	  * 
+	  */
+	public ArrayList<Deliverable> getDeliverables();
+	
+	/**
 	  * Sets the course title
 	  * 
 	  * @param The desired title for the course
@@ -87,6 +135,32 @@ public interface CourseADT
 	  * 
 	  */
 	public void setCode(String code);
+	
+	/**
+	  * Sets the course description
+	  * 
+	  * @param The desired course description
+	  * 
+	  */
+        public void setDescription(String description);
+        
+        /**
+	  * Checks to make sure that the student ID passed doesn't currently belong to another student in the course
+	  * 
+	  * @param The student's ID number that we want to check for authenticity
+	  * @return false if the ID number is unique, true if a student in the course already has this ID number
+	  * 
+	  */
+	private boolean checkNumber(String number);
+	
+	/**
+	  * Checks to make sure that the email address passed doesn't currently belong to another student in the course
+	  * 
+	  * @param email The email of the student that we want to check for authenticity
+	  * @return false if the email is unique, true if a student in the course already has this email
+	  * 
+	  */
+	private boolean checkEmail(String email)
 
 	/**
 	  * Edit a student's ID number

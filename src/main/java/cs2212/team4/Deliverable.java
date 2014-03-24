@@ -126,7 +126,7 @@ public class Deliverable implements DeliverableADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * An method to test for equality between deliverables
+	  * A method to test for equality between deliverables
 	  * 
 	  * @param A deliverable we want to compare to this one
 	  * @return true if the deliverables are the same, false otherwise

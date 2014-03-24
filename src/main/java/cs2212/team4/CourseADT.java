@@ -160,7 +160,7 @@ public interface CourseADT
 	  * @return false if the email is unique, true if a student in the course already has this email
 	  * 
 	  */
-	private boolean checkEmail(String email)
+	private boolean checkEmail(String email);
 
 	/**
 	  * Edit a student's ID number

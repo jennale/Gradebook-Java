@@ -19,7 +19,7 @@ public interface DeliverableADT
 	  */
 	public String getName();
 
-/**
+	/**
 	  * Gets the type of the deliverable
 	  * 
 	  * @return The deliverable type

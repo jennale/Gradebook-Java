@@ -95,7 +95,7 @@ public class GradesTable extends DefaultTableModel{
                 grades[ctr++] = "";
             if (exmAvg==1 && s.getExmAvg()>0)
                 grades[ctr++]=String.format("%.2f",s.getExmAvg());
-            else if(asnAvg==1)
+            else if(exmAvg==1)
                 grades[ctr++]= "";
             for (int i = 0; i < deliverableGrades.size(); i++) {
                 if (deliverableGrades.get(i) != null) {
@@ -151,7 +151,7 @@ public class GradesTable extends DefaultTableModel{
      */
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        if (columnIndex < 1+asnAvg+exmAvg || columnIndex > numColumns || rowIndex > studentGrades.size()-1)
+        if (columnIndex < 1+asnAvg+exmAvg || columnIndex >= numColumns || rowIndex > studentGrades.size()-1)
             return false;
         else
             return true;

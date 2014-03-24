@@ -129,7 +129,27 @@ public class Course implements CourseADT, Serializable
 		if (grade > studentList.size() - 1)
 			return -1;
 		return stud.getGrade(grade);
-	}
+    }
+
+    /**
+     * Calculates the class average in a Course containing Student objects. Returns -1 if there are no students
+     * or no deliverables in a course to use to calculate the average.
+     *
+     * @return average  A double object containing the class avg or -1 if the class avg cannot be calculated.
+     *
+     */
+    public double getClassAvg(){
+        double average = -1;
+        int numStudents = studentList.size();
+        if (numStudents > 0 && deliverableList.size() > 0){
+            average = 0;
+            for (int i = 0; i < numStudents; i++){
+                average = average + studentList.get(i).getAvg();
+            }
+            average = average/numStudents;
+        }
+        return average;
+    }
         
      /**
 	  * Gets the deliverableList size.

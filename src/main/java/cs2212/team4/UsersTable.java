@@ -47,7 +47,7 @@ import java.util.List;
      * @param num       0 - hide, 1 - show stud. no column
      */
 
-    public UsersTable(Course currCourse, int first,int last, int email, int num) {
+    public UsersTable(Course currCourse, int first,int last, int email, int num, int asnAvg, int exmAvg) {
         this.currCourse = currCourse;
         int numStud=currCourse.getStudentListSize();
 
@@ -56,7 +56,7 @@ import java.util.List;
             if (columns[i]==1)
                 addColumn(COLUMN_NAMES[i]);
         }
-        grades = new GradesTable(currCourse,1,1);
+        grades = new GradesTable(currCourse,asnAvg,exmAvg);
 
         for (int i = 0; i < numStud; i++) {
             Student stud = currCourse.getStudent(i);

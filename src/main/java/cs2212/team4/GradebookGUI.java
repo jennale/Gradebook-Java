@@ -121,3344 +121,2017 @@ public class GradebookGUI extends JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
-	// desc="Generated Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
-
-		lblGrades = new javax.swing.JLabel();
-		lblTabGrades = new javax.swing.JLabel();
-		lblSetup = new javax.swing.JLabel();
-		lblTabSetup = new javax.swing.JLabel();
-		lblDropbox = new javax.swing.JLabel();
-		lblTabDropbox = new javax.swing.JLabel();
-		lblMini = new javax.swing.JLabel();
-		lblExit = new javax.swing.JLabel();
-		myCourses = new javax.swing.JLabel();
-		pnlCourseMenu = new javax.swing.JPanel();
-		courses = new javax.swing.JScrollPane();
-		courseMenuList = new javax.swing.JList(listCourses);
-		addCourse = new javax.swing.JLabel();
-		pnlAddCourse = new javax.swing.JPanel();
-		pnlAddCourseContainer = new javax.swing.JPanel();
-		lblAddCourseTitle = new javax.swing.JLabel();
-		lblCourseName = new javax.swing.JLabel();
-		txtCourseName = new javax.swing.JTextField();
-		lblCourseCode = new javax.swing.JLabel();
-		txtCourseCode = new javax.swing.JTextField();
-		lblCourseTerm = new javax.swing.JLabel();
-		comboCourseTerm = new javax.swing.JComboBox();
-		lblCourseAddErrorLog = new javax.swing.JLabel();
-		lblAddCourse = new javax.swing.JLabel();
-		lblCancelCourseAddition = new javax.swing.JLabel();
-		pnlAddDeliver = new javax.swing.JPanel();
-		pnlAddDeliverContainer = new javax.swing.JPanel();
-		lblAddDeliverTitle = new javax.swing.JLabel();
-		lblDeliverName = new javax.swing.JLabel();
-		txtDeliverName = new javax.swing.JTextField();
-		lblDeliverWeight = new javax.swing.JLabel();
-		txtDeliverWeight = new javax.swing.JTextField();
-		lblDeliverType = new javax.swing.JLabel();
-		comboDeliverType = new javax.swing.JComboBox();
-		lblDeliverAddErrorLog = new javax.swing.JLabel();
-		lblAddDeliver = new javax.swing.JLabel();
-		lblCancelDeliverAddition = new javax.swing.JLabel();
-		pnlAddStudent = new javax.swing.JPanel();
-		pnlAddStudentContainer = new javax.swing.JPanel();
-		lblAddStudentTitle = new javax.swing.JLabel();
-		lblStudentNameFirst = new javax.swing.JLabel();
-		txtStudentNameFirst = new javax.swing.JTextField();
-		lblStudentNameLast = new javax.swing.JLabel();
-		txtStudentNameLast = new javax.swing.JTextField();
-		lblStudentNumber = new javax.swing.JLabel();
-		txtStudentNumber = new javax.swing.JTextField();
-		lblStudentEmail = new javax.swing.JLabel();
-		txtStudentEmail = new javax.swing.JTextField();
-		lblStudentAddErrorLog = new javax.swing.JLabel();
-		lblAddStudent = new javax.swing.JLabel();
-		lblCancelStudentAddition = new javax.swing.JLabel();
-		container = new javax.swing.JLayeredPane();
-		tabGrades = new javax.swing.JPanel();
-		deliversScroll = new javax.swing.JScrollPane();
-		deliverList = new javax.swing.JList(listDelivers);
-		courseName = new javax.swing.JLabel();
-		editCourseIcon = new javax.swing.JLabel();
-		addDeliver = new javax.swing.JLabel();
-		addStudent = new javax.swing.JLabel();
-		pnlTables = new javax.swing.JPanel();
-		studentScroll = new javax.swing.JScrollPane();
-		studentTable = new javax.swing.JTable();
-		gradesScroll = new javax.swing.JScrollPane();
-		gradesTable = new javax.swing.JTable();
-		deleteDeliver = new javax.swing.JLabel();
-		deleteStudent = new javax.swing.JLabel();
-		lblExportStudents = new javax.swing.JLabel();
-		lblImportStudents = new javax.swing.JLabel();
-		lblGradesErrorLog = new javax.swing.JLabel();
-		lblFirstName = new javax.swing.JLabel();
-		lblLastName = new javax.swing.JLabel();
-		lblNumber = new javax.swing.JLabel();
-		lblEmail = new javax.swing.JLabel();
-		lblImportGrades = new javax.swing.JLabel();
-		lblExportGrades = new javax.swing.JLabel();
-		tabSetup = new javax.swing.JPanel();
-		lblCourseSetup = new javax.swing.JLabel();
-		lblEditCourseTtile = new javax.swing.JLabel();
-		txtEditCourseTitle = new javax.swing.JTextField();
-		lblEditCourseCode = new javax.swing.JLabel();
-		txtEditCourseCode = new javax.swing.JTextField();
-		lblEditCourseTerm = new javax.swing.JLabel();
-		comboEditCourseTerm = new javax.swing.JComboBox();
-		lblEditCourse = new javax.swing.JLabel();
-		lblDeleteCourse = new javax.swing.JLabel();
-		editDeliverListScroll = new javax.swing.JScrollPane();
-		editDeliverList = new javax.swing.JList(listDelivers);
-		lblEditDeliverName = new javax.swing.JLabel();
-		lblEditDeliverWeight = new javax.swing.JLabel();
-		lblEditDeliverType = new javax.swing.JLabel();
-		comboEditDeliverType = new javax.swing.JComboBox();
-		txtEditDeliverName = new javax.swing.JTextField();
-		txtEditDeliverWeight = new javax.swing.JTextField();
-		lblEditDeliver = new javax.swing.JLabel();
-		lblExportDelivers = new javax.swing.JLabel();
-		lblImportDelivers = new javax.swing.JLabel();
-		lblCourseDeliverables = new javax.swing.JLabel();
-		lblSetupErrorLog = new javax.swing.JLabel();
-		courseDescScroll = new javax.swing.JScrollPane();
-		txtCourseDesc = new javax.swing.JTextPane();
-		lblEditAddDeliver = new javax.swing.JLabel();
-		lblEditDeleteDeliver = new javax.swing.JLabel();
-		tabDropbox = new javax.swing.JPanel();
-		lblDbxAuthLink = new javax.swing.JLabel();
-		txtDbxCode = new javax.swing.JTextField();
-		lblDbxGenerate = new javax.swing.JLabel();
-		lblDbxUpload = new javax.swing.JLabel();
-		lblDbxDownload = new javax.swing.JLabel();
-		lblDbxSubmit = new javax.swing.JLabel();
-		lblDbxErrorLog = new javax.swing.JLabel();
-		lblDbxVerify = new javax.swing.JLabel();
-		lyrActiveCourse = new javax.swing.JLayeredPane();
-		lblActiveCourseTitleInfo = new javax.swing.JLabel();
-		lblActiveCourseInfo = new javax.swing.JLabel();
-		lblActiveCourse = new javax.swing.JLabel();
-
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		setTitle("Gradebook Application");
-		setBackground(new java.awt.Color(51, 105, 232));
-		setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-		setLocationByPlatform(true);
-		setName("Gradebook"); // NOI18N
-		setUndecorated(true);
-		setResizable(false);
-		addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				formMouseClicked(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				formMousePressed(evt);
-			}
-		});
-		addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-			public void mouseDragged(java.awt.event.MouseEvent evt) {
-				formMouseDragged(evt);
-			}
-		});
-		getContentPane().setLayout(
-				new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-		lblGrades.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblGrades.setText("Grades");
-		lblGrades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblGrades.setPreferredSize(new java.awt.Dimension(125, 40));
-		getContentPane().add(
-				lblGrades,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1,
-						-1));
-
-		lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/tabOn.png"))); // NOI18N
-		lblTabGrades
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblTabGrades.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblTabGradesMouseClicked(evt);
-			}
-		});
-		getContentPane().add(
-				lblTabGrades,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1,
-						-1));
-
-		lblSetup.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblSetup.setText("Setup");
-		lblSetup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblSetup.setPreferredSize(new java.awt.Dimension(125, 40));
-		getContentPane().add(
-				lblSetup,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 60, 125,
-						40));
-
-		lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/tabOff.png"))); // NOI18N
-		lblTabSetup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblTabSetup.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblTabSetupMouseClicked(evt);
-			}
-		});
-		getContentPane().add(
-				lblTabSetup,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 60, -1,
-						-1));
-
-		lblDropbox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblDropbox.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/dropbox.png"))); // NOI18N
-		lblDropbox.setText("Dropbox");
-		lblDropbox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblDropbox.setPreferredSize(new java.awt.Dimension(125, 40));
-		lblDropbox.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblDropboxMouseClicked(evt);
-			}
-		});
-		getContentPane().add(
-				lblDropbox,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 125,
-						40));
-
-		lblTabDropbox.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/tabOff.png"))); // NOI18N
-		lblTabDropbox
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblTabDropbox.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblTabDropboxMouseClicked(evt);
-			}
-		});
-		getContentPane().add(
-				lblTabDropbox,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1,
-						-1));
-
-		lblMini.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/miniOff.png"))); // NOI18N
-		lblMini.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblMini.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblMiniMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblMiniMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblMiniMouseExited(evt);
-			}
-		});
-		getContentPane().add(
-				lblMini,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, -1,
-						-1));
-
-		lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/exitOff.png"))); // NOI18N
-		lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblExitMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblExitMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblExitMouseExited(evt);
-			}
-		});
-		getContentPane().add(
-				lblExit,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(1074, 0, -1,
-						-1));
-
-		myCourses.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/myCourses.png"))); // NOI18N
-		myCourses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		myCourses.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				myCoursesMouseClicked(evt);
-			}
-		});
-		getContentPane().add(
-				myCourses,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 50, -1,
-						-1));
-
-		pnlCourseMenu.setBackground(new java.awt.Color(255, 255, 255));
-		pnlCourseMenu.setBorder(javax.swing.BorderFactory
-				.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-		courses.setBorder(null);
-
-		courseMenuList.setBorder(javax.swing.BorderFactory
-				.createLineBorder(new java.awt.Color(255, 255, 255)));
-		courseMenuList
-				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		courseMenuList
-				.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-					public void valueChanged(
-							javax.swing.event.ListSelectionEvent evt) {
-						courseMenuListValueChanged(evt);
-					}
-				});
-		courses.setViewportView(courseMenuList);
-
-		addCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		addCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/addCourse.png"))); // NOI18N
-		addCourse.setText("Add Course");
-		addCourse.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		addCourse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		addCourse.setPreferredSize(new java.awt.Dimension(110, 30));
-		addCourse.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				addCourseMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				addCourseMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				addCourseMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				addCourseMousePressed(evt);
-			}
-		});
-
-		javax.swing.GroupLayout pnlCourseMenuLayout = new javax.swing.GroupLayout(
-				pnlCourseMenu);
-		pnlCourseMenu.setLayout(pnlCourseMenuLayout);
-		pnlCourseMenuLayout
-				.setHorizontalGroup(pnlCourseMenuLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								pnlCourseMenuLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(
-												addCourse,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												228, Short.MAX_VALUE)
-										.addContainerGap())
-						.addGroup(
-								pnlCourseMenuLayout
-										.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(
-												courses,
-												javax.swing.GroupLayout.Alignment.TRAILING,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												248, Short.MAX_VALUE)));
-		pnlCourseMenuLayout
-				.setVerticalGroup(pnlCourseMenuLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								javax.swing.GroupLayout.Alignment.TRAILING,
-								pnlCourseMenuLayout
-										.createSequentialGroup()
-										.addContainerGap(268, Short.MAX_VALUE)
-										.addComponent(
-												addCourse,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(10, 10, 10))
-						.addGroup(
-								pnlCourseMenuLayout
-										.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(
-												pnlCourseMenuLayout
-														.createSequentialGroup()
-														.addComponent(
-																courses,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																251,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGap(0, 57,
-																Short.MAX_VALUE))));
-
-		getContentPane().add(
-				pnlCourseMenu,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100,
-						250, 310));
-
-		pnlAddCourse.setBackground(new java.awt.Color(255, 255, 255));
-		pnlAddCourse.setPreferredSize(new java.awt.Dimension(350, 250));
-
-		pnlAddCourseContainer.setBackground(new java.awt.Color(255, 255, 255));
-		pnlAddCourseContainer
-				.setPreferredSize(new java.awt.Dimension(340, 225));
-
-		lblAddCourseTitle.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-		lblAddCourseTitle
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblAddCourseTitle.setText("Add a New Course");
-		lblAddCourseTitle.setPreferredSize(new java.awt.Dimension(150, 22));
-
-		lblCourseName.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblCourseName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblCourseName.setText("Course Title:");
-		lblCourseName.setToolTipText("");
-		lblCourseName.setPreferredSize(new java.awt.Dimension(150, 30));
-
-		txtCourseName.setForeground(new java.awt.Color(204, 204, 204));
-		txtCourseName.setText("ex. Computer Engineering");
-		txtCourseName.setPreferredSize(new java.awt.Dimension(150, 30));
-		txtCourseName.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtCourseNameFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtCourseNameFocusLost(evt);
-			}
-		});
-
-		lblCourseCode.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblCourseCode.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblCourseCode.setText("Course Code:");
-		lblCourseCode.setToolTipText("");
-		lblCourseCode.setPreferredSize(new java.awt.Dimension(150, 30));
-
-		txtCourseCode.setForeground(new java.awt.Color(204, 204, 204));
-		txtCourseCode.setText("ex. CS2212");
-		txtCourseCode.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtCourseCodeFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtCourseCodeFocusLost(evt);
-			}
-		});
-
-		lblCourseTerm.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblCourseTerm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblCourseTerm.setText("Course Term:");
-		lblCourseTerm.setToolTipText("");
-
-		comboCourseTerm.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "", "A", "B", "E", "F", "G", "R", "S", "T", "W",
-						"X", "Y", "Z" }));
-		comboCourseTerm.setPreferredSize(new java.awt.Dimension(80, 30));
-
-		lblCourseAddErrorLog.setForeground(new java.awt.Color(255, 0, 0));
-
-		lblAddCourse.setBackground(new java.awt.Color(255, 255, 255));
-		lblAddCourse.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblAddCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblAddCourse.setText("Add");
-		lblAddCourse
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblAddCourse.setOpaque(true);
-		lblAddCourse.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblAddCourseMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblAddCourseMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblAddCourseMouseExited(evt);
-			}
-		});
-
-		lblCancelCourseAddition
-				.setBackground(new java.awt.Color(255, 255, 255));
-		lblCancelCourseAddition.setFont(new java.awt.Font("Times New Roman", 1,
-				14)); // NOI18N
-		lblCancelCourseAddition
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblCancelCourseAddition.setText("Cancel");
-		lblCancelCourseAddition.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblCancelCourseAddition.setOpaque(true);
-		lblCancelCourseAddition
-				.addMouseListener(new java.awt.event.MouseAdapter() {
-					public void mouseClicked(java.awt.event.MouseEvent evt) {
-						lblCancelCourseAdditionMouseClicked(evt);
-					}
-
-					public void mouseEntered(java.awt.event.MouseEvent evt) {
-						lblCancelCourseAdditionMouseEntered(evt);
-					}
-
-					public void mouseExited(java.awt.event.MouseEvent evt) {
-						lblCancelCourseAdditionMouseExited(evt);
-					}
-				});
-
-		javax.swing.GroupLayout pnlAddCourseContainerLayout = new javax.swing.GroupLayout(
-				pnlAddCourseContainer);
-		pnlAddCourseContainer.setLayout(pnlAddCourseContainerLayout);
-		pnlAddCourseContainerLayout
-				.setHorizontalGroup(pnlAddCourseContainerLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								pnlAddCourseContainerLayout
-										.createSequentialGroup()
-										.addComponent(
-												lblAddCourse,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												165,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 0, 0)
-										.addComponent(
-												lblCancelCourseAddition,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												175, Short.MAX_VALUE))
-						.addGroup(
-								pnlAddCourseContainerLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												pnlAddCourseContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(
-																lblAddCourseTitle,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE)
-														.addComponent(
-																lblCourseAddErrorLog,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE)
-														.addGroup(
-																pnlAddCourseContainerLayout
-																		.createSequentialGroup()
-																		.addGroup(
-																				pnlAddCourseContainerLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								false)
-																						.addComponent(
-																								lblCourseName,
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								1,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblCourseCode,
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								1,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblCourseTerm,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								120,
-																								Short.MAX_VALUE))
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																		.addGroup(
-																				pnlAddCourseContainerLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								txtCourseCode)
-																						.addComponent(
-																								txtCourseName,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addGroup(
-																								pnlAddCourseContainerLayout
-																										.createSequentialGroup()
-																										.addComponent(
-																												comboCourseTerm,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												50,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(0,
-																												0,
-																												Short.MAX_VALUE)))))
-										.addContainerGap()));
-		pnlAddCourseContainerLayout
-				.setVerticalGroup(pnlAddCourseContainerLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								pnlAddCourseContainerLayout
-										.createSequentialGroup()
-										.addGap(10, 10, 10)
-										.addComponent(
-												lblAddCourseTitle,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												35,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(10, 10, 10)
-										.addGroup(
-												pnlAddCourseContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																txtCourseName,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblCourseName,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(5, 5, 5)
-										.addGroup(
-												pnlAddCourseContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																txtCourseCode,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																28,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblCourseCode,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
-										.addGap(5, 5, 5)
-										.addGroup(
-												pnlAddCourseContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(
-																lblCourseTerm,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGroup(
-																pnlAddCourseContainerLayout
-																		.createSequentialGroup()
-																		.addGap(1,
-																				1,
-																				1)
-																		.addComponent(
-																				comboCourseTerm,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED,
-												20, Short.MAX_VALUE)
-										.addComponent(
-												lblCourseAddErrorLog,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												27,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												pnlAddCourseContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																lblAddCourse,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblCancelCourseAddition,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(0, 0, 0)));
-
-		javax.swing.GroupLayout pnlAddCourseLayout = new javax.swing.GroupLayout(
-				pnlAddCourse);
-		pnlAddCourse.setLayout(pnlAddCourseLayout);
-		pnlAddCourseLayout.setHorizontalGroup(pnlAddCourseLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						pnlAddCourseLayout
-								.createSequentialGroup()
-								.addGap(5, 5, 5)
-								.addComponent(pnlAddCourseContainer,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE).addGap(5, 5, 5)));
-		pnlAddCourseLayout.setVerticalGroup(pnlAddCourseLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						pnlAddCourseLayout
-								.createSequentialGroup()
-								.addGap(5, 5, 5)
-								.addComponent(pnlAddCourseContainer,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										240, Short.MAX_VALUE).addGap(5, 5, 5)));
-
-		getContentPane().add(
-				pnlAddCourse,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 175, -1,
-						-1));
-
-		pnlAddDeliver.setBackground(new java.awt.Color(255, 255, 255));
-		pnlAddDeliver.setDoubleBuffered(false);
-		pnlAddDeliver.setPreferredSize(new java.awt.Dimension(350, 250));
-		pnlAddDeliver.setVerifyInputWhenFocusTarget(false);
-
-		pnlAddDeliverContainer.setBackground(new java.awt.Color(255, 255, 255));
-
-		lblAddDeliverTitle.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-		lblAddDeliverTitle
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblAddDeliverTitle.setText("Add a New Deliverable");
-
-		lblDeliverName.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblDeliverName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblDeliverName.setText("Deliverable Name:");
-		lblDeliverName.setToolTipText("");
-
-		txtDeliverName.setForeground(new java.awt.Color(204, 204, 204));
-		txtDeliverName.setText("ex. Group Project");
-		txtDeliverName.setPreferredSize(new java.awt.Dimension(150, 30));
-		txtDeliverName.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtDeliverNameFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtDeliverNameFocusLost(evt);
-			}
-		});
-
-		lblDeliverWeight.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblDeliverWeight
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblDeliverWeight.setText("Deliverable Weight");
-		lblDeliverWeight.setToolTipText("");
-
-		txtDeliverWeight.setForeground(new java.awt.Color(204, 204, 204));
-		txtDeliverWeight.setText("ex. 0.54");
-		txtDeliverWeight.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtDeliverWeightFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtDeliverWeightFocusLost(evt);
-			}
-		});
-
-		lblDeliverType.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblDeliverType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblDeliverType.setText("Deliverable Type:");
-		lblDeliverType.setToolTipText("");
-
-		comboDeliverType.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "Assignment", "Exam", "Other" }));
-
-		lblDeliverAddErrorLog.setForeground(new java.awt.Color(255, 0, 0));
-
-		lblAddDeliver.setBackground(new java.awt.Color(255, 255, 255));
-		lblAddDeliver.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblAddDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblAddDeliver.setText("Add");
-		lblAddDeliver
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblAddDeliver.setOpaque(true);
-		lblAddDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblAddDeliverMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblAddDeliverMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblAddDeliverMouseExited(evt);
-			}
-		});
-
-		lblCancelDeliverAddition
-				.setBackground(new java.awt.Color(255, 255, 255));
-		lblCancelDeliverAddition.setFont(new java.awt.Font("Times New Roman",
-				1, 14)); // NOI18N
-		lblCancelDeliverAddition
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblCancelDeliverAddition.setText("Cancel");
-		lblCancelDeliverAddition.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblCancelDeliverAddition.setOpaque(true);
-		lblCancelDeliverAddition
-				.addMouseListener(new java.awt.event.MouseAdapter() {
-					public void mouseClicked(java.awt.event.MouseEvent evt) {
-						lblCancelDeliverAdditionMouseClicked(evt);
-					}
-
-					public void mouseEntered(java.awt.event.MouseEvent evt) {
-						lblCancelDeliverAdditionMouseEntered(evt);
-					}
-
-					public void mouseExited(java.awt.event.MouseEvent evt) {
-						lblCancelDeliverAdditionMouseExited(evt);
-					}
-				});
-
-		javax.swing.GroupLayout pnlAddDeliverContainerLayout = new javax.swing.GroupLayout(
-				pnlAddDeliverContainer);
-		pnlAddDeliverContainer.setLayout(pnlAddDeliverContainerLayout);
-		pnlAddDeliverContainerLayout
-				.setHorizontalGroup(pnlAddDeliverContainerLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								pnlAddDeliverContainerLayout
-										.createSequentialGroup()
-										.addComponent(
-												lblAddDeliver,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												165,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 0, 0)
-										.addComponent(
-												lblCancelDeliverAddition,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE))
-						.addGroup(
-								pnlAddDeliverContainerLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												pnlAddDeliverContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																pnlAddDeliverContainerLayout
-																		.createSequentialGroup()
-																		.addGroup(
-																				pnlAddDeliverContainerLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.TRAILING)
-																						.addComponent(
-																								lblDeliverWeight,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								120,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								lblDeliverType)
-																						.addComponent(
-																								lblDeliverName,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								120,
-																								javax.swing.GroupLayout.PREFERRED_SIZE))
-																		.addGap(20,
-																				20,
-																				20)
-																		.addGroup(
-																				pnlAddDeliverContainerLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								txtDeliverName,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								180,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								txtDeliverWeight)
-																						.addComponent(
-																								comboDeliverType,
-																								0,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)))
-														.addComponent(
-																lblAddDeliverTitle,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE)
-														.addComponent(
-																lblDeliverAddErrorLog,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
-										.addContainerGap()));
-		pnlAddDeliverContainerLayout
-				.setVerticalGroup(pnlAddDeliverContainerLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								pnlAddDeliverContainerLayout
-										.createSequentialGroup()
-										.addGap(10, 10, 10)
-										.addComponent(
-												lblAddDeliverTitle,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												35,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(10, 10, 10)
-										.addGroup(
-												pnlAddDeliverContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																txtDeliverName,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblDeliverName,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(10, 10, 10)
-										.addGroup(
-												pnlAddDeliverContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING,
-																false)
-														.addComponent(
-																txtDeliverWeight,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																28,
-																Short.MAX_VALUE)
-														.addComponent(
-																lblDeliverWeight,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addGroup(
-												pnlAddDeliverContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING,
-																false)
-														.addComponent(
-																lblDeliverType,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																30,
-																Short.MAX_VALUE)
-														.addComponent(
-																comboDeliverType))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED,
-												12, Short.MAX_VALUE)
-										.addComponent(
-												lblDeliverAddErrorLog,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												27,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												pnlAddDeliverContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																lblAddDeliver,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblCancelDeliverAddition,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(0, 0, 0)));
-
-		javax.swing.GroupLayout pnlAddDeliverLayout = new javax.swing.GroupLayout(
-				pnlAddDeliver);
-		pnlAddDeliver.setLayout(pnlAddDeliverLayout);
-		pnlAddDeliverLayout.setHorizontalGroup(pnlAddDeliverLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						pnlAddDeliverLayout
-								.createSequentialGroup()
-								.addGap(5, 5, 5)
-								.addComponent(pnlAddDeliverContainer,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE).addGap(5, 5, 5)));
-		pnlAddDeliverLayout.setVerticalGroup(pnlAddDeliverLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						pnlAddDeliverLayout
-								.createSequentialGroup()
-								.addGap(5, 5, 5)
-								.addComponent(pnlAddDeliverContainer,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE).addGap(5, 5, 5)));
-
-		getContentPane().add(
-				pnlAddDeliver,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 175, -1,
-						-1));
-
-		pnlAddStudent.setPreferredSize(new java.awt.Dimension(350, 250));
-
-		pnlAddStudentContainer.setBackground(new java.awt.Color(255, 255, 255));
-		pnlAddStudentContainer
-				.setPreferredSize(new java.awt.Dimension(340, 225));
-
-		lblAddStudentTitle.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-		lblAddStudentTitle
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblAddStudentTitle.setText("Add a New Student");
-
-		lblStudentNameFirst
-				.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblStudentNameFirst
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblStudentNameFirst.setText("Student First Name:");
-		lblStudentNameFirst.setToolTipText("");
-		lblStudentNameFirst.setPreferredSize(new java.awt.Dimension(150, 30));
-
-		txtStudentNameFirst.setForeground(new java.awt.Color(204, 204, 204));
-		txtStudentNameFirst.setText("ex. John");
-		txtStudentNameFirst.setPreferredSize(new java.awt.Dimension(150, 30));
-		txtStudentNameFirst.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtStudentNameFirstFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtStudentNameFirstFocusLost(evt);
-			}
-		});
-
-		lblStudentNameLast.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblStudentNameLast
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblStudentNameLast.setText("Student Last Name:");
-		lblStudentNameLast.setToolTipText("");
-		lblStudentNameLast.setPreferredSize(new java.awt.Dimension(150, 30));
-
-		txtStudentNameLast.setForeground(new java.awt.Color(204, 204, 204));
-		txtStudentNameLast.setText("ex. Doe");
-		txtStudentNameLast.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtStudentNameLastFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtStudentNameLastFocusLost(evt);
-			}
-		});
-
-		lblStudentNumber.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblStudentNumber
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblStudentNumber.setText("Student Number:");
-		lblStudentNumber.setToolTipText("");
-
-		txtStudentNumber.setForeground(new java.awt.Color(204, 204, 204));
-		txtStudentNumber.setText("ex. 250626000");
-		txtStudentNumber.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtStudentNumberFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtStudentNumberFocusLost(evt);
-			}
-		});
-
-		lblStudentEmail.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblStudentEmail
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblStudentEmail.setText("Student Email:");
-		lblStudentEmail.setToolTipText("");
-
-		txtStudentEmail.setForeground(new java.awt.Color(204, 204, 204));
-		txtStudentEmail.setText("ex. john-doe@example.com");
-		txtStudentEmail.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtStudentEmailFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtStudentEmailFocusLost(evt);
-			}
-		});
-
-		lblStudentAddErrorLog.setForeground(new java.awt.Color(255, 0, 0));
-
-		lblAddStudent.setBackground(new java.awt.Color(255, 255, 255));
-		lblAddStudent.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-		lblAddStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblAddStudent.setText("Add");
-		lblAddStudent
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblAddStudent.setOpaque(true);
-		lblAddStudent.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblAddStudentMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblAddStudentMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblAddStudentMouseExited(evt);
-			}
-		});
-
-		lblCancelStudentAddition
-				.setBackground(new java.awt.Color(255, 255, 255));
-		lblCancelStudentAddition.setFont(new java.awt.Font("Times New Roman",
-				1, 14)); // NOI18N
-		lblCancelStudentAddition
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblCancelStudentAddition.setText("Cancel");
-		lblCancelStudentAddition.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblCancelStudentAddition.setOpaque(true);
-		lblCancelStudentAddition
-				.addMouseListener(new java.awt.event.MouseAdapter() {
-					public void mouseClicked(java.awt.event.MouseEvent evt) {
-						lblCancelStudentAdditionMouseClicked(evt);
-					}
-
-					public void mouseEntered(java.awt.event.MouseEvent evt) {
-						lblCancelStudentAdditionMouseEntered(evt);
-					}
-
-					public void mouseExited(java.awt.event.MouseEvent evt) {
-						lblCancelStudentAdditionMouseExited(evt);
-					}
-				});
-
-		javax.swing.GroupLayout pnlAddStudentContainerLayout = new javax.swing.GroupLayout(
-				pnlAddStudentContainer);
-		pnlAddStudentContainer.setLayout(pnlAddStudentContainerLayout);
-		pnlAddStudentContainerLayout
-				.setHorizontalGroup(pnlAddStudentContainerLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								pnlAddStudentContainerLayout
-										.createSequentialGroup()
-										.addComponent(
-												lblAddStudent,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												165,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 0, 0)
-										.addComponent(
-												lblCancelStudentAddition,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE))
-						.addGroup(
-								pnlAddStudentContainerLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												pnlAddStudentContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(
-																lblAddStudentTitle,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE)
-														.addGroup(
-																pnlAddStudentContainerLayout
-																		.createSequentialGroup()
-																		.addGroup(
-																				pnlAddStudentContainerLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								false)
-																						.addComponent(
-																								lblStudentEmail,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblStudentNumber,
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblStudentNameFirst,
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblStudentNameLast,
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE))
-																		.addGap(10,
-																				10,
-																				10)
-																		.addGroup(
-																				pnlAddStudentContainerLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								txtStudentEmail,
-																								javax.swing.GroupLayout.Alignment.TRAILING)
-																						.addComponent(
-																								txtStudentNameLast)
-																						.addComponent(
-																								txtStudentNameFirst,
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								160,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								txtStudentNumber)))
-														.addComponent(
-																lblStudentAddErrorLog,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
-										.addContainerGap()));
-		pnlAddStudentContainerLayout
-				.setVerticalGroup(pnlAddStudentContainerLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								pnlAddStudentContainerLayout
-										.createSequentialGroup()
-										.addGap(5, 5, 5)
-										.addComponent(
-												lblAddStudentTitle,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												35,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(5, 5, 5)
-										.addGroup(
-												pnlAddStudentContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																txtStudentNameFirst,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblStudentNameFirst,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(5, 5, 5)
-										.addGroup(
-												pnlAddStudentContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																txtStudentNameLast,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																28,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblStudentNameLast,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
-										.addGap(5, 5, 5)
-										.addGroup(
-												pnlAddStudentContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																lblStudentNumber,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																txtStudentNumber,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																28,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												pnlAddStudentContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																lblStudentEmail,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																txtStudentEmail,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																28,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(2, 2, 2)
-										.addComponent(
-												lblStudentAddErrorLog,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												20,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												pnlAddStudentContainerLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																lblAddStudent,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblCancelStudentAddition,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(0, 0, 0)));
-
-		javax.swing.GroupLayout pnlAddStudentLayout = new javax.swing.GroupLayout(
-				pnlAddStudent);
-		pnlAddStudent.setLayout(pnlAddStudentLayout);
-		pnlAddStudentLayout.setHorizontalGroup(pnlAddStudentLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						pnlAddStudentLayout
-								.createSequentialGroup()
-								.addGap(5, 5, 5)
-								.addComponent(pnlAddStudentContainer,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE).addGap(5, 5, 5)));
-		pnlAddStudentLayout.setVerticalGroup(pnlAddStudentLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						pnlAddStudentLayout
-								.createSequentialGroup()
-								.addGap(5, 5, 5)
-								.addComponent(pnlAddStudentContainer,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										240, Short.MAX_VALUE).addGap(5, 5, 5)));
-
-		getContentPane().add(
-				pnlAddStudent,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 175, -1,
-						-1));
-
-		container.setBackground(new java.awt.Color(255, 255, 255));
-		container.setPreferredSize(new java.awt.Dimension(1080, 500));
-
-		tabGrades.setBackground(new java.awt.Color(255, 255, 255));
-		tabGrades.setPreferredSize(new java.awt.Dimension(1080, 480));
-
-		deliverList
-				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		deliverList.setPreferredSize(new java.awt.Dimension(35, 80));
-		deliverList.setVisibleRowCount(10);
-		deliverList
-				.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-					public void valueChanged(
-							javax.swing.event.ListSelectionEvent evt) {
-						deliverListValueChanged(evt);
-					}
-				});
-		deliversScroll.setViewportView(deliverList);
-
-		courseName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-		courseName.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/course.png"))); // NOI18N
-		courseName.setText("Select a course");
-		courseName.setPreferredSize(new java.awt.Dimension(200, 24));
-
-		editCourseIcon
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		editCourseIcon.setIcon(new javax.swing.ImageIcon(getClass()
-				.getResource("/cs2212/team4/settings.png"))); // NOI18N
-		editCourseIcon.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		editCourseIcon.setPreferredSize(new java.awt.Dimension(40, 40));
-		editCourseIcon.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				editCourseIconMouseClicked(evt);
-			}
-		});
-
-		addDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		addDeliver.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/addDeliver.png"))); // NOI18N
-		addDeliver.setText("Add Deliverable");
-		addDeliver.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		addDeliver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		addDeliver.setMaximumSize(new java.awt.Dimension(95, 40));
-		addDeliver.setMinimumSize(new java.awt.Dimension(95, 40));
-		addDeliver.setPreferredSize(new java.awt.Dimension(110, 30));
-		addDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				addDeliverMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				addDeliverMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				addDeliverMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				addDeliverMousePressed(evt);
-			}
-		});
-
-		addStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		addStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/addStudent.png"))); // NOI18N
-		addStudent.setText("Add Student");
-		addStudent.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		addStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		addStudent.setPreferredSize(new java.awt.Dimension(130, 30));
-		addStudent.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				addStudentMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				addStudentMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				addStudentMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				addStudentMousePressed(evt);
-			}
-		});
-
-		pnlTables.setBorder(javax.swing.BorderFactory
-				.createLineBorder(new java.awt.Color(204, 204, 204)));
-		pnlTables.setPreferredSize(new java.awt.Dimension(820, 350));
-
-		studentScroll.setBackground(new java.awt.Color(255, 255, 255));
-		studentScroll.setBorder(null);
-
-		studentTable.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] { { null, null, null, null },
-						{ null, null, null, null }, { null, null, null, null },
-						{ null, null, null, null } }, new String[] {
-						"First Name", "Last Name", "Number", "Email" }) {
-			Class[] types = new Class[] { java.lang.String.class,
-					java.lang.String.class, java.lang.String.class,
-					java.lang.String.class };
-
-			public Class getColumnClass(int columnIndex) {
-				return types[columnIndex];
-			}
-		});
-		studentTable
-				.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-		studentTable.setGridColor(new java.awt.Color(255, 255, 255));
-		studentTable.setOpaque(false);
-		studentTable
-				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		studentTable.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				studentTableMouseClicked(evt);
-			}
-		});
-		studentScroll.setViewportView(studentTable);
-
-		gradesScroll.setBackground(new java.awt.Color(255, 255, 255));
-		gradesScroll.setBorder(null);
-
-		gradesTable.setAutoCreateRowSorter(true);
-		gradesTable.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] { { null, null, null, null },
-						{ null, null, null, null }, { null, null, null, null },
-						{ null, null, null, null } }, new String[] { null,
-						null, null, null }));
-		gradesTable.setToolTipText("");
-		gradesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-   		gradesTable.setGridColor(new java.awt.Color(255, 255, 255));
-		gradesTable.setOpaque(false);
-		gradesTable
-				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		gradesTable.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				gradesTableMouseClicked(evt);
-			}
-		});
-		gradesScroll.setViewportView(gradesTable);
-
-		javax.swing.GroupLayout pnlTablesLayout = new javax.swing.GroupLayout(
-				pnlTables);
-		pnlTables.setLayout(pnlTablesLayout);
-		pnlTablesLayout.setHorizontalGroup(pnlTablesLayout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				pnlTablesLayout
-						.createSequentialGroup()
-						.addGap(0, 0, 0)
-						.addComponent(studentScroll,
-								javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(0, 0, 0)
-						.addComponent(gradesScroll,
-								javax.swing.GroupLayout.DEFAULT_SIZE, 366,
-								Short.MAX_VALUE)));
-		pnlTablesLayout.setVerticalGroup(pnlTablesLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addComponent(studentScroll,
-						javax.swing.GroupLayout.PREFERRED_SIZE, 0,
-						Short.MAX_VALUE)
-				.addComponent(gradesScroll,
-						javax.swing.GroupLayout.DEFAULT_SIZE, 348,
-						Short.MAX_VALUE));
-
-		deleteDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		deleteDeliver.setText("Delete Deliverable");
-		deleteDeliver.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		deleteDeliver
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		deleteDeliver.setPreferredSize(new java.awt.Dimension(110, 30));
-		deleteDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				deleteDeliverMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				deleteDeliverMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				deleteDeliverMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				deleteDeliverMousePressed(evt);
-			}
-		});
-
-		deleteStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		deleteStudent.setText("Delete Student");
-		deleteStudent.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		deleteStudent
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		deleteStudent.setPreferredSize(new java.awt.Dimension(130, 30));
-		deleteStudent.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				deleteStudentMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				deleteStudentMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				deleteStudentMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				deleteStudentMousePressed(evt);
-			}
-		});
-
-		lblExportStudents
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblExportStudents.setText("Export Students");
-		lblExportStudents.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblExportStudents.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblExportStudents.setPreferredSize(new java.awt.Dimension(130, 30));
-		lblExportStudents.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblExportStudentsMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblExportStudentsMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblExportStudentsMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblExportStudentsMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblExportStudentsMouseReleased(evt);
-			}
-		});
-
-		lblImportStudents
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblImportStudents.setText("Import Students");
-		lblImportStudents.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblImportStudents.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblImportStudents.setPreferredSize(new java.awt.Dimension(130, 30));
-		lblImportStudents.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblImportStudentsMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblImportStudentsMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblImportStudentsMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblImportStudentsMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblImportStudentsMouseReleased(evt);
-			}
-		});
-
-		lblGradesErrorLog.setForeground(new java.awt.Color(255, 0, 0));
-		lblGradesErrorLog.setPreferredSize(new java.awt.Dimension(1080, 15));
-
-		lblFirstName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblFirstName.setText("First Name");
-		lblFirstName.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblFirstName
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblFirstName.setPreferredSize(new java.awt.Dimension(80, 30));
-		lblFirstName.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblFirstNameMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblFirstNameMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblFirstNameMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblFirstNameMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblFirstNameMouseReleased(evt);
-			}
-		});
-
-		lblLastName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblLastName.setText("Last Name");
-		lblLastName.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblLastName.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblLastName.setPreferredSize(new java.awt.Dimension(80, 30));
-		lblLastName.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblLastNameMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblLastNameMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblLastNameMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblLastNameMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblLastNameMouseReleased(evt);
-			}
-		});
-
-		lblNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblNumber.setText("Number");
-		lblNumber.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblNumber.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblNumber.setPreferredSize(new java.awt.Dimension(80, 30));
-		lblNumber.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblNumberMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblNumberMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblNumberMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblNumberMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblNumberMouseReleased(evt);
-			}
-		});
-
-		lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblEmail.setText("Email");
-		lblEmail.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblEmail.setPreferredSize(new java.awt.Dimension(80, 30));
-		lblEmail.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblEmailMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblEmailMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblEmailMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblEmailMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblEmailMouseReleased(evt);
-			}
-		});
-
-		lblImportGrades
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblImportGrades.setText("Import Grades");
-		lblImportGrades.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblImportGrades.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblImportGrades.setPreferredSize(new java.awt.Dimension(135, 30));
-		lblImportGrades.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblImportGradesMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblImportGradesMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblImportGradesMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblImportGradesMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblImportGradesMouseReleased(evt);
-			}
-		});
-
-		lblExportGrades
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblExportGrades.setText("Export Grades");
-		lblExportGrades.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblExportGrades.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblExportGrades.setPreferredSize(new java.awt.Dimension(135, 30));
-		lblExportGrades.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblExportGradesMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblExportGradesMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblExportGradesMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblExportGradesMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblExportGradesMouseReleased(evt);
-			}
-		});
-
-		javax.swing.GroupLayout tabGradesLayout = new javax.swing.GroupLayout(
-				tabGrades);
-		tabGrades.setLayout(tabGradesLayout);
-		tabGradesLayout
-				.setHorizontalGroup(tabGradesLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								tabGradesLayout
-										.createSequentialGroup()
-										.addGroup(
-												tabGradesLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																tabGradesLayout
-																		.createSequentialGroup()
-																		.addGap(10,
-																				10,
-																				10)
-																		.addGroup(
-																				tabGradesLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addGroup(
-																								tabGradesLayout
-																										.createParallelGroup(
-																												javax.swing.GroupLayout.Alignment.TRAILING,
-																												false)
-																										.addComponent(
-																												addDeliver,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												Short.MAX_VALUE)
-																										.addComponent(
-																												deliversScroll,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												230,
-																												Short.MAX_VALUE))
-																						.addGroup(
-																								tabGradesLayout
-																										.createSequentialGroup()
-																										.addComponent(
-																												courseName,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												180,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																										.addComponent(
-																												editCourseIcon,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE))
-																						.addComponent(
-																								deleteDeliver,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								230,
-																								javax.swing.GroupLayout.PREFERRED_SIZE))
-																		.addGap(10,
-																				10,
-																				10)
-																		.addGroup(
-																				tabGradesLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								pnlTables,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addGroup(
-																								tabGradesLayout
-																										.createSequentialGroup()
-																										.addComponent(
-																												addStudent,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(6,
-																												6,
-																												6)
-																										.addComponent(
-																												deleteStudent,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												Short.MAX_VALUE)
-																										.addComponent(
-																												lblExportStudents,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(6,
-																												6,
-																												6)
-																										.addComponent(
-																												lblImportStudents,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(6,
-																												6,
-																												6)
-																										.addComponent(
-																												lblExportGrades,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(6,
-																												6,
-																												6)
-																										.addComponent(
-																												lblImportGrades,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE))
-																						.addGroup(
-																								tabGradesLayout
-																										.createSequentialGroup()
-																										.addComponent(
-																												lblFirstName,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(5,
-																												5,
-																												5)
-																										.addComponent(
-																												lblLastName,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(5,
-																												5,
-																												5)
-																										.addComponent(
-																												lblEmail,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(5,
-																												5,
-																												5)
-																										.addComponent(
-																												lblNumber,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE))))
-														.addGroup(
-																tabGradesLayout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				lblGradesErrorLog,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				0,
-																				Short.MAX_VALUE)))
-										.addContainerGap()));
-		tabGradesLayout
-				.setVerticalGroup(tabGradesLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								javax.swing.GroupLayout.Alignment.TRAILING,
-								tabGradesLayout
-										.createSequentialGroup()
-										.addGap(10, 10, 10)
-										.addGroup(
-												tabGradesLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING,
-																false)
-														.addComponent(
-																editCourseIcon,
-																javax.swing.GroupLayout.Alignment.TRAILING,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																0,
-																Short.MAX_VALUE)
-														.addGroup(
-																javax.swing.GroupLayout.Alignment.TRAILING,
-																tabGradesLayout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.LEADING)
-																		.addGroup(
-																				tabGradesLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.BASELINE)
-																						.addComponent(
-																								lblImportGrades,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								lblExportGrades,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE))
-																		.addGroup(
-																				tabGradesLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.BASELINE)
-																						.addComponent(
-																								addStudent,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								deleteStudent,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								lblImportStudents,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								lblExportStudents,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)))
-														.addComponent(
-																courseName,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												tabGradesLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(
-																deliversScroll,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																350,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																pnlTables,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(5, 5, 5)
-										.addGroup(
-												tabGradesLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																addDeliver,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblFirstName,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblLastName,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblNumber,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblEmail,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(5, 5, 5)
-										.addComponent(
-												deleteDeliver,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 0, 0)
-										.addComponent(
-												lblGradesErrorLog,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 0, 0)));
-
-		tabSetup.setBackground(new java.awt.Color(255, 255, 255));
-		tabSetup.setPreferredSize(new java.awt.Dimension(1080, 480));
-
-		lblCourseSetup.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-		lblCourseSetup.setText("Course Setup:");
-		lblCourseSetup.setPreferredSize(new java.awt.Dimension(330, 30));
-
-		lblEditCourseTtile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-		lblEditCourseTtile
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblEditCourseTtile.setText("Course Title:");
-		lblEditCourseTtile.setPreferredSize(new java.awt.Dimension(120, 30));
-
-		txtEditCourseTitle.setForeground(new java.awt.Color(204, 204, 204));
-		txtEditCourseTitle.setText("Please select a course");
-		txtEditCourseTitle.setPreferredSize(new java.awt.Dimension(120, 30));
-		txtEditCourseTitle.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtEditCourseTitleFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtEditCourseTitleFocusLost(evt);
-			}
-		});
-
-		lblEditCourseCode.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-		lblEditCourseCode
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblEditCourseCode.setText("Course Code:");
-		lblEditCourseCode.setPreferredSize(new java.awt.Dimension(120, 30));
-
-		txtEditCourseCode.setForeground(new java.awt.Color(204, 204, 204));
-		txtEditCourseCode.setText("Please select a course");
-		txtEditCourseCode.setPreferredSize(new java.awt.Dimension(120, 30));
-		txtEditCourseCode.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtEditCourseCodeFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtEditCourseCodeFocusLost(evt);
-			}
-		});
-
-		lblEditCourseTerm.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-		lblEditCourseTerm
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblEditCourseTerm.setText("Course Term:");
-		lblEditCourseTerm.setPreferredSize(new java.awt.Dimension(120, 30));
-
-		comboEditCourseTerm.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "", "A", "B", "E", "F", "G", "R", "S", "T", "W",
-						"X", "Y", "Z" }));
-		comboEditCourseTerm.setPreferredSize(new java.awt.Dimension(80, 30));
-
-		lblEditCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblEditCourse.setText("Submit Changes");
-		lblEditCourse.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblEditCourse
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblEditCourse.setPreferredSize(new java.awt.Dimension(200, 30));
-		lblEditCourse.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblEditCourseMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblEditCourseMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblEditCourseMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblEditCourseMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblEditCourseMouseReleased(evt);
-			}
-		});
-
-		lblDeleteCourse
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblDeleteCourse.setText("Delete Course");
-		lblDeleteCourse.setBorder(javax.swing.BorderFactory
-				.createLineBorder(new java.awt.Color(204, 204, 204)));
-		lblDeleteCourse.setPreferredSize(new java.awt.Dimension(165, 30));
-		lblDeleteCourse.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblDeleteCourseMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblDeleteCourseMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblDeleteCourseMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblDeleteCourseMousePressed(evt);
-			}
-		});
-
-		editDeliverListScroll.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-
-		editDeliverList
-				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		editDeliverList
-				.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-					public void valueChanged(
-							javax.swing.event.ListSelectionEvent evt) {
-						editDeliverListValueChanged(evt);
-					}
-				});
-		editDeliverListScroll.setViewportView(editDeliverList);
-
-		lblEditDeliverName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-		lblEditDeliverName
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblEditDeliverName.setText("Deliverable Name:");
-		lblEditDeliverName.setPreferredSize(new java.awt.Dimension(120, 30));
-
-		lblEditDeliverWeight.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-		lblEditDeliverWeight
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblEditDeliverWeight.setText("Deliverable Weight:");
-		lblEditDeliverWeight.setPreferredSize(new java.awt.Dimension(120, 30));
-
-		lblEditDeliverType.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-		lblEditDeliverType
-				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		lblEditDeliverType.setText("Deliverable Type:");
-		lblEditDeliverType.setPreferredSize(new java.awt.Dimension(120, 30));
-
-		comboEditDeliverType.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "Assignment", "Exam", "Other" }));
-		comboEditDeliverType.setPreferredSize(new java.awt.Dimension(80, 30));
-
-		txtEditDeliverName.setForeground(new java.awt.Color(204, 204, 204));
-		txtEditDeliverName.setText("Please select a deliverable");
-		txtEditDeliverName.setPreferredSize(new java.awt.Dimension(120, 30));
-		txtEditDeliverName.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtEditDeliverNameFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtEditDeliverNameFocusLost(evt);
-			}
-		});
-
-		txtEditDeliverWeight.setForeground(new java.awt.Color(204, 204, 204));
-		txtEditDeliverWeight.setText("Please select a deliverable");
-		txtEditDeliverWeight.setPreferredSize(new java.awt.Dimension(120, 30));
-		txtEditDeliverWeight
-				.addFocusListener(new java.awt.event.FocusAdapter() {
-					public void focusGained(java.awt.event.FocusEvent evt) {
-						txtEditDeliverWeightFocusGained(evt);
-					}
-
-					public void focusLost(java.awt.event.FocusEvent evt) {
-						txtEditDeliverWeightFocusLost(evt);
-					}
-				});
-
-		lblEditDeliver
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblEditDeliver.setText("Submit Changes");
-		lblEditDeliver.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblEditDeliver.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblEditDeliver.setPreferredSize(new java.awt.Dimension(330, 30));
-		lblEditDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblEditDeliverMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblEditDeliverMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblEditDeliverMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblEditDeliverMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblEditDeliverMouseReleased(evt);
-			}
-		});
-
-		lblExportDelivers
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblExportDelivers.setText("Export Deliverables");
-		lblExportDelivers.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblExportDelivers.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblExportDelivers.setPreferredSize(new java.awt.Dimension(150, 30));
-		lblExportDelivers.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblExportDeliversMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblExportDeliversMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblExportDeliversMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblExportDeliversMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblExportDeliversMouseReleased(evt);
-			}
-		});
-
-		lblImportDelivers
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblImportDelivers.setText("Import Deliverables");
-		lblImportDelivers.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblImportDelivers.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblImportDelivers.setPreferredSize(new java.awt.Dimension(150, 30));
-		lblImportDelivers.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblImportDeliversMouseReleased(evt);
-			}
-		});
-
-		lblCourseDeliverables.setFont(new java.awt.Font("Times New Roman", 0,
-				14)); // NOI18N
-		lblCourseDeliverables.setText("Course Deliverables:");
-		lblCourseDeliverables.setPreferredSize(new java.awt.Dimension(200, 30));
-
-		lblSetupErrorLog.setForeground(new java.awt.Color(255, 0, 0));
-		lblSetupErrorLog.setPreferredSize(new java.awt.Dimension(34, 20));
-
-		txtCourseDesc.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		txtCourseDesc.setForeground(java.awt.Color.lightGray);
-		txtCourseDesc.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtCourtxtCourseDesceDescFocusGained(evt);
-			}
-
-			public void focusLost(java.awt.event.FocusEvent evt) {
-				txtCourtxtCourseDesceDescFocusLost(evt);
-			}
-		});
-		courseDescScroll.setViewportView(txtCourseDesc);
-
-		lblEditAddDeliver
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblEditAddDeliver.setText("Add Deliverable");
-		lblEditAddDeliver.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblEditAddDeliver.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblEditAddDeliver.setPreferredSize(new java.awt.Dimension(160, 30));
-		lblEditAddDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblEditAddDeliverMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblEditAddDeliverMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblEditAddDeliverMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblEditAddDeliverMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblEditAddDeliverMouseReleased(evt);
-			}
-		});
-
-		lblEditDeleteDeliver
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblEditDeleteDeliver.setText("Delete Deliverable");
-		lblEditDeleteDeliver.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblEditDeleteDeliver.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblEditDeleteDeliver.setPreferredSize(new java.awt.Dimension(160, 30));
-		lblEditDeleteDeliver
-				.addMouseListener(new java.awt.event.MouseAdapter() {
-					public void mouseClicked(java.awt.event.MouseEvent evt) {
-						lblEditDeleteDeliverMouseClicked(evt);
-					}
-
-					public void mouseEntered(java.awt.event.MouseEvent evt) {
-						lblEditDeleteDeliverMouseEntered(evt);
-					}
-
-					public void mouseExited(java.awt.event.MouseEvent evt) {
-						lblEditDeleteDeliverMouseExited(evt);
-					}
-
-					public void mousePressed(java.awt.event.MouseEvent evt) {
-						lblEditDeleteDeliverMousePressed(evt);
-					}
-
-					public void mouseReleased(java.awt.event.MouseEvent evt) {
-						lblEditDeleteDeliverMouseReleased(evt);
-					}
-				});
-
-		javax.swing.GroupLayout tabSetupLayout = new javax.swing.GroupLayout(
-				tabSetup);
-		tabSetup.setLayout(tabSetupLayout);
-		tabSetupLayout
-				.setHorizontalGroup(tabSetupLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								tabSetupLayout
-										.createSequentialGroup()
-										.addGroup(
-												tabSetupLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																tabSetupLayout
-																		.createSequentialGroup()
-																		.addGap(20,
-																				20,
-																				20)
-																		.addComponent(
-																				lblSetupErrorLog,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE))
-														.addGroup(
-																tabSetupLayout
-																		.createSequentialGroup()
-																		.addGroup(
-																				tabSetupLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addGroup(
-																								tabSetupLayout
-																										.createSequentialGroup()
-																										.addGap(20,
-																												20,
-																												20)
-																										.addComponent(
-																												lblCourseSetup,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE))
-																						.addGroup(
-																								tabSetupLayout
-																										.createSequentialGroup()
-																										.addContainerGap()
-																										.addComponent(
-																												courseDescScroll,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												502,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)))
-																		.addGap(20,
-																				20,
-																				20)
-																		.addGroup(
-																				tabSetupLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addGroup(
-																								tabSetupLayout
-																										.createSequentialGroup()
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.TRAILING,
-																																false)
-																														.addGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																tabSetupLayout
-																																		.createSequentialGroup()
-																																		.addComponent(
-																																				lblEditDeliverName,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																																		.addPreferredGap(
-																																				javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																																		.addComponent(
-																																				txtEditDeliverName,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				200,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE))
-																														.addGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																tabSetupLayout
-																																		.createSequentialGroup()
-																																		.addComponent(
-																																				lblEditDeliverWeight,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																																		.addPreferredGap(
-																																				javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																																		.addComponent(
-																																				txtEditDeliverWeight,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				200,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE))
-																														.addComponent(
-																																lblDeleteCourse,
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																Short.MAX_VALUE)
-																														.addComponent(
-																																lblEditCourse,
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																Short.MAX_VALUE)
-																														.addGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																tabSetupLayout
-																																		.createSequentialGroup()
-																																		.addComponent(
-																																				lblEditCourseTerm,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																																		.addGap(10,
-																																				10,
-																																				10)
-																																		.addComponent(
-																																				comboEditCourseTerm,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				50,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE))
-																														.addGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																tabSetupLayout
-																																		.createSequentialGroup()
-																																		.addComponent(
-																																				lblEditDeliverType,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																																		.addPreferredGap(
-																																				javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																																		.addComponent(
-																																				comboEditDeliverType,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				200,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-																										.addGap(0,
-																												0,
-																												0))
-																						.addGroup(
-																								tabSetupLayout
-																										.createSequentialGroup()
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																lblEditCourseCode,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																120,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)
-																														.addComponent(
-																																lblEditCourseTtile,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE))
-																										.addGap(10,
-																												10,
-																												10)
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																txtEditCourseCode,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																200,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)
-																														.addComponent(
-																																txtEditCourseTitle,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																200,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)))
-																						.addGroup(
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								tabSetupLayout
-																										.createSequentialGroup()
-																										.addGap(0,
-																												0,
-																												Short.MAX_VALUE)
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																false)
-																														.addComponent(
-																																lblEditDeliver,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)
-																														.addGroup(
-																																tabSetupLayout
-																																		.createSequentialGroup()
-																																		.addComponent(
-																																				lblEditAddDeliver,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																																		.addGap(10,
-																																				10,
-																																				10)
-																																		.addComponent(
-																																				lblEditDeleteDeliver,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)))))
-																		.addGap(10,
-																				10,
-																				10)
-																		.addGroup(
-																				tabSetupLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								false)
-																						.addComponent(
-																								lblCourseDeliverables,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblImportDelivers,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblExportDelivers,
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								editDeliverListScroll,
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								0,
-																								Short.MAX_VALUE))))
-										.addGap(10, 10, 10)));
-		tabSetupLayout
-				.setVerticalGroup(tabSetupLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								tabSetupLayout
-										.createSequentialGroup()
-										.addGap(10, 10, 10)
-										.addGroup(
-												tabSetupLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																javax.swing.GroupLayout.Alignment.TRAILING,
-																tabSetupLayout
-																		.createSequentialGroup()
-																		.addComponent(
-																				lblCourseDeliverables,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				28,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(5,
-																				5,
-																				5))
-														.addGroup(
-																javax.swing.GroupLayout.Alignment.TRAILING,
-																tabSetupLayout
-																		.createSequentialGroup()
-																		.addComponent(
-																				lblCourseSetup,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(13,
-																				13,
-																				13)))
-										.addGroup(
-												tabSetupLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																tabSetupLayout
-																		.createSequentialGroup()
-																		.addGroup(
-																				tabSetupLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								false)
-																						.addComponent(
-																								editDeliverListScroll)
-																						.addGroup(
-																								tabSetupLayout
-																										.createSequentialGroup()
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.BASELINE)
-																														.addComponent(
-																																lblEditCourseTtile,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)
-																														.addComponent(
-																																txtEditCourseTitle,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE))
-																										.addGap(5,
-																												5,
-																												5)
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.BASELINE)
-																														.addComponent(
-																																lblEditCourseCode,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)
-																														.addComponent(
-																																txtEditCourseCode,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE))
-																										.addGap(5,
-																												5,
-																												5)
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.BASELINE)
-																														.addComponent(
-																																lblEditCourseTerm,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)
-																														.addComponent(
-																																comboEditCourseTerm,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE))
-																										.addGap(5,
-																												5,
-																												5)
-																										.addComponent(
-																												lblEditCourse,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(5,
-																												5,
-																												5)
-																										.addComponent(
-																												lblDeleteCourse,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(40,
-																												40,
-																												40)
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.BASELINE)
-																														.addComponent(
-																																lblEditDeliverName,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)
-																														.addComponent(
-																																txtEditDeliverName,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE))
-																										.addGap(5,
-																												5,
-																												5)
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.BASELINE)
-																														.addComponent(
-																																lblEditDeliverWeight,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)
-																														.addComponent(
-																																txtEditDeliverWeight,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE))
-																										.addGap(5,
-																												5,
-																												5)
-																										.addGroup(
-																												tabSetupLayout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.BASELINE)
-																														.addComponent(
-																																lblEditDeliverType,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE)
-																														.addComponent(
-																																comboEditDeliverType,
-																																javax.swing.GroupLayout.PREFERRED_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.PREFERRED_SIZE))))
-																		.addGap(5,
-																				5,
-																				5)
-																		.addGroup(
-																				tabSetupLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.BASELINE)
-																						.addComponent(
-																								lblImportDelivers,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								lblEditDeliver,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE))
-																		.addGap(5,
-																				5,
-																				5)
-																		.addGroup(
-																				tabSetupLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.BASELINE)
-																						.addComponent(
-																								lblExportDelivers,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								lblEditAddDeliver,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								lblEditDeleteDeliver,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)))
-														.addComponent(
-																courseDescScroll,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																392,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(10, 10, 10)
-										.addComponent(
-												lblSetupErrorLog,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addContainerGap(
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)));
-
-		tabDropbox.setBackground(new java.awt.Color(255, 255, 255));
-		tabDropbox.setPreferredSize(new java.awt.Dimension(1080, 480));
-
-		lblDbxAuthLink
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblDbxAuthLink.setText("Generate a new link");
-		lblDbxAuthLink.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblDbxAuthLink.setPreferredSize(new java.awt.Dimension(1000, 30));
-		lblDbxAuthLink.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblDbxAuthLinkMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblDbxAuthLinkMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblDbxAuthLinkMouseExited(evt);
-			}
-		});
-
-		txtDbxCode.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-		txtDbxCode.setText("Please enter the code...");
-		txtDbxCode.setPreferredSize(new java.awt.Dimension(1000, 30));
-		txtDbxCode.addFocusListener(new java.awt.event.FocusAdapter() {
-			public void focusGained(java.awt.event.FocusEvent evt) {
-				txtDbxCodeFocusGained(evt);
-			}
-		});
-
-		lblDbxGenerate
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblDbxGenerate.setText("Generate");
-		lblDbxGenerate.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblDbxGenerate.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblDbxGenerate.setPreferredSize(new java.awt.Dimension(495, 30));
-		lblDbxGenerate.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblDbxGenerateMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblDbxGenerateMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblDbxGenerateMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblDbxGenerateMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblDbxGenerateMouseReleased(evt);
-			}
-		});
-
-		lblDbxUpload.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblDbxUpload.setText("Upload");
-		lblDbxUpload.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblDbxUpload
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblDbxUpload.setPreferredSize(new java.awt.Dimension(495, 30));
-		lblDbxUpload.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblDbxUploadMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblDbxUploadMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblDbxUploadMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblDbxUploadMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblDbxUploadMouseReleased(evt);
-			}
-		});
-
-		lblDbxDownload
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblDbxDownload.setText("Download");
-		lblDbxDownload.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblDbxDownload.setCursor(new java.awt.Cursor(
-				java.awt.Cursor.HAND_CURSOR));
-		lblDbxDownload.setPreferredSize(new java.awt.Dimension(495, 30));
-		lblDbxDownload.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblDbxDownloadMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblDbxDownloadMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblDbxDownloadMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblDbxDownloadMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblDbxDownloadMouseReleased(evt);
-			}
-		});
-
-		lblDbxSubmit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblDbxSubmit.setText("Submit");
-		lblDbxSubmit.setBorder(javax.swing.BorderFactory
-				.createLineBorder(java.awt.Color.lightGray));
-		lblDbxSubmit
-				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		lblDbxSubmit.setPreferredSize(new java.awt.Dimension(495, 30));
-		lblDbxSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				lblDbxSubmitMouseClicked(evt);
-			}
-
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				lblDbxSubmitMouseEntered(evt);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				lblDbxSubmitMouseExited(evt);
-			}
-
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				lblDbxSubmitMousePressed(evt);
-			}
-
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				lblDbxSubmitMouseReleased(evt);
-			}
-		});
-
-		lblDbxErrorLog.setForeground(java.awt.Color.lightGray);
-		lblDbxErrorLog.setText("Disconnected");
-
-		lblDbxVerify.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblDbxVerify.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-				"/cs2212/team4/verify.png"))); // NOI18N
-		lblDbxVerify.setPreferredSize(new java.awt.Dimension(1000, 20));
-
-		javax.swing.GroupLayout tabDropboxLayout = new javax.swing.GroupLayout(
-				tabDropbox);
-		tabDropbox.setLayout(tabDropboxLayout);
-		tabDropboxLayout
-				.setHorizontalGroup(tabDropboxLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								tabDropboxLayout
-										.createSequentialGroup()
-										.addGap(40, 40, 40)
-										.addGroup(
-												tabDropboxLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																tabDropboxLayout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.LEADING)
-																		.addComponent(
-																				lblDbxAuthLink,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addComponent(
-																				txtDbxCode,
-																				javax.swing.GroupLayout.Alignment.TRAILING,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addGroup(
-																tabDropboxLayout
-																		.createSequentialGroup()
-																		.addGroup(
-																				tabDropboxLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								false)
-																						.addComponent(
-																								lblDbxUpload,
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblDbxGenerate,
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE))
-																		.addGap(10,
-																				10,
-																				10)
-																		.addGroup(
-																				tabDropboxLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								lblDbxSubmit,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblDbxDownload,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE))))
-										.addGap(40, 40, 40))
-						.addGroup(
-								tabDropboxLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(
-												lblDbxErrorLog,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addContainerGap())
-						.addGroup(
-								javax.swing.GroupLayout.Alignment.TRAILING,
-								tabDropboxLayout
-										.createSequentialGroup()
-										.addGap(40, 40, 40)
-										.addComponent(
-												lblDbxVerify,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(40, 40, 40)));
-		tabDropboxLayout
-				.setVerticalGroup(tabDropboxLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								tabDropboxLayout
-										.createSequentialGroup()
-										.addGap(80, 80, 80)
-										.addComponent(
-												lblDbxVerify,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												128, Short.MAX_VALUE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												lblDbxAuthLink,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(20, 20, 20)
-										.addComponent(
-												txtDbxCode,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(20, 20, 20)
-										.addGroup(
-												tabDropboxLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																lblDbxGenerate,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblDbxSubmit,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(10, 10, 10)
-										.addGroup(
-												tabDropboxLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																lblDbxUpload,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																lblDbxDownload,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-												73, Short.MAX_VALUE)
-										.addComponent(lblDbxErrorLog)
-										.addContainerGap()));
-
-		javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(
-				container);
-		container.setLayout(containerLayout);
-		containerLayout
-				.setHorizontalGroup(containerLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGap(0, 1090, Short.MAX_VALUE)
-						.addGroup(
-								containerLayout
-										.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(
-												containerLayout
-														.createSequentialGroup()
-														.addComponent(
-																tabSetup,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGap(0, 10,
-																Short.MAX_VALUE)))
-						.addGroup(
-								containerLayout
-										.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(
-												containerLayout
-														.createSequentialGroup()
-														.addComponent(
-																tabGrades,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addContainerGap()))
-						.addGroup(
-								containerLayout
-										.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(
-												containerLayout
-														.createSequentialGroup()
-														.addComponent(
-																tabDropbox,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addContainerGap())));
-		containerLayout
-				.setVerticalGroup(containerLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGap(0, 491, Short.MAX_VALUE)
-						.addGroup(
-								containerLayout
-										.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(
-												containerLayout
-														.createSequentialGroup()
-														.addComponent(
-																tabSetup,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGap(0, 11,
-																Short.MAX_VALUE)))
-						.addGroup(
-								containerLayout
-										.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(
-												containerLayout
-														.createSequentialGroup()
-														.addComponent(
-																tabGrades,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGap(0, 0,
-																Short.MAX_VALUE)))
-						.addGroup(
-								containerLayout
-										.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(
-												containerLayout
-														.createSequentialGroup()
-														.addComponent(
-																tabDropbox,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addContainerGap())));
-		container.setLayer(tabGrades, javax.swing.JLayeredPane.DEFAULT_LAYER);
-		container.setLayer(tabSetup, javax.swing.JLayeredPane.DEFAULT_LAYER);
-		container.setLayer(tabDropbox, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-		getContentPane().add(
-				container,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1,
-						490));
-
-		lyrActiveCourse
-				.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-		lblActiveCourseTitleInfo.setFont(helvetica);
-		lblActiveCourseTitleInfo.setText("Select a course");
-		lyrActiveCourse.add(lblActiveCourseTitleInfo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 160,
-						40));
-
-		lblActiveCourseInfo.setForeground(new java.awt.Color(204, 204, 204));
-		lyrActiveCourse.add(lblActiveCourseInfo,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 150,
-						20));
-
-		lblActiveCourse.setIcon(new javax.swing.ImageIcon(getClass()
-				.getResource("/cs2212/team4/activeCourseTab.png"))); // NOI18N
-		lyrActiveCourse.add(lblActiveCourse,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, -1,
-						-1));
-
-		getContentPane().add(
-				lyrActiveCourse,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 650,
-						-1));
-
-		pack();
-	}// </editor-fold>//GEN-END:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        lblGrades = new javax.swing.JLabel();
+        lblTabGrades = new javax.swing.JLabel();
+        lblSetup = new javax.swing.JLabel();
+        lblTabSetup = new javax.swing.JLabel();
+        lblDropbox = new javax.swing.JLabel();
+        lblTabDropbox = new javax.swing.JLabel();
+        lblMini = new javax.swing.JLabel();
+        lblExit = new javax.swing.JLabel();
+        myCourses = new javax.swing.JLabel();
+        pnlCourseMenu = new javax.swing.JPanel();
+        courses = new javax.swing.JScrollPane();
+        courseMenuList = new javax.swing.JList(listCourses);
+        addCourse = new javax.swing.JLabel();
+        pnlAddCourse = new javax.swing.JPanel();
+        pnlAddCourseContainer = new javax.swing.JPanel();
+        lblAddCourseTitle = new javax.swing.JLabel();
+        lblCourseName = new javax.swing.JLabel();
+        txtCourseName = new javax.swing.JTextField();
+        lblCourseCode = new javax.swing.JLabel();
+        txtCourseCode = new javax.swing.JTextField();
+        lblCourseTerm = new javax.swing.JLabel();
+        comboCourseTerm = new javax.swing.JComboBox();
+        lblCourseAddErrorLog = new javax.swing.JLabel();
+        lblAddCourse = new javax.swing.JLabel();
+        lblCancelCourseAddition = new javax.swing.JLabel();
+        pnlAddDeliver = new javax.swing.JPanel();
+        pnlAddDeliverContainer = new javax.swing.JPanel();
+        lblAddDeliverTitle = new javax.swing.JLabel();
+        lblDeliverName = new javax.swing.JLabel();
+        txtDeliverName = new javax.swing.JTextField();
+        lblDeliverWeight = new javax.swing.JLabel();
+        txtDeliverWeight = new javax.swing.JTextField();
+        lblDeliverType = new javax.swing.JLabel();
+        comboDeliverType = new javax.swing.JComboBox();
+        lblDeliverAddErrorLog = new javax.swing.JLabel();
+        lblAddDeliver = new javax.swing.JLabel();
+        lblCancelDeliverAddition = new javax.swing.JLabel();
+        pnlAddStudent = new javax.swing.JPanel();
+        pnlAddStudentContainer = new javax.swing.JPanel();
+        lblAddStudentTitle = new javax.swing.JLabel();
+        lblStudentNameFirst = new javax.swing.JLabel();
+        txtStudentNameFirst = new javax.swing.JTextField();
+        lblStudentNameLast = new javax.swing.JLabel();
+        txtStudentNameLast = new javax.swing.JTextField();
+        lblStudentNumber = new javax.swing.JLabel();
+        txtStudentNumber = new javax.swing.JTextField();
+        lblStudentEmail = new javax.swing.JLabel();
+        txtStudentEmail = new javax.swing.JTextField();
+        lblStudentAddErrorLog = new javax.swing.JLabel();
+        lblAddStudent = new javax.swing.JLabel();
+        lblCancelStudentAddition = new javax.swing.JLabel();
+        container = new javax.swing.JLayeredPane();
+        tabGrades = new javax.swing.JPanel();
+        deliversScroll = new javax.swing.JScrollPane();
+        deliverList = new javax.swing.JList(listDelivers);
+        courseName = new javax.swing.JLabel();
+        editCourseIcon = new javax.swing.JLabel();
+        addDeliver = new javax.swing.JLabel();
+        addStudent = new javax.swing.JLabel();
+        pnlTables = new javax.swing.JPanel();
+        studentScroll = new javax.swing.JScrollPane();
+        studentTable = new javax.swing.JTable();
+        gradesScroll = new javax.swing.JScrollPane();
+        gradesTable = new javax.swing.JTable();
+        deleteDeliver = new javax.swing.JLabel();
+        deleteStudent = new javax.swing.JLabel();
+        lblExportStudents = new javax.swing.JLabel();
+        lblImportStudents = new javax.swing.JLabel();
+        lblGradesErrorLog = new javax.swing.JLabel();
+        lblFirstName = new javax.swing.JLabel();
+        lblLastName = new javax.swing.JLabel();
+        lblNumber = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lblExmAvg = new javax.swing.JLabel();
+        lblAsnAvg = new javax.swing.JLabel();
+        lblImportGrades = new javax.swing.JLabel();
+        lblExportGrades = new javax.swing.JLabel();
+        lblhide = new javax.swing.JLabel();
+        lblCourseAvg = new javax.swing.JLabel();
+        courseAvg = new javax.swing.JLabel();
+        tabSetup = new javax.swing.JPanel();
+        lblCourseSetup = new javax.swing.JLabel();
+        lblEditCourseTtile = new javax.swing.JLabel();
+        txtEditCourseTitle = new javax.swing.JTextField();
+        lblEditCourseCode = new javax.swing.JLabel();
+        txtEditCourseCode = new javax.swing.JTextField();
+        lblEditCourseTerm = new javax.swing.JLabel();
+        comboEditCourseTerm = new javax.swing.JComboBox();
+        lblEditCourse = new javax.swing.JLabel();
+        lblDeleteCourse = new javax.swing.JLabel();
+        editDeliverListScroll = new javax.swing.JScrollPane();
+        editDeliverList = new javax.swing.JList(listDelivers);
+        lblEditDeliverName = new javax.swing.JLabel();
+        lblEditDeliverWeight = new javax.swing.JLabel();
+        lblEditDeliverType = new javax.swing.JLabel();
+        comboEditDeliverType = new javax.swing.JComboBox();
+        txtEditDeliverName = new javax.swing.JTextField();
+        txtEditDeliverWeight = new javax.swing.JTextField();
+        lblEditDeliver = new javax.swing.JLabel();
+        lblExportDelivers = new javax.swing.JLabel();
+        lblImportDelivers = new javax.swing.JLabel();
+        lblCourseDeliverables = new javax.swing.JLabel();
+        lblSetupErrorLog = new javax.swing.JLabel();
+        courseDescScroll = new javax.swing.JScrollPane();
+        txtCourseDesc = new javax.swing.JTextPane();
+        lblEditAddDeliver = new javax.swing.JLabel();
+        lblEditDeleteDeliver = new javax.swing.JLabel();
+        lblDeleteSure = new javax.swing.JLabel();
+        tabDropbox = new javax.swing.JPanel();
+        lblDbxAuthLink = new javax.swing.JLabel();
+        txtDbxCode = new javax.swing.JTextField();
+        lblDbxGenerate = new javax.swing.JLabel();
+        lblDbxUpload = new javax.swing.JLabel();
+        lblDbxDownload = new javax.swing.JLabel();
+        lblDbxSubmit = new javax.swing.JLabel();
+        lblDbxErrorLog = new javax.swing.JLabel();
+        lblDbxVerify = new javax.swing.JLabel();
+        lyrActiveCourse = new javax.swing.JLayeredPane();
+        lblActiveCourseTitleInfo = new javax.swing.JLabel();
+        lblActiveCourseInfo = new javax.swing.JLabel();
+        lblActiveCourse = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gradebook Application");
+        setBackground(new java.awt.Color(51, 105, 232));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocationByPlatform(true);
+        setName("Gradebook"); // NOI18N
+        setUndecorated(true);
+        setResizable(false);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblGrades.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblGrades.setText("Grades");
+        lblGrades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblGrades.setPreferredSize(new java.awt.Dimension(125, 40));
+        getContentPane().add(lblGrades, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        lblTabGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/tabOn.png"))); // NOI18N
+        lblTabGrades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblTabGrades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTabGradesMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lblTabGrades, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        lblSetup.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSetup.setText("Setup");
+        lblSetup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSetup.setPreferredSize(new java.awt.Dimension(125, 40));
+        getContentPane().add(lblSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 60, 125, 40));
+
+        lblTabSetup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/tabOff.png"))); // NOI18N
+        lblTabSetup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblTabSetup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTabSetupMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lblTabSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 60, -1, -1));
+
+        lblDropbox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDropbox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/dropbox.png"))); // NOI18N
+        lblDropbox.setText("Dropbox");
+        lblDropbox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDropbox.setPreferredSize(new java.awt.Dimension(125, 40));
+        lblDropbox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDropboxMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lblDropbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 125, 40));
+
+        lblTabDropbox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/tabOff.png"))); // NOI18N
+        lblTabDropbox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblTabDropbox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTabDropboxMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lblTabDropbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+
+        lblMini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/miniOff.png"))); // NOI18N
+        lblMini.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMini.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMiniMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblMiniMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblMiniMouseExited(evt);
+            }
+        });
+        getContentPane().add(lblMini, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, -1, -1));
+
+        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/exitOff.png"))); // NOI18N
+        lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExitMouseExited(evt);
+            }
+        });
+        getContentPane().add(lblExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1074, 0, -1, -1));
+
+        myCourses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/myCourses.png"))); // NOI18N
+        myCourses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        myCourses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                myCoursesMouseClicked(evt);
+            }
+        });
+        getContentPane().add(myCourses, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 50, -1, -1));
+
+        pnlCourseMenu.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCourseMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
+        courses.setBorder(null);
+
+        courseMenuList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        courseMenuList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        courseMenuList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                courseMenuListValueChanged(evt);
+            }
+        });
+        courses.setViewportView(courseMenuList);
+
+        addCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/addCourse.png"))); // NOI18N
+        addCourse.setText("Add Course");
+        addCourse.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        addCourse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addCourse.setPreferredSize(new java.awt.Dimension(110, 30));
+        addCourse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addCourseMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addCourseMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addCourseMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addCourseMouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlCourseMenuLayout = new javax.swing.GroupLayout(pnlCourseMenu);
+        pnlCourseMenu.setLayout(pnlCourseMenuLayout);
+        pnlCourseMenuLayout.setHorizontalGroup(
+            pnlCourseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCourseMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(addCourse, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pnlCourseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(courses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+        );
+        pnlCourseMenuLayout.setVerticalGroup(
+            pnlCourseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCourseMenuLayout.createSequentialGroup()
+                .addContainerGap(268, Short.MAX_VALUE)
+                .addComponent(addCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+            .addGroup(pnlCourseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlCourseMenuLayout.createSequentialGroup()
+                    .addComponent(courses, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 57, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(pnlCourseMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 250, 310));
+
+        pnlAddCourse.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAddCourse.setPreferredSize(new java.awt.Dimension(350, 250));
+
+        pnlAddCourseContainer.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAddCourseContainer.setPreferredSize(new java.awt.Dimension(340, 225));
+
+        lblAddCourseTitle.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblAddCourseTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddCourseTitle.setText("Add a New Course");
+        lblAddCourseTitle.setPreferredSize(new java.awt.Dimension(150, 22));
+
+        lblCourseName.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblCourseName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCourseName.setText("Course Title:");
+        lblCourseName.setToolTipText("");
+        lblCourseName.setPreferredSize(new java.awt.Dimension(150, 30));
+
+        txtCourseName.setForeground(new java.awt.Color(204, 204, 204));
+        txtCourseName.setText("ex. Computer Engineering");
+        txtCourseName.setPreferredSize(new java.awt.Dimension(150, 30));
+        txtCourseName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCourseNameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCourseNameFocusLost(evt);
+            }
+        });
+
+        lblCourseCode.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblCourseCode.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCourseCode.setText("Course Code:");
+        lblCourseCode.setToolTipText("");
+        lblCourseCode.setPreferredSize(new java.awt.Dimension(150, 30));
+
+        txtCourseCode.setForeground(new java.awt.Color(204, 204, 204));
+        txtCourseCode.setText("ex. CS2212");
+        txtCourseCode.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCourseCodeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCourseCodeFocusLost(evt);
+            }
+        });
+
+        lblCourseTerm.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblCourseTerm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCourseTerm.setText("Course Term:");
+        lblCourseTerm.setToolTipText("");
+
+        comboCourseTerm.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "A", "B", "E", "F", "G", "R", "S", "T", "W", "X", "Y", "Z" }));
+        comboCourseTerm.setPreferredSize(new java.awt.Dimension(80, 30));
+
+        lblCourseAddErrorLog.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblAddCourse.setBackground(new java.awt.Color(255, 255, 255));
+        lblAddCourse.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblAddCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddCourse.setText("Add");
+        lblAddCourse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblAddCourse.setOpaque(true);
+        lblAddCourse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAddCourseMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAddCourseMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAddCourseMouseEntered(evt);
+            }
+        });
+
+        lblCancelCourseAddition.setBackground(new java.awt.Color(255, 255, 255));
+        lblCancelCourseAddition.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblCancelCourseAddition.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCancelCourseAddition.setText("Cancel");
+        lblCancelCourseAddition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCancelCourseAddition.setOpaque(true);
+        lblCancelCourseAddition.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCancelCourseAdditionMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblCancelCourseAdditionMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblCancelCourseAdditionMouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAddCourseContainerLayout = new javax.swing.GroupLayout(pnlAddCourseContainer);
+        pnlAddCourseContainer.setLayout(pnlAddCourseContainerLayout);
+        pnlAddCourseContainerLayout.setHorizontalGroup(
+            pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddCourseContainerLayout.createSequentialGroup()
+                .addComponent(lblAddCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lblCancelCourseAddition, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+            .addGroup(pnlAddCourseContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAddCourseTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCourseAddErrorLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlAddCourseContainerLayout.createSequentialGroup()
+                        .addGroup(pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblCourseName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(lblCourseCode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(lblCourseTerm, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCourseCode)
+                            .addComponent(txtCourseName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnlAddCourseContainerLayout.createSequentialGroup()
+                                .addComponent(comboCourseTerm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        pnlAddCourseContainerLayout.setVerticalGroup(
+            pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddCourseContainerLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lblAddCourseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCourseCode, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCourseCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addGroup(pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCourseTerm, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlAddCourseContainerLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(comboCourseTerm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 21, Short.MAX_VALUE)
+                .addComponent(lblCourseAddErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCancelCourseAddition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
+        );
+
+        javax.swing.GroupLayout pnlAddCourseLayout = new javax.swing.GroupLayout(pnlAddCourse);
+        pnlAddCourse.setLayout(pnlAddCourseLayout);
+        pnlAddCourseLayout.setHorizontalGroup(
+            pnlAddCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddCourseLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pnlAddCourseContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+        );
+        pnlAddCourseLayout.setVerticalGroup(
+            pnlAddCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddCourseLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pnlAddCourseContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+        );
+
+        getContentPane().add(pnlAddCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 175, -1, -1));
+
+        pnlAddDeliver.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAddDeliver.setDoubleBuffered(false);
+        pnlAddDeliver.setPreferredSize(new java.awt.Dimension(350, 250));
+        pnlAddDeliver.setVerifyInputWhenFocusTarget(false);
+
+        pnlAddDeliverContainer.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblAddDeliverTitle.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblAddDeliverTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddDeliverTitle.setText("Add a New Deliverable");
+
+        lblDeliverName.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblDeliverName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDeliverName.setText("Deliverable Name:");
+        lblDeliverName.setToolTipText("");
+
+        txtDeliverName.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
+        txtDeliverName.setForeground(new java.awt.Color(204, 204, 204));
+        txtDeliverName.setText("ex. Group Project");
+        txtDeliverName.setPreferredSize(new java.awt.Dimension(150, 30));
+        txtDeliverName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDeliverNameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDeliverNameFocusLost(evt);
+            }
+        });
+
+        lblDeliverWeight.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblDeliverWeight.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDeliverWeight.setText("Deliverable Weight:");
+        lblDeliverWeight.setToolTipText("");
+
+        txtDeliverWeight.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
+        txtDeliverWeight.setForeground(new java.awt.Color(204, 204, 204));
+        txtDeliverWeight.setText("ex. 0.54");
+        txtDeliverWeight.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDeliverWeightFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDeliverWeightFocusLost(evt);
+            }
+        });
+
+        lblDeliverType.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblDeliverType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDeliverType.setText("Deliverable Type:");
+        lblDeliverType.setToolTipText("");
+
+        comboDeliverType.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
+        comboDeliverType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Assignment", "Exam", "Other" }));
+
+        lblDeliverAddErrorLog.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblAddDeliver.setBackground(new java.awt.Color(255, 255, 255));
+        lblAddDeliver.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblAddDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddDeliver.setText("Add");
+        lblAddDeliver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblAddDeliver.setOpaque(true);
+        lblAddDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAddDeliverMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAddDeliverMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAddDeliverMouseEntered(evt);
+            }
+        });
+
+        lblCancelDeliverAddition.setBackground(new java.awt.Color(255, 255, 255));
+        lblCancelDeliverAddition.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblCancelDeliverAddition.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCancelDeliverAddition.setText("Cancel");
+        lblCancelDeliverAddition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCancelDeliverAddition.setOpaque(true);
+        lblCancelDeliverAddition.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCancelDeliverAdditionMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblCancelDeliverAdditionMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblCancelDeliverAdditionMouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAddDeliverContainerLayout = new javax.swing.GroupLayout(pnlAddDeliverContainer);
+        pnlAddDeliverContainer.setLayout(pnlAddDeliverContainerLayout);
+        pnlAddDeliverContainerLayout.setHorizontalGroup(
+            pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddDeliverContainerLayout.createSequentialGroup()
+                .addComponent(lblAddDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lblCancelDeliverAddition, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlAddDeliverContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddDeliverContainerLayout.createSequentialGroup()
+                        .addGroup(pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDeliverType)
+                            .addComponent(lblDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDeliverWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDeliverName, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(txtDeliverWeight)
+                            .addComponent(comboDeliverType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(lblAddDeliverTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDeliverAddErrorLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnlAddDeliverContainerLayout.setVerticalGroup(
+            pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddDeliverContainerLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lblAddDeliverTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlAddDeliverContainerLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(lblDeliverWeight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlAddDeliverContainerLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtDeliverWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblDeliverType, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(comboDeliverType))
+                .addGap(13, 13, 13)
+                .addComponent(lblDeliverAddErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddDeliverContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCancelDeliverAddition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
+        );
+
+        javax.swing.GroupLayout pnlAddDeliverLayout = new javax.swing.GroupLayout(pnlAddDeliver);
+        pnlAddDeliver.setLayout(pnlAddDeliverLayout);
+        pnlAddDeliverLayout.setHorizontalGroup(
+            pnlAddDeliverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddDeliverLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pnlAddDeliverContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+        );
+        pnlAddDeliverLayout.setVerticalGroup(
+            pnlAddDeliverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddDeliverLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pnlAddDeliverContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+        );
+
+        getContentPane().add(pnlAddDeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 175, -1, -1));
+
+        pnlAddStudent.setPreferredSize(new java.awt.Dimension(350, 250));
+
+        pnlAddStudentContainer.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAddStudentContainer.setPreferredSize(new java.awt.Dimension(340, 225));
+
+        lblAddStudentTitle.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblAddStudentTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddStudentTitle.setText("Add a New Student");
+
+        lblStudentNameFirst.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblStudentNameFirst.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblStudentNameFirst.setText("Student First Name:");
+        lblStudentNameFirst.setToolTipText("");
+        lblStudentNameFirst.setPreferredSize(new java.awt.Dimension(150, 30));
+
+        txtStudentNameFirst.setForeground(new java.awt.Color(204, 204, 204));
+        txtStudentNameFirst.setText("ex. John");
+        txtStudentNameFirst.setPreferredSize(new java.awt.Dimension(150, 30));
+        txtStudentNameFirst.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtStudentNameFirstFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtStudentNameFirstFocusLost(evt);
+            }
+        });
+
+        lblStudentNameLast.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblStudentNameLast.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblStudentNameLast.setText("Student Last Name:");
+        lblStudentNameLast.setToolTipText("");
+        lblStudentNameLast.setPreferredSize(new java.awt.Dimension(150, 30));
+
+        txtStudentNameLast.setForeground(new java.awt.Color(204, 204, 204));
+        txtStudentNameLast.setText("ex. Doe");
+        txtStudentNameLast.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtStudentNameLastFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtStudentNameLastFocusLost(evt);
+            }
+        });
+
+        lblStudentNumber.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblStudentNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblStudentNumber.setText("Student Number:");
+        lblStudentNumber.setToolTipText("");
+
+        txtStudentNumber.setForeground(new java.awt.Color(204, 204, 204));
+        txtStudentNumber.setText("ex. 250626000");
+        txtStudentNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtStudentNumberFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtStudentNumberFocusLost(evt);
+            }
+        });
+
+        lblStudentEmail.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblStudentEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblStudentEmail.setText("Student Email:");
+        lblStudentEmail.setToolTipText("");
+
+        txtStudentEmail.setForeground(new java.awt.Color(204, 204, 204));
+        txtStudentEmail.setText("ex. john-doe@example.com");
+        txtStudentEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtStudentEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtStudentEmailFocusLost(evt);
+            }
+        });
+
+        lblStudentAddErrorLog.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblAddStudent.setBackground(new java.awt.Color(255, 255, 255));
+        lblAddStudent.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblAddStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddStudent.setText("Add");
+        lblAddStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblAddStudent.setOpaque(true);
+        lblAddStudent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAddStudentMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAddStudentMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAddStudentMouseEntered(evt);
+            }
+        });
+
+        lblCancelStudentAddition.setBackground(new java.awt.Color(255, 255, 255));
+        lblCancelStudentAddition.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblCancelStudentAddition.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCancelStudentAddition.setText("Cancel");
+        lblCancelStudentAddition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCancelStudentAddition.setOpaque(true);
+        lblCancelStudentAddition.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCancelStudentAdditionMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblCancelStudentAdditionMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblCancelStudentAdditionMouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAddStudentContainerLayout = new javax.swing.GroupLayout(pnlAddStudentContainer);
+        pnlAddStudentContainer.setLayout(pnlAddStudentContainerLayout);
+        pnlAddStudentContainerLayout.setHorizontalGroup(
+            pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddStudentContainerLayout.createSequentialGroup()
+                .addComponent(lblAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lblCancelStudentAddition, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlAddStudentContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAddStudentTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlAddStudentContainerLayout.createSequentialGroup()
+                        .addGroup(pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblStudentEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblStudentNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblStudentNameFirst, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                            .addComponent(lblStudentNameLast, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addGroup(pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtStudentEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                            .addComponent(txtStudentNameLast)
+                            .addComponent(txtStudentNameFirst, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                            .addComponent(txtStudentNumber)))
+                    .addComponent(lblStudentAddErrorLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnlAddStudentContainerLayout.setVerticalGroup(
+            pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddStudentContainerLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(lblAddStudentTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStudentNameFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStudentNameFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStudentNameLast, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStudentNameLast, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addGroup(pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblStudentNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStudentNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblStudentEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStudentEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addComponent(lblStudentAddErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCancelStudentAddition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
+        );
+
+        javax.swing.GroupLayout pnlAddStudentLayout = new javax.swing.GroupLayout(pnlAddStudent);
+        pnlAddStudent.setLayout(pnlAddStudentLayout);
+        pnlAddStudentLayout.setHorizontalGroup(
+            pnlAddStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddStudentLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pnlAddStudentContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+        );
+        pnlAddStudentLayout.setVerticalGroup(
+            pnlAddStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddStudentLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(pnlAddStudentContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+        );
+
+        getContentPane().add(pnlAddStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 175, -1, -1));
+
+        container.setBackground(new java.awt.Color(255, 255, 255));
+        container.setPreferredSize(new java.awt.Dimension(1080, 500));
+
+        tabGrades.setBackground(new java.awt.Color(255, 255, 255));
+        tabGrades.setPreferredSize(new java.awt.Dimension(1080, 480));
+
+        deliverList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        deliverList.setPreferredSize(new java.awt.Dimension(35, 80));
+        deliverList.setVisibleRowCount(10);
+        deliverList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                deliverListValueChanged(evt);
+            }
+        });
+        deliversScroll.setViewportView(deliverList);
+
+        courseName.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        courseName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/course.png"))); // NOI18N
+        courseName.setText("Select a course");
+        courseName.setPreferredSize(new java.awt.Dimension(200, 24));
+
+        editCourseIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        editCourseIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/settings.png"))); // NOI18N
+        editCourseIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editCourseIcon.setPreferredSize(new java.awt.Dimension(40, 40));
+        editCourseIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editCourseIconMouseClicked(evt);
+            }
+        });
+
+        addDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addDeliver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/addDeliver.png"))); // NOI18N
+        addDeliver.setText("Add Deliverable");
+        addDeliver.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        addDeliver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addDeliver.setMaximumSize(new java.awt.Dimension(95, 40));
+        addDeliver.setMinimumSize(new java.awt.Dimension(95, 40));
+        addDeliver.setPreferredSize(new java.awt.Dimension(110, 30));
+        addDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addDeliverMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addDeliverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addDeliverMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addDeliverMousePressed(evt);
+            }
+        });
+
+        addStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/addStudent.png"))); // NOI18N
+        addStudent.setText("Add Student");
+        addStudent.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        addStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addStudent.setPreferredSize(new java.awt.Dimension(130, 30));
+        addStudent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addStudentMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addStudentMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addStudentMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addStudentMousePressed(evt);
+            }
+        });
+
+        pnlTables.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        pnlTables.setPreferredSize(new java.awt.Dimension(820, 350));
+
+        studentScroll.setBorder(null);
+
+        studentTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "First Name", "Last Name", "Number", "Email"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        studentTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        studentTable.setOpaque(false);
+        studentTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        studentTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                studentTableMouseClicked(evt);
+            }
+        });
+        studentScroll.setViewportView(studentTable);
+
+        gradesScroll.setBorder(null);
+
+        gradesTable.setAutoCreateRowSorter(true);
+        gradesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                null, null, null, null
+            }
+        ));
+        gradesTable.setToolTipText("");
+        gradesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        gradesTable.setOpaque(false);
+        gradesTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        gradesTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gradesTableMouseClicked(evt);
+            }
+        });
+        gradesScroll.setViewportView(gradesTable);
+
+        javax.swing.GroupLayout pnlTablesLayout = new javax.swing.GroupLayout(pnlTables);
+        pnlTables.setLayout(pnlTablesLayout);
+        pnlTablesLayout.setHorizontalGroup(
+            pnlTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTablesLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(studentScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(gradesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE))
+        );
+        pnlTablesLayout.setVerticalGroup(
+            pnlTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(studentScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(gradesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+        );
+
+        deleteDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        deleteDeliver.setText("Delete Deliverable");
+        deleteDeliver.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        deleteDeliver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteDeliver.setPreferredSize(new java.awt.Dimension(110, 30));
+        deleteDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteDeliverMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteDeliverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deleteDeliverMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                deleteDeliverMousePressed(evt);
+            }
+        });
+
+        deleteStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        deleteStudent.setText("Delete Student");
+        deleteStudent.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        deleteStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteStudent.setPreferredSize(new java.awt.Dimension(130, 30));
+        deleteStudent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteStudentMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteStudentMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deleteStudentMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                deleteStudentMousePressed(evt);
+            }
+        });
+
+        lblExportStudents.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblExportStudents.setText("Export Students");
+        lblExportStudents.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblExportStudents.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExportStudents.setPreferredSize(new java.awt.Dimension(130, 30));
+        lblExportStudents.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExportStudentsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExportStudentsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExportStudentsMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblExportStudentsMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblExportStudentsMouseReleased(evt);
+            }
+        });
+
+        lblImportStudents.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImportStudents.setText("Import Students");
+        lblImportStudents.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblImportStudents.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblImportStudents.setPreferredSize(new java.awt.Dimension(130, 30));
+        lblImportStudents.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImportStudentsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblImportStudentsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblImportStudentsMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblImportStudentsMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblImportStudentsMouseReleased(evt);
+            }
+        });
+
+        lblGradesErrorLog.setForeground(new java.awt.Color(255, 0, 0));
+        lblGradesErrorLog.setPreferredSize(new java.awt.Dimension(1080, 15));
+
+        lblFirstName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFirstName.setText("First Name");
+        lblFirstName.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblFirstName.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblFirstName.setPreferredSize(new java.awt.Dimension(80, 30));
+        lblFirstName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblFirstNameMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblFirstNameMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblFirstNameMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblFirstNameMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblFirstNameMouseEntered(evt);
+            }
+        });
+
+        lblLastName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLastName.setText("Last Name");
+        lblLastName.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblLastName.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblLastName.setPreferredSize(new java.awt.Dimension(80, 30));
+        lblLastName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblLastNameMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblLastNameMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLastNameMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblLastNameMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblLastNameMouseEntered(evt);
+            }
+        });
+
+        lblNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNumber.setText("Number");
+        lblNumber.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblNumber.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNumber.setPreferredSize(new java.awt.Dimension(80, 30));
+        lblNumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblNumberMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblNumberMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblNumberMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblNumberMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblNumberMouseEntered(evt);
+            }
+        });
+
+        lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmail.setText("Email");
+        lblEmail.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEmail.setPreferredSize(new java.awt.Dimension(80, 30));
+        lblEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblEmailMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblEmailMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEmailMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblEmailMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblEmailMouseEntered(evt);
+            }
+        });
+
+        lblExmAvg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblExmAvg.setText("Exam Avg");
+        lblExmAvg.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblExmAvg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExmAvg.setPreferredSize(new java.awt.Dimension(80, 30));
+        lblExmAvg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblExmAvgMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblExmAvgMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExmAvgMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExmAvgMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExmAvgMouseEntered(evt);
+            }
+        });
+
+        lblAsnAvg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAsnAvg.setText("Assignment Avg");
+        lblAsnAvg.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblAsnAvg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblAsnAvg.setPreferredSize(new java.awt.Dimension(80, 30));
+        lblAsnAvg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAsnAvgMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblAsnAvgMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAsnAvgMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAsnAvgMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAsnAvgMouseEntered(evt);
+            }
+        });
+
+        lblImportGrades.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImportGrades.setText("Import Grades");
+        lblImportGrades.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblImportGrades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblImportGrades.setPreferredSize(new java.awt.Dimension(135, 30));
+        lblImportGrades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImportGradesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblImportGradesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblImportGradesMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblImportGradesMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblImportGradesMouseReleased(evt);
+            }
+        });
+
+        lblExportGrades.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblExportGrades.setText("Export Grades");
+        lblExportGrades.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblExportGrades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExportGrades.setPreferredSize(new java.awt.Dimension(135, 30));
+        lblExportGrades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExportGradesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExportGradesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExportGradesMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblExportGradesMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblExportGradesMouseReleased(evt);
+            }
+        });
+
+        lblhide.setText("Hide:");
+
+        lblCourseAvg.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
+        lblCourseAvg.setForeground(new java.awt.Color(70, 70, 70));
+        lblCourseAvg.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCourseAvg.setText("--%");
+        lblCourseAvg.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        courseAvg.setFont(new java.awt.Font("Helvetica", 0, 12)); // NOI18N
+        courseAvg.setForeground(new java.awt.Color(70, 70, 70));
+        courseAvg.setText("Course Average:");
+        courseAvg.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout tabGradesLayout = new javax.swing.GroupLayout(tabGrades);
+        tabGrades.setLayout(tabGradesLayout);
+        tabGradesLayout.setHorizontalGroup(
+            tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabGradesLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(addDeliver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(deliversScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                    .addGroup(tabGradesLayout.createSequentialGroup()
+                        .addComponent(courseName, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editCourseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabGradesLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabGradesLayout.createSequentialGroup()
+                                .addComponent(addStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(deleteStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblExportStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(lblImportStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(lblExportGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(lblImportGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tabGradesLayout.createSequentialGroup()
+                                .addComponent(pnlTables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(tabGradesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblhide)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(lblLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(lblNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAsnAvg, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblExmAvg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblCourseAvg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(courseAvg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(339, 339, 339)
+                .addComponent(lblGradesErrorLog, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tabGradesLayout.setVerticalGroup(
+            tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabGradesLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(editCourseIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblImportGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblExportGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblImportStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblExportStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(courseName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deliversScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlTables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabGradesLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblExmAvg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblAsnAvg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tabGradesLayout.createSequentialGroup()
+                                .addGroup(tabGradesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(addDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblhide))
+                                .addGap(5, 5, 5)
+                                .addComponent(deleteDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(lblGradesErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(tabGradesLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(courseAvg)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCourseAvg, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        tabSetup.setBackground(new java.awt.Color(255, 255, 255));
+        tabSetup.setPreferredSize(new java.awt.Dimension(1080, 480));
+
+        lblCourseSetup.setFont(new java.awt.Font("Helvetica", 0, 18)); // NOI18N
+        lblCourseSetup.setText("Course Setup");
+        lblCourseSetup.setPreferredSize(new java.awt.Dimension(330, 30));
+
+        lblEditCourseTtile.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditCourseTtile.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEditCourseTtile.setText("Course Title:");
+        lblEditCourseTtile.setPreferredSize(new java.awt.Dimension(120, 30));
+
+        txtEditCourseTitle.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        txtEditCourseTitle.setForeground(new java.awt.Color(204, 204, 204));
+        txtEditCourseTitle.setText("Please select a course");
+        txtEditCourseTitle.setPreferredSize(new java.awt.Dimension(120, 30));
+        txtEditCourseTitle.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEditCourseTitleFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEditCourseTitleFocusLost(evt);
+            }
+        });
+
+        lblEditCourseCode.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditCourseCode.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEditCourseCode.setText("Course Code:");
+        lblEditCourseCode.setPreferredSize(new java.awt.Dimension(120, 30));
+
+        txtEditCourseCode.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        txtEditCourseCode.setForeground(new java.awt.Color(204, 204, 204));
+        txtEditCourseCode.setText("Please select a course");
+        txtEditCourseCode.setPreferredSize(new java.awt.Dimension(120, 30));
+        txtEditCourseCode.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEditCourseCodeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEditCourseCodeFocusLost(evt);
+            }
+        });
+
+        lblEditCourseTerm.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditCourseTerm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEditCourseTerm.setText("Course Term:");
+        lblEditCourseTerm.setPreferredSize(new java.awt.Dimension(120, 30));
+
+        comboEditCourseTerm.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        comboEditCourseTerm.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "A", "B", "E", "F", "G", "R", "S", "T", "W", "X", "Y", "Z" }));
+        comboEditCourseTerm.setPreferredSize(new java.awt.Dimension(80, 30));
+
+        lblEditCourse.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditCourse.setText("Submit Changes");
+        lblEditCourse.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblEditCourse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEditCourse.setPreferredSize(new java.awt.Dimension(200, 30));
+        lblEditCourse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblEditCourseMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblEditCourseMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEditCourseMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblEditCourseMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblEditCourseMouseEntered(evt);
+            }
+        });
+
+        lblDeleteCourse.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblDeleteCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDeleteCourse.setText("Delete Course");
+        lblDeleteCourse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        lblDeleteCourse.setPreferredSize(new java.awt.Dimension(165, 30));
+        lblDeleteCourse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDeleteCourseMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDeleteCourseMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDeleteCourseMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDeleteCourseMouseEntered(evt);
+            }
+        });
+
+        editDeliverListScroll.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+
+        editDeliverList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        editDeliverList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                editDeliverListValueChanged(evt);
+            }
+        });
+        editDeliverListScroll.setViewportView(editDeliverList);
+
+        lblEditDeliverName.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditDeliverName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEditDeliverName.setText("Deliverable Name:");
+        lblEditDeliverName.setPreferredSize(new java.awt.Dimension(120, 30));
+
+        lblEditDeliverWeight.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditDeliverWeight.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEditDeliverWeight.setText("Deliverable Weight:");
+        lblEditDeliverWeight.setPreferredSize(new java.awt.Dimension(120, 30));
+
+        lblEditDeliverType.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditDeliverType.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEditDeliverType.setText("Deliverable Type:");
+        lblEditDeliverType.setPreferredSize(new java.awt.Dimension(120, 30));
+
+        comboEditDeliverType.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        comboEditDeliverType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Assignment", "Exam", "Other" }));
+        comboEditDeliverType.setPreferredSize(new java.awt.Dimension(80, 30));
+
+        txtEditDeliverName.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        txtEditDeliverName.setForeground(new java.awt.Color(204, 204, 204));
+        txtEditDeliverName.setText("Please select a deliverable");
+        txtEditDeliverName.setPreferredSize(new java.awt.Dimension(120, 30));
+        txtEditDeliverName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEditDeliverNameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEditDeliverNameFocusLost(evt);
+            }
+        });
+
+        txtEditDeliverWeight.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        txtEditDeliverWeight.setForeground(new java.awt.Color(204, 204, 204));
+        txtEditDeliverWeight.setText("Please select a deliverable");
+        txtEditDeliverWeight.setPreferredSize(new java.awt.Dimension(120, 30));
+        txtEditDeliverWeight.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEditDeliverWeightFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEditDeliverWeightFocusLost(evt);
+            }
+        });
+
+        lblEditDeliver.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditDeliver.setText("Submit Changes");
+        lblEditDeliver.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblEditDeliver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEditDeliver.setPreferredSize(new java.awt.Dimension(330, 30));
+        lblEditDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblEditDeliverMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblEditDeliverMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEditDeliverMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblEditDeliverMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblEditDeliverMouseEntered(evt);
+            }
+        });
+
+        lblExportDelivers.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblExportDelivers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblExportDelivers.setText("Export Deliverables");
+        lblExportDelivers.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblExportDelivers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExportDelivers.setPreferredSize(new java.awt.Dimension(150, 30));
+        lblExportDelivers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblExportDeliversMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblExportDeliversMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExportDeliversMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExportDeliversMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExportDeliversMouseEntered(evt);
+            }
+        });
+
+        lblImportDelivers.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblImportDelivers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImportDelivers.setText("Import Deliverables");
+        lblImportDelivers.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblImportDelivers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblImportDelivers.setPreferredSize(new java.awt.Dimension(150, 30));
+        lblImportDelivers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblImportDeliversMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblImportDeliversMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImportDeliversMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblImportDeliversMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblImportDeliversMouseEntered(evt);
+            }
+        });
+
+        lblCourseDeliverables.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblCourseDeliverables.setText("Course Deliverables:");
+        lblCourseDeliverables.setPreferredSize(new java.awt.Dimension(200, 30));
+
+        lblSetupErrorLog.setForeground(new java.awt.Color(255, 0, 0));
+        lblSetupErrorLog.setPreferredSize(new java.awt.Dimension(34, 20));
+
+        txtCourseDesc.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        txtCourseDesc.setForeground(java.awt.Color.lightGray);
+        txtCourseDesc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCourtxtCourseDesceDescFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCourtxtCourseDesceDescFocusLost(evt);
+            }
+        });
+        courseDescScroll.setViewportView(txtCourseDesc);
+
+        lblEditAddDeliver.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditAddDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditAddDeliver.setText("Add Deliverable");
+        lblEditAddDeliver.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblEditAddDeliver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEditAddDeliver.setPreferredSize(new java.awt.Dimension(160, 30));
+        lblEditAddDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblEditAddDeliverMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblEditAddDeliverMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEditAddDeliverMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblEditAddDeliverMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblEditAddDeliverMouseEntered(evt);
+            }
+        });
+
+        lblEditDeleteDeliver.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblEditDeleteDeliver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditDeleteDeliver.setText("Delete Deliverable");
+        lblEditDeleteDeliver.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblEditDeleteDeliver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEditDeleteDeliver.setPreferredSize(new java.awt.Dimension(160, 30));
+        lblEditDeleteDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblEditDeleteDeliverMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblEditDeleteDeliverMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEditDeleteDeliverMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblEditDeleteDeliverMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblEditDeleteDeliverMouseEntered(evt);
+            }
+        });
+
+        lblDeleteSure.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
+        lblDeleteSure.setForeground(new java.awt.Color(255, 102, 102));
+        lblDeleteSure.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDeleteSure.setText(" ");
+
+        javax.swing.GroupLayout tabSetupLayout = new javax.swing.GroupLayout(tabSetup);
+        tabSetup.setLayout(tabSetupLayout);
+        tabSetupLayout.setHorizontalGroup(
+            tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabSetupLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSetupErrorLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(tabSetupLayout.createSequentialGroup()
+                        .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCourseSetup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(courseDescScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabSetupLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabSetupLayout.createSequentialGroup()
+                                            .addComponent(lblEditDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txtEditDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabSetupLayout.createSequentialGroup()
+                                            .addComponent(lblEditDeliverWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtEditDeliverWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblDeleteCourse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblEditCourse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabSetupLayout.createSequentialGroup()
+                                            .addComponent(lblEditCourseTerm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(10, 10, 10)
+                                            .addComponent(comboEditCourseTerm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabSetupLayout.createSequentialGroup()
+                                            .addComponent(lblEditDeliverType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(comboEditDeliverType, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(tabSetupLayout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblEditCourseCode, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblEditCourseTtile, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtEditCourseCode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtEditCourseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSetupLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblEditDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(tabSetupLayout.createSequentialGroup()
+                                                .addComponent(lblEditAddDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(10, 10, 10)
+                                                .addComponent(lblEditDeleteDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(tabSetupLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(lblDeleteSure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(10, 10, 10)
+                        .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblCourseDeliverables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblImportDelivers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblExportDelivers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editDeliverListScroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addGap(10, 10, 10))
+        );
+        tabSetupLayout.setVerticalGroup(
+            tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabSetupLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCourseDeliverables, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCourseSetup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabSetupLayout.createSequentialGroup()
+                        .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(editDeliverListScroll)
+                            .addGroup(tabSetupLayout.createSequentialGroup()
+                                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblEditCourseTtile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEditCourseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(5, 5, 5)
+                                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblEditCourseCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEditCourseCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(5, 5, 5)
+                                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblEditCourseTerm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboEditCourseTerm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(5, 5, 5)
+                                .addComponent(lblEditCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(lblDeleteCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblDeleteSure)
+                                .addGap(12, 12, 12)
+                                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblEditDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEditDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(5, 5, 5)
+                                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblEditDeliverWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEditDeliverWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(5, 5, 5)
+                                .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblEditDeliverType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboEditDeliverType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(5, 5, 5)
+                        .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblImportDelivers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEditDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(5, 5, 5)
+                        .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblExportDelivers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEditAddDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEditDeleteDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(courseDescScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(lblSetupErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tabDropbox.setBackground(new java.awt.Color(255, 255, 255));
+        tabDropbox.setPreferredSize(new java.awt.Dimension(1080, 480));
+
+        lblDbxAuthLink.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxAuthLink.setText("Generate a new link");
+        lblDbxAuthLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxAuthLink.setPreferredSize(new java.awt.Dimension(1000, 30));
+        lblDbxAuthLink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxAuthLinkMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxAuthLinkMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxAuthLinkMouseExited(evt);
+            }
+        });
+
+        txtDbxCode.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtDbxCode.setText("Please enter the code...");
+        txtDbxCode.setPreferredSize(new java.awt.Dimension(1000, 30));
+        txtDbxCode.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDbxCodeFocusGained(evt);
+            }
+        });
+
+        lblDbxGenerate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxGenerate.setText("Generate");
+        lblDbxGenerate.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblDbxGenerate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxGenerate.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxGenerate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblDbxGenerateMouseReleased(evt);
+            }
+        });
+
+        lblDbxUpload.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxUpload.setText("Upload");
+        lblDbxUpload.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblDbxUpload.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxUpload.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxUpload.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblDbxUploadMouseReleased(evt);
+            }
+        });
+
+        lblDbxDownload.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxDownload.setText("Download");
+        lblDbxDownload.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblDbxDownload.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxDownload.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxDownload.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblDbxDownloadMouseReleased(evt);
+            }
+        });
+
+        lblDbxSubmit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxSubmit.setText("Submit");
+        lblDbxSubmit.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblDbxSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxSubmit.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblDbxSubmitMouseReleased(evt);
+            }
+        });
+
+        lblDbxErrorLog.setForeground(java.awt.Color.lightGray);
+        lblDbxErrorLog.setText("Disconnected");
+
+        lblDbxVerify.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxVerify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/verify.png"))); // NOI18N
+        lblDbxVerify.setPreferredSize(new java.awt.Dimension(1000, 20));
+
+        javax.swing.GroupLayout tabDropboxLayout = new javax.swing.GroupLayout(tabDropbox);
+        tabDropbox.setLayout(tabDropboxLayout);
+        tabDropboxLayout.setHorizontalGroup(
+            tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabDropboxLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblDbxAuthLink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDbxCode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabDropboxLayout.createSequentialGroup()
+                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblDbxUpload, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDbxGenerate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDbxSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDbxDownload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(40, 40, 40))
+            .addGroup(tabDropboxLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblDbxErrorLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDropboxLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(lblDbxVerify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+        tabDropboxLayout.setVerticalGroup(
+            tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabDropboxLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(lblDbxVerify, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDbxAuthLink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(txtDbxCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDbxGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDbxSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDbxUpload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDbxDownload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addComponent(lblDbxErrorLog)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
+        container.setLayout(containerLayout);
+        containerLayout.setHorizontalGroup(
+            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1090, Short.MAX_VALUE)
+            .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                    .addComponent(tabSetup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 10, Short.MAX_VALUE)))
+            .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                    .addComponent(tabGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+            .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                    .addComponent(tabDropbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+        containerLayout.setVerticalGroup(
+            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                    .addComponent(tabSetup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 10, Short.MAX_VALUE)))
+            .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                    .addComponent(tabGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                    .addComponent(tabDropbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+        container.setLayer(tabGrades, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        container.setLayer(tabSetup, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        container.setLayer(tabDropbox, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 490));
+
+        lyrActiveCourse.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblActiveCourseTitleInfo.setFont(helvetica);
+        lblActiveCourseTitleInfo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblActiveCourseTitleInfo.setText("Select a course");
+        lyrActiveCourse.add(lblActiveCourseTitleInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 160, 40));
+
+        lblActiveCourseInfo.setForeground(new java.awt.Color(153, 153, 153));
+        lblActiveCourseInfo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lyrActiveCourse.add(lblActiveCourseInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 150, 20));
+
+        lblActiveCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/activeCourseTab.png"))); // NOI18N
+        lyrActiveCourse.add(lblActiveCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, -1, -1));
+
+        getContentPane().add(lyrActiveCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 650, -1));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+
 
 	Dropbox dbx;
 	boolean generated = false;
@@ -3796,7 +2469,7 @@ public class GradebookGUI extends JFrame {
 	 **************************************************************************************************** 
 	 **************************************************************************************************** 
 	 */
-	int firstName = 1, lastName = 1, number = 1, email = 1;
+	int firstName = 1, lastName = 1, number = 1, email = 1, asnAvg = 1, exmAvg = 1;
 
 	private void deliverListValueChanged(
 			javax.swing.event.ListSelectionEvent evt) {// GEN-FIRST:event_deliverListValueChanged
@@ -3835,17 +2508,21 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_lblFirstNameMouseClicked
 
+    Color grey = new Color (204,204,204);
 	private void lblFirstNameMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblFirstNameMouseEntered
 		if (currCourse != null)
 			if (firstName == 1) {
 				lblFirstName.setBorder(BorderFactory
-						.createLineBorder(new Color(20, 150, 250)));
+                        .createLineBorder(new Color(20, 150, 250)));
 				lblFirstName.setText("Hide");
-			} else
+			} else {
 				lblFirstName.setText("Show");
-		else
+                lblFirstName.setBackground(grey);
+            }
+		else {
 			lblFirstName.setBorder(BorderFactory.createLineBorder(new Color(
 					204, 204, 204)));
+        }
 	}// GEN-LAST:event_lblFirstNameMouseEntered
 
 	private void lblFirstNameMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblFirstNameMouseExited
@@ -4023,8 +2700,105 @@ public class GradebookGUI extends JFrame {
 					150, 250)));
 		else
 			lblEmail.setBorder(BorderFactory.createLineBorder(new Color(204,
-					204, 204)));
+                    204, 204)));
 	}// GEN-LAST:event_lblEmailMouseReleased
+
+    private void lblExmAvgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExmAvgMouseClicked
+        if (currCourse != null) {
+            if (exmAvg == 1)
+                exmAvg = 0;
+            else
+                exmAvg = 1;
+            updateTables();
+        }    }//GEN-LAST:event_lblExmAvgMouseClicked
+
+    private void lblExmAvgMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExmAvgMouseEntered
+        if (currCourse != null)
+            if (exmAvg == 1) {
+                lblExmAvg.setBorder(BorderFactory.createLineBorder(new Color(20,
+                        150, 250)));
+                lblExmAvg.setText("Hide");
+            } else
+                lblExmAvg.setText("Show");
+        else
+            lblExmAvg.setBorder(BorderFactory.createLineBorder(new Color(204,
+                    204, 204)));
+
+    }//GEN-LAST:event_lblExmAvgMouseEntered
+
+    private void lblExmAvgMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExmAvgMouseExited
+        if (exmAvg != 1)
+            lblExmAvg.setBorder(BorderFactory.createLineBorder(new Color(204,
+                    204, 204)));
+        lblExmAvg.setText("Exam Avg");    }//GEN-LAST:event_lblExmAvgMouseExited
+
+    private void lblExmAvgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExmAvgMousePressed
+        if (currCourse != null)
+            lblExmAvg.setBorder(BorderFactory.createBevelBorder(0, new Color(20,
+                    150, 250), new Color(20, 150, 250),
+                    new Color(20, 150, 250), new Color(20, 150, 250)));
+        else
+            lblExmAvg.setBorder(BorderFactory.createBevelBorder(0, new Color(
+                    204, 204, 204), new Color(204, 204, 204), new Color(204,
+                    204, 204), new Color(204, 204, 204)));
+    }//GEN-LAST:event_lblExmAvgMousePressed
+
+    private void lblExmAvgMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExmAvgMouseReleased
+        if (currCourse != null)
+            lblExmAvg.setBorder(BorderFactory.createLineBorder(new Color(20,
+                    150, 250)));
+        else
+            lblExmAvg.setBorder(BorderFactory.createLineBorder(new Color(204,
+                    204, 204)));    }//GEN-LAST:event_lblExmAvgMouseReleased
+
+
+    private void lblAsnAvgMouseClicked(java.awt.event.MouseEvent evt) {                                       
+        if (currCourse != null) {
+            if (asnAvg == 1)
+                asnAvg = 0;
+            else
+                asnAvg = 1;
+            updateTables();
+        }    }                                      
+
+    private void lblAsnAvgMouseEntered(java.awt.event.MouseEvent evt) {                                       
+        if (currCourse != null)
+            if (asnAvg == 1) {
+                lblAsnAvg.setBorder(BorderFactory.createLineBorder(new Color(20,
+                        150, 250)));
+                lblAsnAvg.setText("Hide");
+            } else
+                lblAsnAvg.setText("Show");
+        else
+            lblAsnAvg.setBorder(BorderFactory.createLineBorder(new Color(204,
+                    204, 204)));
+
+    }                                      
+
+    private void lblAsnAvgMouseExited(java.awt.event.MouseEvent evt) {                                      
+        if (asnAvg != 1)
+            lblAsnAvg.setBorder(BorderFactory.createLineBorder(new Color(204,
+                    204, 204)));
+        lblAsnAvg.setText("Assignment Avg");    }                                     
+
+    private void lblAsnAvgMousePressed(java.awt.event.MouseEvent evt) {                                       
+        if (currCourse != null)
+            lblAsnAvg.setBorder(BorderFactory.createBevelBorder(0, new Color(20,
+                    150, 250), new Color(20, 150, 250),
+                    new Color(20, 150, 250), new Color(20, 150, 250)));
+        else
+            lblAsnAvg.setBorder(BorderFactory.createBevelBorder(0, new Color(
+                    204, 204, 204), new Color(204, 204, 204), new Color(204,
+                    204, 204), new Color(204, 204, 204)));
+    }                                      
+
+    private void lblAsnAvgMouseReleased(java.awt.event.MouseEvent evt) {                                        
+        if (currCourse != null)
+            lblAsnAvg.setBorder(BorderFactory.createLineBorder(new Color(20,
+                    150, 250)));
+        else
+            lblAsnAvg.setBorder(BorderFactory.createLineBorder(new Color(204,
+                    204, 204)));    }                                       
 
 	private void addStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_addStudentMouseClicked
 		hideMenu();
@@ -4524,6 +3298,7 @@ public class GradebookGUI extends JFrame {
 
 	private void lblDeleteCourseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMouseClicked
 		if (currCourse != null) {
+                    if(lblDeleteSure.getText().equals("Are you sure? Click 'Delete Course' again to continue.")){
 			gradebook.removeCourse(gradebook.getCourse(courseMenuList
 					.getSelectedIndex()));
 			listCourses.remove(courseMenuList.getSelectedIndex());
@@ -4534,6 +3309,9 @@ public class GradebookGUI extends JFrame {
 			else
 				currCourse = null;
 			updateInfo();
+                    }
+                    else
+                        lblDeleteSure.setText("Are you sure? Click 'Delete Course' again to continue.");
 		} else
 			lblSetupErrorLog.setText("Please select a course");
 
@@ -4565,6 +3343,7 @@ public class GradebookGUI extends JFrame {
 					new Color(204, 204, 204), new Color(204, 204, 204)));
 		}
 	}// GEN-LAST:event_lblDeleteCourseMousePressed
+
 
 	/****************************************************************************************************
 	 **************************************************************************************************** 
@@ -5697,8 +4476,10 @@ public class GradebookGUI extends JFrame {
 			courseName.setText(currCourse.getTitle());
 
 			updateTables();
+            lblDeleteSure.setText(" ");
 
-			listDelivers.clear();
+
+            listDelivers.clear();
 			for (int i = 0; i < currCourse.getDeliverableListSize(); i++) {
 				deliver = currCourse.getDeliverable(i);
 				if (deliver != null)
@@ -5718,7 +4499,13 @@ public class GradebookGUI extends JFrame {
 			if (email == 1)
 				lblEmail.setBorder(BorderFactory.createLineBorder(new Color(20,
 						150, 250)));
-
+            if (asnAvg == 1)
+                lblAsnAvg.setBorder(BorderFactory.createLineBorder(new Color(20,
+                        150, 250)));
+            if (exmAvg == 1)
+                lblExmAvg.setBorder(BorderFactory.createLineBorder(new Color(20,
+                        150, 250)));
+            
 			deleteDeliver.setVisible(false);
 			deleteStudent.setVisible(false);
 			lblGradesErrorLog.setText("");
@@ -5814,24 +4601,24 @@ public class GradebookGUI extends JFrame {
 	}
 
 	private void updateTables() {
-
 		if (currCourse != null) {
-			makeTables(firstName, lastName, email, number);
+			makeTables();
 			studentTable.setModel(tableStudents);
 			gradesTable.setModel(tableGrades);
 			initTables();
 		} else {
 			currCourse = new Course("", "", "");
-			makeTables(firstName, lastName, email, number);
+			makeTables();
 			studentTable.setModel(tableStudents);
 			gradesTable.setModel(tableGrades);
 			initTables();
 			currCourse = null;
 		}
+        updateAvglbl();
 	}
 
-	private void makeTables(int first, int last, int email, int num) {
-		tableStudents = new UsersTable(currCourse, first, last, email, num);
+	private void makeTables() {
+		tableStudents = new UsersTable(currCourse, firstName, lastName, email, number, asnAvg, exmAvg);
 		tableStudents.addTableModelListener(new TableModelListener() {
 			@Override
 			public void tableChanged(TableModelEvent e) {
@@ -5852,20 +4639,21 @@ public class GradebookGUI extends JFrame {
 		// Create a fixed-size table (adjusting to view settings/number of
 		// columns)
 		studentTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
 		if (gradesTable.getColumnCount() + studentTable.getColumnCount() < 11)
 			gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		else
 			gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+//        sizeTables();
 		studentTable.setPreferredScrollableViewportSize(studentTable
 				.getPreferredSize());
 		gradesTable.setPreferredScrollableViewportSize(gradesTable
 				.getPreferredSize());
-
-		BoundedRangeModel model = gradesScroll.getVerticalScrollBar()
-				.getModel();
 		studentScroll.getVerticalScrollBar().setPreferredSize(
-				new Dimension(0, 0));
-		studentScroll.getVerticalScrollBar().setModel(model);
+				new Dimension(0, 1));
+		studentScroll.getVerticalScrollBar().setModel(gradesScroll.getVerticalScrollBar()
+                .getModel());
 		gradesScroll.getVerticalScrollBar().setPreferredSize(
 				new Dimension(15, 5));
 		gradesScroll.setWheelScrollingEnabled(true);
@@ -5873,6 +4661,18 @@ public class GradebookGUI extends JFrame {
         studentTable.setSelectionModel(gradesTable.getSelectionModel());
         studentTable.setRowSorter(gradesTable.getRowSorter());
 	}
+
+    private void sizeTables(){
+        if (firstName==1)
+            studentTable.getColumn("First Name").setPreferredWidth(100);
+        if (lastName==1)
+            studentTable.getColumn("Last Name").setPreferredWidth(100);
+        if (number==1)
+            studentTable.getColumn("Student #").setPreferredWidth(100);
+        if (email==1)
+            studentTable.getColumn("Email").setPreferredWidth(200);
+    }
+
 
 	private Integer findDeliver(String deliver) {
 		String name = "", type = "", w = "";
@@ -5896,6 +4696,17 @@ public class GradebookGUI extends JFrame {
 		return currCourse
 				.findDeliverable(new Deliverable(name, type, weight, 0));
 	}
+
+
+
+    public void updateAvglbl(){
+        if (currCourse != null && currCourse.getClassAvg()>=0){
+            lblCourseAvg.setText(String.format("%.2f",currCourse.getClassAvg())+"%");
+        }
+        else {
+        lblCourseAvg.setText("--%");
+        }
+    }
 
 	/****************************************************************************************************
 	 **************************************************************************************************** 
@@ -5974,121 +4785,127 @@ public class GradebookGUI extends JFrame {
 		});
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel addCourse;
-	private javax.swing.JLabel addDeliver;
-	private javax.swing.JLabel addStudent;
-	private javax.swing.JComboBox comboCourseTerm;
-	private javax.swing.JComboBox comboDeliverType;
-	private javax.swing.JComboBox comboEditCourseTerm;
-	private javax.swing.JComboBox comboEditDeliverType;
-	private javax.swing.JLayeredPane container;
-	private javax.swing.JScrollPane courseDescScroll;
-	private javax.swing.JList courseMenuList;
-	private javax.swing.JLabel courseName;
-	private javax.swing.JScrollPane courses;
-	private javax.swing.JLabel deleteDeliver;
-	private javax.swing.JLabel deleteStudent;
-	private javax.swing.JList deliverList;
-	private javax.swing.JScrollPane deliversScroll;
-	private javax.swing.JLabel editCourseIcon;
-	private javax.swing.JList editDeliverList;
-	private javax.swing.JScrollPane editDeliverListScroll;
-	private javax.swing.JScrollPane gradesScroll;
-	private javax.swing.JTable gradesTable;
-	private javax.swing.JLabel lblActiveCourse;
-	private javax.swing.JLabel lblActiveCourseInfo;
-	private javax.swing.JLabel lblActiveCourseTitleInfo;
-	private javax.swing.JLabel lblAddCourse;
-	private javax.swing.JLabel lblAddCourseTitle;
-	private javax.swing.JLabel lblAddDeliver;
-	private javax.swing.JLabel lblAddDeliverTitle;
-	private javax.swing.JLabel lblAddStudent;
-	private javax.swing.JLabel lblAddStudentTitle;
-	private javax.swing.JLabel lblCancelCourseAddition;
-	private javax.swing.JLabel lblCancelDeliverAddition;
-	private javax.swing.JLabel lblCancelStudentAddition;
-	private javax.swing.JLabel lblCourseAddErrorLog;
-	private javax.swing.JLabel lblCourseCode;
-	private javax.swing.JLabel lblCourseDeliverables;
-	private javax.swing.JLabel lblCourseName;
-	private javax.swing.JLabel lblCourseSetup;
-	private javax.swing.JLabel lblCourseTerm;
-	private javax.swing.JLabel lblDbxAuthLink;
-	private javax.swing.JLabel lblDbxDownload;
-	private javax.swing.JLabel lblDbxErrorLog;
-	private javax.swing.JLabel lblDbxGenerate;
-	private javax.swing.JLabel lblDbxSubmit;
-	private javax.swing.JLabel lblDbxUpload;
-	private javax.swing.JLabel lblDbxVerify;
-	private javax.swing.JLabel lblDeleteCourse;
-	private javax.swing.JLabel lblDeliverAddErrorLog;
-	private javax.swing.JLabel lblDeliverName;
-	private javax.swing.JLabel lblDeliverType;
-	private javax.swing.JLabel lblDeliverWeight;
-	private javax.swing.JLabel lblDropbox;
-	private javax.swing.JLabel lblEditAddDeliver;
-	private javax.swing.JLabel lblEditCourse;
-	private javax.swing.JLabel lblEditCourseCode;
-	private javax.swing.JLabel lblEditCourseTerm;
-	private javax.swing.JLabel lblEditCourseTtile;
-	private javax.swing.JLabel lblEditDeleteDeliver;
-	private javax.swing.JLabel lblEditDeliver;
-	private javax.swing.JLabel lblEditDeliverName;
-	private javax.swing.JLabel lblEditDeliverType;
-	private javax.swing.JLabel lblEditDeliverWeight;
-	private javax.swing.JLabel lblEmail;
-	private javax.swing.JLabel lblExit;
-	private javax.swing.JLabel lblExportDelivers;
-	private javax.swing.JLabel lblExportGrades;
-	private javax.swing.JLabel lblExportStudents;
-	private javax.swing.JLabel lblFirstName;
-	private javax.swing.JLabel lblGrades;
-	private javax.swing.JLabel lblGradesErrorLog;
-	private javax.swing.JLabel lblImportDelivers;
-	private javax.swing.JLabel lblImportGrades;
-	private javax.swing.JLabel lblImportStudents;
-	private javax.swing.JLabel lblLastName;
-	private javax.swing.JLabel lblMini;
-	private javax.swing.JLabel lblNumber;
-	private javax.swing.JLabel lblSetup;
-	private javax.swing.JLabel lblSetupErrorLog;
-	private javax.swing.JLabel lblStudentAddErrorLog;
-	private javax.swing.JLabel lblStudentEmail;
-	private javax.swing.JLabel lblStudentNameFirst;
-	private javax.swing.JLabel lblStudentNameLast;
-	private javax.swing.JLabel lblStudentNumber;
-	private javax.swing.JLabel lblTabDropbox;
-	private javax.swing.JLabel lblTabGrades;
-	private javax.swing.JLabel lblTabSetup;
-	private javax.swing.JLayeredPane lyrActiveCourse;
-	private javax.swing.JLabel myCourses;
-	private javax.swing.JPanel pnlAddCourse;
-	private javax.swing.JPanel pnlAddCourseContainer;
-	private javax.swing.JPanel pnlAddDeliver;
-	private javax.swing.JPanel pnlAddDeliverContainer;
-	private javax.swing.JPanel pnlAddStudent;
-	private javax.swing.JPanel pnlAddStudentContainer;
-	private javax.swing.JPanel pnlCourseMenu;
-	private javax.swing.JPanel pnlTables;
-	private javax.swing.JScrollPane studentScroll;
-	private javax.swing.JTable studentTable;
-	private javax.swing.JPanel tabDropbox;
-	private javax.swing.JPanel tabGrades;
-	private javax.swing.JPanel tabSetup;
-	private javax.swing.JTextField txtCourseCode;
-	private javax.swing.JTextPane txtCourseDesc;
-	private javax.swing.JTextField txtCourseName;
-	private javax.swing.JTextField txtDbxCode;
-	private javax.swing.JTextField txtDeliverName;
-	private javax.swing.JTextField txtDeliverWeight;
-	private javax.swing.JTextField txtEditCourseCode;
-	private javax.swing.JTextField txtEditCourseTitle;
-	private javax.swing.JTextField txtEditDeliverName;
-	private javax.swing.JTextField txtEditDeliverWeight;
-	private javax.swing.JTextField txtStudentEmail;
-	private javax.swing.JTextField txtStudentNameFirst;
-	private javax.swing.JTextField txtStudentNameLast;
-	private javax.swing.JTextField txtStudentNumber;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addCourse;
+    private javax.swing.JLabel addDeliver;
+    private javax.swing.JLabel addStudent;
+    private javax.swing.JComboBox comboCourseTerm;
+    private javax.swing.JComboBox comboDeliverType;
+    private javax.swing.JComboBox comboEditCourseTerm;
+    private javax.swing.JComboBox comboEditDeliverType;
+    private javax.swing.JLayeredPane container;
+    private javax.swing.JLabel courseAvg;
+    private javax.swing.JScrollPane courseDescScroll;
+    private javax.swing.JList courseMenuList;
+    private javax.swing.JLabel courseName;
+    private javax.swing.JScrollPane courses;
+    private javax.swing.JLabel deleteDeliver;
+    private javax.swing.JLabel deleteStudent;
+    private javax.swing.JList deliverList;
+    private javax.swing.JScrollPane deliversScroll;
+    private javax.swing.JLabel editCourseIcon;
+    private javax.swing.JList editDeliverList;
+    private javax.swing.JScrollPane editDeliverListScroll;
+    private javax.swing.JScrollPane gradesScroll;
+    private javax.swing.JTable gradesTable;
+    private javax.swing.JLabel lblActiveCourse;
+    private javax.swing.JLabel lblActiveCourseInfo;
+    private javax.swing.JLabel lblActiveCourseTitleInfo;
+    private javax.swing.JLabel lblAddCourse;
+    private javax.swing.JLabel lblAddCourseTitle;
+    private javax.swing.JLabel lblAddDeliver;
+    private javax.swing.JLabel lblAddDeliverTitle;
+    private javax.swing.JLabel lblAddStudent;
+    private javax.swing.JLabel lblAddStudentTitle;
+    private javax.swing.JLabel lblAsnAvg;
+    private javax.swing.JLabel lblCancelCourseAddition;
+    private javax.swing.JLabel lblCancelDeliverAddition;
+    private javax.swing.JLabel lblCancelStudentAddition;
+    private javax.swing.JLabel lblCourseAddErrorLog;
+    private javax.swing.JLabel lblCourseAvg;
+    private javax.swing.JLabel lblCourseCode;
+    private javax.swing.JLabel lblCourseDeliverables;
+    private javax.swing.JLabel lblCourseName;
+    private javax.swing.JLabel lblCourseSetup;
+    private javax.swing.JLabel lblCourseTerm;
+    private javax.swing.JLabel lblDbxAuthLink;
+    private javax.swing.JLabel lblDbxDownload;
+    private javax.swing.JLabel lblDbxErrorLog;
+    private javax.swing.JLabel lblDbxGenerate;
+    private javax.swing.JLabel lblDbxSubmit;
+    private javax.swing.JLabel lblDbxUpload;
+    private javax.swing.JLabel lblDbxVerify;
+    private javax.swing.JLabel lblDeleteCourse;
+    private javax.swing.JLabel lblDeleteSure;
+    private javax.swing.JLabel lblDeliverAddErrorLog;
+    private javax.swing.JLabel lblDeliverName;
+    private javax.swing.JLabel lblDeliverType;
+    private javax.swing.JLabel lblDeliverWeight;
+    private javax.swing.JLabel lblDropbox;
+    private javax.swing.JLabel lblEditAddDeliver;
+    private javax.swing.JLabel lblEditCourse;
+    private javax.swing.JLabel lblEditCourseCode;
+    private javax.swing.JLabel lblEditCourseTerm;
+    private javax.swing.JLabel lblEditCourseTtile;
+    private javax.swing.JLabel lblEditDeleteDeliver;
+    private javax.swing.JLabel lblEditDeliver;
+    private javax.swing.JLabel lblEditDeliverName;
+    private javax.swing.JLabel lblEditDeliverType;
+    private javax.swing.JLabel lblEditDeliverWeight;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblExmAvg;
+    private javax.swing.JLabel lblExportDelivers;
+    private javax.swing.JLabel lblExportGrades;
+    private javax.swing.JLabel lblExportStudents;
+    private javax.swing.JLabel lblFirstName;
+    private javax.swing.JLabel lblGrades;
+    private javax.swing.JLabel lblGradesErrorLog;
+    private javax.swing.JLabel lblImportDelivers;
+    private javax.swing.JLabel lblImportGrades;
+    private javax.swing.JLabel lblImportStudents;
+    private javax.swing.JLabel lblLastName;
+    private javax.swing.JLabel lblMini;
+    private javax.swing.JLabel lblNumber;
+    private javax.swing.JLabel lblSetup;
+    private javax.swing.JLabel lblSetupErrorLog;
+    private javax.swing.JLabel lblStudentAddErrorLog;
+    private javax.swing.JLabel lblStudentEmail;
+    private javax.swing.JLabel lblStudentNameFirst;
+    private javax.swing.JLabel lblStudentNameLast;
+    private javax.swing.JLabel lblStudentNumber;
+    private javax.swing.JLabel lblTabDropbox;
+    private javax.swing.JLabel lblTabGrades;
+    private javax.swing.JLabel lblTabSetup;
+    private javax.swing.JLabel lblhide;
+    private javax.swing.JLayeredPane lyrActiveCourse;
+    private javax.swing.JLabel myCourses;
+    private javax.swing.JPanel pnlAddCourse;
+    private javax.swing.JPanel pnlAddCourseContainer;
+    private javax.swing.JPanel pnlAddDeliver;
+    private javax.swing.JPanel pnlAddDeliverContainer;
+    private javax.swing.JPanel pnlAddStudent;
+    private javax.swing.JPanel pnlAddStudentContainer;
+    private javax.swing.JPanel pnlCourseMenu;
+    private javax.swing.JPanel pnlTables;
+    private javax.swing.JScrollPane studentScroll;
+    private javax.swing.JTable studentTable;
+    private javax.swing.JPanel tabDropbox;
+    private javax.swing.JPanel tabGrades;
+    private javax.swing.JPanel tabSetup;
+    private javax.swing.JTextField txtCourseCode;
+    private javax.swing.JTextPane txtCourseDesc;
+    private javax.swing.JTextField txtCourseName;
+    private javax.swing.JTextField txtDbxCode;
+    private javax.swing.JTextField txtDeliverName;
+    private javax.swing.JTextField txtDeliverWeight;
+    private javax.swing.JTextField txtEditCourseCode;
+    private javax.swing.JTextField txtEditCourseTitle;
+    private javax.swing.JTextField txtEditDeliverName;
+    private javax.swing.JTextField txtEditDeliverWeight;
+    private javax.swing.JTextField txtStudentEmail;
+    private javax.swing.JTextField txtStudentNameFirst;
+    private javax.swing.JTextField txtStudentNameLast;
+    private javax.swing.JTextField txtStudentNumber;
+    // End of variables declaration//GEN-END:variables
 }

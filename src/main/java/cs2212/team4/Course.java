@@ -329,7 +329,7 @@ public class Course implements CourseADT, Serializable
 	  * @param nameLast	The student's last name
 	  * @param number The student's unique ID number
 	  * @param email The student's email
-	  * @return	true if the student was added to the course. Or, if a student in the course already shares the same email or ID number, return false
+	  * @return true if the student was added to the course. Or, if a student in the course already shares the same email or ID number, return false
 	  * 
 	  */
 	public boolean addStudent(String nameFirst, String nameLast, String number,
@@ -345,7 +345,7 @@ public class Course implements CourseADT, Serializable
 	  * Remove a student from the course
 	  * 
 	  * @param i The student's index number in the list of students in this course
-	  * @return	true if the student was removed. Or, if the index given falls our of bounds of the list of students, return false
+	  * @return true if the student was removed. Or, if the index given falls our of bounds of the list of students, return false
 	  * 
 	  */
 	public boolean removeStudent(int i) {
@@ -359,7 +359,7 @@ public class Course implements CourseADT, Serializable
 	  * Finds the index number of the requested deliverable within the course's list of deliverables
 	  * 
 	  * @param deliver The deliverable we are searching for
-	  * @return  The index at which the requested deliverable sits in the list of deliverables in this course. Or, if the deliverable doesn't exist, return -1
+	  * @return The index at which the requested deliverable sits in the list of deliverables in this course. Or, if the deliverable doesn't exist, return -1
 	  * 
 	  */
 	public int findDeliverable(Deliverable deliver) {
@@ -375,7 +375,7 @@ public class Course implements CourseADT, Serializable
 	  * @param name The name of the dliverable
 	  * @param type	The type of the deliverable
 	  * @param weight The weight of the deliverable
-	  * @return	true if a deliverable was added to the course. Or, if the deliverable already exists, return false
+	  * @return true if a deliverable was added to the course. Or, if the deliverable already exists, return false
 	  * 
 	  */
 	public boolean addDeliverable(String name, String type, double weight) {
@@ -417,7 +417,7 @@ public class Course implements CourseADT, Serializable
 	  * @param stud The student who we want to give a grade for
 	  * @param deliver The deliverable for which we are adding the grade
 	  * @param grade The grade we are adding
-	  * @return	true if the grade was inserted. False if the grade failed to be inserted
+	  * @return true if the grade was inserted. False if the grade failed to be inserted
 	  * 
 	  */
 	public boolean addGrade(Student stud, Deliverable deliver, double grade) {
@@ -606,7 +606,7 @@ public class Course implements CourseADT, Serializable
 	  * Exports students' grades into a .csv file
 	  * 
 	  * @param The path where we want to export the grades
-	  * @return	true if the grades were exported, false otherwise
+	  * @return true if the grades were exported, false otherwise
 	  * 
 	  */
 	public boolean exportGrades(File file) {
@@ -635,7 +635,7 @@ public class Course implements CourseADT, Serializable
 	  * A method that test for course equality
 	  * 
 	  * @param crs The course we are comparing to	
-	  * @return	true if the course is equal to this course, false otherwise
+	  * @return true if the course is equal to this course, false otherwise
 	  * 
 	  */
 	public boolean equals(Course crs) {
@@ -647,7 +647,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	  * A toString method
 	  * 
-	  * @return	The course information. Including title, term, and code
+	  * @return The course information. Including title, term, and code
 	  * 
 	  */
 	public String toString() {

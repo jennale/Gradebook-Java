@@ -11,33 +11,33 @@ package cs2212.team4;
 public interface GradeADT
 {
 	/**
-	  * Gets the Grade object grade.
+	  * Gets the grade value
 	  * 
-	  * @return		Double, the Grade object grade.
+	  * @return The quntitative grade value
 	  * 
 	  */
 	public double getGrade();
 	
 	/**
-	  * Gets the Grade object weight.
+	  * Gets the weight that the grade represents
 	  * 
-	  * @return		Double, the Grade object weight.
+	  * @return The weight of this grade
 	  * 
 	  */
 	public double getWeight();
 	
 	/**
-	  * Sets the Grade object grade.
+	  * Set the grade value
 	  * 
-	  * @param		grade			Double,the Grade object grade.
+	  * @param The value that we want to set the grade to
 	  * 
 	  */
 	public void setGrade(double grade);
 	
 	/**
-	  * Sets the Grade object weight.
+	  * Sets grade weight
 	  * 
-	  * @param		weight			Double,the Grade object weight.
+	  * @param The value that we want to set the weight to
 	  * 
 	  */
 	public void setWeight(double weight);

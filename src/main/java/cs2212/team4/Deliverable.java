@@ -28,12 +28,12 @@ public class Deliverable implements DeliverableADT, Serializable
 	private int objId;
 	
 	/**
-	  * Constructor.
+	  * Constructor that creates a deliverable with a given name, type, weight, and ID
 	  * 
-	  * @param		name		String, the Deliverable object name.
-	  * @param		type		String, the Deliverable object type.
-	  * @param		weight		Double, the Deliverable object weight.
-	  * @param		objId		Integer, the Deliverable object id.
+	  * @param name The name of the deliverable
+	  * @param typeThe type of the deliverable
+	  * @param weight The weight of the deliverable
+	  * @param objId The deliverable ID
 	  * 
 	  */
 	public Deliverable(String name, String type, double weight, int objId) {
@@ -48,9 +48,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	************************************************************ */
 
 	/**
-	  * Gets the Deliverable object name.
+	  * Gets the name of the deliverable
 	  * 
-	  * @return		String, the Deliverable object name.
+	  * @return The deliverable's name
 	  * 
 	  */
 	public String getName() {
@@ -58,9 +58,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	}
 
 	/**
-	  * Gets the Deliverable object type.
+	  * Gets the type of the deliverable
 	  * 
-	  * @return		String, the Deliverable object type.
+	  * @return The deliverable type
 	  * 
 	  */
 	public String getType() {
@@ -68,9 +68,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	}
 
 	/**
-	  * Gets the Deliverable object weight.
+	  * Gets the weight of the deliverable
 	  * 
-	  * @return		Double, the Deliverable object weight.
+	  * @return The deliverable's weight
 	  * 
 	  */
 	public double getWeight() {
@@ -78,9 +78,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	}
 	
 	/**
-	  * Gets the Deliverable object id.
+	  * Gets ID of the deliverable
 	  * 
-	  * @return		Integer, the Deliverable object id.
+	  * @return The derliverable's ID
 	  * 
 	  */
 	public int getObjId() {
@@ -92,9 +92,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Sets the Deliverable object name.
+	  * Sets name of the deliverable
 	  * 
-	  * @param		name			String,the Deliverable object name.
+	  * @param name The deliverable's requested name
 	  * 
 	  */
 	public void setName(String name) {
@@ -102,9 +102,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	}
 
 	/**
-	  * Sets the Deliverable object type.
+	  * Sets type of the deliverable
 	  * 
-	  * @param		type			String,the Deliverable object type.
+	  * @param type	The deliverable's requested type
 	  * 
 	  */
 	public void setType(String type) {
@@ -112,9 +112,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	}
 
 	/**
-	  * Sets the Deliverable object weight.
+	  * Sets weight of the deliverable
 	  * 
-	  * @param		weight			Double,the Deliverable object weight.
+	  * @param weight The deliverable's requested weight
 	  * 
 	  */
 	public void setWeight(double weight) {
@@ -126,9 +126,10 @@ public class Deliverable implements DeliverableADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * An equals method.
+	  * An method to test for equality between deliverables
 	  * 
-	  * return		boolean, true if the Course object is equal to this, false otherwise.
+	  * @param A deliverable we want to compare to this one
+	  * @return true if the deliverables are the same, false otherwise
 	  * 
 	  */
 	public boolean equals(Deliverable deliver) {
@@ -138,9 +139,9 @@ public class Deliverable implements DeliverableADT, Serializable
 	}
 	
 	/**
-	  * A toString method.
+	  * A toString method
 	  * 
-	  * return		String, the Deliverable object information string.
+	  * return the deliverable information. Including name, type, and weight
 	  * 
 	  */
 	public String toString() {

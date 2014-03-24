@@ -326,7 +326,7 @@ public class Course implements CourseADT, Serializable
 	  * Adds a student to the course
 	  * 
 	  * @param nameFirst The student's first name
-	  * @param nameLast	The student's last name
+	  * @param nameLast The student's last name
 	  * @param number The student's unique ID number
 	  * @param email The student's email
 	  * @return true if the student was added to the course. Or, if a student in the course already shares the same email or ID number, return false

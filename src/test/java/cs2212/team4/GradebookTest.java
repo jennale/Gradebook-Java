@@ -3,6 +3,7 @@ package cs2212.team4;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.*;
 
 /**
 *
@@ -13,8 +14,7 @@ import org.junit.Test;
 */
 
 public class GradebookTest 
-{
-	
+{	
 	Gradebook gradebook = new Gradebook();
 	Course crs, crs0, crs1, crs2, crs3, crs4, crs5, crs6, crs7, crs8, crs9;
 	

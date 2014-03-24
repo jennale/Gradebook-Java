@@ -41,11 +41,11 @@ public class Course implements CourseADT, Serializable
 	private Stack<Integer> stkDeliver = new Stack<Integer>();
 
 	/**
-	  * Constructor.
+	  * Constructor that creates a course with a given title, term, and code
 	  * 
-	  * @param		title		String, the Course object title.
-	  * @param		term		String, the Course object term.
-	  * @param		code		String, the Course object code.
+	  * @param title The title of the course
+	  * @param term The term of the course
+	  * @param code The course code
 	  * 
 	  */
 	public Course(String title, String term, String code) {
@@ -59,9 +59,9 @@ public class Course implements CourseADT, Serializable
 	************************************************************ */
 
 	/**
-	  * Gets the course title.
+	  * Gets the course title
 	  * 
-	  * @return		String, the Course object title.
+	  * @return The title of the course
 	  * 
 	  */
 	public String getTitle() {
@@ -69,9 +69,9 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Gets the course term.
+	  * Gets the course term
 	  * 
-	  * @return		String, the Course object term.
+	  * @return	The Course object term.
 	  * 
 	  */
 	public String getTerm() {

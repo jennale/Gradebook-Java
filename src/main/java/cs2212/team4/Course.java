@@ -88,9 +88,15 @@ public class Course implements CourseADT, Serializable
 		return code;
 	}
         
+        /**
+	  * Gets the course description
+	  * 
+	  * @return The course description
+	  * 
+	  */
         public String getDescription(){
         return description;
-}
+	}
 	
 	/**
 	  * Gets a specified student of this course
@@ -130,32 +136,31 @@ public class Course implements CourseADT, Serializable
 		if (grade > studentList.size() - 1)
 			return -1;
 		return stud.getGrade(grade);
-    }
+	}
 
-    /**
-     * Calculates the class average in a Course containing Student objects. Returns -1 if there are no students
-     * or no deliverables in a course to use to calculate the average.
-     *
-     * @return average  A double object containing the class avg or -1 if the class avg cannot be calculated.
-     *
-     */
-    public double getClassAvg(){
-        double average = -1;
-        int numStudents = studentList.size();
-        if (numStudents > 0 && deliverableList.size() > 0){
-            average = 0;
-            for (int i = 0; i < numStudents; i++){
-                average = average + studentList.get(i).getAvg();
-            }
-            average = average/numStudents;
-        }
-        return average;
-    }
+	 /**
+	  * Gets the average for a course
+	  *
+	 * @return The average between all the students' grades in the course. If there are no students or no deliverables in the course, return -1
+	 *
+	 */
+	public double getClassAvg(){
+		double average = -1;
+		int numStudents = studentList.size();
+		if (numStudents > 0 && deliverableList.size() > 0){
+		    average = 0;
+		  for (int i = 0; i < numStudents; i++){
+		      average = average + studentList.get(i).getAvg();
+		  }
+		  average = average/numStudents;
+		}
+		return average;
+	}
         
-     /**
-	  * Gets the deliverableList size.
+	 /**
+	  * Gets the size of a list of deliverables pertaining to the course
 	  * 
-	  * @return		Integer, the deliverableList size.
+	  * @return The size of the list of the delicerables in this course
 	  * 
 	  */
 	public int getDeliverableListSize() {
@@ -163,9 +168,9 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Gets the studentList size.
+	  * Gets the size of a list of students pertaining to the course
 	  * 
-	  * @return		Integer, the studentList size.
+	  * @return The size of the list of the students in this course
 	  * 
 	  */
 	public int getStudentListSize() {
@@ -173,9 +178,9 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Gets the studentList.
+	  * Gets the list of students pertaining to the course
 	  * 
-	  * @return		ArrayList<Student>, the studentList.
+	  * @return The list of students in this course
 	  * 
 	  */
 	public ArrayList<Student> getStudents() {
@@ -183,9 +188,9 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	  * Gets the deliverableList.
+	  * Gets the list of deliverables pertaining to the course
 	  * 
-	  * @return		ArrayList<Deliverable>, the deliverableList.
+	  * @return The list of deliverables in this course
 	  * 
 	  */
 	public ArrayList<Deliverable> getDeliverables() {
@@ -197,9 +202,9 @@ public class Course implements CourseADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Sets the course title.
+	  * Sets the course title
 	  * 
-	  * @param		title			String, the Course Object title.
+	  * @param The desired title for the course
 	  * 
 	  */
 	public void setTitle(String title) {
@@ -207,9 +212,9 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Sets the course term.
+	  * Sets the course term
 	  * 
-	  * @param		term			String, the Course Object term.
+	  * @param The desired term for the course
 	  * 
 	  */
 	public void setTerm(String term) {
@@ -217,15 +222,21 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Sets the course code.
+	  * Sets the course code
 	  * 
-	  * @param		code			String, the Course Object code.
+	  * @param The desired course code
 	  * 
 	  */
 	public void setCode(String code) {
 		this.code = code;
 	}
         
+        /**
+	  * Sets the course description
+	  * 
+	  * @param The desired course description
+	  * 
+	  */
         public void setDescription(String description){
             this.description=description;
         }
@@ -235,11 +246,10 @@ public class Course implements CourseADT, Serializable
 	************************************************************ */
 	
 	/**
-	  * Checks if the integer provided already belongs to another Student object inside the studentList list.
+	  * Checks to make sure that the integer passed doesn't currently belong to another student in the course
 	  * 
-	  * @param		number			String, the Student object unique number.
-	  * 
-	  * @return		boolean, true if the number exists, false otherwise.
+	  * @param The student's ID number that we want to check for authenticity
+	  * @return true if the number is unique, false if a student in the course already has this ID
 	  * 
 	  */
 	private boolean checkNumber(String number) {
@@ -248,7 +258,7 @@ public class Course implements CourseADT, Serializable
 		return true;
 	}
 
-	/**s
+	/**
 	  * Checks if the string provided already belongs to another Student object inside the studentList list.
 	  * 
 	  * @param		email			String,the Student object unique email.

@@ -5831,7 +5831,6 @@ public class GradebookGUI extends JFrame {
 	}
 
 	private void makeTables(int first, int last, int email, int num) {
-
 		tableStudents = new UsersTable(currCourse, first, last, email, num);
 		tableStudents.addTableModelListener(new TableModelListener() {
 			@Override

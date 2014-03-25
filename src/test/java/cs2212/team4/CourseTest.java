@@ -3,6 +3,7 @@ package cs2212.team4;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import java.io.File;
 
 public class CourseTest 
 {
@@ -216,37 +217,43 @@ public class CourseTest
 	@Test
 	public void testImportStudents()
 	{
-		
+		File file = new File("src\\test\\java\\cs2212\\team4\\Computer Science2212BStudents.csv");
+		Assert.assertTrue(course4.importStudents(file));
 	}
 
 	@Test
 	public void testExportStudents()
 	{
-		
+		File file = new File("src\\test\\java\\cs2212\\team4\\Computer Science2212BStudents.csv");
+		Assert.assertTrue(course4.exportStudents(file));
 	}
 
 	@Test
 	public void testImportDeliverables() 
 	{
-		
+		File file = new File("src\\test\\java\\cs2212\\team4\\2212BDeliverables.csv");
+		Assert.assertTrue(course4.importDeliverables(file));
 	}
 
 	@Test
 	public void testExportDeliverables()
 	{
-		
+		File file = new File("src\\test\\java\\cs2212\\team4\\2212BDeliverables.csv");
+		Assert.assertTrue(course4.exportDeliverables(file));
 	}
 
 	@Test
 	public void testImportGrades() 
 	{
-		
+		File file = new File("src\\test\\java\\cs2212\\team4\\Computer Science2212BGrades.csv");
+		Assert.assertTrue(course4.importGrades(file));
 	}
 
 	@Test
 	public void testExportGrades()
 	{
-		
+		File file = new File("src\\test\\java\\cs2212\\team4\\Computer Science2212BGrades.csv");
+		Assert.assertTrue(course4.exportGrades(file));
 	}
 
 	@Test

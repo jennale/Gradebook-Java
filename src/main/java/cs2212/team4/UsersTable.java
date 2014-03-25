@@ -25,7 +25,7 @@ import java.util.List;
     private Course currCourse;
     //Column Names
     private final String[] COLUMN_NAMES = {"First Name", "Last Name", "Email", "Student #"};
-
+    private final List<Student> selected = new ArrayList<>();
     /**
      * Constructor, takes no parameters to create a default empty UserTable
      */
@@ -50,8 +50,8 @@ import java.util.List;
     public UsersTable(Course currCourse, int first,int last, int email, int num, int asnAvg, int exmAvg) {
         this.currCourse = currCourse;
         int numStud=currCourse.getStudentListSize();
-
         int[] columns = {first,last,email,num};
+
         for (int i = 0; i < COLUMN_NAMES.length; i++){
             if (columns[i]==1)
                 addColumn(COLUMN_NAMES[i]);
@@ -99,7 +99,7 @@ import java.util.List;
 
     public void addStudent (Course c, String studNum){
         Student s = c.getStudent(c.findStudent(studNum));
-        addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
+        addRow(new Object [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
         fireTableDataChanged();
     }
 
@@ -116,7 +116,7 @@ import java.util.List;
      */
 
     public void addStudent(Student s, int firstName, int lastName, int number, int email){
-    	String[] array = new String [4];
+    	Object[] array = new Object [4];
         int ctr=0;
         if (firstName==1)
             array[ctr++]=s.getNameFirst();
@@ -190,6 +190,7 @@ import java.util.List;
 
     }
 
+
     /**
      * Disables editing for cells that do not contain student information (empty rows)
      *
@@ -215,16 +216,22 @@ import java.util.List;
 
         if (width<9){
             for (int i=0; i < 10-width; i++){
-                grades.addColumn(" ");
+                grades.addColumn("");
             }
         }
         if (height<20){
             for (int i=0; i < 20-height; i++){
-                this.addRow(new String[]{" "});
-                grades.addRow(new String[] {" "});
+                this.addRow(new Object[]{});
+                grades.addRow(new Object[] {});
             }
         }
     }
+
+
+//    @Override
+//    public Class getColumnClass(int columnIndex) {
+//        return types [columnIndex];
+//    }
 
 }
 

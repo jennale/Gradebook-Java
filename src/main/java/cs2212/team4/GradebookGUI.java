@@ -365,7 +365,7 @@ public class GradebookGUI extends JFrame {
         courses.setBorder(null);
 
         courseMenuList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        courseMenuList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        courseMenuList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         courseMenuList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 courseMenuListValueChanged(evt);
@@ -946,7 +946,7 @@ public class GradebookGUI extends JFrame {
         tabGrades.setBackground(new java.awt.Color(255, 255, 255));
         tabGrades.setPreferredSize(new java.awt.Dimension(1080, 480));
 
-        deliverList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        deliverList.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         deliverList.setPreferredSize(new java.awt.Dimension(35, 80));
         deliverList.setVisibleRowCount(10);
         deliverList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -1022,17 +1022,17 @@ public class GradebookGUI extends JFrame {
 
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "First Name", "Last Name", "Number", "Email"
+                "", "First Name", "Last Name", "Number", "Email"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1041,7 +1041,8 @@ public class GradebookGUI extends JFrame {
         });
         studentTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         studentTable.setOpaque(false);
-        studentTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+//        studentTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        studentTable.getTableHeader().setReorderingAllowed(false);
         studentTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 studentTableMouseClicked(evt);
@@ -1066,7 +1067,8 @@ public class GradebookGUI extends JFrame {
         gradesTable.setToolTipText("");
         gradesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         gradesTable.setOpaque(false);
-        gradesTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+//        gradesTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        gradesTable.getTableHeader().setReorderingAllowed(false);
         gradesTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 gradesTableMouseClicked(evt);
@@ -2412,10 +2414,12 @@ public class GradebookGUI extends JFrame {
 
 	private void deleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseClicked
 		if (currCourse != null) {
-			if (deliverList.getSelectedIndex() != -1) {
-				String temp = listDelivers.getElementAt(deliverList
-						.getSelectedIndex());
-				currCourse.removeDeliverable(findDeliver(temp));
+            if (deliverList.getSelectedIndex() > -1) {
+                int[] selectedRows = deliverList.getSelectedIndices();
+                    for (int i=0; i < selectedRows.length; i++) {
+                        String del = listDelivers.getElementAt(selectedRows[i]);
+                        currCourse.removeDeliverable(findDeliver(del));
+                    }
 				updateInfo();
 			} else
 				lblGradesErrorLog.setText("Please select a deliverable");
@@ -2483,8 +2487,6 @@ public class GradebookGUI extends JFrame {
 				deleteStudent.setVisible(true);
 		} else
 			deleteStudent.setVisible(false);
-		int i = studentTable.getSelectedRow();
-		gradesTable.setRowSelectionInterval(i, i);
 	}// GEN-LAST:event_studentTableMouseClicked
 
 	private void gradesTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_gradesTableMouseClicked
@@ -2494,8 +2496,6 @@ public class GradebookGUI extends JFrame {
 				deleteStudent.setVisible(true);
 		} else
 			deleteStudent.setVisible(false);
-		int i = gradesTable.getSelectedRow();
-		studentTable.setRowSelectionInterval(i, i);
 	}// GEN-LAST:event_gradesTableMouseClicked
 
 	private void lblFirstNameMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblFirstNameMouseClicked
@@ -2838,7 +2838,11 @@ public class GradebookGUI extends JFrame {
 
 	private void deleteStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseClicked
 		if (currCourse != null) {
-			currCourse.removeStudent(studentTable.getSelectedRow());
+            int[] selectedRows = gradesTable.getSelectedRows();
+            for (int i=0; i < selectedRows.length; i++) {
+                Student stu = tableStudents.getStudentNames().get(selectedRows[i]);
+                currCourse.removeStudent(currCourse.findStudent(stu.getNumber()));
+            }
 			updateInfo();
 		} else
 			lblGradesErrorLog.setText("Please select a course");
@@ -3665,10 +3669,11 @@ public class GradebookGUI extends JFrame {
 
 	private void lblEditDeleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseClicked
 		if (currCourse != null) {
-			if (editDeliverList.getSelectedIndex() != -1) {
-				String temp = listDelivers.getElementAt(editDeliverList
-						.getSelectedIndex());
-				currCourse.removeDeliverable(findDeliver(temp));
+            if (editDeliverList.getSelectedIndex() != -1) {
+                String temp = listDelivers.getElementAt(editDeliverList
+                        .getSelectedIndex());
+                currCourse.removeDeliverable(findDeliver(temp));
+
 				updateInfo();
 			} else
 				lblSetupErrorLog.setText("Please select a deliverable");
@@ -4658,6 +4663,8 @@ public class GradebookGUI extends JFrame {
 				new Dimension(15, 5));
 		gradesScroll.setWheelScrollingEnabled(true);
 
+        gradesTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        studentTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         studentTable.setSelectionModel(gradesTable.getSelectionModel());
         studentTable.setRowSorter(gradesTable.getRowSorter());
 	}
@@ -4704,7 +4711,7 @@ public class GradebookGUI extends JFrame {
             lblCourseAvg.setText(String.format("%.2f",currCourse.getClassAvg())+"%");
         }
         else {
-        lblCourseAvg.setText("--%");
+        lblCourseAvg.setText("-- %");
         }
     }
 

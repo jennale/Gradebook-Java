@@ -153,13 +153,18 @@ public class Course implements CourseADT, Serializable
 	 */
 	public double getClassAvg(){
 		double average = -1;
-		int numStudents = studentList.size();
+        int num = 0;
+        int numStudents = studentList.size();
 		if (numStudents > 0 && deliverableList.size() > 0){
 			average = 0;
 			for (int i = 0; i < numStudents; i++){
-				average = average + studentList.get(i).getAvg();
+                double avg = studentList.get(i).getAvg();
+                if (avg >= 0){
+				    average = average + avg;
+                    num++;
+                }
 			}
-			average = average/numStudents;
+			average = average/num;
 		}
 		return average;
 	}
@@ -211,7 +216,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Sets the course title
 	 * 
-	 * @param The desired title for the course
+	 * @param title The desired title for the course
 	 * 
 	 */
 	public void setTitle(String title) {
@@ -221,7 +226,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Sets the course term
 	 * 
-	 * @param The desired term for the course
+	 * @param term The desired term for the course
 	 * 
 	 */
 	public void setTerm(String term) {
@@ -231,7 +236,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Sets the course code
 	 * 
-	 * @param The desired course code
+	 * @param code The desired course code
 	 * 
 	 */
 	public void setCode(String code) {
@@ -241,7 +246,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Sets the course description
 	 * 
-	 * @param The desired course description
+	 * @param description The desired course description
 	 * 
 	 */
 	public void setDescription(String description){
@@ -255,7 +260,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Checks to make sure that the student ID passed doesn't currently belong to another student in the course
 	 * 
-	 * @param The student's ID number that we want to check for authenticity
+	 * @param number The student's ID number that we want to check for authenticity
 	 * @return false if the ID number is unique, true if a student in the course already has this ID number
 	 * 
 	 */
@@ -612,7 +617,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Exports students' grades into a .csv file
 	 * 
-	 * @param The path where we want to export the grades
+	 * @param file The path where we want to export the grades
 	 * @return true if the grades were exported, false otherwise
 	 * 
 	 */

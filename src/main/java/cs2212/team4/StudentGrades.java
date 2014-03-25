@@ -39,6 +39,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 		grades = new ArrayList<Grade>();
 		asn = new ArrayList<Integer>();
 		exm = new ArrayList<Integer>();
+        calcAvg();
+        calcAsnAvg();
+        calcExmAvg();
 	}
 	
 	/* ************************************************************
@@ -113,7 +116,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	/**
 	  * Sets the student's assignment average
 	  * 
-	  * @param avg The new assignment average for the student
+	  * @param asnAvg The new assignment average for the student
 	  * 
 	  */
 	public void setAsnAvg(double asnAvg) {
@@ -123,7 +126,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	/**
 	  * Sets the student's exam average
 	  * 
-	  * @param avg The new exam average for the student
+	  * @param exmAvg The new exam average for the student
 	  * 
 	  */
 	public void setExmAvg(double exmAvg) {
@@ -142,6 +145,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  */
 	private void calcAvg() {
 		double avg = 0;
+        this.avg=-1;
 		double weight = 0;
 		Grade temp;
 		if (grades.isEmpty()) {

@@ -54,14 +54,14 @@ public interface StudentGradesADT
 	/**
 	  * Sets the student's assignment average
 	  * 
-	  * @param avg The new assignment average for the student
+	  * @param asnAvg The new assignment average for the student
 	  * 
 	  */
 	public void setAsnAvg(double asnAvg);
 	/**
 	  * Sets the student's exam average
 	  * 
-	  * @param avg The new exam average for the student
+	  * @param exmAvg The new exam average for the student
 	  * 
 	  */
 	public void setExmAvg(double exmAvg);

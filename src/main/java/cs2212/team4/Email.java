@@ -13,16 +13,26 @@ import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.apache.velocity.tools.generic.NumberTool;
 
+/**
+*
+* Email is the class that will send emails to students containing their reports
+*
+* team4-gradebook application
+*
+* @author Justin Cheng
+*/
+
 public class Email {
 
   /**
-  *	getSession method
+  *	getSession method helps obtain a mail session object
   *
+  * @param properties contains details of the SMTP server
   */
   private static Session getSession(final Properties properties) {
 
-    Session session = Session.getInstance(properties ,	//instantiate a new mail session, passing in the properties parameter to Session.getInstance
-		new javax.mail.Authenticator() {				// instantiate and pass an Authenticator, which is used to pass a username and password to the
+    Session session = Session.getInstance(properties ,				//instantiate a new mail session, passing in the properties parameter to Session.getInstance
+		new javax.mail.Authenticator() {							// instantiate and pass an Authenticator, which is used to pass a username and password to the
 			protected PasswordAuthentication getPasswordAuthentication() {	// SMTP server to authenticate with it
 				String username = properties.getProperty("smtp.username");
 				String password = properties.getProperty("smtp.password");
@@ -33,10 +43,20 @@ public class Email {
 	return session;
   }
 
+  /**
+  * sendMessage method sends template message to specified recipients
+  *
+  * @param session contains details of the SMTP server so message knows how to be sent
+  * 
+  * @param properties contains details of sender of emails
+  * 
+  * @param recipients contains emails of receivers of email
+  * 
+  */
   private static void sendMessage(Session session, Properties properties, String[] recipients) throws
 	Exception {
 	Message msg = new MimeMessage(session);							// Instantiate mime message object, initialize with session object so
-																	//that the message effectively knows exactly how it is to be sent (details of SMTP server)
+																	// that the message effectively knows exactly how it is to be sent (details of SMTP server)
 	String senderName = properties.getProperty("sender.name");		// get sender name
 	String senderEmail = properties.getProperty("sender.email");	// get sender email
 	
@@ -72,6 +92,10 @@ public class Email {
 	Transport.send(msg);																	// send message using this method
   }
   
+  /**
+  * Takes the name of the file in which the template is stored
+  *
+  */  
   private static Properties loadProperties() throws Exception {
 
 	Properties properties = new Properties();

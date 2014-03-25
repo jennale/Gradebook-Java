@@ -85,15 +85,15 @@ public class GradesTable extends DefaultTableModel{
 
         int ctr = 0;
         if(s.getNumGrades()>0) {
-            if (s.getAvg()>0)
+            if (s.getAvg()>=0)
                 grades[ctr++] = String.format("%.2f", s.getAvg());
             else
                 grades[ctr++] = "";
-            if (asnAvg==1 && s.getAsnAvg()>0)
+            if (asnAvg==1 && s.getAsnAvg()>=0)
                 grades[ctr++]=String.format("%.2f",s.getAsnAvg());
             else if(asnAvg==1)
                 grades[ctr++] = "";
-            if (exmAvg==1 && s.getExmAvg()>0)
+            if (exmAvg==1 && s.getExmAvg()>=0)
                 grades[ctr++]=String.format("%.2f",s.getExmAvg());
             else if(exmAvg==1)
                 grades[ctr++]= "";
@@ -121,7 +121,7 @@ public class GradesTable extends DefaultTableModel{
      */
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        if ((rowIndex < 0) || (rowIndex >= currCourse.getDeliverableListSize()))
+        if ((rowIndex < 0) || (rowIndex >= currCourse.getStudentListSize()))
             return;
         else if (columnIndex > 0) {
             Deliverable d = deliverableGrades.get(columnIndex - (1+asnAvg+exmAvg));

@@ -11,7 +11,12 @@ import java.io.Serializable;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.Collection;
 import au.com.bytecode.opencsv.CSVReader;
+import java.io.*;
+import java.util.*;
+import java.util.List;
+
 
 /**
  *
@@ -20,15 +25,15 @@ import au.com.bytecode.opencsv.CSVReader;
  * team4-gradebook application
  *
  * @author Zaid Albirawi
- * @version 1.5 2/28/2014
+ * @version 1.6 3/25/2014
  */
 
 public class Course implements CourseADT, Serializable
 {
 	/* ************************************************************
-	* Instance Variables
-	************************************************************ */
-	
+	 * Instance Variables
+	 ************************************************************ */
+
 	// The Course Class version
 	private static final long serialVersionUID = 1L;
 	// The Course object title, term, and code.
@@ -39,24 +44,26 @@ public class Course implements CourseADT, Serializable
 	private ArrayList<Deliverable> deliverableList = new ArrayList<Deliverable>();
 	// The Course object empty deliverable slots
 	private Stack<Integer> stkDeliver = new Stack<Integer>();
+	//A collection of reports containing various information on a student
+	public static Collection<Report> student_info = new ArrayList<Report>();
 
 	/**
-	  * Constructor that creates a course with a given title, term, and code
-	  * 
-	  * @param title The title of the course
-	  * @param term The term of the course
-	  * @param code The course code
-	  * 
-	  */
+	 * Constructor that creates a course with a given title, term, and code
+	 * 
+	 * @param title The title of the course
+	 * @param term The term of the course
+	 * @param code The course code
+	 * 
+	 */
 	public Course(String title, String term, String code) {
 		this.title = title;
 		this.term  = term;
 		this.code  = code;
 	}
-	
+
 	/* ************************************************************
-	* Accessor Methods
-	************************************************************ */
+	 * Accessor Methods
+	 ************************************************************ */
 
 	/**
 	 * Gets the course title
@@ -69,78 +76,78 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Gets the course term
-	  * 
-	  * @return The term of the course
-	  * 
-	  */
+	 * Gets the course term
+	 * 
+	 * @return The term of the course
+	 * 
+	 */
 	public String getTerm() {
 		return term;
 	}
 
 	/**
-	  * Gets the course code
-	  * 
-	  * @return The course code
-	  * 
-	  */
+	 * Gets the course code
+	 * 
+	 * @return The course code
+	 * 
+	 */
 	public String getCode() {
 		return code;
 	}
-        
-        /**
-	  * Gets the course description
-	  * 
-	  * @return The course description
-	  * 
-	  */
-        public String getDescription(){
-        return description;
-	}
-	
+
 	/**
-	  * Gets a specified student of this course
-	  * 
-	  * @param stud An index number pertaining to a student in a list
-	  * @return The student that is indexed at the passed number. If the student index is out of bounds from the list, return null
-	  * 
-	  */
+	 * Gets the course description
+	 * 
+	 * @return The course description
+	 * 
+	 */
+	public String getDescription(){
+		return description;
+	}
+
+	/**
+	 * Gets a specified student of this course
+	 * 
+	 * @param stud An index number pertaining to a student in a list
+	 * @return The student that is indexed at the passed number. If the student index is out of bounds from the list, return null
+	 * 
+	 */
 	public Student getStudent(int stud) {
 		if (stud > studentList.size() - 1)
 			return null;
 		return studentList.get(stud);
 	}
-	
+
 	/**
-	  * Gets a specified Deliverable of this course
-	  * 
-	  * @param deliver An index number pertaining to a deliverable in this course's list of deliverables
-	  * @return The Deliverable that is indexed at the passed number. If the deliverable index is out of bounds from the list, return null
-	  * 
-	  */
+	 * Gets a specified Deliverable of this course
+	 * 
+	 * @param deliver An index number pertaining to a deliverable in this course's list of deliverables
+	 * @return The Deliverable that is indexed at the passed number. If the deliverable index is out of bounds from the list, return null
+	 * 
+	 */
 	public Deliverable getDeliverable(int deliver) {
 		if (deliver < deliverableList.size())
 			return deliverableList.get(deliver);
 		return null;
 	}
-	
+
 	/**
-	  * Gets a specific student grade
-	  * 
-	  * @param stud	A student of this course
-	  * @param grade An index number pertaining to a grade in this student's list of grades
-	  * @return The specidied student's specified grade. If the grade index is out of bounds from the list, return -1
-	  * 
-	  */
+	 * Gets a specific student grade
+	 * 
+	 * @param stud	A student of this course
+	 * @param grade An index number pertaining to a grade in this student's list of grades
+	 * @return The specidied student's specified grade. If the grade index is out of bounds from the list, return -1
+	 * 
+	 */
 	public double getGrade(Student stud, int grade) {
 		if (grade > studentList.size() - 1)
 			return -1;
 		return stud.getGrade(grade);
 	}
 
-	 /**
-	  * Gets the average for a course
-	  *
+	/**
+	 * Gets the average for a course
+	 *
 	 * @return The average between all the students' grades in the course. If there are no students or no deliverables in the course, return -1
 	 *
 	 */
@@ -148,110 +155,110 @@ public class Course implements CourseADT, Serializable
 		double average = -1;
 		int numStudents = studentList.size();
 		if (numStudents > 0 && deliverableList.size() > 0){
-		    average = 0;
-		  for (int i = 0; i < numStudents; i++){
-		      average = average + studentList.get(i).getAvg();
-		  }
-		  average = average/numStudents;
+			average = 0;
+			for (int i = 0; i < numStudents; i++){
+				average = average + studentList.get(i).getAvg();
+			}
+			average = average/numStudents;
 		}
 		return average;
 	}
-        
-	 /**
-	  * Gets the size of a list of deliverables pertaining to the course
-	  * 
-	  * @return The size of the list of the delicerables in this course
-	  * 
-	  */
+
+	/**
+	 * Gets the size of a list of deliverables pertaining to the course
+	 * 
+	 * @return The size of the list of the delicerables in this course
+	 * 
+	 */
 	public int getDeliverableListSize() {
 		return deliverableList.size();
 	}
-	
+
 	/**
-	  * Gets the size of a list of students pertaining to the course
-	  * 
-	  * @return The size of the list of the students in this course
-	  * 
-	  */
+	 * Gets the size of a list of students pertaining to the course
+	 * 
+	 * @return The size of the list of the students in this course
+	 * 
+	 */
 	public int getStudentListSize() {
 		return studentList.size();
 	}
-	
+
 	/**
-	  * Gets the list of students pertaining to the course
-	  * 
-	  * @return The list of students in this course
-	  * 
-	  */
+	 * Gets the list of students pertaining to the course
+	 * 
+	 * @return The list of students in this course
+	 * 
+	 */
 	public ArrayList<Student> getStudents() {
 		return studentList;
 	}
-	
+
 	/**
-	  * Gets the list of deliverables pertaining to the course
-	  * 
-	  * @return The list of deliverables in this course
-	  * 
-	  */
+	 * Gets the list of deliverables pertaining to the course
+	 * 
+	 * @return The list of deliverables in this course
+	 * 
+	 */
 	public ArrayList<Deliverable> getDeliverables() {
 		return deliverableList;
 	}
-	
+
 	/* ************************************************************
-	* Mutator Methods
-	************************************************************ */
-	
+	 * Mutator Methods
+	 ************************************************************ */
+
 	/**
-	  * Sets the course title
-	  * 
-	  * @param The desired title for the course
-	  * 
-	  */
+	 * Sets the course title
+	 * 
+	 * @param The desired title for the course
+	 * 
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
 	/**
-	  * Sets the course term
-	  * 
-	  * @param The desired term for the course
-	  * 
-	  */
+	 * Sets the course term
+	 * 
+	 * @param The desired term for the course
+	 * 
+	 */
 	public void setTerm(String term) {
 		this.term = term;
 	}
 
 	/**
-	  * Sets the course code
-	  * 
-	  * @param The desired course code
-	  * 
-	  */
+	 * Sets the course code
+	 * 
+	 * @param The desired course code
+	 * 
+	 */
 	public void setCode(String code) {
 		this.code = code;
 	}
-        
-        /**
-	  * Sets the course description
-	  * 
-	  * @param The desired course description
-	  * 
-	  */
-        public void setDescription(String description){
-            this.description=description;
-        }
-	
-	/* ************************************************************
-	* Helper Methods
-	************************************************************ */
-	
+
 	/**
-	  * Checks to make sure that the student ID passed doesn't currently belong to another student in the course
-	  * 
-	  * @param The student's ID number that we want to check for authenticity
-	  * @return false if the ID number is unique, true if a student in the course already has this ID number
-	  * 
-	  */
+	 * Sets the course description
+	 * 
+	 * @param The desired course description
+	 * 
+	 */
+	public void setDescription(String description){
+		this.description=description;
+	}
+
+	/* ************************************************************
+	 * Helper Methods
+	 ************************************************************ */
+
+	/**
+	 * Checks to make sure that the student ID passed doesn't currently belong to another student in the course
+	 * 
+	 * @param The student's ID number that we want to check for authenticity
+	 * @return false if the ID number is unique, true if a student in the course already has this ID number
+	 * 
+	 */
 	private boolean checkNumber(String number) {
 		if (findStudent(number) == -1)
 			return false;
@@ -259,12 +266,12 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Checks to make sure that the email address passed doesn't currently belong to another student in the course
-	  * 
-	  * @param email The email of the student that we want to check for authenticity
-	  * @return false if the email is unique, true if a student in the course already has this email
-	  * 
-	  */
+	 * Checks to make sure that the email address passed doesn't currently belong to another student in the course
+	 * 
+	 * @param email The email of the student that we want to check for authenticity
+	 * @return false if the email is unique, true if a student in the course already has this email
+	 * 
+	 */
 	private boolean checkEmail(String email) {
 		for (int i = 0; i < studentList.size(); i++)
 			if (studentList.get(i).getEmail().equals(email))
@@ -273,13 +280,13 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Edit a student's ID number
-	  * 
-	  * @param stud	The student whose ID number we want to change
-	  * @param number The new ID number we want to change to
-	  * @return true if the ID number was changed or if requested change was already the current number. Or, if the number already belongs to another student, return false
-	  * 
-	  */
+	 * Edit a student's ID number
+	 * 
+	 * @param stud	The student whose ID number we want to change
+	 * @param number The new ID number we want to change to
+	 * @return true if the ID number was changed or if requested change was already the current number. Or, if the number already belongs to another student, return false
+	 * 
+	 */
 	public boolean editStudentNumber(Student stud, String number) {
 		if (stud.getNumber().equals(number))
 			return true;
@@ -291,13 +298,13 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Edit a student's Email
-	  * 
-	  * @param stud The student whose email we want to change
-	  * @param email The new email we want to change to
-	  * @return true if the email was changed or if requested change was already the current email. Or, if the email already belongs to another student, return false
-	  * 
-	  */
+	 * Edit a student's Email
+	 * 
+	 * @param stud The student whose email we want to change
+	 * @param email The new email we want to change to
+	 * @return true if the email was changed or if requested change was already the current email. Or, if the email already belongs to another student, return false
+	 * 
+	 */
 	public boolean editStudentEmail(Student stud, String email) {
 		if (stud.getEmail().equals(email))
 			return true;
@@ -307,31 +314,31 @@ public class Course implements CourseADT, Serializable
 			stud.setEmail(email);
 		return true;
 	}
-	
+
 	/**
-	  * Finds the index number of the requested student within the course's list of students
-	  * 
-	  * @param number The student's ID number
-	  * @return The index at which the requested student sits in the list of students in this course. Or, if the student doesn't exist, return -1
-	  * 
-	  */
+	 * Finds the index number of the requested student within the course's list of students
+	 * 
+	 * @param number The student's ID number
+	 * @return The index at which the requested student sits in the list of students in this course. Or, if the student doesn't exist, return -1
+	 * 
+	 */
 	public int findStudent(String number) {
 		for (int i = 0; i < studentList.size(); i++)
 			if (studentList.get(i).getNumber().equals(number))
 				return i;
 		return -1;
 	}
-	
+
 	/**
-	  * Adds a student to the course
-	  * 
-	  * @param nameFirst The student's first name
-	  * @param nameLast The student's last name
-	  * @param number The student's unique ID number
-	  * @param email The student's email
-	  * @return true if the student was added to the course. Or, if a student in the course already shares the same email or ID number, return false
-	  * 
-	  */
+	 * Adds a student to the course
+	 * 
+	 * @param nameFirst The student's first name
+	 * @param nameLast The student's last name
+	 * @param number The student's unique ID number
+	 * @param email The student's email
+	 * @return true if the student was added to the course. Or, if a student in the course already shares the same email or ID number, return false
+	 * 
+	 */
 	public boolean addStudent(String nameFirst, String nameLast, String number,
 			String email) {
 		if (!(checkNumber(number) || checkEmail(email))) {
@@ -342,42 +349,42 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Remove a student from the course
-	  * 
-	  * @param i The student's index number in the list of students in this course
-	  * @return true if the student was removed. Or, if the index given falls our of bounds of the list of students, return false
-	  * 
-	  */
+	 * Remove a student from the course
+	 * 
+	 * @param i The student's index number in the list of students in this course
+	 * @return true if the student was removed. Or, if the index given falls our of bounds of the list of students, return false
+	 * 
+	 */
 	public boolean removeStudent(int i) {
 		if (i >= studentList.size())
 			return false;
 		studentList.remove(i);
 		return true;
 	}
-	
+
 	/**
-	  * Finds the index number of the requested deliverable within the course's list of deliverables
-	  * 
-	  * @param deliver The deliverable we are searching for
-	  * @return The index at which the requested deliverable sits in the list of deliverables in this course. Or, if the deliverable doesn't exist, return -1
-	  * 
-	  */
+	 * Finds the index number of the requested deliverable within the course's list of deliverables
+	 * 
+	 * @param deliver The deliverable we are searching for
+	 * @return The index at which the requested deliverable sits in the list of deliverables in this course. Or, if the deliverable doesn't exist, return -1
+	 * 
+	 */
 	public int findDeliverable(Deliverable deliver) {
 		for (int i = 0; i < deliverableList.size(); i++)
 			if (deliverableList.get(i)!=null&&deliverableList.get(i).equals(deliver))
 				return i;
 		return -1;
 	}
-	
+
 	/**
-	  * Adds a deliverable to the course
-	  * 
-	  * @param name The name of the dliverable
-	  * @param type	The type of the deliverable
-	  * @param weight The weight of the deliverable
-	  * @return true if a deliverable was added to the course. Or, if the deliverable already exists, return false
-	  * 
-	  */
+	 * Adds a deliverable to the course
+	 * 
+	 * @param name The name of the dliverable
+	 * @param type	The type of the deliverable
+	 * @param weight The weight of the deliverable
+	 * @return true if a deliverable was added to the course. Or, if the deliverable already exists, return false
+	 * 
+	 */
 	public boolean addDeliverable(String name, String type, double weight) {
 		if (findDeliverable(new Deliverable(name, type, weight, 0)) != -1)
 			return false;
@@ -391,58 +398,58 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Removes a deliverable from the course
-	  * 
-	  * @param i The index of the deliverable we want to remove in the list of the deliverables for this course
-	  * @return true if the deliverable was removed. Or, if the index falls out of bounds from our list of deliverables in this course, return false
-	  * 
-	  */
+	 * Removes a deliverable from the course
+	 * 
+	 * @param i The index of the deliverable we want to remove in the list of the deliverables for this course
+	 * @return true if the deliverable was removed. Or, if the index falls out of bounds from our list of deliverables in this course, return false
+	 * 
+	 */
 	public boolean removeDeliverable(int i) {
 		if (i >= deliverableList.size())
 			return false;
-    //Also Remove this grade item from all the students (to have a correct avg calculation)
-        String type = getDeliverable(i).getType();
-        for (int j = 0; j<studentList.size(); j++){
-            getStudent(j).removeGrade(i,type);
-        }
+		//Also Remove this grade item from all the students (to have a correct avg calculation)
+		String type = getDeliverable(i).getType();
+		for (int j = 0; j<studentList.size(); j++){
+			getStudent(j).removeGrade(i,type);
+		}
 		deliverableList.set(i, null);
 		stkDeliver.push(i);
 
 		return true;
 	}
-	
+
 	/**
-	  * Adds a grade for a student in the course
-	  * 
-	  * @param stud The student who we want to give a grade for
-	  * @param deliver The deliverable for which we are adding the grade
-	  * @param grade The grade we are adding
-	  * @return true if the grade was inserted. False if the grade failed to be inserted
-	  * 
-	  */
+	 * Adds a grade for a student in the course
+	 * 
+	 * @param stud The student who we want to give a grade for
+	 * @param deliver The deliverable for which we are adding the grade
+	 * @param grade The grade we are adding
+	 * @return true if the grade was inserted. False if the grade failed to be inserted
+	 * 
+	 */
 	public boolean addGrade(Student stud, Deliverable deliver, double grade) {
 		return stud.addGrade(deliver.getObjId(), grade, deliver.getType(),
 				deliver.getWeight());
 	}
-	
+
 	/**
-	  * removes a grade from a student in the course
-	  * 
-	  * @param stud The student who we want to remove a grade from
-	  * @param deliver The deliverable from which we are removing the grade
-	  * @return true if the grade was removed. False if the grade failed to be removed
-	  * 
-	  */
+	 * removes a grade from a student in the course
+	 * 
+	 * @param stud The student who we want to remove a grade from
+	 * @param deliver The deliverable from which we are removing the grade
+	 * @return true if the grade was removed. False if the grade failed to be removed
+	 * 
+	 */
 	public boolean removeGrade(Student stud, Deliverable deliver) {
 		return stud.removeGrade(deliver.getObjId(), deliver.getType());
 	}
 
 	/**
-	  * Imports students into the course
-	  * @param file The path where the file containing the students to be imported is located
-	  * @return true if the students were imported successfully, otherwise return false
-	  * 
-	  */
+	 * Imports students into the course
+	 * @param file The path where the file containing the students to be imported is located
+	 * @return true if the students were imported successfully, otherwise return false
+	 * 
+	 */
 	public boolean importStudents(File file)
 	{
 		String[] sAry = { "nameLast", "nameFirst", "number", "email" };
@@ -470,12 +477,12 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Exports the Students of a course into a .csv file
-	  * 
-	  * @param file The path where we want to export the students
-	  * @return true if the students were exported, false otherwise
-	  * 
-	  */
+	 * Exports the Students of a course into a .csv file
+	 * 
+	 * @param file The path where we want to export the students
+	 * @return true if the students were exported, false otherwise
+	 * 
+	 */
 	public boolean exportStudents(File file) {
 		try {
 			if (file.exists())
@@ -491,14 +498,14 @@ public class Course implements CourseADT, Serializable
 			return false;
 		}
 	}
-	
+
 	/**
-	  * Imports deliverables into the course
-	  * 
-	  * @param file The path where the file containing the deliverables to be imported is located
-	  * @return true if the deliverables were imported successfully, otherwise return false
-	  * 
-	  */
+	 * Imports deliverables into the course
+	 * 
+	 * @param file The path where the file containing the deliverables to be imported is located
+	 * @return true if the deliverables were imported successfully, otherwise return false
+	 * 
+	 */
 	public boolean importDeliverables(File file) {
 		String[] dAry = { "name", "type", "weight" };
 		try {
@@ -526,12 +533,12 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Exports the deliverables of a course into a .csv file
-	  * 
-	  * @param file The path where we want to export the deliverables
-	  * @return true if the deliverables were exported, false otherwise
-	  * 
-	  */
+	 * Exports the deliverables of a course into a .csv file
+	 * 
+	 * @param file The path where we want to export the deliverables
+	 * @return true if the deliverables were exported, false otherwise
+	 * 
+	 */
 	public boolean exportDeliverables(File file) {
 		try {
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
@@ -546,14 +553,14 @@ public class Course implements CourseADT, Serializable
 			return false;
 		}
 	}
-	
+
 	/**
-	  * Imports students' grades into the course
-	  * 
-	  * @param file The path where the file containing the students' grades to be imported is located
-	  * @return true if the grades were imported successfully, otherwise return false
-	  * 
-	  */
+	 * Imports students' grades into the course
+	 * 
+	 * @param file The path where the file containing the students' grades to be imported is located
+	 * @return true if the grades were imported successfully, otherwise return false
+	 * 
+	 */
 	public boolean importGrades(File file) {
 		ArrayList<Integer> fileLoc = new ArrayList<Integer>();
 		ArrayList<Integer> delivers = new ArrayList<Integer>();
@@ -572,7 +579,7 @@ public class Course implements CourseADT, Serializable
 				numClmn=nextLine.indexOf("number");
 			else if (nextLine.contains("Number"))
 				numClmn=nextLine.indexOf("Number");
-			
+
 			for (int i = 0; i < deliverableList.size(); i++)
 				if (nextLine.contains(deliverableList.get(i).getName())) {
 					delivers.add(i);
@@ -603,12 +610,12 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * Exports students' grades into a .csv file
-	  * 
-	  * @param The path where we want to export the grades
-	  * @return true if the grades were exported, false otherwise
-	  * 
-	  */
+	 * Exports students' grades into a .csv file
+	 * 
+	 * @param The path where we want to export the grades
+	 * @return true if the grades were exported, false otherwise
+	 * 
+	 */
 	public boolean exportGrades(File file) {
 		ArrayList<Integer> dilvers = new ArrayList<Integer>();
 		try {
@@ -632,26 +639,46 @@ public class Course implements CourseADT, Serializable
 	}
 
 	/**
-	  * A method that test for course equality
-	  * 
-	  * @param crs The course we are comparing to	
-	  * @return true if the course is equal to this course, false otherwise
-	  * 
-	  */
+	 * A method that test for course equality
+	 * 
+	 * @param crs The course we are comparing to	
+	 * @return true if the course is equal to this course, false otherwise
+	 * 
+	 */
 	public boolean equals(Course crs) {
 		if (this.toString().equalsIgnoreCase(crs.toString()))
 			return true;
 		return false;
 	}
-	
+
 	/**
-	  * A toString method
-	  * 
-	  * @return The course information. Including title, term, and code
-	  * 
-	  */
+	 * A toString method
+	 * 
+	 * @return The course information. Including title, term, and code
+	 * 
+	 */
 	public String toString() {
 		return ("\"" + title + "\", \"" + term + "\", \"" + code + "\"\n");
 	}
+
+	/**
+	 * A method to store the javabean Report and load the Report's data to a jasper report
+	 */
+	public static Collection<Report> loadStudentInfo() throws Exception {
+		return student_info;
+	}
 	
+	/**
+	 * Generates a report containing a student's course and grade information
+	 * 
+	 * @param studentNumber The unique student number of the student to be reported
+	 */
+	public void genStudentReport(String studentNumber) throws Exception
+	{
+		Report report = new Report(this, studentNumber);
+		student_info.add(report);
+		report.generateReport();
+		student_info.remove(report);
+	}
+
 }

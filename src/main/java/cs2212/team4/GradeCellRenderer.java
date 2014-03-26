@@ -44,14 +44,9 @@ public class GradeCellRenderer extends DefaultTableCellRenderer{
             setValue(formatted+"%");
         }
 
-        Color fg = DefaultLookup.getColor(this, ui, "Table.dropCellForeground");
-        Color bg = DefaultLookup.getColor(this, ui, "Table.dropCellBackground");
-
         if (isSelected) {
-            super.setForeground(fg == null ? table.getSelectionForeground()
-                    : fg);
-            super.setBackground(bg == null ? table.getSelectionBackground()
-                    : bg);
+            super.setForeground(table.getSelectionForeground());
+            super.setBackground(table.getSelectionBackground());
         }
         else {
             Color background = unselectedBackground != null

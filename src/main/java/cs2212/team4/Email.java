@@ -23,8 +23,27 @@ import org.apache.velocity.tools.generic.NumberTool;
 */
 
 public class Email {
-
-  /**
+	
+	/**
+	 * Email Constructor, no attributes
+	 */
+	public Email(){
+		
+	}
+	
+	/**
+	 * Sends email to each student contained in studentList
+	 * 
+	 * @param studentList the list of students to send emails to
+	 */
+	public void send( Student[] studentList ) throws Exception{
+		
+	    Properties properties = loadProperties();
+		Session session = getSession(properties);	// obtain a mail session object
+		sendMessage(session, properties, studentList);		// sends message (takes a session object and array of recipient email addresses passed as arguments
+	}
+	
+ /**
   *	getSession method helps obtain a mail session object
   *
   * @param properties contains details of the SMTP server
@@ -53,7 +72,7 @@ public class Email {
   * @param recipients contains emails of receivers of email
   * 
   */
-  private static void sendMessage(Session session, Properties properties, String[] recipients) throws
+  private static void sendMessage(Session session, Properties properties, Student[] studentList ) throws
 	Exception {
 	Message msg = new MimeMessage(session);							// Instantiate mime message object, initialize with session object so
 																	// that the message effectively knows exactly how it is to be sent (details of SMTP server)
@@ -63,38 +82,42 @@ public class Email {
 	Address sender = new InternetAddress(senderEmail, senderName);	// sender object represents sender of the email
 	msg.setFrom(sender);											// set "From" attribute in message as sender
 	
-	for (String address : recipients)								// iterate over the array of recipient email addresses
-		msg.addRecipient(Message.RecipientType.TO, new InternetAddress(address));	// add Recipient with the following attributes
-																					// instead of using TO, we can also use CC, or BCC
-	msg.setSubject(properties.getProperty("message.subject"));						// set message's subject
-	
-	Multipart multiPart = new MimeMultipart();										// instantiate a new multipart object
-	
-	MimeBodyPart textPart = new MimeBodyPart();										// create mimebodypart object first with template plaintext version of email
-	textPart.setText(loadTemplate("email.text.vm"), "utf-8");
-	
-	MimeBodyPart htmlPart = new MimeBodyPart();										// create another mimebodypart object with template html version of email
-	htmlPart.setContent(loadTemplate("email.html.vm"), "text/html; charset=utf-8");
-	
-	MimeBodyPart fileAttachmentPart = new MimeBodyPart();									// create another mimebodypart object for the attachment
-	URL attachmentUrl = Report.class.getClassLoader().getResource("student_report.jrmxml");	// obtain the URL of the reports to attach from the JAR file
-	DataSource source = new URLDataSource(attachmentUrl);									// instantiate Datasource object from the URL
-	fileAttachmentPart.setDataHandler(new DataHandler(source));								// read the data from the logo file stored in the JAR and store in attachment body part
+	for ( int i = 0; i < studentList.length ; i++ ){
+		msg.setRecipient( Message.RecipientType.TO, new InternetAddress(studentList[i].getEmail()) );
+		
+		msg.setSubject(properties.getProperty("message.subject"));						// set message's subject
+		
+		Multipart multiPart = new MimeMultipart();										// instantiate a new multipart object
+		
+		MimeBodyPart textPart = new MimeBodyPart();										// create mimebodypart object first with template plaintext version of email
+		textPart.setText(loadTemplate("email.text.vm"), "utf-8");
+		
+		MimeBodyPart htmlPart = new MimeBodyPart();										// create another mimebodypart object with template html version of email
+		htmlPart.setContent(loadTemplate("email.html.vm"), "text/html; charset=utf-8");
+		
+		//MimeBodyPart fileAttachmentPart = new MimeBodyPart();									// create another mimebodypart object for the attachment
+		//URL attachmentUrl = Report.class.getClassLoader().getResource(studentList[i].getNameFirst()+getNameLast() + ".pdf");	// obtain the URL of the reports to attach from the JAR file
+		//DataSource source = new URLDataSource(attachmentUrl);									// instantiate Datasource object from the URL
+		//fileAttachmentPart.setDataHandler(new DataHandler(source));								// read the data from the logo file stored in the JAR and store in attachment body part
 
-	fileAttachmentPart.setFileName("student_report.jrxml");
+		//fileAttachmentPart.setFileName( studentList[i].getNameLast() + " Report.pdf");
+		
+		multiPart.addBodyPart(textPart);														// add text body part to multipart object
+		multiPart.addBodyPart(htmlPart);														// add html body part to multipart object
+		//multiPart.addBodyPart(fileAttachmentPart);												// add attachment part to multipart object
+		
+		msg.setContent(multiPart);																// set the content of the message to be the multiPart object
+		
+		Transport.send(msg);																	// send message using this method
+
+	}
 	
-	multiPart.addBodyPart(textPart);														// add text body part to multipart object
-	multiPart.addBodyPart(htmlPart);														// add html body part to multipart object
-	multiPart.addBodyPart(fileAttachmentPart);												// add attachment part to multipart object
-	
-	msg.setContent(multiPart);																// set the content of the message to be the multiPart object
-	
-	Transport.send(msg);																	// send message using this method
   }
   
   /**
-  * Takes the name of the file in which the template is stored
-  *
+  * loadProperties returns properties from properties file containing details of sender
+  * 
+  * @return properties object
   */  
   private static Properties loadProperties() throws Exception {
 
@@ -107,7 +130,9 @@ public class Email {
   
   /**
   * Takes the name of the file in which the template is stored
-  *
+  * 
+  * @
+  * 
   */
   private static String loadTemplate(String filename) {
 

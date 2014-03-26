@@ -1,0 +1,93 @@
+package cs2212.team4;
+
+import sun.swing.DefaultLookup;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import java.awt.*;
+import java.text.*;
+
+/**
+ * Created by Jenna on 2014-03-25.
+ */
+
+public class GradeCellRenderer extends DefaultTableCellRenderer{
+    private Format formatter;
+    private Color unselectedForeground;
+    private Color unselectedBackground;
+
+    public GradeCellRenderer(){
+        setHorizontalAlignment(SwingConstants.RIGHT);
+        NumberFormat numFor = NumberFormat.getNumberInstance();
+        DecimalFormat df = (DecimalFormat)numFor;
+        df.applyPattern("###.##");
+        this.formatter=df;
+    }
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value,
+                                                   boolean isSelected, boolean hasFocus, int row, int column) {
+        if (value instanceof String){
+            if ((value).equals("")){
+                setValue("");
+            }
+            else {
+                double amount = Double.parseDouble((String)value);
+                String formatted = formatter.format(amount);
+                setValue(formatted+"%");
+            }
+        }
+        if (value == null){
+            setValue("");
+        }
+        if (value instanceof Double){
+            double amount = ((double)value);
+            String formatted = formatter.format(amount);
+            setValue(formatted+"%");
+        }
+
+        Color fg = DefaultLookup.getColor(this, ui, "Table.dropCellForeground");
+        Color bg = DefaultLookup.getColor(this, ui, "Table.dropCellBackground");
+
+        if (isSelected) {
+            super.setForeground(fg == null ? table.getSelectionForeground()
+                    : fg);
+            super.setBackground(bg == null ? table.getSelectionBackground()
+                    : bg);
+        }
+        else {
+            Color background = unselectedBackground != null
+                    ? unselectedBackground
+                    : Color.white;
+            if (background == null || background.equals(Color.white)) {
+                Color alternateColor = DefaultLookup.getColor(this, ui, "Table.alternateRowColor");
+                if (alternateColor != null && row % 2 != 0) {
+                    background = alternateColor;
+                }
+            }
+            super.setForeground(unselectedForeground != null
+                    ? unselectedForeground
+                    : table.getForeground());
+            super.setBackground(background);
+
+//      Optional: change the shade of the Course Grade column
+//            if (column==0){
+//                Color c = new Color(0xc4c4c4);
+//                setBackground(c);
+//                if (background == null || c.equals(new Color(0xc4c4c4))) {
+//                    Color d = new Color(0xEEEEEE);
+//                    if (d != null && row % 2 != 0) {
+//                        background = c;
+//                    }
+//                }
+//            }
+
+        }
+        table.setBackground(Color.white);
+        return this;
+    }
+
+
+}
+
+

@@ -25,7 +25,7 @@ import java.util.List;
     private Course currCourse;
     //Column Names
     private final String[] COLUMN_NAMES = {"First Name", "Last Name", "Email", "Student #"};
-    private final List<Student> selected = new ArrayList<>();
+
     /**
      * Constructor, takes no parameters to create a default empty UserTable
      */
@@ -214,8 +214,8 @@ import java.util.List;
         int width = this.getColumnCount() + grades.getColumnCount();
         int height = this.getRowCount();
 
-        if (width<9){
-            for (int i=0; i < 10-width; i++){
+        if (width<11){
+            for (int i=0; i < 11-width; i++){
                 grades.addColumn("");
             }
         }
@@ -227,15 +227,7 @@ import java.util.List;
         }
     }
 
-
-//    @Override
-//    public Class getColumnClass(int columnIndex) {
-//        return types [columnIndex];
-//    }
-
 }
-
-
 
 //    /**
 //     * Adds a "Add new student" row below all students

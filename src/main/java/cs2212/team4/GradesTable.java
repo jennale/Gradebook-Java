@@ -51,7 +51,7 @@ public class GradesTable extends DefaultTableModel{
     public GradesTable(Course currCourse, int asnAvg,int exmAvg) {
         this.asnAvg = asnAvg;
         this.exmAvg = exmAvg;
-        addColumn("Course Avg");
+        addColumn("Course");
         this.currCourse = currCourse;
         int infoColumns=0;
         int numStud=currCourse.getStudentListSize();
@@ -80,28 +80,28 @@ public class GradesTable extends DefaultTableModel{
      * @param s Student object, containing Grades to be added to the table.
      */
     public void addGrades(Student s) {
-        String[] grades = new String [numColumns];
+        Object[] grades = new Object [numColumns];
         studentGrades.add(s);
 
         int ctr = 0;
         if(s.getNumGrades()>0) {
             if (s.getAvg()>=0)
-                grades[ctr++] = String.format("%.2f", s.getAvg());
+                grades[ctr++] = s.getAvg();
             else
                 grades[ctr++] = "";
             if (asnAvg==1 && s.getAsnAvg()>=0)
-                grades[ctr++]=String.format("%.2f",s.getAsnAvg());
+                grades[ctr++]= s.getAsnAvg();
             else if(asnAvg==1)
                 grades[ctr++] = "";
             if (exmAvg==1 && s.getExmAvg()>=0)
-                grades[ctr++]=String.format("%.2f",s.getExmAvg());
+                grades[ctr++]=s.getExmAvg();
             else if(exmAvg==1)
                 grades[ctr++]= "";
             for (int i = 0; i < deliverableGrades.size(); i++) {
                 if (deliverableGrades.get(i) != null) {
                     int id = deliverableGrades.get(i).getObjId();
                     if (s.getGrade(id) > 0) {
-                        grades[ctr++] = String.format("%.2f",s.getGrade(id));
+                        grades[ctr++] = s.getGrade(id);
                     } else
                         grades[ctr++] = "";
                 }
@@ -121,21 +121,38 @@ public class GradesTable extends DefaultTableModel{
      */
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        if ((rowIndex < 0) || (rowIndex >= currCourse.getStudentListSize()))
+        if ((rowIndex < 0) || (rowIndex >= currCourse.getDeliverableListSize()))
             return;
-        else if (columnIndex > 0) {
+        else if (columnIndex >= 0) {
+            if (Double.parseDouble((String) aValue)>100||Double.parseDouble((String) aValue)<0)
+                return;
+            String clmn = getColumnName(columnIndex);
+            switch (clmn) {
+                case "Course Avg":
+                    currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setAvg(Double.parseDouble((String) aValue));
+                    fireTableCellUpdated(rowIndex,columnIndex);
+                    return;
+                case "Asn Avg":
+                    currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setAsnAvg(Double.parseDouble((String) aValue));
+                    fireTableCellUpdated(rowIndex,columnIndex);
+                    return;
+                case "Exam Avg":
+                    currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setExmAvg(Double.parseDouble((String) aValue));
+                    fireTableCellUpdated(rowIndex,columnIndex);
+                    return;
+            }
             Deliverable d = deliverableGrades.get(columnIndex - (1+asnAvg+exmAvg));
             if (((String)aValue).equals(""))
-				currCourse.getStudent(rowIndex).removeGrade(d.getObjId(),
-						d.getType());
+                currCourse.getStudent(rowIndex).removeGrade(d.getObjId(),
+                        d.getType());
             else if(!(((String)aValue).matches("\\d+(\\.\\d+)?")))
                 return;
             else {
                 if (Double.parseDouble((String) aValue)>100||Double.parseDouble((String) aValue)<0)
                     return;
-				currCourse.getStudent(rowIndex).addGrade(d.getObjId(),
-						Double.parseDouble((String) aValue), d.getType(),
-						d.getWeight());
+                currCourse.getStudent(rowIndex).addGrade(d.getObjId(),
+                        Double.parseDouble((String) aValue), d.getType(),
+                        d.getWeight());
             }
         }
         fireTableCellUpdated(rowIndex, columnIndex);
@@ -151,7 +168,7 @@ public class GradesTable extends DefaultTableModel{
      */
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        if (columnIndex < 1+asnAvg+exmAvg || columnIndex >= numColumns || rowIndex > studentGrades.size()-1)
+        if (columnIndex < 0 || columnIndex >= numColumns || rowIndex > studentGrades.size()-1)
             return false;
         else
             return true;

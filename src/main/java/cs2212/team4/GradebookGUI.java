@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.*;
@@ -1021,22 +1022,22 @@ public class GradebookGUI extends JFrame {
         studentScroll.setBorder(null);
 
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "", "First Name", "Last Name", "Number", "Email"
-            }
+                new Object[][]{
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null}
+                },
+                new String[]{
+                        "", "First Name", "Last Name", "Number", "Email"
+                }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            Class[] types = new Class[]{
+                    java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
         });
         studentTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
@@ -1054,15 +1055,15 @@ public class GradebookGUI extends JFrame {
 
         gradesTable.setAutoCreateRowSorter(true);
         gradesTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                null, null, null, null
-            }
+                new Object[][]{
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
+                },
+                new String[]{
+                        null, null, null, null
+                }
         ));
         gradesTable.setToolTipText("");
         gradesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
@@ -1075,6 +1076,7 @@ public class GradebookGUI extends JFrame {
             }
         });
         gradesScroll.setViewportView(gradesTable);
+        gradesTable.setDefaultRenderer(Object.class, new GradeCellRenderer());
 
         javax.swing.GroupLayout pnlTablesLayout = new javax.swing.GroupLayout(pnlTables);
         pnlTables.setLayout(pnlTablesLayout);
@@ -4645,39 +4647,53 @@ public class GradebookGUI extends JFrame {
 		// columns)
 		studentTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
-		if (gradesTable.getColumnCount() + studentTable.getColumnCount() < 11)
+		if (gradesTable.getColumnCount() + studentTable.getColumnCount() < 12)
 			gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		else
 			gradesTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-//        sizeTables();
-		studentTable.setPreferredScrollableViewportSize(studentTable
+        sizeTables();
+
+        studentTable.setPreferredScrollableViewportSize(studentTable
 				.getPreferredSize());
 		gradesTable.setPreferredScrollableViewportSize(gradesTable
 				.getPreferredSize());
 		studentScroll.getVerticalScrollBar().setPreferredSize(
-				new Dimension(0, 1));
+				new Dimension(0, 0));
 		studentScroll.getVerticalScrollBar().setModel(gradesScroll.getVerticalScrollBar()
                 .getModel());
 		gradesScroll.getVerticalScrollBar().setPreferredSize(
 				new Dimension(15, 5));
 		gradesScroll.setWheelScrollingEnabled(true);
 
+        MatteBorder border = new MatteBorder(0, 0, 0, 1, new Color(196, 196, 196));
+        studentTable.setBorder(border);
+
+
         gradesTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         studentTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        studentTable.setSelectionModel(gradesTable.getSelectionModel());
+        gradesTable.setSelectionModel(studentTable.getSelectionModel());
         studentTable.setRowSorter(gradesTable.getRowSorter());
 	}
 
     private void sizeTables(){
-        if (firstName==1)
-            studentTable.getColumn("First Name").setPreferredWidth(100);
-        if (lastName==1)
-            studentTable.getColumn("Last Name").setPreferredWidth(100);
-        if (number==1)
-            studentTable.getColumn("Student #").setPreferredWidth(100);
-        if (email==1)
-            studentTable.getColumn("Email").setPreferredWidth(200);
+//        if (firstName==1)
+//            studentTable.getColumn("First Name").setPreferredWidth(100);
+//        if (lastName==1)
+//            studentTable.getColumn("Last Name").setPreferredWidth(100);
+//        if (number==1)
+//            studentTable.getColumn("Student #").setPreferredWidth(100);
+//        if (email==1)
+//            studentTable.getColumn("Email").setPreferredWidth(200);
+
+        for (int i = 0; i<gradesTable.getColumnCount();i++){
+            gradesTable.getColumnModel().getColumn(i).setMinWidth(55);
+        }
+        gradesTable.getColumn("Course").setMaxWidth(55);
+        if (asnAvg == 1)
+            gradesTable.getColumn("Asn Avg").setMaxWidth(60);
+        if (exmAvg == 1)
+            gradesTable.getColumn("Exam Avg").setMaxWidth(70);
     }
 
 

@@ -177,6 +177,8 @@ public class StudentGrades implements StudentGradesADT, Serializable
 		}
 		for (int i = 0; i < asn.size(); i++) {
 			temp = grades.get(asn.get(i));
+            if (temp==null)
+                break;
 			weight += temp.getWeight();
 			avg += temp.getGrade() * temp.getWeight();
 		}
@@ -199,6 +201,8 @@ public class StudentGrades implements StudentGradesADT, Serializable
 		}
 		for (int i = 0; i < exm.size(); i++) {
 			temp = grades.get(exm.get(i));
+            if (temp==null)
+                break;
 			weight += temp.getWeight();
 			avg += temp.getGrade() * temp.getWeight();
 		}

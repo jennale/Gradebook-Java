@@ -46,6 +46,9 @@ public class Course implements CourseADT, Serializable
 	private Stack<Integer> stkDeliver = new Stack<Integer>();
 	//A collection of reports containing various information on a student
 	public static Collection<Report> student_info = new ArrayList<Report>();
+    //Variable used to keep track of deliverable weights -- Optional if we want to keep
+    //deliverable weights <= 100
+    private double runningTotal=0;
 
 	/**
 	 * Constructor that creates a course with a given title, term, and code
@@ -144,6 +147,14 @@ public class Course implements CourseADT, Serializable
 			return -1;
 		return stud.getGrade(grade);
 	}
+
+    /**
+     * Returns the running total of course deliverable weights so far...
+     * @return the running total
+     */
+    public double getRunningTotal(){
+        return runningTotal;
+    }
 
 	/**
 	 * Gets the average for a course
@@ -391,14 +402,16 @@ public class Course implements CourseADT, Serializable
 	 * 
 	 */
 	public boolean addDeliverable(String name, String type, double weight) {
-		if (findDeliverable(new Deliverable(name, type, weight, 0)) != -1)
+		if (findDeliverable(new Deliverable(name, type, weight, 0)) != -1 || runningTotal + weight>100)
 			return false;
 		if (!stkDeliver.isEmpty())
 			deliverableList.add(new Deliverable(name, type, weight, stkDeliver
 					.pop()));
-		else
+		else {
 			deliverableList.add(new Deliverable(name, type, weight,
 					deliverableList.size()));
+            runningTotal = runningTotal + weight;
+        }
 		return true;
 	}
 
@@ -417,7 +430,8 @@ public class Course implements CourseADT, Serializable
 		for (int j = 0; j<studentList.size(); j++){
 			getStudent(j).removeGrade(i,type);
 		}
-		deliverableList.set(i, null);
+        runningTotal = runningTotal - getDeliverable(i).getWeight();
+        deliverableList.set(i, null);
 		stkDeliver.push(i);
 
 		return true;

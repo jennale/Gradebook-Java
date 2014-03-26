@@ -1,7 +1,5 @@
 package cs2212.team4;
 
-import sun.swing.DefaultLookup;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
@@ -60,7 +58,7 @@ public class GradeCellRenderer extends DefaultTableCellRenderer{
                     ? unselectedBackground
                     : Color.white;
             if (background == null || background.equals(Color.white)) {
-                Color alternateColor = DefaultLookup.getColor(this, ui, "Table.alternateRowColor");
+                Color alternateColor = new Color(242, 242, 242);
                 if (alternateColor != null && row % 2 != 0) {
                     background = alternateColor;
                 }

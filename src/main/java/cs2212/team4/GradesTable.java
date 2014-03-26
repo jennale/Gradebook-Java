@@ -128,7 +128,7 @@ public class GradesTable extends DefaultTableModel{
                 return;
             String clmn = getColumnName(columnIndex);
             switch (clmn) {
-                case "Course Avg":
+                case "Course":
                     currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setAvg(Double.parseDouble((String) aValue));
                     fireTableCellUpdated(rowIndex,columnIndex);
                     return;

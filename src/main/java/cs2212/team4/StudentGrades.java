@@ -188,7 +188,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	/**
 	  * Calculates the student's exam average
 	  * 
-	  * @return The calculated student's exam average. Returns -1 if the student has no exam grades availble
+	  * @return The calculated student's exam average. Returns -1 if the student has no exam grades available
 	  * 
 	  */
 	private void calcExmAvg() {

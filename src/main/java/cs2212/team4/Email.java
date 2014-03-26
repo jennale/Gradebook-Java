@@ -117,7 +117,7 @@ public class Email {
   /**
   * loadProperties returns properties from properties file containing details of sender
   * 
-  * @return properties object
+  * @return properties object with details of sender
   */  
   private static Properties loadProperties() throws Exception {
 
@@ -131,7 +131,7 @@ public class Email {
   /**
   * Takes the name of the file in which the template is stored
   * 
-  * @
+  * @param filename contains template message
   * 
   */
   private static String loadTemplate(String filename) {

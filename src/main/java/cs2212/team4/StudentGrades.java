@@ -154,7 +154,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 		double avg = 0;
 		double weight = 0;
 		Grade temp;
-		if (other.isEmpty()) {
+		if (other==null||other.isEmpty()) {
 			this.avg = (asnAvg*asnWeight+exmAvg*exmWeight)/(asnWeight+exmWeight);
 			return;
 		}

@@ -84,7 +84,7 @@ public class GradesTable extends DefaultTableModel{
         studentGrades.add(s);
 
         int ctr = 0;
-        if(s.getNumGrades()>0) {
+        if(s.getNumGrades()>0||s.getAvg()>-1||s.getExmAvg()>-1||s.getAsnAvg()>-1) {
             if (s.getAvg()>=0)
                 grades[ctr++] = s.getAvg();
             else

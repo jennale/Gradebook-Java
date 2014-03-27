@@ -1519,7 +1519,7 @@ public class GradebookGUI extends JFrame {
 		tabGrades.setPreferredSize(new java.awt.Dimension(1080, 480));
 
 		deliverList
-				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		deliverList.setPreferredSize(new java.awt.Dimension(35, 80));
 		deliverList.setVisibleRowCount(10);
 		deliverList
@@ -1628,7 +1628,7 @@ public class GradebookGUI extends JFrame {
 				.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
 		studentTable.setOpaque(false);
 		studentTable
-				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		studentTable.getTableHeader().setReorderingAllowed(false);
 		studentTable.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1649,7 +1649,7 @@ public class GradebookGUI extends JFrame {
 		gradesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
 		gradesTable.setOpaque(false);
 		gradesTable
-				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		gradesTable.getTableHeader().setReorderingAllowed(false);
 		gradesTable.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -6351,8 +6351,10 @@ public class GradebookGUI extends JFrame {
 
 		gradesTable
 				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        gradesTable.setDefaultRenderer(Object.class, new GradeCellRenderer());
 		studentTable
 				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        deliverList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		gradesTable.setSelectionModel(studentTable.getSelectionModel());
 		gradesTable.getTableHeader().setReorderingAllowed(false);
 		studentTable.setRowSorter(gradesTable.getRowSorter());

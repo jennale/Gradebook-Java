@@ -194,7 +194,7 @@ public class Course implements CourseADT, Serializable
 	 *
 	 */
 	public double getClassAvg(){
-		if (!(studentList.size()>0||deliverableList.size()>0)){
+		if (!(studentList.size()>0&&deliverableList.size()>0)){
 			return -1;
 		}
 		double avg=0, tempAvg;
@@ -219,7 +219,7 @@ public class Course implements CourseADT, Serializable
 	 *
 	 */
 	public double getClassAsnAvg(){
-		if (!(studentList.size()>0||deliverableList.size()>0)){
+		if (!(studentList.size()>0&&deliverableList.size()>0)){
 			return -1;
 		}
 		double avg=0, tempAvg;
@@ -243,7 +243,7 @@ public class Course implements CourseADT, Serializable
 	 *
 	 */
 	public double getClassExamAvg() {
-		if (!(studentList.size()>0||deliverableList.size()>0)){
+		if (!(studentList.size()>0&&deliverableList.size()>0)){
 			return -1;
 		}
 		double avg=0, tempAvg;

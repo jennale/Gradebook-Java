@@ -27,10 +27,14 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	private ArrayList<Integer> asn;
 	// The StudentGrades object exam grades list.
 	private ArrayList<Integer> exm;
+	// The StudentGrades object other grades list.
+	private ArrayList<Integer> other;
 	// The StudentGrades object average, assignment average, and exam average.
 	private double avg, asnAvg, exmAvg;
 
 	private transient final String ASN = "assignment", EXM = "exam";
+	
+	private double asnWeight=0, exmWeight=0;
 	
 	/**
 	  * Constructor that creates a List of a student's grades, and 2 sub-lists based on exams or assignments
@@ -39,6 +43,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 		grades = new ArrayList<Grade>();
 		asn = new ArrayList<Integer>();
 		exm = new ArrayList<Integer>();
+		other = new ArrayList<Integer>();
         calcAvg();
         calcAsnAvg();
         calcExmAvg();
@@ -121,6 +126,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  */
 	public void setAsnAvg(double asnAvg) {
 		this.asnAvg = asnAvg;
+		calcAvg();
 	}
 	
 	/**
@@ -131,6 +137,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  */
 	public void setExmAvg(double exmAvg) {
 		this.exmAvg = exmAvg;
+		calcAvg();
 	}
 	
 	/* ************************************************************
@@ -145,20 +152,20 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  */
 	private void calcAvg() {
 		double avg = 0;
-        this.avg=-1;
 		double weight = 0;
 		Grade temp;
-		if (grades.isEmpty()) {
-			avg = -1;
+		if (other.isEmpty()) {
+			this.avg = (asnAvg*asnWeight+exmAvg*exmWeight)/(asnWeight+exmWeight);
 			return;
 		}
-		for (int i = 0; i < grades.size(); i++)
-			if (grades.get(i)!=null) {
-				temp = grades.get(i);
-				weight += temp.getWeight();
-				avg += temp.getGrade() * temp.getWeight();
-			}
-		this.avg = avg / weight;
+		for (int i = 0; i < other.size(); i++) {
+			temp = grades.get(other.get(i));
+            if (temp==null)
+                break;
+			weight += temp.getWeight();
+			avg += temp.getGrade() * temp.getWeight();
+		}
+		this.avg = (asnAvg*asnWeight+exmAvg*exmWeight+avg) / (weight+asnWeight+exmWeight);
 	}
 	
 	/**
@@ -183,6 +190,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 			avg += temp.getGrade() * temp.getWeight();
 		}
 		asnAvg = avg / weight;
+		asnWeight=weight;
 	}
 	
 	/**
@@ -207,6 +215,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 			avg += temp.getGrade() * temp.getWeight();
 		}
 		exmAvg = avg / weight;
+		exmWeight=weight;
 	}
 	
 	/**
@@ -230,7 +239,8 @@ public class StudentGrades implements StudentGradesADT, Serializable
 		} else if (type.equalsIgnoreCase(ASN)) {
 			asn.add(deliver);
 			boolAsn = true;
-		}
+		} else
+			other.add(deliver);
 		grades.set(deliver, (new Grade(grade, weight)));
 		if (boolExm)
 			calcExmAvg();
@@ -263,6 +273,11 @@ public class StudentGrades implements StudentGradesADT, Serializable
 				asn.remove(asn.indexOf(deliver));
 				boolAsn = true;
 			} else
+				return false;
+		else
+			if (other.contains(deliver))
+				other.remove(other.indexOf(deliver));
+			else
 				return false;
 
 		grades.set(deliver, null);

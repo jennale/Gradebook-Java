@@ -100,7 +100,7 @@ public class GradesTable extends DefaultTableModel{
             for (int i = 0; i < deliverableGrades.size(); i++) {
                 if (deliverableGrades.get(i) != null) {
                     int id = deliverableGrades.get(i).getObjId();
-                    if (s.getGrade(id) > 0) {
+                    if (s.getGrade(id) >= 0) {
                         grades[ctr++] = s.getGrade(id);
                     } else
                         grades[ctr++] = "";

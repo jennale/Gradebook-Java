@@ -152,6 +152,41 @@ public class Course implements CourseADT, Serializable
         return runningTotal;
     }
 
+    /**
+     * Checks whether this weight can be added to the course's running total of grades
+     *
+     * @param weight the weight of the deliverable to be added
+     * @return true if it can be added, false otherwise
+     */
+
+    public boolean updateRunningTot(double weight){
+        if (runningTotal+weight>100)
+            return false;
+        else {
+            return true;
+        }
+    }
+
+    /**
+     * Overloaded constructor to update runningtotal when editing deliverable weights
+     * Makes sure that the new deliv weight will keep the runningtotal < 100. It will only
+     * edit the runningtotal value if the weight is valid.
+     *
+     * @param weight        current weight of the edited deliverable
+     * @param newWeight     new weight of the edited deliverable
+     * @return  true if successful, false otherwise.
+     */
+    public boolean updateRunningTot(double weight, double newWeight){
+        double check = runningTotal;
+        check = check - weight + newWeight;
+        if (check > 100)
+            return false;
+        else {
+            runningTotal = check;
+            return true;
+        }
+    }
+
 	/**
 	 * Gets the average for a course
 	 *
@@ -175,7 +210,8 @@ public class Course implements CourseADT, Serializable
 			return avg/ctr;
 		return 0;
 	}
-	
+
+
 	/**
 	 * Gets the average for a course assignments 
 	 *

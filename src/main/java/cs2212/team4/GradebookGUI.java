@@ -1056,7 +1056,7 @@ public class GradebookGUI extends JFrame {
 
         gradesScroll.setBorder(null);
 
-        gradesTable.setAutoCreateRowSorter(true);
+        gradesTable.setAutoCreateRowSorter(false);
         gradesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -3467,11 +3467,16 @@ public class GradebookGUI extends JFrame {
 			if (!weightException) {
 				if (boolDeliver == 1) {
 					currDeliver.setName(txtEditDeliverName.getText());
-					currDeliver.setWeight(weight);
-					currDeliver.setType((String) comboEditDeliverType
-							.getSelectedItem());
-					updateInfo();
-					currDeliver = null;
+                    if(currCourse.updateRunningTot(currDeliver.getWeight(),weight)){
+                        currDeliver.setWeight(weight);
+                        currDeliver.setType((String) comboEditDeliverType
+                                .getSelectedItem());
+                        updateInfo();
+                        currDeliver = null;
+                    }
+                    //set error message here when cannot be edited because weight is too high
+                    //I think "Weight invalid: getRunningTotal()/100 marks already accounted for"
+                    //could be a good error message.
 				} else if (boolCourse == 0)
 					lblSetupErrorLog.setText("The deliverable"
 							+ txtEditDeliverName.getText() + ", " + weight
@@ -4235,9 +4240,13 @@ public class GradebookGUI extends JFrame {
 				txtDeliverWeight.setBorder(errorHighlightBorder);
 			} else {
 				try {
-					boolExists = currCourse.addDeliverable(name, type,
+                    if (currCourse.updateRunningTot(Double.parseDouble(weight))){
+					    boolExists = currCourse.addDeliverable(name, type,
 							Double.parseDouble(weight));
-					updateTables();
+					    updateTables();
+                    }
+                    //set error message here when can't be added because the weight is too high;
+
 				} catch (NumberFormatException e) {
 					txtDeliverWeight.setBorder(errorHighlightBorder);
 					boolFormat = false;
@@ -4709,6 +4718,7 @@ public class GradebookGUI extends JFrame {
 		studentTable
 				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		gradesTable.setSelectionModel(studentTable.getSelectionModel());
+        gradesTable.getTableHeader().setReorderingAllowed(false);
 		studentTable.setRowSorter(gradesTable.getRowSorter());
 	}
 

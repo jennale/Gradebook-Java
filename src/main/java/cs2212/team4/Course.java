@@ -13,10 +13,6 @@ import java.util.ArrayList;
 import java.util.Stack;
 import java.util.Collection;
 import au.com.bytecode.opencsv.CSVReader;
-import java.io.*;
-import java.util.*;
-import java.util.List;
-
 
 /**
  *
@@ -163,27 +159,75 @@ public class Course implements CourseADT, Serializable
 	 *
 	 */
 	public double getClassAvg(){
-		double average = -1;
-        int num = 0;
-        int numStudents = studentList.size();
-		if (numStudents > 0 && deliverableList.size() > 0){
-			average = 0;
-			for (int i = 0; i < numStudents; i++){
-                double avg = studentList.get(i).getAvg();
-                if (avg >= 0){
-				    average = average + avg;
-                    num++;
-                }
-			}
-			average = average/num;
+		if (!(studentList.size()>0||deliverableList.size()>0)){
+			return -1;
 		}
-		return average;
+		double avg=0, tempAvg;
+		int ctr=0;
+		for (int i=0; i<studentList.size();i++){
+			tempAvg = studentList.get(i).getAvg();
+            if (tempAvg > -1){
+			    avg += tempAvg;
+                ctr++;
+            }
+		}
+		if (ctr>0)
+			return avg/ctr;
+		return 0;
+	}
+	
+	/**
+	 * Gets the average for a course assignments 
+	 *
+	 * @return The average between all the students' assignment grades in the course. If there are no students or no deliverables in the course, return -1
+	 *
+	 */
+	public double getClassAsnAvg(){
+		if (!(studentList.size()>0||deliverableList.size()>0)){
+			return -1;
+		}
+		double avg=0, tempAvg;
+		int ctr=0;
+		for (int i=0; i<studentList.size();i++){
+			tempAvg = studentList.get(i).getAsnAvg();
+            if (tempAvg > -1){
+			    avg += tempAvg;
+                ctr++;
+            }
+		}
+		if (ctr>0)
+			return avg/ctr;
+		return 0;
+	}
+	
+	/**
+	 * Gets the average for a course exams 
+	 *
+	 * @return The average between all the students' exams grades in the course. If there are no students or no deliverables in the course, return -1
+	 *
+	 */
+	public double getClassExamAvg() {
+		if (!(studentList.size()>0||deliverableList.size()>0)){
+			return -1;
+		}
+		double avg=0, tempAvg;
+		int ctr=0;
+		for (int i=0; i<studentList.size();i++){
+			tempAvg = studentList.get(i).getExmAvg();
+            if (tempAvg > -1){
+			    avg += tempAvg;
+                ctr++;
+            }
+		}
+		if (ctr>0)
+			return avg/ctr;
+		return 0;
 	}
 
 	/**
 	 * Gets the size of a list of deliverables pertaining to the course
 	 * 
-	 * @return The size of the list of the delicerables in this course
+	 * @return The size of the list of the deliverables in this course
 	 * 
 	 */
 	public int getDeliverableListSize() {
@@ -640,7 +684,7 @@ public class Course implements CourseADT, Serializable
 		try {
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(file)));
-			String str = "\"nameLast\", \"nameFirst\", \"number\", \"email\"";
+			String str = "\"Last Name\", \"First Name\", \"Student Number\", \"Email\"";
 			for (int i = 0; i < deliverableList.size(); i++)
 				if (deliverableList.get(i) != null) {
 					str = str + ", \"" + deliverableList.get(i).getName()

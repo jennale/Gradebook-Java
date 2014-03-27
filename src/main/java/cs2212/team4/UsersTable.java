@@ -186,8 +186,6 @@ import java.util.List;
                     else return;
             }
         }
-
-
     }
 
 
@@ -226,22 +224,4 @@ import java.util.List;
             }
         }
     }
-
 }
-
-//    /**
-//     * Adds a "Add new student" row below all students
-//     * Will add functionality to actually add a student into the course
-//     */
-//    public void refreshNames(){
-//        for (int i = 0; i < getRowCount()-1; i++){
-//            if((getValueAt(i,0)).equals("New Student")){
-//                removeRow(i);
-//                grades.removeRow(i);
-//            }
-//        }
-//        if((getRowCount()>0)){
-//            addRow(new String[]{"New Student"});
-//            grades.addRow(new Object[]{null});
-//        }
-//    }

@@ -32,7 +32,7 @@ public class GradesTable extends DefaultTableModel{
      * Default constructor creating an empty GradesTable.
      */
     public GradesTable() {
-        addColumn("Course Avg");
+        addColumn("Average");
         delivSize = 0;
         asnAvg = 0;
         exmAvg = 0;
@@ -51,10 +51,9 @@ public class GradesTable extends DefaultTableModel{
     public GradesTable(Course currCourse, int asnAvg,int exmAvg) {
         this.asnAvg = asnAvg;
         this.exmAvg = exmAvg;
-        addColumn("Course");
+        addColumn("Average");
         this.currCourse = currCourse;
         int infoColumns=0;
-        int numStud=currCourse.getStudentListSize();
 
         int[] columns = {asnAvg,exmAvg};
         for (int i = 0; i < 2; i++){
@@ -108,7 +107,6 @@ public class GradesTable extends DefaultTableModel{
             }
             addRow(grades);
         } else addRow(new Object[]{null});
-
     }
 
     /**
@@ -128,7 +126,7 @@ public class GradesTable extends DefaultTableModel{
                 return;
             String clmn = getColumnName(columnIndex);
             switch (clmn) {
-                case "Course":
+                case "Average":
                     currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setAvg(Double.parseDouble((String) aValue));
                     fireTableCellUpdated(rowIndex,columnIndex);
                     return;
@@ -174,113 +172,6 @@ public class GradesTable extends DefaultTableModel{
             return true;
     }
 }
-
-
-//    public void add(Student s) {
-//        double[] grades = new Grades();
-//        addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
-////        refreshNames();
-//        fireTableDataChanged();
-//
-//    }
-//
-//    public void addColumn(Course c) {
-//
-//    }
-//    public List<Student> getStudentGrades() {
-//        return studentGrades;
-//    }
-//
-//    @Override
-//    public int getRowCount() {
-//        return studentGrades.size();
-//    }
-//
-//    public int getNumStudents() {
-//        return studentGrades.size() - 1;
-//    }
-//
-//    public void addStudent(Student s){
-//        studentGrades.add(s);
-//        addRow(new String [] {s.getNameFirst(),s.getNameLast(),s.getEmail(),s.getNumber()});
-//        fireTableDataChanged();
-//    }
-//
-//    public void addStudent (Course c, String studNum){
-//        Student s = c.getStudent(c.findStudent(studNum));
-//        studentGrades.add(s);
-//        Double[] grades = new Double[s.getNumGrades()];
-//        for (int i = 0; i<s.getNumGrades();i++){
-//            grades[i] = s.getGrade(i);
-//        }
-//        addRow(grades);
-//        fireTableDataChanged();
-//    }
-//
-//    @Override
-//    public int getColumnCount() {
-//        return COLUMN_COUNT;
-//    }
-//
-//    public int getNumDeliv() {
-//        return COLUMN_COUNT;
-//    }
-//
-//    @Override
-//    public Class<?> getColumnClass(int columnIndex) {
-//        return (columnIndex <= 4 ? Double.class : String.class);
-//    }
-//
-//    @Override
-//    public String getColumnName(int columnIndex) {
-//        switch (columnIndex) {
-//            case IDX_COURSEGRD:
-//                return "Course Grade";
-//            default:
-//                return "Gradebook Item";
-//        }
-//    }
-//
-//    @Override
-//    public Object getValueAt(int rowIndex, int columnIndex) {
-//        if ((rowIndex < 0) || (rowIndex >= studentGrades.size()))
-//            return null;
-//        else {
-//            switch (columnIndex) {
-//                case IDX_COURSEGRD:
-//                    return "none";
-//                default:
-//                    return "none";
-//            }
-//        }
-//    }
-//
-
-//    /**
-//     * Adds the grades of a student in a row.
-//     *
-//     * @param s
-//     */
-//    public void addGrades(Student s) {
-//        String[] grades = new String[delivSize + 2];
-//        studentGrades.add(s);
-//        if (s.getNumGrades() > 0) {
-//            if (s.getAvg() > 0) {
-//                grades[0] = String.format("%.2f", s.getAvg());
-//            } else
-//                grades[0] = "";
-//            for (int i = 0; i < deliverableGrades.size(); i++) {
-//                if (deliverableGrades.get(i) != null) {
-//                    int id = deliverableGrades.get(i).getObjId();
-//                    if (s.getGrade(id) > 0) {
-//                        grades[i + 1] = String.format("%.2f",s.getGrade(id));
-//                    } else
-//                        grades[i + 1] = "";
-//                }
-//            }
-//            addRow(grades);
-//        } else addRow(new Object[]{null});
-//    }
 
 
 

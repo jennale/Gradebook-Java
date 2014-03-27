@@ -41,7 +41,7 @@ public class Course implements CourseADT, Serializable
 	// The Course object empty deliverable slots
 	private Stack<Integer> stkDeliver = new Stack<Integer>();
 	//A collection of reports containing various information on a student
-	public static Collection<Report> student_info = new ArrayList<Report>();
+	//public static Collection<Report> student_info = new ArrayList<Report>();
     //Variable used to keep track of deliverable weights -- Optional if we want to keep
     //deliverable weights <= 100
     private double runningTotal=0;
@@ -194,21 +194,21 @@ public class Course implements CourseADT, Serializable
 	 *
 	 */
 	public double getClassAvg(){
-		if (!(studentList.size()>0&&deliverableList.size()>0)){
-			return -1;
+		if (studentList.size()>0&&deliverableList.size()>0){
+			double avg=0, tempAvg;
+			int ctr=0;
+			for (int i=0; i<studentList.size();i++){
+				tempAvg = studentList.get(i).getAvg();
+	            if (tempAvg > -1){
+				    avg += tempAvg;
+	                ctr++;
+	            }
+			}
+			if (ctr>0)
+				return avg/ctr;
+			return 0;
 		}
-		double avg=0, tempAvg;
-		int ctr=0;
-		for (int i=0; i<studentList.size();i++){
-			tempAvg = studentList.get(i).getAvg();
-            if (tempAvg > -1){
-			    avg += tempAvg;
-                ctr++;
-            }
-		}
-		if (ctr>0)
-			return avg/ctr;
-		return 0;
+		return -1;
 	}
 
 
@@ -759,25 +759,4 @@ public class Course implements CourseADT, Serializable
 	public String toString() {
 		return ("\"" + title + "\", \"" + term + "\", \"" + code + "\"\n");
 	}
-
-	/**
-	 * A method to store the javabean Report and load the Report's data to a jasper report
-	 */
-	public static Collection<Report> loadStudentInfo() throws Exception {
-		return student_info;
-	}
-	
-	/**
-	 * Generates a report containing a student's course and grade information
-	 * 
-	 * @param studentNumber The unique student number of the student to be reported
-	 */
-	public void genStudentReport(String studentNumber) throws Exception
-	{
-		Report report = new Report(this, studentNumber);
-		student_info.add(report);
-		report.generateReport();
-		student_info.remove(report);
-	}
-
 }

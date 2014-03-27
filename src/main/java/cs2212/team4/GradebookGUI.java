@@ -72,7 +72,7 @@ public class GradebookGUI extends JFrame {
 		addFrame.setResizable(false);
 		addFrame.setSize(350, 270);
 		addFrame.setLocationRelativeTo(this);
-                addFrame.setAlwaysOnTop(true);
+		addFrame.setAlwaysOnTop(true);
 
 		Course crs;
 		if ((size = gradebook.getCourseListSize()) > 0)
@@ -105,6 +105,7 @@ public class GradebookGUI extends JFrame {
 		lblDbxUpload.setVisible(false);
 	}
 
+	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
@@ -208,6 +209,7 @@ public class GradebookGUI extends JFrame {
 		courseExamAvg = new javax.swing.JLabel();
 		lblCourseAsnAvg = new javax.swing.JLabel();
 		lblCourseExamAvg = new javax.swing.JLabel();
+		courseExamAvg1 = new javax.swing.JLabel();
 		tabSetup = new javax.swing.JPanel();
 		lblCourseSetup = new javax.swing.JLabel();
 		lblEditCourseTtile = new javax.swing.JLabel();
@@ -1519,7 +1521,7 @@ public class GradebookGUI extends JFrame {
 		tabGrades.setPreferredSize(new java.awt.Dimension(1080, 480));
 
 		deliverList
-				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		deliverList.setPreferredSize(new java.awt.Dimension(35, 80));
 		deliverList.setVisibleRowCount(10);
 		deliverList
@@ -1628,7 +1630,7 @@ public class GradebookGUI extends JFrame {
 				.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
 		studentTable.setOpaque(false);
 		studentTable
-				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		studentTable.getTableHeader().setReorderingAllowed(false);
 		studentTable.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1639,17 +1641,11 @@ public class GradebookGUI extends JFrame {
 
 		gradesScroll.setBorder(null);
 
-		gradesTable.setAutoCreateRowSorter(true);
-		gradesTable.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] { { null, null, null, null },
-						{ null, null, null, null }, { null, null, null, null },
-						{ null, null, null, null } }, new String[] { null,
-						null, null, null }));
 		gradesTable.setToolTipText("");
 		gradesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
 		gradesTable.setOpaque(false);
 		gradesTable
-				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		gradesTable.getTableHeader().setReorderingAllowed(false);
 		gradesTable.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2031,31 +2027,37 @@ public class GradebookGUI extends JFrame {
 		lblCourseAvg.setText("--%");
 		lblCourseAvg.setPreferredSize(new java.awt.Dimension(160, 65));
 
-		courseAsnAvg.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+		courseAsnAvg.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
 		courseAsnAvg.setForeground(new java.awt.Color(70, 70, 70));
 		courseAsnAvg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 		courseAsnAvg.setText("Class Asn Avg:");
-		courseAsnAvg.setPreferredSize(new java.awt.Dimension(120, 30));
+		courseAsnAvg.setPreferredSize(new java.awt.Dimension(120, 20));
 
-		courseExamAvg.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+		courseExamAvg.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
 		courseExamAvg.setForeground(new java.awt.Color(70, 70, 70));
 		courseExamAvg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 		courseExamAvg.setText("Class Exam Avg:");
-		courseExamAvg.setPreferredSize(new java.awt.Dimension(120, 30));
+		courseExamAvg.setPreferredSize(new java.awt.Dimension(120, 20));
 
 		lblCourseAsnAvg.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
 		lblCourseAsnAvg.setForeground(new java.awt.Color(70, 70, 70));
 		lblCourseAsnAvg
 				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblCourseAsnAvg.setText("--%");
-		lblCourseAsnAvg.setPreferredSize(new java.awt.Dimension(60, 30));
+		lblCourseAsnAvg.setPreferredSize(new java.awt.Dimension(60, 20));
 
 		lblCourseExamAvg.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
 		lblCourseExamAvg.setForeground(new java.awt.Color(70, 70, 70));
 		lblCourseExamAvg
 				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblCourseExamAvg.setText("--%");
-		lblCourseExamAvg.setPreferredSize(new java.awt.Dimension(60, 30));
+		lblCourseExamAvg.setPreferredSize(new java.awt.Dimension(60, 20));
+
+		courseExamAvg1.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+		courseExamAvg1.setForeground(new java.awt.Color(70, 70, 70));
+		courseExamAvg1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+		courseExamAvg1.setText("Class Average:");
+		courseExamAvg1.setPreferredSize(new java.awt.Dimension(120, 20));
 
 		javax.swing.GroupLayout tabGradesLayout = new javax.swing.GroupLayout(
 				tabGrades);
@@ -2253,19 +2255,31 @@ public class GradebookGUI extends JFrame {
 																																				javax.swing.LayoutStyle.ComponentPlacement.RELATED,
 																																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																																				Short.MAX_VALUE)
-																																		.addComponent(
-																																				courseExamAvg,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																																		.addGap(0,
-																																				0,
-																																				0)
-																																		.addComponent(
-																																				lblCourseExamAvg,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)))
+																																		.addGroup(
+																																				tabGradesLayout
+																																						.createParallelGroup(
+																																								javax.swing.GroupLayout.Alignment.TRAILING)
+																																						.addGroup(
+																																								tabGradesLayout
+																																										.createSequentialGroup()
+																																										.addComponent(
+																																												courseExamAvg,
+																																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																																										.addGap(0,
+																																												0,
+																																												0)
+																																										.addComponent(
+																																												lblCourseExamAvg,
+																																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																																												javax.swing.GroupLayout.PREFERRED_SIZE))
+																																						.addComponent(
+																																								courseExamAvg1,
+																																								javax.swing.GroupLayout.PREFERRED_SIZE,
+																																								javax.swing.GroupLayout.DEFAULT_SIZE,
+																																								javax.swing.GroupLayout.PREFERRED_SIZE))))
 																										.addGap(10,
 																												10,
 																												10)
@@ -2439,43 +2453,55 @@ public class GradebookGUI extends JFrame {
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
 																				javax.swing.GroupLayout.DEFAULT_SIZE,
 																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addComponent(
-																lblCourseAvg,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
 														.addGroup(
 																tabGradesLayout
-																		.createSequentialGroup()
+																		.createParallelGroup(
+																				javax.swing.GroupLayout.Alignment.TRAILING)
+																		.addComponent(
+																				lblCourseAvg,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				70,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
 																		.addGroup(
 																				tabGradesLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.BASELINE)
+																						.createSequentialGroup()
+																						.addGroup(
+																								tabGradesLayout
+																										.createParallelGroup(
+																												javax.swing.GroupLayout.Alignment.BASELINE)
+																										.addComponent(
+																												lblCourseAsnAvg,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addComponent(
+																												courseAsnAvg,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE))
+																						.addGap(5,
+																								5,
+																								5)
+																						.addGroup(
+																								tabGradesLayout
+																										.createParallelGroup(
+																												javax.swing.GroupLayout.Alignment.BASELINE)
+																										.addComponent(
+																												lblCourseExamAvg,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addComponent(
+																												courseExamAvg,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE))
+																						.addGap(5,
+																								5,
+																								5)
 																						.addComponent(
-																								lblCourseAsnAvg,
+																								courseExamAvg1,
 																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								courseAsnAvg,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE))
-																		.addGap(5,
-																				5,
-																				5)
-																		.addGroup(
-																				tabGradesLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.BASELINE)
-																						.addComponent(
-																								lblCourseExamAvg,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								courseExamAvg,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
 																								javax.swing.GroupLayout.DEFAULT_SIZE,
 																								javax.swing.GroupLayout.PREFERRED_SIZE))))
 										.addContainerGap()));
@@ -3731,6 +3757,11 @@ public class GradebookGUI extends JFrame {
 
 		lblActiveCourse.setIcon(new javax.swing.ImageIcon(getClass()
 				.getResource("/cs2212/team4/activeCourseTab.png"))); // NOI18N
+		lblActiveCourse.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblActiveCourseMouseClicked(evt);
+			}
+		});
 		lyrActiveCourse.add(lblActiveCourse,
 				new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, -1,
 						-1));
@@ -3742,6 +3773,13 @@ public class GradebookGUI extends JFrame {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	private void lblActiveCourseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblActiveCourseMouseClicked
+		if (!pnlCourseMenu.isVisible())
+			pnlCourseMenu.setVisible(true);
+		else
+			pnlCourseMenu.setVisible(false);
+	}// GEN-LAST:event_lblActiveCourseMouseClicked
 
 	Dropbox dbx;
 	boolean generated = false;
@@ -4462,7 +4500,8 @@ public class GradebookGUI extends JFrame {
 
 	private void deleteStudentMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseEntered
 		if (currCourse != null)
-			if (studentTable.getSelectedRow()!=-1&&currCourse.getStudent(studentTable.getSelectedRow()) != null)
+			if (studentTable.getSelectedRow() != -1
+					&& currCourse.getStudent(studentTable.getSelectedRow()) != null)
 				deleteStudent.setBorder(BorderFactory
 						.createLineBorder(new Color(255, 51, 51)));
 			else
@@ -4477,7 +4516,8 @@ public class GradebookGUI extends JFrame {
 
 	private void deleteStudentMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMousePressed
 		if (currCourse != null)
-			if (studentTable.getSelectedRow()!=-1&&currCourse.getStudent(studentTable.getSelectedRow()) != null)
+			if (studentTable.getSelectedRow() != -1
+					&& currCourse.getStudent(studentTable.getSelectedRow()) != null)
 				deleteStudent.setBorder(BorderFactory.createBevelBorder(1,
 						new Color(255, 51, 51), new Color(255, 51, 51),
 						new Color(255, 51, 51), new Color(255, 51, 51)));
@@ -6351,33 +6391,32 @@ public class GradebookGUI extends JFrame {
 
 		gradesTable
 				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        gradesTable.setDefaultRenderer(Object.class, new GradeCellRenderer());
+		gradesTable.setDefaultRenderer(Object.class, new GradeCellRenderer());
 		studentTable
 				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        deliverList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		deliverList
+				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		gradesTable.setSelectionModel(studentTable.getSelectionModel());
 		gradesTable.getTableHeader().setReorderingAllowed(false);
-		studentTable.setRowSorter(gradesTable.getRowSorter());
 	}
 
 	private void sizeTables() {
-		// if (firstName==1)
-		// studentTable.getColumn("First Name").setPreferredWidth(100);
-		// if (lastName==1)
-		// studentTable.getColumn("Last Name").setPreferredWidth(100);
-		// if (number==1)
-		// studentTable.getColumn("Student #").setPreferredWidth(100);
-		// if (email==1)
-		// studentTable.getColumn("Email").setPreferredWidth(200);
+		if (firstName == 1)
+			studentTable.getColumn("First Name").setPreferredWidth(75);
+		if (lastName == 1)
+			studentTable.getColumn("Last Name").setPreferredWidth(75);
+		if (number == 1)
+			studentTable.getColumn("Student #").setPreferredWidth(75);
+		if (email == 1)
+			studentTable.getColumn("Email").setPreferredWidth(150);
 
 		for (int i = 0; i < gradesTable.getColumnCount(); i++) {
-			gradesTable.getColumnModel().getColumn(i).setMinWidth(55);
+			if (i < 1 + asnAvg + exmAvg)
+				gradesTable.getColumnModel().getColumn(i).setPreferredWidth(70);
+			else
+				gradesTable.getColumnModel().getColumn(i)
+						.setPreferredWidth(120);
 		}
-		gradesTable.getColumn("Course").setMaxWidth(55);
-		if (asnAvg == 1)
-			gradesTable.getColumn("Asn Avg").setMaxWidth(60);
-		if (exmAvg == 1)
-			gradesTable.getColumn("Exam Avg").setMaxWidth(70);
 	}
 
 	private Integer findDeliver(String deliver) {
@@ -6517,6 +6556,7 @@ public class GradebookGUI extends JFrame {
 	private javax.swing.JLabel courseAsnAvg;
 	private javax.swing.JScrollPane courseDescScroll;
 	private javax.swing.JLabel courseExamAvg;
+	private javax.swing.JLabel courseExamAvg1;
 	private javax.swing.JList courseMenuList;
 	private javax.swing.JLabel courseName;
 	private javax.swing.JScrollPane courses;

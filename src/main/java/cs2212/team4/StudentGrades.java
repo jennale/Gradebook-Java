@@ -151,11 +151,18 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * 
 	  */
 	private void calcAvg() {
-		double avg = 0;
-		double weight = 0;
+		double avg = 0, weight = 0, tempAvg=0, tempWeight=0;
 		Grade temp;
 		if (other==null||other.isEmpty()) {
-			this.avg = (asnAvg*asnWeight+exmAvg*exmWeight)/(asnWeight+exmWeight);
+			if (asnAvg>-1){
+				tempAvg=asnAvg*asnWeight;
+				tempWeight=asnWeight;
+			}
+			if (exmAvg>-1){
+				tempAvg+=exmAvg*exmWeight;
+				tempWeight+=exmWeight;
+			}
+			this.avg = tempAvg/tempWeight;
 			return;
 		}
 		for (int i = 0; i < other.size(); i++) {

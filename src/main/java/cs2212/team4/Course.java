@@ -11,7 +11,6 @@ import java.io.Serializable;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Stack;
-import java.util.Collection;
 import au.com.bytecode.opencsv.CSVReader;
 
 /**

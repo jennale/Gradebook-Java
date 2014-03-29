@@ -10,7 +10,8 @@ import java.text.*;
  */
 
 public class GradeCellRenderer extends DefaultTableCellRenderer{
-    private Format formatter;
+	private static final long serialVersionUID = 1L;
+	private Format formatter;
     private Color unselectedForeground;
     private Color unselectedBackground;
 

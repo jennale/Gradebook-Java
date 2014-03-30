@@ -79,9 +79,9 @@ public class Email {
 			textPart.setText(Email.msg);
 			multiPart.addBodyPart(textPart);
 			
-			returnMsg = generateReport();
-
 			if (Email.boolReport){
+				returnMsg = generateReport();
+				
 				if (!returnMsg.equals(""))
 					return returnMsg;
 

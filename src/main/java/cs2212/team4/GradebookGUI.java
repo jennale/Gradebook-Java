@@ -4273,20 +4273,27 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_msgTextFocusLost
 
 	private void lblSendEmailMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblSendEmailMouseClicked
-		Email email;
 		Student student;
-		int [] indecies = studentTable.getSelectedRows();
+		String returnMsg;
+		int[] indecies = studentTable.getSelectedRows();
 		if (!txtSubject.getText().equals("Please enter an email subject...")) {
 			if (!msgText.getText().equals("Please enter a massage content...")) {
 				for (int i = 0; i < indecies.length; i++) {
 					if (indecies[i] > -1
 							&& (student = currCourse.getStudent(indecies[i])) != null) {
-						email = new Email(currCourse, student, txtSubject.getText(), msgText.getText(), butToggle);
-						lblEmailErrorLog.setForeground(Color.red);
-						lblEmailErrorLog.setText(email.sendEmail());
+						Email email = new Email(currCourse, student,
+								txtSubject.getText(), msgText.getText(),
+								butToggle);
+						returnMsg = email.sendEmail();
+						if (returnMsg.equals(""))
+							restPnlEmail();
+						else {
+							lblEmailErrorLog.setForeground(Color.red);
+							lblEmailErrorLog.setText(returnMsg);
+						}
 					}
 				}
-			} else{
+			} else {
 				lblEmailErrorLog.setForeground(Color.red);
 				lblEmailErrorLog.setText("Please enter a massage content...");
 			}
@@ -7050,6 +7057,24 @@ public class GradebookGUI extends JFrame {
 
 		lblStudentAddErrorLog.setText("");
 		pnlAddStudent.setVisible(false);
+	}
+
+	private void restPnlEmail() {
+		txtSubject.setForeground(Color.lightGray);
+		txtSubject.setText("Please enter an email subject...");
+
+		msgText.setForeground(Color.lightGray);
+		msgText.setText("Please enter a massage content...");
+
+		butToggle = false;
+		lblToggle.setBorder(BorderFactory.createLineBorder(new java.awt.Color(
+				204, 204, 204)));
+		lblSendEmail.setBorder(BorderFactory
+				.createLineBorder(new java.awt.Color(204, 204, 204)));
+		lblEmailErrorLog.setText("");
+
+		pnlEmail.setVisible(false);
+		emailFrame.dispose();
 	}
 
 	private void updateTables() {

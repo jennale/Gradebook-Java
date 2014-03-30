@@ -36,13 +36,16 @@ public class GradeCellRenderer extends DefaultTableCellRenderer{
                 setValue(formatted+"%");
             }
         }
-        if (value == null){
-            setValue("");
-        }
+
         if (value instanceof Double){
+            if (Double.toString((Double)value).equals("")){
+                setValue("");
+            }
+            else {
             double amount = ((double)value);
             String formatted = formatter.format(amount);
             setValue(formatted+"%");
+            }
         }
 
         if (isSelected) {

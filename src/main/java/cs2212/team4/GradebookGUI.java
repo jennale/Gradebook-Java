@@ -4994,7 +4994,7 @@ public class GradebookGUI extends JFrame {
 		if (currCourse != null) {
 			int[] selectedRows = gradesTable.getSelectedRows();
 			for (int i = 0; i < selectedRows.length; i++) {
-				Student stud = currCourse.getStudent(selectedRows[i]);
+				Student stud = tableStudents.getStudentNames().get(selectedRows[i]);
 				if (stud != null)
 					currCourse.removeStudent(currCourse.findStudent(stud
 							.getNumber()));
@@ -7136,6 +7136,9 @@ public class GradebookGUI extends JFrame {
 				new Dimension(15, 5));
 		gradesScroll.setWheelScrollingEnabled(true);
 
+        gradesScroll.getViewport().setBackground(Color.white);
+        studentScroll.getViewport().setBackground(Color.white);
+
 		MatteBorder border = new MatteBorder(0, 0, 0, 1, new Color(196, 196,
 				196));
 		studentTable.setBorder(border);
@@ -7159,11 +7162,11 @@ public class GradebookGUI extends JFrame {
 		if (number == 1)
 			studentTable.getColumn("Student #").setPreferredWidth(75);
 		if (email == 1)
-			studentTable.getColumn("Email").setPreferredWidth(150);
+			studentTable.getColumn("Email").setPreferredWidth(100);
 
 		for (int i = 0; i < gradesTable.getColumnCount(); i++) {
 			if (i < 1 + asnAvg + exmAvg)
-				gradesTable.getColumnModel().getColumn(i).setPreferredWidth(70);
+				gradesTable.getColumnModel().getColumn(i).setMinWidth(60);
 			else
 				gradesTable.getColumnModel().getColumn(i)
 						.setPreferredWidth(120);

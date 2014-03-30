@@ -140,9 +140,11 @@ public class GradesTable extends DefaultTableModel{
                     return;
             }
             Deliverable d = deliverableGrades.get(columnIndex - (1+asnAvg+exmAvg));
-            if (((String)aValue).equals(""))
+            if (((String)aValue).equals("")){
                 currCourse.getStudent(rowIndex).removeGrade(d.getObjId(),
                         d.getType());
+                return;
+            }
             else if(!(((String)aValue).matches("\\d+(\\.\\d+)?")))
                 return;
             else {

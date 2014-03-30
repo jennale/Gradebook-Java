@@ -1,5 +1,6 @@
 package cs2212.team4;
 
+import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Stack;
+
 import au.com.bytecode.opencsv.CSVReader;
 
 /**
@@ -44,6 +46,8 @@ public class Course implements CourseADT, Serializable
     //Variable used to keep track of deliverable weights -- Optional if we want to keep
     //deliverable weights <= 100
     private double runningTotal=0;
+    
+    private Color color = new Color(20, 150, 250);
 
 	/**
 	 * Constructor that creates a course with a given title, term, and code
@@ -93,6 +97,16 @@ public class Course implements CourseADT, Serializable
 		return code;
 	}
 
+	/**
+	 * Gets the course color
+	 * 
+	 * @return The course color
+	 * 
+	 */
+	public Color getColor(){
+		return color;
+	}
+	
 	/**
 	 * Gets the course description
 	 * 
@@ -333,6 +347,16 @@ public class Course implements CourseADT, Serializable
 		this.code = code;
 	}
 
+	/**
+	 * Sets the course color
+	 * 
+	 * @param description The desired course color
+	 * 
+	 */
+	public void setColor(Color color){
+		this.color=color;
+	}
+	
 	/**
 	 * Sets the course description
 	 * 

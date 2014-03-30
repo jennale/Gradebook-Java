@@ -42,7 +42,7 @@ public class Grade implements GradeADT, Serializable
 	/**
 	  * Gets the grade value
 	  * 
-	  * @return The quntitative grade value
+	  * @return The quantitative grade value
 	  * 
 	  */
 	public double getGrade() {

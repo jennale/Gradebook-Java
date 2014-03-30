@@ -57,6 +57,7 @@ public class Course implements CourseADT, Serializable
 		this.title = title;
 		this.term  = term;
 		this.code  = code;
+        calcRunningTotal();
 	}
 
 	/* ************************************************************
@@ -149,6 +150,15 @@ public class Course implements CourseADT, Serializable
      */
     public double getRunningTotal(){
         return runningTotal;
+    }
+
+    public void calcRunningTotal(){
+        runningTotal = 0;
+        for (int i = 0; i<deliverableList.size(); i++){
+            if (deliverableList.get(i)!=null){
+                runningTotal += deliverableList.get(i).getWeight();
+            }
+        }
     }
 
     /**

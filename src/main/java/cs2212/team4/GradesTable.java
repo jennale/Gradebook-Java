@@ -85,22 +85,26 @@ public class GradesTable extends DefaultTableModel{
         int ctr = 0;
         if(s.getNumGrades()>0||s.getAvg()>-1||s.getExmAvg()>-1||s.getAsnAvg()>-1) {
             if (s.getAvg()>=0)
-                grades[ctr++] = s.getAvg();
+//                grades[ctr++] = s.getAvg(); //Insert into table as a Double
+                grades[ctr++] = String.format("%.2f", s.getAvg());
             else
                 grades[ctr++] = "";
             if (asnAvg==1 && s.getAsnAvg()>=0)
-                grades[ctr++]= s.getAsnAvg();
+//                grades[ctr++] = s.getAsnAvg(); //Insert into table as a Double
+                grades[ctr++]= String.format("%.2f", s.getAsnAvg());
             else if(asnAvg==1)
                 grades[ctr++] = "";
             if (exmAvg==1 && s.getExmAvg()>=0)
-                grades[ctr++]=s.getExmAvg();
+//                grades[ctr++] = s.getExmAvg(); //Insert into table as a Double
+                grades[ctr++]=String.format("%.2f", s.getExmAvg());
             else if(exmAvg==1)
                 grades[ctr++]= "";
             for (int i = 0; i < deliverableGrades.size(); i++) {
                 if (deliverableGrades.get(i) != null) {
                     int id = deliverableGrades.get(i).getObjId();
                     if (s.getGrade(id) >= 0) {
-                        grades[ctr++] = s.getGrade(id);
+//                        grades[ctr++] = s.getGrade(id);
+                        grades[ctr++] = String.format("%.2f", s.getGrade(id));
                     } else
                         grades[ctr++] = "";
                 }
@@ -122,20 +126,40 @@ public class GradesTable extends DefaultTableModel{
         if ((rowIndex < 0) || (rowIndex >= currCourse.getDeliverableListSize()))
             return;
         else if (columnIndex < 1+asnAvg+exmAvg) {
-            if (Double.parseDouble((String) aValue)>100||Double.parseDouble((String) aValue)<0)
-                return;
             String clmn = getColumnName(columnIndex);
             switch (clmn) {
                 case "Average":
+                    if(aValue.equals(""))
+                        currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setAvg(-1);
+                    else if(!(((String)aValue).matches("\\d+(\\.\\d+)?")))
+                        return;
+                    else if (Double.parseDouble((String) aValue)>100||Double.parseDouble((String) aValue)<0)
+                        return;
+                    else
                     currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setAvg(Double.parseDouble((String) aValue));
+
                     fireTableCellUpdated(rowIndex,columnIndex);
                     return;
                 case "Asn Avg":
-                    currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setAsnAvg(Double.parseDouble((String) aValue));
+                    if(aValue.equals(""))
+                        currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setAsnAvg(-1);
+                    else if(!(((String)aValue).matches("\\d+(\\.\\d+)?")))
+                        return;
+                    else if (Double.parseDouble((String) aValue)>100||Double.parseDouble((String) aValue)<0)
+                        return;
+                    else
+                        currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setAsnAvg(Double.parseDouble((String) aValue));
                     fireTableCellUpdated(rowIndex,columnIndex);
                     return;
                 case "Exam Avg":
-                    currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setExmAvg(Double.parseDouble((String) aValue));
+                    if(aValue.equals(""))
+                        currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setExmAvg(-1);
+                    else if(!(((String)aValue).matches("\\d+(\\.\\d+)?")))
+                        return;
+                    else if (Double.parseDouble((String) aValue)>100||Double.parseDouble((String) aValue)<0)
+                        return;
+                    else
+                        currCourse.getStudent(currCourse.findStudent(studentGrades.get(rowIndex).getNumber())).setExmAvg(Double.parseDouble((String) aValue));
                     fireTableCellUpdated(rowIndex,columnIndex);
                     return;
             }

@@ -66,7 +66,7 @@ public class Grade implements GradeADT, Serializable
 	/**
 	  * Set the grade value
 	  * 
-	  * @param The value that we want to set the grade to
+	  * @param grade The value that we want to set the grade to
 	  * 
 	  */
 	public void setGrade(double grade) {
@@ -76,7 +76,7 @@ public class Grade implements GradeADT, Serializable
 	/**
 	  * Sets grade weight
 	  * 
-	  * @param The value that we want to set the weight to
+	  * @param weight The value that we want to set the weight to
 	  * 
 	  */
 	public void setWeight(double weight) {

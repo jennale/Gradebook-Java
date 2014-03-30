@@ -26,6 +26,10 @@ public class GradeCellRenderer extends DefaultTableCellRenderer{
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value,
                                                    boolean isSelected, boolean hasFocus, int row, int column) {
+
+        if (value == null){
+            setValue("");
+        }
         if (value instanceof String){
             if ((value).equals("")){
                 setValue("");

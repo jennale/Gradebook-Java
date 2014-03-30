@@ -29,7 +29,7 @@ public interface GradeADT
 	/**
 	  * Set the grade value
 	  * 
-	  * @param The value that we want to set the grade to
+	  * @param grade The value that we want to set the grade to
 	  * 
 	  */
 	public void setGrade(double grade);
@@ -37,7 +37,7 @@ public interface GradeADT
 	/**
 	  * Sets grade weight
 	  * 
-	  * @param The value that we want to set the weight to
+	  * @param weight The value that we want to set the weight to
 	  * 
 	  */
 	public void setWeight(double weight);

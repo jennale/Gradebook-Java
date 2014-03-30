@@ -126,7 +126,7 @@ public interface StudentADT
 	/**
 	  * Sets the student's exam average
 	  * 
-	  * @param exmAavg The new exam average this student will have
+	  * @param exmAvg The new exam average this student will have
 	  * 
 	  */
 	public void setExmAvg(double exmAvg);

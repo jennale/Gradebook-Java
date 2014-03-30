@@ -123,7 +123,7 @@ public class GradesTable extends DefaultTableModel{
      */
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        if ((rowIndex < 0) || (rowIndex >= currCourse.getDeliverableListSize()))
+        if ((rowIndex < 0) || (rowIndex >= currCourse.getStudentListSize()))
             return;
         else if (columnIndex < 1+asnAvg+exmAvg) {
             String clmn = getColumnName(columnIndex);
@@ -164,7 +164,7 @@ public class GradesTable extends DefaultTableModel{
                     return;
             }
         }
-        else if (columnIndex >= 1+asnAvg+exmAvg){
+        else {
             Deliverable d = deliverableGrades.get(columnIndex - (1+asnAvg+exmAvg));
             if (aValue.equals("")){
                 currCourse.getStudent(rowIndex).removeGrade(d.getObjId(),

@@ -64,7 +64,7 @@
 	</style>
 	<style name="grade">
 		<conditionalStyle>
-			<conditionExpression><![CDATA[$F{grade}<50]]></conditionExpression>
+			<conditionExpression><![CDATA[$F{grade}>-1&&$F{grade}<50]]></conditionExpression>
 			<style forecolor="#FF0000"/>
 		</conditionalStyle>
 	</style>
@@ -123,6 +123,7 @@
 	<field name="deliverType" class="java.lang.String">
 		<fieldDescription><![CDATA[deliverType]]></fieldDescription>
 	</field>
+	<sortField name="deliverType"/>
 	<variable name="asnWeight" class="java.lang.Double" calculation="Sum">
 		<variableExpression><![CDATA[$F{deliverType}=="Assignment" ? $F{weight} : 0]]></variableExpression>
 	</variable>
@@ -320,13 +321,13 @@
 		<band height="20" splitType="Stretch">
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<textField pattern="#,##0.00%" isBlankWhenNull="true">
-				<reportElement style="deliverGrade" x="105" y="0" width="150" height="20" isRemoveLineWhenBlank="true" uuid="69d4b2c8-4543-4a9d-b2af-620caec041bc">
+				<reportElement style="grade" x="105" y="0" width="150" height="20" isRemoveLineWhenBlank="true" uuid="69d4b2c8-4543-4a9d-b2af-620caec041bc">
 					<property name="local_mesure_unitheight" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="HelveticaNeue" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{grade}==-1?0.00:$F{grade}/100]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{grade}/100<0 ? 0.0: $F{grade}/100]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00%" isBlankWhenNull="true">
 				<reportElement style="deliverWeight" x="255" y="0" width="150" height="20" isRemoveLineWhenBlank="true" uuid="7c4041aa-cee1-4a06-81aa-53ac626e9f67"/>
@@ -357,13 +358,11 @@
 	<columnFooter>
 		<band height="20">
 			<property name="local_mesure_unitheight" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="210">
+		<band height="230">
 			<property name="local_mesure_unitheight" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<bar3DChart>
 				<chart evaluationTime="Report">
 					<reportElement x="0" y="0" width="280" height="210" uuid="abeb3a1c-ce84-41f7-ad80-62706cfdfe57"/>
@@ -431,12 +430,11 @@
 					<itemLabel/>
 				</pie3DPlot>
 			</pie3DChart>
+			<staticText>
+				<reportElement x="280" y="210" width="275" height="20" uuid="1c7e33ce-434c-4586-8af9-0c018d9bdbd1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[*Grades with no enteries are automatically set to 0]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
-	<summary>
-		<band height="20">
-			<property name="local_mesure_unitheight" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-		</band>
-	</summary>
 </jasperReport>

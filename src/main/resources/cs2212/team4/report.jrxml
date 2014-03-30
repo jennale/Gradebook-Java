@@ -366,7 +366,7 @@
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<bar3DChart>
 				<chart evaluationTime="Report">
-					<reportElement x="0" y="0" width="280" height="210" uuid="f9929fbf-2c5b-493d-8913-3e6399eb7746"/>
+					<reportElement x="0" y="0" width="280" height="210" uuid="abeb3a1c-ce84-41f7-ad80-62706cfdfe57"/>
 					<chartTitle>
 						<font fontName="HelveticaNeue" size="14"/>
 						<titleExpression><![CDATA["Averages Chart"]]></titleExpression>
@@ -404,7 +404,7 @@
 			</bar3DChart>
 			<pie3DChart>
 				<chart evaluationTime="Report">
-					<reportElement x="280" y="0" width="275" height="210" uuid="0294c874-ccd1-4679-bafd-1c1712327df7"/>
+					<reportElement x="280" y="0" width="275" height="210" uuid="7f0d34a7-9f5a-40a4-a73d-857c0fd2d012"/>
 					<chartTitle>
 						<font fontName="HelveticaNeue" size="14"/>
 						<titleExpression><![CDATA["Weight Distribution"]]></titleExpression>
@@ -415,7 +415,7 @@
 				<pieDataset maxCount="3">
 					<pieSeries>
 						<keyExpression><![CDATA["Assignments"]]></keyExpression>
-						<valueExpression><![CDATA[$V{exmWeight}]]></valueExpression>
+						<valueExpression><![CDATA[$V{asnWeight}]]></valueExpression>
 					</pieSeries>
 					<pieSeries>
 						<keyExpression><![CDATA["Exams"]]></keyExpression>

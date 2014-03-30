@@ -121,7 +121,7 @@ public class GradesTable extends DefaultTableModel{
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         if ((rowIndex < 0) || (rowIndex >= currCourse.getDeliverableListSize()))
             return;
-        else if (columnIndex >= 0) {
+        else if (columnIndex < 1+asnAvg+exmAvg) {
             if (Double.parseDouble((String) aValue)>100||Double.parseDouble((String) aValue)<0)
                 return;
             String clmn = getColumnName(columnIndex);
@@ -139,11 +139,12 @@ public class GradesTable extends DefaultTableModel{
                     fireTableCellUpdated(rowIndex,columnIndex);
                     return;
             }
+        }
+        else if (columnIndex >= 1+asnAvg+exmAvg){
             Deliverable d = deliverableGrades.get(columnIndex - (1+asnAvg+exmAvg));
-            if (((String)aValue).equals("")){
+            if (aValue.equals("")){
                 currCourse.getStudent(rowIndex).removeGrade(d.getObjId(),
                         d.getType());
-                return;
             }
             else if(!(((String)aValue).matches("\\d+(\\.\\d+)?")))
                 return;
@@ -155,9 +156,9 @@ public class GradesTable extends DefaultTableModel{
                         d.getWeight());
             }
         }
+
         fireTableCellUpdated(rowIndex, columnIndex);
     }
-
     /**
      * Method to restrict the user from manually editing a student's calculated course grade.
      * This grade is calculated automatically by the program, and so does not need to be edited.
@@ -168,7 +169,9 @@ public class GradesTable extends DefaultTableModel{
      */
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        if (columnIndex < 0 || columnIndex >= numColumns || rowIndex > studentGrades.size()-1)
+        if (columnIndex < 0 || columnIndex > numColumns || rowIndex > studentGrades.size()-1)
+            return false;
+        else if (getColumnName(columnIndex).equals(""))
             return false;
         else
             return true;

@@ -1,12 +1,12 @@
 package cs2212.team4;
 
 import java.io.*;
-import java.net.URL;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
-import javax.activation.URLDataSource;
+import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.*;
+
 import java.util.*;
 
 public class Email {
@@ -78,19 +78,19 @@ public class Email {
 			MimeBodyPart textPart = new MimeBodyPart();
 			textPart.setText(Email.msg);
 			multiPart.addBodyPart(textPart);
-			
-			if (Email.boolReport){
+
+			if (Email.boolReport) {
 				returnMsg = generateReport();
-				
+
 				if (!returnMsg.equals(""))
 					return returnMsg;
 
 				MimeBodyPart fileAttachmentPart = new MimeBodyPart();
-				URL attachmentUrl = GradebookGUI.class.getClassLoader()
-						.getResource("cs2212/team4/report.pdf");
-				if (attachmentUrl == null)
-					return "Failed a generate an attachment url";
-				DataSource source = new URLDataSource(attachmentUrl);
+				File attachmentFile = new File(
+						"src/main/resources/cs2212/team4/report.pdf");
+				if (!attachmentFile.exists())
+					return "Not able to find the generated report";
+				DataSource source = new FileDataSource(attachmentFile);
 				fileAttachmentPart.setDataHandler(new DataHandler(source));
 				fileAttachmentPart.setFileName("report.pdf");
 
@@ -126,6 +126,10 @@ public class Email {
 		if (!(returnMsg = sendMessage(session, properties, student.getEmail()))
 				.equals(""))
 			return returnMsg;
+		File reportFile = new File("src/main/resources/cs2212/team4/report.pdf");
+		if (reportFile.exists())
+			if (!reportFile.delete())
+				return "Error, temprary file cannot be removed";
 		return "";
 	}
 }

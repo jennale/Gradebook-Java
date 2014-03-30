@@ -4285,14 +4285,13 @@ public class GradebookGUI extends JFrame {
 								txtSubject.getText(), msgText.getText(),
 								butToggle);
 						returnMsg = email.sendEmail();
-						if (returnMsg.equals(""))
-							restPnlEmail();
-						else {
+						if (!returnMsg.equals("")){
 							lblEmailErrorLog.setForeground(Color.red);
 							lblEmailErrorLog.setText(returnMsg);
 						}
 					}
 				}
+				restPnlEmail();
 			} else {
 				lblEmailErrorLog.setForeground(Color.red);
 				lblEmailErrorLog.setText("Please enter a massage content...");

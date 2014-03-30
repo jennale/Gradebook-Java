@@ -75,7 +75,7 @@ public interface CourseADT
 	/**
 	  * Sets the course title
 	  * 
-	  * @param The desired title for the course
+	  * @param title The desired title for the course
 	  * 
 	  */
 	public void setTitle(String title);
@@ -83,7 +83,7 @@ public interface CourseADT
 	/**
 	  * Sets the course term
 	  * 
-	  * @param The desired term for the course
+	  * @param term The desired term for the course
 	  * 
 	  */
 	public void setTerm(String term);
@@ -91,7 +91,7 @@ public interface CourseADT
 	/**
 	  * Sets the course code
 	  * 
-	  * @param The desired course code
+	  * @param code The desired course code
 	  * 
 	  */
 	public void setCode(String code);
@@ -243,7 +243,7 @@ public interface CourseADT
 	/**
 	  * Exports students' grades into a .csv file
 	  * 
-	  * @param The path where we want to export the grades
+	  * @param file The path where we want to export the grades
 	  * @return true if the grades were exported, false otherwise
 	  * 
 	  */

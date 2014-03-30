@@ -96,7 +96,7 @@ public class Gradebook implements GradebookADT, Serializable
 	/**
 	  * Sets the data path
 	  * 
-	  * @param What we want to set the data path to
+	  * @param path What we want to set the data path to
 	  * 
 	  */
 	public void setPath(String path) {
@@ -106,7 +106,7 @@ public class Gradebook implements GradebookADT, Serializable
         /**
 	  * Sets the previous course
 	  * 
-	  * @param What we want the previous course to be set to
+	  * @param prevCourse What we want the previous course to be set to
 	  * 
 	  */
 	public void setPrevCourse(Course prevCourse) {

@@ -31,7 +31,7 @@ public class Deliverable implements DeliverableADT, Serializable
 	  * Constructor that creates a deliverable with a given name, type, weight, and ID
 	  * 
 	  * @param name The name of the deliverable
-	  * @param typeThe type of the deliverable
+	  * @param type The type of the deliverable
 	  * @param weight The weight of the deliverable
 	  * @param objId The deliverable ID
 	  * 
@@ -128,7 +128,7 @@ public class Deliverable implements DeliverableADT, Serializable
 	/**
 	  * A method to test for equality between deliverables
 	  * 
-	  * @param A deliverable we want to compare to this one
+	  * @param deliver deliverable we want to compare to this one
 	  * @return true if the deliverables are the same, false otherwise
 	  * 
 	  */

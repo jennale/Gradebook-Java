@@ -31,7 +31,7 @@ public interface GradebookADT
 	/**
 	  * Sets the data path
 	  * 
-	  * @param What we want to set the data path to
+	  * @param path What we want to set the data path to
 	  * 
 	  */
 	public void setPath(String path);

@@ -4075,6 +4075,10 @@ public class GradebookGUI extends JFrame {
 					// I think
 					// "Weight invalid: getRunningTotal()/100 marks already accounted for"
 					// could be a good error message.
+                    else {
+                        lblSetupErrorLog.setText("Weight invalid: "
+                                + currCourse.getRunningTotal() + "/100 marks already accounted for");
+                    }
 				} else if (boolCourse == 0)
 					lblSetupErrorLog.setText("The deliverable"
 							+ txtEditDeliverName.getText() + ", " + weight
@@ -5021,7 +5025,9 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblAddDeliverMouseExited
 
 	private void lblAddDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddDeliverMousePressed
-		lblAddDeliver.setBackground(new Color(51, 255, 51));
+        System.out.println(currCourse.getRunningTotal());
+
+        lblAddDeliver.setBackground(new Color(51, 255, 51));
 	}// GEN-LAST:event_lblAddDeliverMousePressed
 
 	private void lblAddDeliverMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddDeliverMouseReleased
@@ -5067,6 +5073,11 @@ public class GradebookGUI extends JFrame {
 					}
 					// set error message here when can't be added because the
 					// weight is too high;
+                    else {
+                        lblSetupErrorLog.setText("Weight invalid: "
+                                + currCourse.getRunningTotal() + "/100 marks already accounted for");
+                        return;
+                    }
 
 				} catch (NumberFormatException e) {
 					txtDeliverWeight.setBorder(errorHighlightBorder);
@@ -5490,7 +5501,7 @@ public class GradebookGUI extends JFrame {
 		txtSubject.setText("Please enter an email subject...");
 
 		msgText.setForeground(Color.lightGray);
-		msgText.setText("Please enter a massage content...");
+		msgText.setText("Please enter a message content...");
 
 		butToggle = false;
 		lblToggle.setBorder(BorderFactory.createLineBorder(new java.awt.Color(

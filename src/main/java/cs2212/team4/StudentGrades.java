@@ -178,7 +178,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	/**
 	  * Calculates the student's assignment average
 	  * 
-	  * @return The calculated student's assignment average. Returns -1 if the student has no assignment grades availble
+	  * @return The calculated student's assignment average. Returns -1 if the student has no assignment grades available
 	  * 
 	  */
 	private void calcAsnAvg() {

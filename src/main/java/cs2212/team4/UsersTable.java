@@ -217,11 +217,5 @@ import java.util.List;
                 grades.addColumn("");
             }
         }
-//        if (height<20){
-//            for (int i=0; i < 20-height; i++){
-//                this.addRow(new Object[]{});
-//                grades.addRow(new Object[] {});
-//            }
-//        }
     }
 }

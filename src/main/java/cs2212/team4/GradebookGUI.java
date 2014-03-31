@@ -5091,11 +5091,23 @@ public class GradebookGUI extends JFrame {
 		if (currCourse != null) {
 			if (deliverList.getSelectedIndex() > -1) {
 				int[] selectedRows = deliverList.getSelectedIndices();
+				String SelectedDelivers = "";
 				for (int i = 0; i < selectedRows.length; i++) {
-					String del = listDelivers.getElementAt(selectedRows[i]);
-					currCourse.removeDeliverable(findDeliver(del));
+					SelectedDelivers += currCourse.getDeliverable(
+							selectedRows[i]).getName()
+							+ "\n";
 				}
-				updateInfo();
+				int j = JOptionPane.showConfirmDialog(this,
+						"Are you sure you want to delete\n" + SelectedDelivers,
+						"Deliverable Deletion Confirmation",
+						JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				if (j == 0) {
+					for (int i = 0; i < selectedRows.length; i++) {
+						String del = listDelivers.getElementAt(selectedRows[i]);
+						currCourse.removeDeliverable(findDeliver(del));
+					}
+					updateInfo();
+				}
 			} else
 				lblGradesErrorLog.setText("Please select a deliverable");
 		} else
@@ -5514,14 +5526,29 @@ public class GradebookGUI extends JFrame {
 	private void deleteStudentMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteStudentMouseClicked
 		if (currCourse != null) {
 			int[] selectedRows = gradesTable.getSelectedRows();
+			String SelectedStudents = "";
 			for (int i = 0; i < selectedRows.length; i++) {
 				Student stud = tableStudents.getStudentNames().get(
 						selectedRows[i]);
 				if (stud != null)
-					currCourse.removeStudent(currCourse.findStudent(stud
-							.getNumber()));
+					SelectedStudents += stud.getNameFirst() + ", "
+							+ stud.getNameLast() + ", " + stud.getNumber()
+							+ "\n";
 			}
-			updateInfo();
+			int j = JOptionPane.showConfirmDialog(this,
+					"Are you sure you want to delete\n" + SelectedStudents,
+					"Student Deletion Confirmation", JOptionPane.YES_NO_OPTION,
+					JOptionPane.WARNING_MESSAGE);
+			if (j == 0) {
+				for (int i = 0; i < selectedRows.length; i++) {
+					Student stud = tableStudents.getStudentNames().get(
+							selectedRows[i]);
+					if (stud != null)
+						currCourse.removeStudent(currCourse.findStudent(stud
+								.getNumber()));
+				}
+				updateInfo();
+			}
 		} else
 			lblGradesErrorLog.setText("Please select a course");
 	}// GEN-LAST:event_deleteStudentMouseClicked
@@ -5984,8 +6011,17 @@ public class GradebookGUI extends JFrame {
 
 	private void lblDeleteCourseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDeleteCourseMouseClicked
 		if (currCourse != null) {
-			if (lblDeleteSure.getText().equals(
-					"Are you sure? Click 'Delete Course' again to continue.")) {
+			int i = JOptionPane
+					.showConfirmDialog(
+							this,
+							"Are you sure you want to delete\n"
+									+ currCourse.getTitle() + " "
+									+ currCourse.getCode()
+									+ currCourse.getTerm(),
+							"Course Deletion Confirmation",
+							JOptionPane.YES_NO_OPTION,
+							JOptionPane.WARNING_MESSAGE);
+			if (i == 0) {
 				gradebook.removeCourse(gradebook.getCourse(courseMenuList
 						.getSelectedIndex()));
 				listCourses.remove(courseMenuList.getSelectedIndex());
@@ -5996,10 +6032,9 @@ public class GradebookGUI extends JFrame {
 							.findCourse(currCourse));
 				else
 					currCourse = null;
+				tabSwitch(0);
 				updateInfo();
-			} else
-				lblDeleteSure
-						.setText("Are you sure? Click 'Delete Course' again to continue.");
+			}
 		} else
 			lblSetupErrorLog.setText("Please select a course");
 
@@ -6320,11 +6355,19 @@ public class GradebookGUI extends JFrame {
 	private void lblEditDeleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeleteDeliverMouseClicked
 		if (currCourse != null) {
 			if (editDeliverList.getSelectedIndex() != -1) {
-				String temp = listDelivers.getElementAt(editDeliverList
-						.getSelectedIndex());
-				currCourse.removeDeliverable(findDeliver(temp));
-				currDeliver = null;
-				updateInfo();
+				int i = JOptionPane.showConfirmDialog(
+						this,
+						"Are you sure you want to delete\n"
+								+ currDeliver.getName(),
+						"Deliverable Deletion Confirmation",
+						JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				if (i == 0) {
+					String temp = listDelivers.getElementAt(editDeliverList
+							.getSelectedIndex());
+					currCourse.removeDeliverable(findDeliver(temp));
+					currDeliver = null;
+					updateInfo();
+				}
 			} else
 				lblSetupErrorLog.setText("Please select a deliverable");
 		} else

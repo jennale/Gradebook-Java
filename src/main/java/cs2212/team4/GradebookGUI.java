@@ -7141,8 +7141,8 @@ public class GradebookGUI extends JFrame {
 		if (currCourse == null)
 			lblDeliverAddErrorLog.setText("Please select a course!");
 		else {
-			String name, weight, getName, getWeight, info, type;
-			boolean boolExists = false, boolFormat = true;
+			String name, weight, getName, getWeight, info, type, boolExists="";
+			boolean boolFormat = true;
 
 			txtDeliverName.setBorder(defaultHighlightBorder);
 			txtDeliverWeight.setBorder(defaultHighlightBorder);
@@ -7191,7 +7191,7 @@ public class GradebookGUI extends JFrame {
 				if (!boolFormat)
 					lblDeliverAddErrorLog
 							.setText("Please enter a valid deliverable weight.");
-				else if (!boolExists)
+				else if (!boolExists.equals(""))
 					lblDeliverAddErrorLog.setText("Deliver Already exists!");
 				else {
 					closeFrame(addFrame);

@@ -70,7 +70,7 @@ public interface DeliverableADT
 	/**
 	  * A method to test for equality between deliverables
 	  * 
-	  * @param deliver A deliverable we want to compare to this one
+	  * @param deliver deliverable we want to compare to this one
 	  * @return true if the deliverables are the same, false otherwise
 	  * 
 	  */

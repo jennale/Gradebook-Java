@@ -9,11 +9,11 @@ package cs2212.team4;
  */
 
 public interface GradeADT
-{
+{	
 	/**
 	  * Gets the grade value
 	  * 
-	  * @return The quntitative grade value
+	  * @return The quantitative grade value
 	  * 
 	  */
 	public double getGrade();

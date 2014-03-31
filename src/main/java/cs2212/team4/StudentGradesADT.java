@@ -1,5 +1,7 @@
 package cs2212.team4;
 
+import java.util.ArrayList;
+
 /**
  *
  * StudentGradesADT implements the method interface for the StudentGrades class.
@@ -41,7 +43,14 @@ public interface StudentGradesADT
 	  * @return The student's grade at this index. Return -1 if index is out of bounds of the grades list
 	  * 
 	  */
-	public double getGrade (int grade);
+	public double getGrade(int grade);
+	
+	/**
+	 * Gets a reference to the grades Arraylist of the student
+	 * 
+	 * @return A reference to the grades list of the student
+	 */
+	public ArrayList<Grade> getGradeList();
 	
 	/**
 	  * Sets the student's overall average
@@ -58,6 +67,7 @@ public interface StudentGradesADT
 	  * 
 	  */
 	public void setAsnAvg(double asnAvg);
+	
 	/**
 	  * Sets the student's exam average
 	  * 
@@ -77,7 +87,7 @@ public interface StudentGradesADT
 	  * 
 	  */
 	public boolean add(int deliver, double grade, String type, double weight);
-	
+
 	/**
 	  * Removes a grade from this student
 	  * 
@@ -86,4 +96,5 @@ public interface StudentGradesADT
 	  * @return true if the grade was removed successfully, false otherwise
 	  * 
 	  */
-	public boolean remove(int deliver, String type);}
+	public boolean remove(int deliver, String type);
+}

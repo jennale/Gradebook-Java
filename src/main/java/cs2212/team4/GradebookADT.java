@@ -18,16 +18,32 @@ public interface GradebookADT
 	  * @return The course we were searching for, if index passed falls outside of the array, return null
 	  * 
 	  */
-    public Course getCourse(int crs);
-    
+	public Course getCourse(int crs);
+   
+	/**
+	  * Gets the size of the list containing the courses
+	  * 
+	  * @return The size of the list of courses in the gradebook
+	  * 
+	  */
+	public int getCourseListSize();
+   
 	/**
 	  * Gets the data path
 	  * 
 	  * @return the path with our data
 	  * 
 	  */
-   public String getPath();
-   
+	public String getPath();
+       
+	/**
+	  * Gets the previous course from the list
+	  * 
+	  * @return the previous course in the list
+	  * 
+	  */
+	public Course getPrevCourse();
+  
 	/**
 	  * Sets the data path
 	  * 
@@ -35,6 +51,14 @@ public interface GradebookADT
 	  * 
 	  */
 	public void setPath(String path);
+       
+       /**
+	  * Sets the previous course
+	  * 
+	  * @param prevCourse What we want the previous course to be set to
+	  * 
+	  */
+	public void setPrevCourse(Course prevCourse);
 	
 	/**
 	  * Stores the courses from the gradebook
@@ -43,6 +67,15 @@ public interface GradebookADT
 	  * 
 	  */
 	public boolean store();
+	
+	/**
+	  * Finds a course inside the gradebook
+	  * 
+	  * @param crs The course we are looking for
+	  * @return The index at which the course sits in the list of courses belonging to the gradebook. If indez falls outside size of list, return -1
+	  * 
+	  */
+	public int findCourse(Course crs);
 
 	/**
 	  * Adds a course to the gradebook

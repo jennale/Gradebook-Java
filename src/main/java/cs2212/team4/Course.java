@@ -241,9 +241,9 @@ public class Course implements CourseADT, Serializable
 	 *
 	 */
 	public double getClassAsnAvg(){
-		if (!(studentList.size()>0&&deliverableList.size()>0)){
+		if (!(studentList.size()>0&&deliverableList.size()>0))
 			return -1;
-		}
+		
 		double avg=0, tempAvg;
 		int ctr=0;
 		for (int i=0; i<studentList.size();i++){
@@ -265,9 +265,9 @@ public class Course implements CourseADT, Serializable
 	 *
 	 */
 	public double getClassExamAvg() {
-		if (!(studentList.size()>0&&deliverableList.size()>0)){
+		if (!(studentList.size()>0&&deliverableList.size()>0))
 			return -1;
-		}
+
 		double avg=0, tempAvg;
 		int ctr=0;
 		for (int i=0; i<studentList.size();i++){
@@ -291,9 +291,9 @@ public class Course implements CourseADT, Serializable
 	 *
 	 */
 	public double getClassDeliverableAvg(int deliver) {
-		if (!(studentList.size()>0&&deliverableList.size()>0)){
+		if (!(studentList.size()>0&&deliverableList.size()>0))
 			return -1;
-		}
+		
 		double avg=0;
 		int ctr=0;
 		for (int i=0; i<studentList.size(); i++){
@@ -440,14 +440,14 @@ public class Course implements CourseADT, Serializable
 	 * @return true if the ID number was changed or if requested change was already the current number. Or, if the number already belongs to another student, return false
 	 * 
 	 */
-	public boolean editStudentNumber(Student stud, String number) {
+	public String editStudentNumber(Student stud, String number) {
 		if (stud.getNumber().equals(number))
-			return true;
+			return "";
 		else if (checkNumber(number))
-			return false;
+			return "The Student Number already exists";
 		else
 			stud.setNumber(number);
-		return true;
+		return "";
 	}
 
 	/**
@@ -458,14 +458,14 @@ public class Course implements CourseADT, Serializable
 	 * @return true if the email was changed or if requested change was already the current email. Or, if the email already belongs to another student, return false
 	 * 
 	 */
-	public boolean editStudentEmail(Student stud, String email) {
+	public String editStudentEmail(Student stud, String email) {
 		if (stud.getEmail().equals(email))
-			return true;
+			return "";
 		else if (checkEmail(email))
-			return false;
+			return "The Student Email already exists";
 		else
 			stud.setEmail(email);
-		return true;
+		return "";
 	}
 
 	/**
@@ -538,9 +538,11 @@ public class Course implements CourseADT, Serializable
 	 * @return true if a deliverable was added to the course. Or, if the deliverable already exists, return false
 	 * 
 	 */
-	public boolean addDeliverable(String name, String type, double weight) {
-		if (findDeliverable(new Deliverable(name, type, weight, 0)) != -1 || runningTotal + weight>100)
-			return false;
+	public String addDeliverable(String name, String type, double weight) {
+		if (findDeliverable(new Deliverable(name, type, weight, 0)) != -1)
+			return "Deliverable already exists";
+		if (runningTotal + weight>100)
+			return "You have exceeded the course 100% weight ceiling, current usable weight "+(100-runningTotal)+"%";
 		if (!stkDeliver.isEmpty())
 			deliverableList.set(stkDeliver.peek(), new Deliverable(name, type, weight, stkDeliver.pop()));
 		else {
@@ -548,7 +550,7 @@ public class Course implements CourseADT, Serializable
 					deliverableList.size()));
             runningTotal = runningTotal + weight;
         }
-		return true;
+		return "";
 	}
 
 	/**
@@ -570,32 +572,6 @@ public class Course implements CourseADT, Serializable
         deliverableList.set(i, null);
 		stkDeliver.push(i);
 		return true;
-	}
-
-	/**
-	 * Adds a grade for a student in the course
-	 * 
-	 * @param stud The student who we want to give a grade for
-	 * @param deliver The deliverable for which we are adding the grade
-	 * @param grade The grade we are adding
-	 * @return true if the grade was inserted. False if the grade failed to be inserted
-	 * 
-	 */
-	public boolean addGrade(Student stud, Deliverable deliver, double grade) {
-		return stud.addGrade(deliver.getObjId(), grade, deliver.getType(),
-				deliver.getWeight());
-	}
-
-	/**
-	 * removes a grade from a student in the course
-	 * 
-	 * @param stud The student who we want to remove a grade from
-	 * @param deliver The deliverable from which we are removing the grade
-	 * @return true if the grade was removed. False if the grade failed to be removed
-	 * 
-	 */
-	public boolean removeGrade(Student stud, Deliverable deliver) {
-		return stud.removeGrade(deliver.getObjId(), deliver.getType());
 	}
 
 	/**

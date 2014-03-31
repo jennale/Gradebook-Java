@@ -89,16 +89,22 @@ public class StudentReportData {
 		return student.getExmAvg();
 	}
 
-	public Double getGrade() {
+	public double getGrade() {
 		if (i == -1)
-			return null;
+			return -1;
 		return student.getGrade(i);
 	}
 
-	public Double getWeight() {
+	public double getWeight() {
 		if (i == -1)
-			return null;
+			return -1;
 		return course.getDeliverable(i).getWeight();
+	}
+	
+	public double getDeliverAvg(){
+		if (i == -1)
+			return -1;
+		return course.getClassDeliverableAvg(i);
 	}
 
 	public String getDeliverName() {

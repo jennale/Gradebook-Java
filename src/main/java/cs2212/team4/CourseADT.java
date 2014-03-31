@@ -202,7 +202,7 @@ public interface CourseADT
 	  * @return true if the students were imported successfully, otherwise return false
 	  * 
 	  */
-	public boolean importStudents(File file);
+	public String importStudents(File file);
 	
 	/**
 	  * Exports the Students of a course into a .csv file
@@ -211,7 +211,7 @@ public interface CourseADT
 	  * @return true if the students were exported, false otherwise
 	  * 
 	  */
-	public boolean exportStudents(File file);
+	public String exportStudents(File file);
 	
 	/**
 	  * Imports deliverables into the course
@@ -220,7 +220,7 @@ public interface CourseADT
 	  * @return true if the deliverables were imported successfully, otherwise return false
 	  * 
 	  */
-	public boolean importDeliverables(File file);
+	public String importDeliverables(File file);
 
 	/**
 	  * Exports the deliverables of a course into a .csv file
@@ -229,7 +229,7 @@ public interface CourseADT
 	  * @return true if the deliverables were exported, false otherwise
 	  * 
 	  */
-	public boolean exportDeliverables(File file);
+	public String exportDeliverables(File file);
 	
 	/**
 	  * Imports students' grades into the course
@@ -238,7 +238,7 @@ public interface CourseADT
 	  * @return true if the grades were imported successfully, otherwise return false
 	  * 
 	  */
-	public boolean importGrades(File file);
+	public String importGrades(File file);
 
 	/**
 	  * Exports students' grades into a .csv file
@@ -247,7 +247,7 @@ public interface CourseADT
 	  * @return true if the grades were exported, false otherwise
 	  * 
 	  */
-	public boolean exportGrades(File file);
+	public String exportGrades(File file);
 
 	/**
 	  * A method that test for course equality

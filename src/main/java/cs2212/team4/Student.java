@@ -264,15 +264,11 @@ public class Student implements StudentADT, Serializable
 	  */
 	public String toStringGrade(Object [] delivers) {
 		String str;
-		Double grade;
-		str = "\"" + nameLast + "\", \"" + nameFirst + "\", \"" + number + "\""
+		str = "\"" +  nameFirst+ "\", \"" +  nameLast+ "\", \"" + number + "\""
 				+ ", \"" + email + "\"";
 		
 		for (int i = 0; i < delivers.length; i++) {
-			if ((grade = grades.getGrade((int)delivers[i])) == -1)
-				str += ", \"No entry\"";
-			else
-				str += ", \"" + grade + "\"";				
+				str += ", \"" + grades.getGrade((int)delivers[i]) + "\"";				
 		}
 		return str + "\n";
 	}
@@ -284,7 +280,7 @@ public class Student implements StudentADT, Serializable
 	  * 
 	  */
 	public String toString() {
-		return ("\"" + nameLast + "\", \"" + nameFirst + "\", \"" + number
+		return ("\"" + nameFirst + "\", \"" + nameLast + "\", \"" + number
 				+ "\"" + ", \"" + email + "\"\n");
 	}
 }

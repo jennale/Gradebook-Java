@@ -281,6 +281,31 @@ public class Course implements CourseADT, Serializable
 			return avg/ctr;
 		return 0;
 	}
+	
+	/**
+	 * Gets the average for a course exams 
+	 *
+	 * @param deliver 
+	 *
+	 * @return The class average for a specific deliverable.
+	 *
+	 */
+	public double getClassDeliverableAvg(int deliver) {
+		if (!(studentList.size()>0&&deliverableList.size()>0)){
+			return -1;
+		}
+		double avg=0;
+		int ctr=0;
+		for (int i=0; i<studentList.size(); i++){
+			if (studentList.get(i).getGrade(deliver)!=-1){
+				avg=studentList.get(i).getGrade(deliver);
+				ctr++;
+			}
+		}
+		if (ctr>0)
+			return avg/ctr;
+		return -1;
+	}
 
 	/**
 	 * Gets the size of a list of deliverables pertaining to the course
@@ -517,8 +542,7 @@ public class Course implements CourseADT, Serializable
 		if (findDeliverable(new Deliverable(name, type, weight, 0)) != -1 || runningTotal + weight>100)
 			return false;
 		if (!stkDeliver.isEmpty())
-			deliverableList.add(new Deliverable(name, type, weight, stkDeliver
-					.pop()));
+			deliverableList.set(stkDeliver.peek(), new Deliverable(name, type, weight, stkDeliver.pop()));
 		else {
 			deliverableList.add(new Deliverable(name, type, weight,
 					deliverableList.size()));
@@ -545,7 +569,6 @@ public class Course implements CourseADT, Serializable
         runningTotal = runningTotal - getDeliverable(i).getWeight();
         deliverableList.set(i, null);
 		stkDeliver.push(i);
-
 		return true;
 	}
 
@@ -581,29 +604,61 @@ public class Course implements CourseADT, Serializable
 	 * @return true if the students were imported successfully, otherwise return false
 	 * 
 	 */
-	public boolean importStudents(File file)
+	public String importStudents(File file)
 	{
-		String[] sAry = { "nameLast", "nameFirst", "number", "email" };
-		String[] tempAry;
+		String[] sAry;
+		ArrayList<String> tempAry = new ArrayList<String>();
+		int [] vars = new int[4];
+		int ctr = 0;
 		try {
 			CSVReader reader = new CSVReader(new FileReader(file));
-			if ((tempAry=reader.readNext())!=null&&tempAry.equals(sAry)) {
+			sAry=reader.readNext();
+			for (int i=0; i<sAry.length; i++)
+				tempAry.add(sAry[i]);
+			
+			if (tempAry.contains("First Name"))
+				vars[0]=tempAry.indexOf("First Name");
+			else{
 				reader.close();
-				return false;
+				return "Error: First Name column was not found";
 			}
+				
+			if (tempAry.contains("Last Name"))
+				vars[1]=tempAry.indexOf("Last Name");
+			else{
+				reader.close();
+				return "Error: Last Name column was not found";
+			}
+
+			if (tempAry.contains("Student Number"))
+				vars[2]=tempAry.indexOf("Student Number");
+			else{
+				reader.close();
+				return "Error: Student Number column was not found";
+			}
+			
+			if (tempAry.contains("Email"))
+				vars[3]=tempAry.indexOf("Email");
+			else{
+				reader.close();
+				return "Error: Email column was not found";
+			}
+			
 			while ((sAry = reader.readNext()) != null) {
 				if (sAry.length != 4) {
 					reader.close();
-					return false;
+					if (ctr>0)
+						return "Error: the file is corrupted, some students have been added";
+					return "Error: the file is corrupted.";
 				}
-				addStudent(sAry[1], sAry[0], sAry[2], sAry[3]);
+				addStudent(sAry[vars[0]], sAry[vars[1]], sAry[vars[2]], sAry[vars[3]]);ctr++;
 			}
 			reader.close();
-			return true;
+			return "";
 		} catch (FileNotFoundException e) {
-			return false;
+			return "Error: File not found";
 		} catch (IOException e) {
-			return false;
+			return "Error: the program failed to import the file";
 		}
 	}
 
@@ -614,19 +669,19 @@ public class Course implements CourseADT, Serializable
 	 * @return true if the students were exported, false otherwise
 	 * 
 	 */
-	public boolean exportStudents(File file) {
+	public String exportStudents(File file) {
 		try {
 			if (file.exists())
 				file.delete();
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(file)));
-			bw.write("\"nameLast\", \"nameFirst\", \"number\", \"email\"\n");
+			bw.write("\"First Name\", \"Last Name\", \"Student Number\", \"Email\"\n");
 			for (int i = 0; i < studentList.size(); i++)
 				bw.write(studentList.get(i).toString());
 			bw.close();
-			return true;
+			return "";
 		} catch (IOException e) {
-			return false;
+			return "Error: program failed to export the file";
 		}
 	}
 
@@ -637,29 +692,55 @@ public class Course implements CourseADT, Serializable
 	 * @return true if the deliverables were imported successfully, otherwise return false
 	 * 
 	 */
-	public boolean importDeliverables(File file) {
-		String[] dAry = { "name", "type", "weight" };
+	public String importDeliverables(File file) {
+		String[] dAry;
+		ArrayList<String> tempAry = new ArrayList<String>();
+		int [] vars = new int[3];
+		int ctr = 0;
 		try {
 			CSVReader reader = new CSVReader(new FileReader(file));
-			if (reader.readNext().equals(dAry)) {
+			dAry=reader.readNext();
+			for (int i=0; i<dAry.length; i++)
+				tempAry.add(dAry[i]);
+			
+			if (tempAry.contains("Name"))
+				vars[0]=tempAry.indexOf("Name");
+			else{
 				reader.close();
-				return false;
+				return "Error: Name column was not found";
 			}
+				
+			if (tempAry.contains("Type"))
+				vars[1]=tempAry.indexOf("Type");
+			else{
+				reader.close();
+				return "Error: Type column was not found";
+			}
+				
+			if (tempAry.contains("Weight"))
+				vars[2]=tempAry.indexOf("Weight");
+			else{
+				reader.close();
+				return "Error: Weight column was not found";
+			}
+			
 			while ((dAry = reader.readNext()) != null) {
 				if (dAry.length != 3) {
 					reader.close();
-					return false;
+					if (ctr>0)
+						return "Error: the file is corrupted, some deliverables have been added";
+					return "Error: the file is corrupted.";
 				}
-				addDeliverable(dAry[0], dAry[1], Double.parseDouble(dAry[2]));
-			}
+				addDeliverable(dAry[vars[0]], dAry[vars[1]], Double.parseDouble(dAry[vars[2]]));ctr++;
+			}			
 			reader.close();
-			return true;
-		} catch (NumberFormatException e) {
-			return false;
+			return "";
+		}catch (NumberFormatException e) {
+			return "Error: Some grade values are not numbers";
 		} catch (FileNotFoundException e) {
-			return false;
+			return "Error: File not found";
 		} catch (IOException e) {
-			return false;
+			return "Error: the program failed to import the file";
 		}
 	}
 
@@ -670,18 +751,18 @@ public class Course implements CourseADT, Serializable
 	 * @return true if the deliverables were exported, false otherwise
 	 * 
 	 */
-	public boolean exportDeliverables(File file) {
+	public String exportDeliverables(File file) {
 		try {
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(file)));
-			bw.write("\"name\", \"type\", \"weight\"\n");
+			bw.write("\"Name\", \"Type\", \"Weight\"\n");
 			for (int i = 0; i < deliverableList.size(); i++)
 				if (deliverableList.get(i)!=null)
 					bw.write(deliverableList.get(i).toString());
 			bw.close();
-			return true;
+			return "";
 		} catch (IOException e) {
-			return false;
+			return "Error: program failed to export the file";
 		}
 	}
 
@@ -692,51 +773,72 @@ public class Course implements CourseADT, Serializable
 	 * @return true if the grades were imported successfully, otherwise return false
 	 * 
 	 */
-	public boolean importGrades(File file) {
+	public String importGrades(File file) {
+		String[] gAry;
+		ArrayList<String> tempAry = new ArrayList<String>();
+		ArrayList<Integer> vars = new ArrayList<Integer>();
 		ArrayList<Integer> fileLoc = new ArrayList<Integer>();
-		ArrayList<Integer> delivers = new ArrayList<Integer>();
-		ArrayList<String> nextLine = new ArrayList<String>();
-		String [] strAry;
-		int numClmn=-1;
-		Student stud;
+		int studNum, ctr = 0,init;
+		Student student;
 		Deliverable deliver;
+		String dne="";
 		try {
 			CSVReader reader = new CSVReader(new FileReader(file));
-			strAry = reader.readNext();
-			for (int i = 0; i < strAry.length; i++)
-				nextLine.add(strAry[i]);
-
-			if (nextLine.contains("number"))
-				numClmn=nextLine.indexOf("number");
-			else if (nextLine.contains("Number"))
-				numClmn=nextLine.indexOf("Number");
-
-			for (int i = 0; i < deliverableList.size(); i++)
-				if (nextLine.contains(deliverableList.get(i).getName())) {
-					delivers.add(i);
-					fileLoc.add(nextLine.indexOf(deliverableList.get(i).getName()));
-				}
-
-			while ((strAry = reader.readNext()) != null) {
-				int j = findStudent(strAry[numClmn]);
-				if (j != -1) {
-					stud = getStudent(j);
-					for (int i = 0; i < delivers.size(); i++) {
-						deliver = getDeliverable(delivers.get(i));
-						stud.addGrade(delivers.get(i),
-								Double.parseDouble(strAry[fileLoc.get(i)]),
-								deliver.getType(), deliver.getWeight());
+			gAry=reader.readNext();
+			for (int i=0; i<gAry.length; i++)
+				tempAry.add(gAry[i]);
+			
+			init=gAry.length;
+			
+			if (tempAry.contains("Student Number"))
+				studNum=tempAry.indexOf("Student Number");
+			else{
+				reader.close();
+				return "Error: Student Number column was not found";
+			}
+				
+			for (int i=0; i<gAry.length; i++){
+				for (int j=0; j<deliverableList.size(); j++){
+					if ((deliver=deliverableList.get(j))!=null){
+						if (deliver.getName().equals(gAry[i])){
+							vars.add(j);
+							fileLoc.add(i);
+							break;
+						}
 					}
 				}
 			}
+			
+			while ((gAry = reader.readNext()) != null) {
+				if (gAry.length != init) {
+					reader.close();
+					if (ctr>0)
+						return "Error: the file is corrupted, some grades have been added";
+					return "Error: the file is corrupted";
+				}
+				int find=findStudent(gAry[studNum]);
+				if (find != -1) {
+					student = studentList.get(find);
+					for (int i = 0; i < vars.size(); i++) {
+						deliver = deliverableList.get(vars.get(i));
+						student.addGrade(vars.get(i),
+								Double.parseDouble(gAry[fileLoc.get(i)]),
+								deliver.getType(), deliver.getWeight());
+					}
+					ctr++;
+				} else 
+					dne+=gAry[studNum]+"\n";
+			}
 			reader.close();
-			return true;
-		} catch (NumberFormatException e) {
-			return false;
+			if (dne.equals(""))
+				return dne;
+			return "0"+dne;
+		}catch (NumberFormatException e) {
+			return "Error: Some grade values are not numbers";
 		} catch (FileNotFoundException e) {
-			return false;
+			return "Error: File not found";
 		} catch (IOException e) {
-			return false;
+			return "Error: the program failed to import the file";
 		}
 	}
 
@@ -747,12 +849,12 @@ public class Course implements CourseADT, Serializable
 	 * @return true if the grades were exported, false otherwise
 	 * 
 	 */
-	public boolean exportGrades(File file) {
+	public String exportGrades(File file) {
 		ArrayList<Integer> dilvers = new ArrayList<Integer>();
 		try {
 			Writer bw = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(file)));
-			String str = "\"Last Name\", \"First Name\", \"Student Number\", \"Email\"";
+			String str = "\"First Name\", \"Last Name\", \"Student Number\", \"Email\"";
 			for (int i = 0; i < deliverableList.size(); i++)
 				if (deliverableList.get(i) != null) {
 					str = str + ", \"" + deliverableList.get(i).getName()
@@ -763,9 +865,9 @@ public class Course implements CourseADT, Serializable
 			for (int i = 0; i < studentList.size(); i++)
 				bw.write(studentList.get(i).toStringGrade(dilvers.toArray()));
 			bw.close();
-			return true;
+			return "";
 		} catch (IOException e) {
-			return false;
+			return "Error: program failed to export the file";
 		}
 	}
 

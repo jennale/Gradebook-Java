@@ -5605,14 +5605,22 @@ public class GradebookGUI extends JFrame {
 	 */
 
 	private void lblImportGradesMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblImportGradesMouseClicked
+		String returnMsg;
 		if (currCourse != null) {
 			final JFileChooser importGrades = new JFileChooser();
 			int returnVal = importGrades.showOpenDialog(this);
 			if (returnVal == 0) {
-				if (!currCourse.importGrades(importGrades.getSelectedFile()))
-					lblGradesErrorLog
-							.setText("An error occured while importing the data, the file selected seems to be corrupt");
-				else
+				if (!(returnMsg = currCourse.importGrades(importGrades
+						.getSelectedFile())).equals("")) {
+					if (returnMsg.startsWith("0")) {
+						JOptionPane.showConfirmDialog(this,
+								returnMsg.substring(1, returnMsg.length()),
+								"Non-existing students",
+								JOptionPane.YES_NO_OPTION,
+								JOptionPane.OK_OPTION);
+					} else
+					lblGradesErrorLog.setText(returnMsg);
+				} else
 					updateInfo();
 			} else
 				lblGradesErrorLog.setText("No file selected.");
@@ -5660,14 +5668,13 @@ public class GradebookGUI extends JFrame {
 			final JFileChooser exportGrades = new JFileChooser();
 			exportGrades.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			int returnVal = exportGrades.showSaveDialog(this);
-
+			String returnMsg;
 			if (returnVal == 0) {
 				File file = new File(exportGrades.getSelectedFile(),
 						currCourse.getTitle() + currCourse.getCode()
 								+ currCourse.getTerm() + "Grades.csv");
-				if (!currCourse.exportGrades(file))
-					lblGradesErrorLog
-							.setText("An error occured while exporting the data.");
+				if (!(returnMsg = currCourse.exportGrades(file)).equals(""))
+					lblGradesErrorLog.setText(returnMsg);
 				else
 					updateInfo();
 			} else
@@ -5716,11 +5723,11 @@ public class GradebookGUI extends JFrame {
 		if (currCourse != null) {
 			final JFileChooser importStudents = new JFileChooser();
 			int returnVal = importStudents.showOpenDialog(this);
+			String returnMsg;
 			if (returnVal == 0) {
-				if (!currCourse.importStudents((importStudents
-						.getSelectedFile())))
-					lblGradesErrorLog
-							.setText("An error occured while importing the data, the file selected seems to be corrupt");
+				if (!(returnMsg = currCourse.importStudents((importStudents
+						.getSelectedFile()))).equals(""))
+					lblGradesErrorLog.setText(returnMsg);
 				else
 					updateInfo();
 			} else
@@ -5771,14 +5778,13 @@ public class GradebookGUI extends JFrame {
 			final JFileChooser exportStudents = new JFileChooser();
 			exportStudents.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			int returnVal = exportStudents.showSaveDialog(this);
-
+			String returnMsg;
 			if (returnVal == 0) {
 				File file = new File(exportStudents.getSelectedFile(),
 						currCourse.getTitle() + currCourse.getCode()
 								+ currCourse.getTerm() + "Students.csv");
-				if (!currCourse.exportStudents(file))
-					lblGradesErrorLog
-							.setText("An error occured while importing the data.");
+				if (!(returnMsg = currCourse.exportStudents(file)).equals(""))
+					lblGradesErrorLog.setText(returnMsg);
 				else
 					updateInfo();
 			}
@@ -6252,11 +6258,11 @@ public class GradebookGUI extends JFrame {
 		if (currCourse != null) {
 			final JFileChooser importDeliver = new JFileChooser();
 			int returnVal = importDeliver.showOpenDialog(this);
-
+			String returnMsg;
 			if (returnVal == 0) {
-				if (!currCourse.importDeliverables(importDeliver
-						.getSelectedFile())) {
-					lblSetupErrorLog.setText("Fail to import, corrupt file.");
+				if (!(returnMsg = currCourse.importDeliverables(importDeliver
+						.getSelectedFile())).equals("")) {
+					lblSetupErrorLog.setText(returnMsg);
 				} else
 					updateInfo();
 			}
@@ -6304,13 +6310,14 @@ public class GradebookGUI extends JFrame {
 			final JFileChooser exportDeliver = new JFileChooser();
 			exportDeliver.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			int returnVal = exportDeliver.showSaveDialog(this);
-
+			String returnMsg;
 			if (returnVal == 0) {
 				File file = new File(exportDeliver.getSelectedFile(),
-						currCourse.getCode() + currCourse.getTerm()
-								+ "Deliverables.csv");
-				if (!currCourse.exportDeliverables(file))
-					lblSetupErrorLog.setText("Fail to export.");
+						currCourse.getTitle() + currCourse.getCode()
+								+ currCourse.getTerm() + "Deliverables.csv");
+				if (!(returnMsg = currCourse.exportDeliverables(file))
+						.equals(""))
+					lblSetupErrorLog.setText(returnMsg);
 				updateInfo();
 			}
 		} else

@@ -84,34 +84,6 @@ public interface CourseADT
 	 */
 	public double getGrade(Student stud, int grade);
 
-    /**
-     * Returns the running total of course deliverable weights so far...
-     * @return the running total
-     */
-    public double getRunningTotal();
-
-    public void calcRunningTotal();
-
-    /**
-     * Checks whether this weight can be added to the course's running total of grades
-     *
-     * @param weight the weight of the deliverable to be added
-     * @return true if it can be added, false otherwise
-     */
-
-    public boolean updateRunningTot(double weight);
-
-    /**
-     * Overloaded constructor to update runningtotal when editing deliverable weights
-     * Makes sure that the new deliv weight will keep the runningtotal < 100. It will only
-     * edit the runningtotal value if the weight is valid.
-     *
-     * @param weight        current weight of the edited deliverable
-     * @param newWeight     new weight of the edited deliverable
-     * @return  true if successful, false otherwise.
-     */
-    public boolean updateRunningTot(double weight, double newWeight);
-
 	/**
 	 * Gets the average for a course
 	 *

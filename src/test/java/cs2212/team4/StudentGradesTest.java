@@ -1,12 +1,12 @@
 package cs2212.team4;
 
 import static org.junit.Assert.*;
-
+import org.junit.Before;
 import org.junit.Test;
 
 public class StudentGradesTest {
 
-	@Test
+	@Before
 	public void testStudentGrades() {
 		
 	}

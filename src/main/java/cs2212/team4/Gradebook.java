@@ -11,118 +11,109 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * team4-gradebook application
- *
- * Gradebook is the class that will hold the information about all the courses in the application.
- *
+ * This class contains functionality to manage a list of courses in a Gradebook.
+ * 
  * @author Zaid Albirawi
- * @version 2.0 3/1/2014
+ * @version 2.0 3/31/2014
  */
 
 public class Gradebook implements GradebookADT, Serializable
 {
 	/* ************************************************************
-	* Instance Variables
-	************************************************************ */
-	
+	 * Instance Variables
+	 ************************************************************ */
+
 	// The Gradebook Class version
 	private static final long serialVersionUID = 1L;
 	// The Gradebook object Course object list.
 	private ArrayList<Course> courseList;
 	// The path to where the data will be saved.
 	private String path = "";
-        
-        private Course prevCourse=null;
+
+	private Course prevCourse=null;
 
 	/**
-	  * Constructor that creates an arrayList of courses representing a gradebook
-	  */
+	 * Constructor that creates an arrayList of courses representing a gradebook.
+	 */
 	public Gradebook() {
 		if (!load())
 			courseList = new ArrayList<Course>();
 	}
-	
+
 	/* ************************************************************
-	* Accessor Methods
-	************************************************************ */
+	 * Accessor Methods
+	 ************************************************************ */
 
 	/**
-	  * Gets a course from the gradebook
-	  * 
-	  * @param crs The index of the course we want to fetch from the gradebook
-	  * @return The course we were searching for, if index passed falls outside of the array, return null
-	  * 
-	  */
+	 * Returns a course object from the gradebook.
+	 * 
+	 * @param crs the index of the course to be returned
+	 * @return    the course at the specified index
+	 */
 	public Course getCourse(int crs) {
 		if (courseList.size() > crs)
 			return courseList.get(crs);
 		return null;
 	}
-    
+
 	/**
-	  * Gets the size of the list containing the courses
-	  * 
-	  * @return The size of the list of courses in the gradebook
-	  * 
-	  */
+	 * Returns an int signifying the size of the course list.
+	 * 
+	 * @return the size of the list of courses in the gradebook
+	 */
 	public int getCourseListSize() {
 		return courseList.size();
 	}
-    
+
 	/**
-	  * Gets the data path
-	  * 
-	  * @return the path with our data
-	  * 
-	  */
+	 * Returns a String with the path where data is stored.
+	 * 
+	 * @return the path of the data
+	 */
 	public String getPath() {
 		return path;
 	}
-        
+
 	/**
-	  * Gets the previous course from the list
-	  * 
-	  * @return the previous course in the list
-	  * 
-	  */
+	 * Gets the current value of the previous course in the list.
+	 * 
+	 * @return the previous course in the list
+	 */
 	public Course getPrevCourse() {
 		return prevCourse;
 	}
-   
+
 	/* ************************************************************
-	* Mutator Methods
-	************************************************************ */
-   
+	 * Mutator Methods
+	 ************************************************************ */
+
 	/**
-	  * Sets the data path
-	  * 
-	  * @param path What we want to set the data path to
-	  * 
-	  */
+	 * Sets the data path where data is stored.
+	 * 
+	 * @param path the path where data is to be stored
+	 */
 	public void setPath(String path) {
 		this.path = path;
 	}
-        
-        /**
-	  * Sets the previous course
-	  * 
-	  * @param prevCourse What we want the previous course to be set to
-	  * 
-	  */
+
+	/**
+	 * Sets the previous course property.
+	 * 
+	 * @param prevCourse the course to be set as the current previous course
+	 */
 	public void setPrevCourse(Course prevCourse) {
-			this.prevCourse = prevCourse;
+		this.prevCourse = prevCourse;
 	}
 
 	/* ************************************************************
-	* Helper Methods
-	************************************************************ */
-	
+	 * Helper Methods
+	 ************************************************************ */
+
 	/**
-	  * Stores the courses from the gradebook
-	  * 
-	  * @return true if the courses were successfully exported, false otherwise
-	  * 
-	  */
+	 * Stores the courses from the gradebook.
+	 * 
+	 * @return true if the courses were successfully exported, false otherwise
+	 */
 	public boolean store() {
 		try {
 			File file = new File(path + "data.dat");
@@ -140,13 +131,12 @@ public class Gradebook implements GradebookADT, Serializable
 			return false;
 		}
 	}
-	
+
 	/**
-	  * Loads the courses into the gradebook
-	  * 
-	  * @return true if the courses were successfully imported, false otherwise
-	  * 
-	  */
+	 * Loads the courses into the gradebook.
+	 * 
+	 * @return true if the courses were successfully imported, false otherwise
+	 */
 	@SuppressWarnings("unchecked")
 	private boolean load() {
 		try {
@@ -164,14 +154,13 @@ public class Gradebook implements GradebookADT, Serializable
 			return false;
 		}
 	}
-	
+
 	/**
-	  * Finds a course inside the gradebook
-	  * 
-	  * @param crs The course we are looking for
-	  * @return The index at which the course sits in the list of courses belonging to the gradebook. If indez falls outside size of list, return -1
-	  * 
-	  */
+	 * Finds the index of a specified course in the gradebook.
+	 * 
+	 * @param crs  the course to be searched for
+	 * @return     the index of the course location in the gradebook. If course not found, return -1 
+	 */
 	public int findCourse(Course crs) {
 		for (int i = 0; i < courseList.size(); i++)
 			if (courseList.get(i).equals(crs))
@@ -180,15 +169,13 @@ public class Gradebook implements GradebookADT, Serializable
 	}
 
 	/**
-	  * Adds a course to the gradebook
-	  * if there does not exist a duplicate Course object inside the courseList list.
-	  * 
-	  * @param name	The name of the course we want to add
-	  * @param term The term of the course we want to add
-	  * @param code The code of the course we want to add
-	  * @return true if the course was added. If the course already exists, return false
-	  * 
-	  */
+	 * Adds a course to the gradebook.
+	 * 
+	 * @param name	the name of the course to be added
+	 * @param term the term of the course to be added
+	 * @param code the code of the course to be added
+	 * @return     true if the course was added, false if course already exists
+	 */
 	public boolean addCourse(String name, String term, String code) {
 		Course crs;
 		if (findCourse(crs = new Course(name, term, code)) != -1)
@@ -199,12 +186,11 @@ public class Gradebook implements GradebookADT, Serializable
 	}
 
 	/**
-	  * Removes a course from the gradebook
-	  * 
-	  * @param crs The course we want to remove
-	  * @return true if the course was removed. If the course we are trying to remove is not found, return false
-	  * 
-	  */
+	 * Removes a specified course from the gradebook.
+	 * 
+	 * @param crs the course to be deleted
+	 * @return    true if the course was deleted, false if course does not exist
+	 */
 	public boolean removeCourse(Course crs) {
 		int i;
 		if ((i = findCourse(crs)) == -1)

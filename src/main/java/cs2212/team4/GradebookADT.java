@@ -5,96 +5,85 @@ package cs2212.team4;
  * GradebookADT implements the method interface for the Gradebook class.
  *
  * @author Zaid Albirawi
- * @version 2.0 3/1/2014
+ * @version 2.0 3/31/2014
  */
 
 
 public interface GradebookADT 
 {
 	/**
-	  * Gets a course from the gradebook
-	  * 
-	  * @param crs The index of the course we want to fetch from the gradebook
-	  * @return The course we were searching for, if index passed falls outside of the array, return null
-	  * 
-	  */
+	 * Returns a course object from the gradebook.
+	 * 
+	 * @param crs the index of the course to be returned
+	 * @return    the course at the specified index
+	 */
 	public Course getCourse(int crs);
-   
+
 	/**
-	  * Gets the size of the list containing the courses
-	  * 
-	  * @return The size of the list of courses in the gradebook
-	  * 
-	  */
+	 * Returns an int signifying the size of the course list.
+	 * 
+	 * @return the size of the list of courses in the gradebook
+	 */
 	public int getCourseListSize();
-   
+
 	/**
-	  * Gets the data path
-	  * 
-	  * @return the path with our data
-	  * 
-	  */
+	 * Returns a String with the path where data is stored.
+	 * 
+	 * @return the path of the data
+	 */
 	public String getPath();
-       
+
 	/**
-	  * Gets the previous course from the list
-	  * 
-	  * @return the previous course in the list
-	  * 
-	  */
+	 * Gets the current value of the previous course in the list.
+	 * 
+	 * @return the previous course in the list
+	 */
 	public Course getPrevCourse();
-  
+
 	/**
-	  * Sets the data path
-	  * 
-	  * @param path What we want to set the data path to
-	  * 
-	  */
+	 * Sets the data path where data is stored.
+	 * 
+	 * @param path the path where data is to be stored
+	 */
 	public void setPath(String path);
-       
-       /**
-	  * Sets the previous course
-	  * 
-	  * @param prevCourse What we want the previous course to be set to
-	  * 
-	  */
+
+	/**
+	 * Sets the previous course property.
+	 * 
+	 * @param prevCourse the course to be set as the current previous course
+	 */
 	public void setPrevCourse(Course prevCourse);
-	
+
 	/**
-	  * Stores the courses from the gradebook
-	  * 
-	  * @return true if the courses were successfully exported, false otherwise
-	  * 
-	  */
+	 * Stores the courses from the gradebook.
+	 * 
+	 * @return true if the courses were successfully exported, false otherwise
+	 */
 	public boolean store();
-	
+
 	/**
-	  * Finds a course inside the gradebook
-	  * 
-	  * @param crs The course we are looking for
-	  * @return The index at which the course sits in the list of courses belonging to the gradebook. If indez falls outside size of list, return -1
-	  * 
-	  */
+	 * Finds the index of a specified course in the gradebook.
+	 * 
+	 * @param crs  the course to be searched for
+	 * @return     the index of the course location in the gradebook. If course not found, return -1 
+	 */
 	public int findCourse(Course crs);
 
 	/**
-	  * Adds a course to the gradebook
-	  * if there does not exist a duplicate Course object inside the courseList list.
-	  * 
-	  * @param name	The name of the course we want to add
-	  * @param term The term of the course we want to add
-	  * @param code The code of the course we want to add
-	  * @return true if the course was added. If the course already exists, return false
-	  * 
-	  */
+	 * Adds a course to the gradebook.
+	 * 
+	 * @param name	the name of the course to be added
+	 * @param term the term of the course to be added
+	 * @param code the code of the course to be added
+	 * @return     true if the course was added, false if course already exists
+	 */
 	public boolean addCourse(String name, String term, String code);
 
 	/**
-	  * Removes a course from the gradebook
-	  * 
-	  * @param crs The course we want to remove
-	  * @return true if the course was removed. If the course we are trying to remove is not found, return false
-	  * 
-	  */
+	 * Removes a specified course from the gradebook.
+	 * 
+	 * @param crs the course to be deleted
+	 * @return    true if the course was deleted, false if course does not exist
+	 */
 	public boolean removeCourse(Course crs);
 }

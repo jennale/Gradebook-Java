@@ -38,28 +38,28 @@
 			<style forecolor="#FF0000"/>
 		</conditionalStyle>
 	</style>
-	<style name="deliverName" fontName="HelveticaNeue" fontSize="12" isBold="false">
+	<style name="deliverName" fontName="Arial" fontSize="12" isBold="false">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$F{deliverName}==null]]></conditionExpression>
 			<style fontName="SansSerif" fontSize="14" isBold="true"/>
 		</conditionalStyle>
 	</style>
-	<style name="deliverGrade" fontName="HelveticaNeue" fontSize="12" isBold="false">
+	<style name="deliverGrade" fontName="Arial" fontSize="12" isBold="false">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$F{grade}==null]]></conditionExpression>
-			<style fontName="SansSerif" fontSize="14" isBold="true"/>
+			<style fontName="Arial" fontSize="14" isBold="true"/>
 		</conditionalStyle>
 	</style>
-	<style name="deliverWeight" fontName="HelveticaNeue" fontSize="12" isBold="false">
+	<style name="deliverWeight" fontName="Arial" fontSize="12" isBold="false">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$F{weight}==null]]></conditionExpression>
-			<style fontName="HelveticaNeue" fontSize="14" isBold="true"/>
+			<style fontName="Arial" fontSize="14" isBold="true"/>
 		</conditionalStyle>
 	</style>
-	<style name="deliverType" fontName="HelveticaNeue" fontSize="12" isBold="false">
+	<style name="deliverType" fontName="Arial" fontSize="12" isBold="false">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$F{deliverType}==null]]></conditionExpression>
-			<style fontName="SansSerif" fontSize="14" isBold="true"/>
+			<style fontName="Arial" fontSize="14" isBold="true"/>
 		</conditionalStyle>
 	</style>
 	<style name="grade">

@@ -238,19 +238,24 @@ public class Course implements CourseADT, Serializable
 	 *
 	 */
 	public double getClassDeliverableAvg(int deliver) {
-		if (!(studentList.size()>0&&deliverableList.size()>0))
+		if (!(studentList.size() > 0 && deliverableList.size() > 0))
 			return -1;
 		
-		double avg=0;
-		int ctr=0;
-		for (int i=0; i<studentList.size(); i++){
-			if (studentList.get(i).getGrade(deliver)!=-1){
-				avg=studentList.get(i).getGrade(deliver);
-				ctr++;
+		if (deliver < deliverableList.size() && deliver >= 0) {
+			if (deliverableList.get(deliver) == null)
+				return -1;
+			
+			double avg = 0;
+			int ctr = 0;
+			for (int i = 0; i < studentList.size(); i++) {
+				if (studentList.get(i).getGrade(deliver) != -1) {
+					avg = studentList.get(i).getGrade(deliver);
+					ctr++;
+				}
 			}
+			if (ctr > 0)
+				return avg / ctr;
 		}
-		if (ctr>0)
-			return avg/ctr;
 		return -1;
 	}
 

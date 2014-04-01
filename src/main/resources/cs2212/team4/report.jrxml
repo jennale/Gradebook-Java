@@ -459,7 +459,7 @@
 			</lineChart>
 			<bar3DChart>
 				<chart evaluationTime="Report">
-					<reportElement x="0" y="220" width="280" height="210" uuid="abeb3a1c-ce84-41f7-ad80-62706cfdfe57"/>
+					<reportElement x="0" y="220" width="280" height="210" uuid="1ec61a52-8ae7-4662-82eb-70ed63a6c43e"/>
 					<chartTitle>
 						<font fontName="Arial" size="14"/>
 						<titleExpression><![CDATA["Averages Chart"]]></titleExpression>
@@ -470,17 +470,17 @@
 				<categoryDataset>
 					<categorySeries>
 						<seriesExpression><![CDATA["Assignments"]]></seriesExpression>
-						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<categoryExpression><![CDATA["Average"]]></categoryExpression>
 						<valueExpression><![CDATA[$V{asnAvg}]]></valueExpression>
 					</categorySeries>
 					<categorySeries>
 						<seriesExpression><![CDATA["Exams"]]></seriesExpression>
-						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<categoryExpression><![CDATA["Average"]]></categoryExpression>
 						<valueExpression><![CDATA[$V{exmAvg}]]></valueExpression>
 					</categorySeries>
 					<categorySeries>
 						<seriesExpression><![CDATA["Other"]]></seriesExpression>
-						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<categoryExpression><![CDATA["Average"]]></categoryExpression>
 						<valueExpression><![CDATA[$V{otherAvg}]]></valueExpression>
 					</categorySeries>
 				</categoryDataset>

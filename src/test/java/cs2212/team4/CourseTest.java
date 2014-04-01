@@ -7,7 +7,7 @@ import java.awt.Color;
 
 public class CourseTest
 {
-	Course crs1, crs2, crs3;
+	Course crs1, crs2, crs3, crs4, crs5;
 	Student stud, stud2;
 	Deliverable deliver, deliver2;
 	
@@ -33,11 +33,18 @@ public class CourseTest
 		crs2=new Course("Computer Science", "A", "2208");
 		crs2.setDescription("A course in Computer Science");
 		
-		//A course with a student with no assigned grade, description, deliverable
+		//A course with a student with no assigned grade, no description, deliverable
 		crs3=new Course("Philosophy", "B", "1022");
-		crs3.setDescription("A course in Philosophy");
 		crs3.addStudent("John", "Johnson", "250222444", "jjohn22");
 		crs3.addDeliverable("Midterm", "Exm", 25);
+		
+		//A course with only a student
+		crs4=new Course("Geology", "A", "4011");
+		crs4.addStudent("John", "Johnson", "250222444", "jjohn22");
+				
+		//A course with only a deliverable
+		crs5=new Course("Scientology", "A", "4020");
+		crs5.addDeliverable("Midterm", "Exm", 25);
 	}
 
 	@Test
@@ -73,6 +80,7 @@ public class CourseTest
 	{
 		Assert.assertTrue(crs1.getDescription().equals("A course in English"));
 		Assert.assertFalse(crs1.getDescription().equals(crs2.getDescription()));
+		Assert.assertTrue(crs3.getDescription().equals(""));
 	}
 
 	@Test
@@ -108,6 +116,10 @@ public class CourseTest
 		Assert.assertTrue(crs1.getClassAvg()==96);
 		//Average for a course with no students or deliverables
 		Assert.assertTrue(crs2.getClassAvg()==-1);
+		//Average for a course with deliverables but no students
+		Assert.assertTrue(crs4.getClassAvg()==-1);
+		//Average for a course with students but no deliverables
+		Assert.assertTrue(crs5.getClassAvg()==-1);
 		//Average for a course with deliverables and students, but no grades
 		Assert.assertTrue(crs3.getClassAvg()==0);
 	}

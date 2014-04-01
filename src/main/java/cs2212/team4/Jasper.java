@@ -8,6 +8,12 @@ public class Jasper {
 		Course course;
 		Student student;
 		course = new Course("Software Engineering", "B", "2212");
+		course.addDeliverable("Assignment 1", "Assignment", 10);
+		course.addDeliverable("Assignment 2", "Assignment", 10);
+		course.addDeliverable("Midterm", "Exam", 25);
+		course.addDeliverable("Assignment 3", "Assignment", 10);
+		course.addDeliverable("Final Exam", "Exam", 40);
+		course.addDeliverable("Other", "Other", 5);
 		course.addStudent("Zaid", "Albirawi", "250626065", "zalbiraw@uwo.ca");
 		student = course.getStudent(0);
 		student.addGrade(0, 100, "Assignment", 10);

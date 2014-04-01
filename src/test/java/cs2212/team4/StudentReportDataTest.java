@@ -1,6 +1,6 @@
 package cs2212.team4;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -57,7 +57,7 @@ public class StudentReportDataTest {
 		// if i is not greater than -1, should return title 
 		Assert.assertSame( "Wheels 101", srd1.getCourseTitle() );
 		// if i is greater than -1, should return null
-		Assert.assertSame( null, srd2.getCourseTitle() );
+		Assert.assertSame( "", srd2.getCourseTitle() );
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public class StudentReportDataTest {
 		// if i is not greater than -1, should return title 
 		Assert.assertSame( "B", srd1.getCourseTerm() );
 		// if i is greater than -1, should return null
-		Assert.assertSame( null, srd2.getCourseTerm() );
+		Assert.assertSame( "", srd2.getCourseTerm() );
 	}
 
 	@Test
@@ -73,33 +73,33 @@ public class StudentReportDataTest {
 		// if i is not greater than -1, should return course code
 		Assert.assertSame( "1567", srd1.getCourseCode() );
 		// if i is greater than -1, should return null
-		Assert.assertSame( null, srd2.getCourseCode() );
+		Assert.assertSame( "", srd2.getCourseCode() );
 	
 	}
 
 	@Test
 	public void testGetClassAvg() {
 		// if i is not greater than -1, should return class average
-		Assert.assertEquals( 72.5, srd1.getClassAvg() );
+		Assert.assertTrue( 72.5==srd1.getClassAvg() );
 		// if i is greater than -1, should return null
-		Assert.assertEquals( null, srd2.getClassAvg() );
+		Assert.assertTrue(-1==srd2.getClassAvg() );
 	}
 
 	@Test
 	public void testGetClassAsnAvg() {
 		// if i is not greater than -1, should return class assignment average
-		Assert.assertEquals (86.55555555555554, srd1.getClassAsnAvg() );
+		Assert.assertTrue(86.55555555555554==srd1.getClassAsnAvg() );
 		// if i is greater than -1, should return null
-		Assert.assertEquals( null, srd2.getClassAsnAvg() );
+		Assert.assertTrue( -1==srd2.getClassAsnAvg() );
 	
 	}
 
 	@Test
 	public void testGetClassExamAvg() {
 		// if i is not greater than -1, should return class exam average
-		Assert.assertEquals ( 56.0, srd1.getClassExamAvg() );
+		Assert.assertTrue ( 56.0==srd1.getClassExamAvg() );
 		// if i is greater than -1, should return null
-		Assert.assertEquals( null, srd2.getClassExamAvg() );
+		Assert.assertTrue( -1==srd2.getClassExamAvg() );
 	
 	}
 
@@ -108,7 +108,7 @@ public class StudentReportDataTest {
 		// if i is not greater than -1, should return student first name
 		Assert.assertSame ( "Ted", srd1.getStudentFirstName() );
 		// if i is greater than -1, should return null
-		Assert.assertSame ( null, srd2.getStudentFirstName() );
+		Assert.assertSame ( "", srd2.getStudentFirstName() );
 	
 	}
 
@@ -117,7 +117,7 @@ public class StudentReportDataTest {
 		// if i is not greater than -1, should return student last name
 		Assert.assertSame ("Mosby", srd1.getStudentLastName() );
 		// if i is greater than -1, should return null
-		Assert.assertSame ( null, srd2.getStudentLastName() );
+		Assert.assertSame ( "", srd2.getStudentLastName() );
 	}
 
 	@Test
@@ -125,7 +125,7 @@ public class StudentReportDataTest {
 		// if i is not greater than -1, should return student number
 		Assert.assertSame ("250565432", srd1.getStudentNumber() );
 		// if i is greater than -1, should return null
-		Assert.assertSame ( null, srd2.getStudentNumber() );
+		Assert.assertSame ( "", srd2.getStudentNumber() );
 	}
 
 	@Test
@@ -133,56 +133,56 @@ public class StudentReportDataTest {
 		// if i is not greater than -1, should return student number
 		Assert.assertSame ("tedmosby@uwo.ca", srd1.getStudentEmail() );
 		// if i is greater than -1, should return null
-		Assert.assertSame ( null, srd2.getStudentNumber() );
+		Assert.assertSame ( "", srd2.getStudentNumber() );
 	}
 
 	@Test
 	public void testGetStudentAvg() {
 		// if i is not greater than -1, should return student average
-		Assert.assertEquals ( 69.08, srd1.getStudentAvg() );
+		Assert.assertTrue ( 69.08==srd1.getStudentAvg() );
 		// if i is greater than -1, should return null
-		Assert.assertEquals ( null, srd2.getStudentAvg() );
+		Assert.assertTrue ( -1==srd2.getStudentAvg() );
 	}
 
 	@Test
 	public void testGetStudentAsnAvg() {
 		// if i is not greater than -1, should return student assignment average
-		Assert.assertEquals ( 85.33333333333333, srd1.getStudentAsnAvg() );
+		Assert.assertTrue ( 85.33333333333333==srd1.getStudentAsnAvg() );
 		// if i is greater than -1, should return null
-		Assert.assertEquals ( null, srd2.getStudentAsnAvg() );
+		Assert.assertTrue ( -1==srd2.getStudentAsnAvg() );
 		
 	}
 
 	@Test
 	public void testGetStudentExamAvg() {
 		// if i is not greater than -1, should return student exam average
-		Assert.assertEquals ( 63.5, srd4.getStudentExamAvg() );
+		Assert.assertTrue ( 63.5==srd4.getStudentExamAvg() );
 		// if i is greater than -1, should return null
-		Assert.assertEquals ( null, srd5.getStudentExamAvg() );
+		Assert.assertTrue ( -1==srd5.getStudentExamAvg() );
 	}
 
 	@Test
 	public void testGetGrade() {
 		// if i is greater than -1 should return grade
-		Assert.assertEquals ( 85.0, srd7.getGrade() );
+		Assert.assertTrue ( 85==srd7.getGrade() );
 		// if i is equal to -1 should return -1
-		Assert.assertEquals ( -1.0, srd6.getGrade() );
+		Assert.assertTrue ( -1==srd6.getGrade() );
 	}
 
 	@Test
 	public void testGetWeight() {
 		// if i is greater than -1 should return weight
-		Assert.assertEquals ( 100.0, srd7.getWeight() );
+		Assert.assertTrue ( 100==srd7.getWeight() );
 		// if i is equal to -1 should return -1
-		Assert.assertEquals ( -1.0, srd6.getWeight() );
+		Assert.assertTrue ( -1==srd6.getWeight() );
 	}
 
 	@Test
 	public void testGetDeliverAvg() {
 		// if i is greater than -1 should return deliverable average
-		Assert.assertEquals ( 85.0, srd7.getDeliverAvg() );
+		Assert.assertTrue ( 85==srd7.getDeliverAvg() );
 		// if i is equal to -1 should return -1
-		Assert.assertEquals ( -1.0, srd6.getDeliverAvg() );
+		Assert.assertTrue ( -1==srd6.getDeliverAvg() );
 	}
 
 	@Test
@@ -190,7 +190,7 @@ public class StudentReportDataTest {
 		// if i is greater than -1 should return deliverable name
 		Assert.assertSame ( "Exam", srd7.getDeliverName() );
 		// if i is equal to -1 should return -1
-		Assert.assertSame ( null, srd6.getDeliverName() );
+		Assert.assertSame ( "", srd6.getDeliverName() );
 	}
 
 	@Test
@@ -198,7 +198,7 @@ public class StudentReportDataTest {
 		// if i is greater than -1 should return deliverable type
 		Assert.assertSame ( "exam", srd7.getDeliverType() );
 		// if i is equal to -1 should return -1
-		Assert.assertSame ( null, srd6.getDeliverType() );
+		Assert.assertSame ( "", srd6.getDeliverType() );
 	}
 
 }

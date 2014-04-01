@@ -13,79 +13,79 @@ public class StudentReportData {
 
 	public String getCourseTitle() {
 		if (i > -1)
-			return null;
+			return "";
 		return course.getTitle();
 	}
 
 	public String getCourseTerm() {
 		if (i > -1)
-			return null;
+			return "";
 		return course.getTerm();
 	}
 
 	public String getCourseCode() {
 		if (i > -1)
-			return null;
+			return "";
 		return course.getCode();
 	}
 
-	public Double getClassAvg() {
+	public double getClassAvg() {
 		if (i > -1)
-			return null;
+			return -1;
 		return course.getClassAvg();
 	}
 
-	public Double getClassAsnAvg() {
+	public double getClassAsnAvg() {
 		if (i > -1)
-			return null;
+			return -1;
 		return course.getClassAsnAvg();
 	}
 
-	public Double getClassExamAvg() {
+	public double getClassExamAvg() {
 		if (i > -1)
-			return null;
+			return -1;
 		return course.getClassExamAvg();
 	}
 
 	public String getStudentFirstName() {
 		if (i > -1)
-			return null;
+			return "";
 		return student.getNameFirst();
 	}
 
 	public String getStudentLastName() {
 		if (i > -1)
-			return null;
+			return "";
 		return student.getNameLast();
 	}
 
 	public String getStudentNumber() {
 		if (i > -1)
-			return null;
+			return "";
 		return student.getNumber();
 	}
 
 	public String getStudentEmail() {
 		if (i > -1)
-			return null;
+			return "";
 		return student.getEmail();
 	}
 
-	public Double getStudentAvg() {
+	public double getStudentAvg() {
 		if (i > -1)
-			return null;
+			return -1;
 		return student.getAvg();
 	}
 
-	public Double getStudentAsnAvg() {
+	public double getStudentAsnAvg() {
 		if (i > -1)
-			return null;
+			return -1;
 		return student.getAsnAvg();
 	}
 
-	public Double getStudentExamAvg() {
+	public double getStudentExamAvg() {
 		if (i > -1)
-			return null;
+			return -1;
 		return student.getExmAvg();
 	}
 
@@ -109,12 +109,13 @@ public class StudentReportData {
 
 	public String getDeliverName() {
 		if (i == -1)
-			return null;
+			return "";
 		return course.getDeliverable(i).getName();
 	}
 	public String getDeliverType() {
 		if (i == -1)
-			return null;
+			return "";
+		System.out.println(course.getDeliverable(i).getType());
 		return course.getDeliverable(i).getType();
 	}
 }

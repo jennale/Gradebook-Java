@@ -1,34 +1,43 @@
 package cs2212.team4;
 
-import static org.junit.Assert.*;
-
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-public class GradeTest {
+public class GradeTest
+{
+	Grade gr1;
 
-	@Test
-	public void testGrade() {
-		
+	@Before
+	public void testGrade()
+	{
+		gr1=new Grade(97, 0.5);
 	}
 
 	@Test
-	public void testGetGrade() {
-		
+	public void testGetGrade()
+	{
+		Assert.assertTrue(gr1.getGrade()==97);
 	}
 
 	@Test
-	public void testGetWeight() {
-		
+	public void testGetWeight() 
+	{
+		Assert.assertTrue(gr1.getWeight()==0.5);
 	}
 
 	@Test
-	public void testSetGrade() {
-		
+	public void testSetGrade() 
+	{
+		gr1.setGrade(46);
+		Assert.assertTrue(gr1.getGrade()==46);
 	}
 
 	@Test
-	public void testSetWeight() {
-		
+	public void testSetWeight()
+	{
+		gr1.setWeight(0.2);
+		Assert.assertTrue(gr1.getWeight()==0.2);
 	}
 
 }

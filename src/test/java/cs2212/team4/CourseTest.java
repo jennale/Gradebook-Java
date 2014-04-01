@@ -16,35 +16,38 @@ public class CourseTest
 	{
 		Color color = new Color(20, 150, 250);
 		stud=new Student("Marry", "Poppins", "250555000", "mpoppins");
-		deliver=new Deliverable("Project", "Other", 54, 0);
+		deliver=new Deliverable("Project", "assignment", 54, 0);
 		stud2=new Student("John", "Johnson", "250222444", "jjohn22");
-		deliver2=new Deliverable("Midterm", "Exm", 25, 0);
+		deliver2=new Deliverable("Midterm", "exam", 46, 0);
 		
-		//A course with students, grades, description, deliverable
+		//A course with students, grades, description, assignment deliverable, exam deliverable
 		crs1=new Course("English", "B", "2121");
 		crs1.setDescription("A course in English");
 		crs1.addStudent("Marry", "Poppins", "250555000", "mpoppins");
 		crs1.addStudent("John", "Johnson", "250222444", "jjohn22");
-		crs1.addDeliverable("Project", "Other", 54);
-		crs1.getStudent(0).addGrade(0, 97, "Other", 54);
-		crs1.getStudent(1).addGrade(0, 95, "Other", 54);
+		crs1.addDeliverable("Project", "assignment", 54);
+		crs1.addDeliverable("Midterm", "exam", 46);
+		crs1.getStudent(0).addGrade(0, 97, "assignment", 54);
+		crs1.getStudent(1).addGrade(0, 95, "assignment", 54);
+		crs1.getStudent(0).addGrade(1, 50, "exam", 46);
+		crs1.getStudent(1).addGrade(1, 62, "exam", 46);
 		
 		//A course with only a description
 		crs2=new Course("Computer Science", "A", "2208");
 		crs2.setDescription("A course in Computer Science");
 		
-		//A course with a student with no assigned grade, no description, deliverable
+		//A course with a student with no assigned grade, no description, exam deliverable
 		crs3=new Course("Philosophy", "B", "1022");
 		crs3.addStudent("John", "Johnson", "250222444", "jjohn22");
-		crs3.addDeliverable("Midterm", "Exm", 25);
+		crs3.addDeliverable("Midterm", "exam", 25);
 		
 		//A course with only a student
 		crs4=new Course("Geology", "A", "4011");
 		crs4.addStudent("John", "Johnson", "250222444", "jjohn22");
 				
-		//A course with only a deliverable
+		//A course with only an exam deliverable
 		crs5=new Course("Scientology", "A", "4020");
-		crs5.addDeliverable("Midterm", "Exm", 25);
+		crs5.addDeliverable("Midterm", "exam", 25);
 	}
 
 	@Test
@@ -95,7 +98,7 @@ public class CourseTest
 	@Test
 	public void testGetDeliverable()
 	{
-		Assert.assertTrue(crs1.getDeliverable(1)==null);
+		Assert.assertTrue(crs1.getDeliverable(2)==null);
 		Assert.assertTrue(crs1.getDeliverable(-1)==null);
 		Assert.assertTrue(crs1.getDeliverable(0).equals(deliver));
 		Assert.assertFalse(crs1.getDeliverable(0).equals(crs3.getDeliverable(0)));
@@ -104,7 +107,7 @@ public class CourseTest
 	@Test
 	public void testGetGrade() 
 	{
-		Assert.assertTrue(crs1.getGrade(stud,1)==-1);
+		Assert.assertTrue(crs1.getGrade(stud,2)==-1);
 		Assert.assertTrue(crs1.getGrade(stud,-1)==-1);
 		Assert.assertTrue(crs1.getGrade(crs1.getStudent(0),0)==97);
 	}
@@ -113,7 +116,7 @@ public class CourseTest
 	public void testGetClassAvg()
 	{
 		//Average for a course with deliverables, students, and grades
-		Assert.assertTrue(crs1.getClassAvg()==96);
+		Assert.assertTrue(crs1.getClassAvg()==77.6);
 		//Average for a course with no students or deliverables
 		Assert.assertTrue(crs2.getClassAvg()==-1);
 		//Average for a course with deliverables but no students
@@ -127,7 +130,16 @@ public class CourseTest
 	@Test
 	public void testGetClassAsnAvg()
 	{
-		
+		//Assignment average for a course with an assignment deliverable, students, and grades
+		Assert.assertTrue(crs1.getClassAsnAvg()==96);
+		//Assignment average for a course with no students or deliverables
+		Assert.assertTrue(crs2.getClassAsnAvg()==-1);
+		//Assignment average for a course with assignment deliverables but no students
+		Assert.assertTrue(crs4.getClassAsnAvg()==-1);
+		//Assignment average for a course with students but no deliverables
+		Assert.assertTrue(crs5.getClassAsnAvg()==-1);
+		//Assignment average for a course with deliverables and students, but no grades
+		Assert.assertTrue(crs3.getClassAsnAvg()==0);
 	}
 
 	@Test

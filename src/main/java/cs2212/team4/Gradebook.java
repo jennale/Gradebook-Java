@@ -51,7 +51,7 @@ public class Gradebook implements GradebookADT, Serializable
 	 * @return    the course at the specified index
 	 */
 	public Course getCourse(int crs) {
-		if (courseList.size() > crs)
+		if (courseList.size() > crs && crs >= 0)
 			return courseList.get(crs);
 		return null;
 	}

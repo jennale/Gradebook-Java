@@ -95,7 +95,7 @@ public class GradebookGUI extends JFrame {
 		});
 
 		calcFrame.setResizable(false);
-		calcFrame.setSize(500, 200);
+		calcFrame.setSize(500, 220);
 		calcFrame.setLocationRelativeTo(this);
 		calcFrame.setAlwaysOnTop(true);
 		calcFrame.addWindowListener(new WindowAdapter() {
@@ -162,6 +162,7 @@ public class GradebookGUI extends JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
@@ -191,17 +192,16 @@ public class GradebookGUI extends JFrame {
 		msgScroll = new javax.swing.JScrollPane();
 		msgText = new javax.swing.JTextArea();
 		pnlAddDeliver = new javax.swing.JPanel();
-		pnlAddDeliverContainer = new javax.swing.JPanel();
-		lblAddDeliverTitle = new javax.swing.JLabel();
 		lblDeliverName = new javax.swing.JLabel();
 		txtDeliverName = new javax.swing.JTextField();
-		lblDeliverWeight = new javax.swing.JLabel();
 		txtDeliverWeight = new javax.swing.JTextField();
 		lblDeliverType = new javax.swing.JLabel();
-		comboDeliverType = new javax.swing.JComboBox();
-		lblDeliverAddErrorLog = new javax.swing.JLabel();
+		lblDeliverWeight = new javax.swing.JLabel();
+		lblAddDeliverTitle = new javax.swing.JLabel();
 		lblAddDeliver = new javax.swing.JLabel();
+		comboDeliverType = new javax.swing.JComboBox();
 		lblCancelDeliverAddition = new javax.swing.JLabel();
+		addDeliverErrorLog = new javax.swing.JLabel();
 		pnlAddCourse = new javax.swing.JPanel();
 		pnlAddCourseContainer = new javax.swing.JPanel();
 		lblAddCourseTitle = new javax.swing.JLabel();
@@ -219,7 +219,8 @@ public class GradebookGUI extends JFrame {
 		lblEnterAvg = new javax.swing.JLabel();
 		txtAvg = new javax.swing.JTextField();
 		lblCalculate = new javax.swing.JLabel();
-		lblResult = new javax.swing.JLabel();
+		resultScroll = new javax.swing.JScrollPane();
+		lblResult = new javax.swing.JTextPane();
 		lblGrades = new javax.swing.JLabel();
 		lblTabGrades = new javax.swing.JLabel();
 		lblSetup = new javax.swing.JLabel();
@@ -973,22 +974,16 @@ public class GradebookGUI extends JFrame {
 		pnlAddDeliver.setPreferredSize(new java.awt.Dimension(350, 250));
 		pnlAddDeliver.setVerifyInputWhenFocusTarget(false);
 
-		pnlAddDeliverContainer.setBackground(new java.awt.Color(255, 255, 255));
-
-		lblAddDeliverTitle.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
-		lblAddDeliverTitle
-				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblAddDeliverTitle.setText("Add a New Deliverable");
-
 		lblDeliverName.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
 		lblDeliverName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblDeliverName.setText("Deliverable Name:");
 		lblDeliverName.setToolTipText("");
+		lblDeliverName.setPreferredSize(new java.awt.Dimension(140, 30));
 
 		txtDeliverName.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
 		txtDeliverName.setForeground(new java.awt.Color(204, 204, 204));
 		txtDeliverName.setText("ex. Group Project");
-		txtDeliverName.setPreferredSize(new java.awt.Dimension(150, 30));
+		txtDeliverName.setPreferredSize(new java.awt.Dimension(185, 30));
 		txtDeliverName.addFocusListener(new java.awt.event.FocusAdapter() {
 			public void focusGained(java.awt.event.FocusEvent evt) {
 				txtDeliverNameFocusGained(evt);
@@ -999,15 +994,10 @@ public class GradebookGUI extends JFrame {
 			}
 		});
 
-		lblDeliverWeight.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
-		lblDeliverWeight
-				.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-		lblDeliverWeight.setText("Deliverable Weight:");
-		lblDeliverWeight.setToolTipText("");
-
 		txtDeliverWeight.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
 		txtDeliverWeight.setForeground(new java.awt.Color(204, 204, 204));
-		txtDeliverWeight.setText("ex. 0.54");
+		txtDeliverWeight.setText("ex. 54");
+		txtDeliverWeight.setPreferredSize(new java.awt.Dimension(185, 30));
 		txtDeliverWeight.addFocusListener(new java.awt.event.FocusAdapter() {
 			public void focusGained(java.awt.event.FocusEvent evt) {
 				txtDeliverWeightFocusGained(evt);
@@ -1022,12 +1012,20 @@ public class GradebookGUI extends JFrame {
 		lblDeliverType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblDeliverType.setText("Deliverable Type:");
 		lblDeliverType.setToolTipText("");
+		lblDeliverType.setPreferredSize(new java.awt.Dimension(140, 30));
 
-		comboDeliverType.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
-		comboDeliverType.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "Assignment", "Exam", "Other" }));
+		lblDeliverWeight.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+		lblDeliverWeight
+				.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+		lblDeliverWeight.setText("Deliverable Weight:");
+		lblDeliverWeight.setToolTipText("");
+		lblDeliverWeight.setPreferredSize(new java.awt.Dimension(140, 30));
 
-		lblDeliverAddErrorLog.setForeground(new java.awt.Color(255, 0, 0));
+		lblAddDeliverTitle.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+		lblAddDeliverTitle
+				.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblAddDeliverTitle.setText("Add a New Deliverable");
+		lblAddDeliverTitle.setPreferredSize(new java.awt.Dimension(330, 30));
 
 		lblAddDeliver.setBackground(new java.awt.Color(255, 255, 255));
 		lblAddDeliver.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
@@ -1036,6 +1034,7 @@ public class GradebookGUI extends JFrame {
 		lblAddDeliver
 				.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		lblAddDeliver.setOpaque(true);
+		lblAddDeliver.setPreferredSize(new java.awt.Dimension(175, 30));
 		lblAddDeliver.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				lblAddDeliverMouseClicked(evt);
@@ -1058,6 +1057,11 @@ public class GradebookGUI extends JFrame {
 			}
 		});
 
+		comboDeliverType.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
+		comboDeliverType.setModel(new javax.swing.DefaultComboBoxModel(
+				new String[] { "Assignment", "Exam", "Other" }));
+		comboDeliverType.setPreferredSize(new java.awt.Dimension(185, 30));
+
 		lblCancelDeliverAddition
 				.setBackground(new java.awt.Color(255, 255, 255));
 		lblCancelDeliverAddition.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
@@ -1067,6 +1071,8 @@ public class GradebookGUI extends JFrame {
 		lblCancelDeliverAddition.setCursor(new java.awt.Cursor(
 				java.awt.Cursor.HAND_CURSOR));
 		lblCancelDeliverAddition.setOpaque(true);
+		lblCancelDeliverAddition.setPreferredSize(new java.awt.Dimension(175,
+				30));
 		lblCancelDeliverAddition
 				.addMouseListener(new java.awt.event.MouseAdapter() {
 					public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1090,99 +1096,132 @@ public class GradebookGUI extends JFrame {
 					}
 				});
 
-		javax.swing.GroupLayout pnlAddDeliverContainerLayout = new javax.swing.GroupLayout(
-				pnlAddDeliverContainer);
-		pnlAddDeliverContainer.setLayout(pnlAddDeliverContainerLayout);
-		pnlAddDeliverContainerLayout
-				.setHorizontalGroup(pnlAddDeliverContainerLayout
+		addDeliverErrorLog.setPreferredSize(new java.awt.Dimension(330, 30));
+
+		javax.swing.GroupLayout pnlAddDeliverLayout = new javax.swing.GroupLayout(
+				pnlAddDeliver);
+		pnlAddDeliver.setLayout(pnlAddDeliverLayout);
+		pnlAddDeliverLayout
+				.setHorizontalGroup(pnlAddDeliverLayout
 						.createParallelGroup(
 								javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(
-								pnlAddDeliverContainerLayout
+								pnlAddDeliverLayout
 										.createSequentialGroup()
-										.addComponent(
-												lblAddDeliver,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												165,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(0, 0, 0)
-										.addComponent(
-												lblCancelDeliverAddition,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE))
-						.addGroup(
-								pnlAddDeliverContainerLayout
-										.createSequentialGroup()
-										.addContainerGap()
 										.addGroup(
-												pnlAddDeliverContainerLayout
+												pnlAddDeliverLayout
 														.createParallelGroup(
 																javax.swing.GroupLayout.Alignment.LEADING)
 														.addGroup(
-																pnlAddDeliverContainerLayout
+																pnlAddDeliverLayout
 																		.createSequentialGroup()
 																		.addGroup(
-																				pnlAddDeliverContainerLayout
+																				pnlAddDeliverLayout
 																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
+																								javax.swing.GroupLayout.Alignment.TRAILING,
+																								false)
 																						.addComponent(
-																								lblDeliverType)
-																						.addComponent(
-																								lblDeliverName,
+																								lblAddDeliverTitle,
 																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								136,
+																								javax.swing.GroupLayout.DEFAULT_SIZE,
 																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								lblDeliverWeight,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								149,
-																								javax.swing.GroupLayout.PREFERRED_SIZE))
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addGroup(
-																				pnlAddDeliverContainerLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								txtDeliverName,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								177,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								txtDeliverWeight)
-																						.addComponent(
-																								comboDeliverType,
-																								0,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)))
-														.addComponent(
-																lblAddDeliverTitle,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE)
-														.addComponent(
-																lblDeliverAddErrorLog,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
+																						.addGroup(
+																								pnlAddDeliverLayout
+																										.createSequentialGroup()
+																										.addComponent(
+																												lblDeliverType,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(5,
+																												5,
+																												5)
+																										.addComponent(
+																												comboDeliverType,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE))
+																						.addGroup(
+																								pnlAddDeliverLayout
+																										.createSequentialGroup()
+																										.addComponent(
+																												lblDeliverName,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(5,
+																												5,
+																												5)
+																										.addComponent(
+																												txtDeliverName,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE))
+																						.addGroup(
+																								pnlAddDeliverLayout
+																										.createSequentialGroup()
+																										.addComponent(
+																												lblDeliverWeight,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)
+																										.addGap(5,
+																												5,
+																												5)
+																										.addComponent(
+																												txtDeliverWeight,
+																												javax.swing.GroupLayout.PREFERRED_SIZE,
+																												javax.swing.GroupLayout.DEFAULT_SIZE,
+																												javax.swing.GroupLayout.PREFERRED_SIZE)))
+																		.addGap(10,
+																				10,
+																				10))
+														.addGroup(
+																pnlAddDeliverLayout
+																		.createSequentialGroup()
+																		.addComponent(
+																				lblAddDeliver,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		.addGap(0,
+																				0,
+																				0)
+																		.addComponent(
+																				lblCancelDeliverAddition,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		.addGap(0,
+																				0,
+																				0))))
+						.addGroup(
+								pnlAddDeliverLayout
+										.createSequentialGroup()
+										.addContainerGap()
+										.addComponent(
+												addDeliverErrorLog,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												Short.MAX_VALUE)
 										.addContainerGap()));
-		pnlAddDeliverContainerLayout
-				.setVerticalGroup(pnlAddDeliverContainerLayout
+		pnlAddDeliverLayout
+				.setVerticalGroup(pnlAddDeliverLayout
 						.createParallelGroup(
 								javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(
-								pnlAddDeliverContainerLayout
+								pnlAddDeliverLayout
 										.createSequentialGroup()
 										.addGap(10, 10, 10)
 										.addComponent(
 												lblAddDeliverTitle,
 												javax.swing.GroupLayout.PREFERRED_SIZE,
-												35,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(20, 20, 20)
+										.addGap(15, 15, 15)
 										.addGroup(
-												pnlAddDeliverContainerLayout
+												pnlAddDeliverLayout
 														.createParallelGroup(
 																javax.swing.GroupLayout.Alignment.BASELINE)
 														.addComponent(
@@ -1193,85 +1232,59 @@ public class GradebookGUI extends JFrame {
 														.addComponent(
 																lblDeliverName,
 																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(5, 5, 5)
+										.addGap(10, 10, 10)
 										.addGroup(
-												pnlAddDeliverContainerLayout
+												pnlAddDeliverLayout
 														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING,
-																false)
+																javax.swing.GroupLayout.Alignment.BASELINE)
 														.addComponent(
 																txtDeliverWeight,
+																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
-																29,
-																Short.MAX_VALUE)
+																javax.swing.GroupLayout.PREFERRED_SIZE)
 														.addComponent(
 																lblDeliverWeight,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
-										.addGap(5, 5, 5)
+																javax.swing.GroupLayout.PREFERRED_SIZE))
+										.addGap(10, 10, 10)
 										.addGroup(
-												pnlAddDeliverContainerLayout
+												pnlAddDeliverLayout
 														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING,
-																false)
+																javax.swing.GroupLayout.Alignment.BASELINE)
+														.addComponent(
+																comboDeliverType,
+																javax.swing.GroupLayout.PREFERRED_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.PREFERRED_SIZE)
 														.addComponent(
 																lblDeliverType,
 																javax.swing.GroupLayout.DEFAULT_SIZE,
-																30,
-																Short.MAX_VALUE)
-														.addComponent(
-																comboDeliverType))
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																Short.MAX_VALUE))
 										.addGap(5, 5, 5)
 										.addComponent(
-												lblDeliverAddErrorLog,
+												addDeliverErrorLog,
 												javax.swing.GroupLayout.PREFERRED_SIZE,
-												27,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-												22, Short.MAX_VALUE)
+										.addGap(5, 5, 5)
 										.addGroup(
-												pnlAddDeliverContainerLayout
+												pnlAddDeliverLayout
 														.createParallelGroup(
 																javax.swing.GroupLayout.Alignment.BASELINE)
 														.addComponent(
 																lblAddDeliver,
 																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
 																javax.swing.GroupLayout.PREFERRED_SIZE)
 														.addComponent(
 																lblCancelDeliverAddition,
 																javax.swing.GroupLayout.PREFERRED_SIZE,
-																30,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(0, 0, 0)));
-
-		javax.swing.GroupLayout pnlAddDeliverLayout = new javax.swing.GroupLayout(
-				pnlAddDeliver);
-		pnlAddDeliver.setLayout(pnlAddDeliverLayout);
-		pnlAddDeliverLayout.setHorizontalGroup(pnlAddDeliverLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						pnlAddDeliverLayout
-								.createSequentialGroup()
-								.addGap(0, 0, 0)
-								.addComponent(pnlAddDeliverContainer,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE).addGap(0, 0, 0)));
-		pnlAddDeliverLayout.setVerticalGroup(pnlAddDeliverLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						pnlAddDeliverLayout
-								.createSequentialGroup()
-								.addGap(0, 0, 0)
-								.addComponent(pnlAddDeliverContainer,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE).addGap(0, 0, 0)));
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.PREFERRED_SIZE))));
 
 		pnlAddCourse.setBackground(new java.awt.Color(255, 255, 255));
 		pnlAddCourse.setPreferredSize(new java.awt.Dimension(350, 250));
@@ -1645,7 +1658,10 @@ public class GradebookGUI extends JFrame {
 			}
 		});
 
-		lblResult.setPreferredSize(new java.awt.Dimension(280, 30));
+		lblResult.setBorder(null);
+		lblResult.setPreferredSize(new java.awt.Dimension(480, 50));
+		resultScroll.setViewportView(lblResult);
+		lblResult.disable();
 
 		javax.swing.GroupLayout pnlCalcLayout = new javax.swing.GroupLayout(
 				pnlCalc);
@@ -1657,6 +1673,7 @@ public class GradebookGUI extends JFrame {
 						.addGroup(
 								pnlCalcLayout
 										.createSequentialGroup()
+										.addGap(10, 10, 10)
 										.addGroup(
 												pnlCalcLayout
 														.createParallelGroup(
@@ -1664,47 +1681,37 @@ public class GradebookGUI extends JFrame {
 														.addGroup(
 																pnlCalcLayout
 																		.createSequentialGroup()
-																		.addGap(10,
-																				10,
-																				10)
-																		.addGroup(
-																				pnlCalcLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								lblCalcTitle,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								480,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblEnterAvg,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								txtAvg,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)))
-														.addGroup(
-																pnlCalcLayout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addGroup(
-																				pnlCalcLayout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								lblCalculate,
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								lblResult,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE))))
+																		.addComponent(
+																				txtAvg,
+																				javax.swing.GroupLayout.DEFAULT_SIZE,
+																				480,
+																				Short.MAX_VALUE)
+																		.addContainerGap())
+														.addComponent(
+																lblCalcTitle,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																Short.MAX_VALUE)
+														.addComponent(
+																lblEnterAvg,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																Short.MAX_VALUE)))
+						.addGroup(
+								pnlCalcLayout
+										.createSequentialGroup()
+										.addContainerGap()
+										.addGroup(
+												pnlCalcLayout
+														.createParallelGroup(
+																javax.swing.GroupLayout.Alignment.LEADING)
+														.addComponent(
+																resultScroll)
+														.addComponent(
+																lblCalculate,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE,
+																Short.MAX_VALUE))
 										.addContainerGap()));
 		pnlCalcLayout.setVerticalGroup(pnlCalcLayout.createParallelGroup(
 				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
@@ -1730,12 +1737,10 @@ public class GradebookGUI extends JFrame {
 								javax.swing.GroupLayout.PREFERRED_SIZE,
 								javax.swing.GroupLayout.DEFAULT_SIZE,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(0, 0, 0)
-						.addComponent(lblResult,
-								javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(0, 0, 0)));
+						.addGap(10, 10, 10)
+						.addComponent(resultScroll,
+								javax.swing.GroupLayout.DEFAULT_SIZE, 49,
+								Short.MAX_VALUE).addContainerGap()));
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Gradebook Application");
@@ -5088,13 +5093,15 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_addDeliverMousePressed
 
 	private void deleteDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_deleteDeliverMouseClicked
+		String del;
 		if (currCourse != null) {
 			if (deliverList.getSelectedIndex() > -1) {
 				int[] selectedRows = deliverList.getSelectedIndices();
 				String SelectedDelivers = "";
 				for (int i = 0; i < selectedRows.length; i++) {
+					del = listDelivers.getElementAt(selectedRows[i]);
 					SelectedDelivers += currCourse.getDeliverable(
-							selectedRows[i]).getName()
+							findDeliver(del)).getName()
 							+ "\n";
 				}
 				int j = JOptionPane.showConfirmDialog(this,
@@ -5103,7 +5110,7 @@ public class GradebookGUI extends JFrame {
 						JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 				if (j == 0) {
 					for (int i = 0; i < selectedRows.length; i++) {
-						String del = listDelivers.getElementAt(selectedRows[i]);
+						del = listDelivers.getElementAt(selectedRows[i]);
 						currCourse.removeDeliverable(findDeliver(del));
 					}
 					updateInfo();
@@ -5619,7 +5626,7 @@ public class GradebookGUI extends JFrame {
 								JOptionPane.YES_NO_OPTION,
 								JOptionPane.OK_OPTION);
 					} else
-					lblGradesErrorLog.setText(returnMsg);
+						lblGradesErrorLog.setText(returnMsg);
 				} else
 					updateInfo();
 			} else
@@ -6153,31 +6160,29 @@ public class GradebookGUI extends JFrame {
 	private void lblEditDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditDeliverMouseClicked
 		if (currDeliver != null) {
 			if (!weightException) {
-				if (boolDeliver == 1) {
-					currDeliver.setName(txtEditDeliverName.getText());
-					if (currCourse.updateRunningTot(currDeliver.getWeight(),
-							weight)) {
+				if (currCourse.getTotalWeight() + weight <= 100) {
+					if (boolDeliver == 1) {
+                                                currCourse.setTotalWeight(currCourse.getTotalWeight()+weight-currDeliver.getWeight());
+						currDeliver.setName(txtEditDeliverName.getText());
 						currDeliver.setWeight(weight);
 						currDeliver.setType((String) comboEditDeliverType
 								.getSelectedItem());
 						updateInfo();
 						currDeliver = null;
-					}
-					// set error message here when cannot be edited because
-					// weight is too high
-					// I think
-					// "Weight invalid: getRunningTotal()/100 marks already accounted for"
-					// could be a good error message.
-					else {
-						lblSetupErrorLog.setText("Weight invalid: "
-								+ currCourse.getRunningTotal()
-								+ "/100 marks already accounted for");
-					}
-				} else if (boolCourse == 0)
-					lblSetupErrorLog.setText("The deliverable"
-							+ txtEditDeliverName.getText() + ", " + weight
-							+ (String) comboEditDeliverType.getSelectedItem()
-							+ " already exists!");
+					} else if (boolCourse == 0)
+						lblSetupErrorLog
+								.setText("The deliverable"
+										+ txtEditDeliverName.getText()
+										+ ", "
+										+ weight
+										+ (String) comboEditDeliverType
+												.getSelectedItem()
+										+ " already exists!");
+				} else {
+					lblSetupErrorLog.setText("Weight invalid: "
+							+ currCourse.getTotalWeight()
+							+ "/100 marks already accounted for");
+				}
 			} else {
 				lblSetupErrorLog.setText("Please enter a valid weight.");
 				txtEditDeliverWeight.setBorder(errorHighlightBorder);
@@ -7081,14 +7086,14 @@ public class GradebookGUI extends JFrame {
 
 	private void txtDeliverWeightFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtDeliverWeightFocusGained
 		if (txtDeliverWeight.getText().equals("")
-				|| txtDeliverWeight.getText().equals("ex. 0.54"))
+				|| txtDeliverWeight.getText().equals("ex. 54"))
 			txtDeliverWeight.setText("");
 		txtDeliverWeight.setForeground(Color.black);
 	}// GEN-LAST:event_txtDeliverWeightFocusGained
 
 	private void txtDeliverWeightFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtDeliverWeightFocusLost
 		if (txtDeliverWeight.getText().equals("")) {
-			txtDeliverWeight.setText("ex. 0.54");
+			txtDeliverWeight.setText("ex. 54");
 			txtDeliverWeight.setForeground(new Color(204, 204, 204));
 		}
 	}// GEN-LAST:event_txtDeliverWeightFocusLost
@@ -7128,8 +7133,6 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblAddDeliverMouseExited
 
 	private void lblAddDeliverMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddDeliverMousePressed
-		System.out.println(currCourse.getRunningTotal());
-
 		lblAddDeliver.setBackground(new Color(51, 255, 51));
 	}// GEN-LAST:event_lblAddDeliverMousePressed
 
@@ -7139,66 +7142,56 @@ public class GradebookGUI extends JFrame {
 
 	private void lblAddDeliverMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblAddDeliverMouseClicked
 		if (currCourse == null)
-			lblDeliverAddErrorLog.setText("Please select a course!");
+			addDeliverErrorLog.setText("Please select a course!");
 		else {
-			String name, weight, getName, getWeight, info, type, boolExists="";
+			String name, weight, getName, getWeight, info, type, returnMsg = "";
 			boolean boolFormat = true;
 
 			txtDeliverName.setBorder(defaultHighlightBorder);
 			txtDeliverWeight.setBorder(defaultHighlightBorder);
-			lblDeliverAddErrorLog.setText("");
+			addDeliverErrorLog.setText("");
 
 			getName = txtDeliverName.getText();
 			if (getName.equals("ex. Group Project"))
 				getName = "";
 
 			getWeight = txtDeliverWeight.getText();
-			if (getWeight.equals("ex. 0.54"))
+			if (getWeight.equals("ex. 54"))
 				getWeight = "";
 
 			type = (String) comboDeliverType.getSelectedItem();
 
 			if (getName.equals("") || (name = elimSpaces(getName)) == null) {
-				lblDeliverAddErrorLog
-						.setText("Please enter a deliverable name.");
+				addDeliverErrorLog.setText("Please enter a deliverable name.");
 				txtDeliverName.setBorder(errorHighlightBorder);
 			} else if (getWeight.equals("")
 					|| (weight = elimSpaces(getWeight)) == null) {
-				lblDeliverAddErrorLog
+				addDeliverErrorLog
 						.setText("Please enter a deliverable weight.");
 				txtDeliverWeight.setBorder(errorHighlightBorder);
 			} else {
 				try {
-					if (currCourse.updateRunningTot(Double.parseDouble(weight))) {
-						boolExists = currCourse.addDeliverable(name, type,
-								Double.parseDouble(weight));
-						updateTables();
-					}
-					// set error message here when can't be added because the
-					// weight is too high;
-					else {
-						lblSetupErrorLog.setText("Weight invalid: "
-								+ currCourse.getRunningTotal()
-								+ "/100 marks already accounted for");
-						return;
-					}
-
+					returnMsg = currCourse.addDeliverable(name, type,
+							Double.parseDouble(weight));
 				} catch (NumberFormatException e) {
 					txtDeliverWeight.setBorder(errorHighlightBorder);
 					boolFormat = false;
 				}
 
-				if (!boolFormat)
-					lblDeliverAddErrorLog
+				if (!boolFormat) {
+					addDeliverErrorLog
 							.setText("Please enter a valid deliverable weight.");
-				else if (!boolExists.equals(""))
-					lblDeliverAddErrorLog.setText("Deliver Already exists!");
-				else {
+					addDeliverErrorLog.setForeground(Color.red);
+				} else if (!returnMsg.equals("")) {
+					addDeliverErrorLog.setText(returnMsg);
+					addDeliverErrorLog.setForeground(Color.red);
+				} else {
 					closeFrame(addFrame);
 					restPnlDeliver();
 					info = name + ", " + type + ", "
 							+ Double.parseDouble(weight);
 					listDelivers.addElement(info);
+					updateTables();
 				}
 			}
 		}
@@ -7565,7 +7558,7 @@ public class GradebookGUI extends JFrame {
 		txtDeliverName.setText("ex. Group Project");
 		txtDeliverName.setForeground(new Color(204, 204, 204));
 
-		txtDeliverWeight.setText("ex. 0.54");
+		txtDeliverWeight.setText("ex. 54");
 		txtDeliverWeight.setForeground(new Color(204, 204, 204));
 
 		comboDeliverType.setSelectedIndex(0);
@@ -7573,7 +7566,7 @@ public class GradebookGUI extends JFrame {
 		txtDeliverName.setBorder(defaultHighlightBorder);
 		txtDeliverWeight.setBorder(defaultHighlightBorder);
 
-		lblDeliverAddErrorLog.setText("");
+		addDeliverErrorLog.setText("");
 
 		pnlAddDeliver.setVisible(false);
 	}
@@ -7850,6 +7843,7 @@ public class GradebookGUI extends JFrame {
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JLabel addCourse;
 	private javax.swing.JLabel addDeliver;
+	private javax.swing.JLabel addDeliverErrorLog;
 	private javax.swing.JLabel addStudent;
 	private javax.swing.JComboBox comboCourseTerm;
 	private javax.swing.JComboBox comboDeliverType;
@@ -7910,7 +7904,6 @@ public class GradebookGUI extends JFrame {
 	private javax.swing.JLabel lblDbxVerify;
 	private javax.swing.JLabel lblDeleteCourse;
 	private javax.swing.JLabel lblDeleteSure;
-	private javax.swing.JLabel lblDeliverAddErrorLog;
 	private javax.swing.JLabel lblDeliverName;
 	private javax.swing.JLabel lblDeliverType;
 	private javax.swing.JLabel lblDeliverWeight;
@@ -7946,7 +7939,7 @@ public class GradebookGUI extends JFrame {
 	private javax.swing.JLabel lblNumber;
 	private javax.swing.JLabel lblOlive;
 	private javax.swing.JLabel lblRecipients;
-	private javax.swing.JLabel lblResult;
+	private javax.swing.JTextPane lblResult;
 	private javax.swing.JLabel lblSendEmail;
 	private javax.swing.JLabel lblSetup;
 	private javax.swing.JLabel lblSetupErrorLog;
@@ -7970,7 +7963,6 @@ public class GradebookGUI extends JFrame {
 	private javax.swing.JPanel pnlAddCourse;
 	private javax.swing.JPanel pnlAddCourseContainer;
 	private javax.swing.JPanel pnlAddDeliver;
-	private javax.swing.JPanel pnlAddDeliverContainer;
 	private javax.swing.JPanel pnlAddStudent;
 	private javax.swing.JPanel pnlAddStudentContainer;
 	private javax.swing.JPanel pnlCalc;
@@ -7978,6 +7970,7 @@ public class GradebookGUI extends JFrame {
 	private javax.swing.JPanel pnlEmail;
 	private javax.swing.JPanel pnlTables;
 	private javax.swing.JLabel recipients;
+	private javax.swing.JScrollPane resultScroll;
 	private javax.swing.JScrollPane studentScroll;
 	private javax.swing.JTable studentTable;
 	private javax.swing.JLabel subject;

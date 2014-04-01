@@ -44,7 +44,7 @@ public class Course implements CourseADT, Serializable
 	//public static Collection<Report> student_info = new ArrayList<Report>();
     //Variable used to keep track of deliverable weights -- Optional if we want to keep
     //deliverable weights <= 100
-    private double runningTotal=0;
+    private double weightTotal=0;
     
     private Color color = new Color(20, 150, 250);
 
@@ -60,7 +60,6 @@ public class Course implements CourseADT, Serializable
 		this.title = title;
 		this.term  = term;
 		this.code  = code;
-        calcRunningTotal();
 	}
 
 	/* ************************************************************
@@ -156,58 +155,6 @@ public class Course implements CourseADT, Serializable
 			return -1;
 		return stud.getGrade(grade);
 	}
-
-    /**
-     * Returns the running total of course deliverable weights so far...
-     * @return the running total
-     */
-    public double getRunningTotal(){
-        return runningTotal;
-    }
-
-    public void calcRunningTotal(){
-        runningTotal = 0;
-        for (int i = 0; i<deliverableList.size(); i++){
-            if (deliverableList.get(i)!=null){
-                runningTotal += deliverableList.get(i).getWeight();
-            }
-        }
-    }
-
-    /**
-     * Checks whether this weight can be added to the course's running total of grades
-     *
-     * @param weight the weight of the deliverable to be added
-     * @return true if it can be added, false otherwise
-     */
-
-    public boolean updateRunningTot(double weight){
-        if (runningTotal+weight>100)
-            return false;
-        else {
-            return true;
-        }
-    }
-
-    /**
-     * Overloaded constructor to update runningtotal when editing deliverable weights
-     * Makes sure that the new deliv weight will keep the runningtotal < 100. It will only
-     * edit the runningtotal value if the weight is valid.
-     *
-     * @param weight        current weight of the edited deliverable
-     * @param newWeight     new weight of the edited deliverable
-     * @return  true if successful, false otherwise.
-     */
-    public boolean updateRunningTot(double weight, double newWeight){
-        double check = runningTotal;
-        check = check - weight + newWeight;
-        if (check > 100)
-            return false;
-        else {
-            runningTotal = check;
-            return true;
-        }
-    }
 
 	/**
 	 * Gets the average for a course
@@ -346,6 +293,16 @@ public class Course implements CourseADT, Serializable
 	public ArrayList<Deliverable> getDeliverables() {
 		return deliverableList;
 	}
+	
+	/**
+	 * Gets the current weight total
+	 * 
+	 * @return The the current weight total
+	 * 
+	 */
+	public double getTotalWeight() {
+		return weightTotal;
+	}
 
 	/* ************************************************************
 	 * Mutator Methods
@@ -399,6 +356,16 @@ public class Course implements CourseADT, Serializable
 	 */
 	public void setDescription(String description){
 		this.description=description;
+	}
+        
+        /**
+	 * Sets the total weight
+	 * 
+	 * @param description The desired total weight
+	 * 
+	 */
+	public void setTotalWeight(double weightTotal){
+		this.weightTotal=weightTotal;
 	}
 
 	/* ************************************************************
@@ -541,15 +508,16 @@ public class Course implements CourseADT, Serializable
 	public String addDeliverable(String name, String type, double weight) {
 		if (findDeliverable(new Deliverable(name, type, weight, 0)) != -1)
 			return "Deliverable already exists";
-		if (runningTotal + weight>100)
-			return "You have exceeded the course 100% weight ceiling, current usable weight "+(100-runningTotal)+"%";
+		if (weightTotal + weight > 100)
+			return "You have exceeded the course 100% weight \nceiling, current usable weight "
+					+ (100 - weightTotal) + "%";
 		if (!stkDeliver.isEmpty())
-			deliverableList.set(stkDeliver.peek(), new Deliverable(name, type, weight, stkDeliver.pop()));
-		else {
+			deliverableList.set(stkDeliver.peek(), new Deliverable(name, type,
+					weight, stkDeliver.pop()));
+		else
 			deliverableList.add(new Deliverable(name, type, weight,
 					deliverableList.size()));
-            runningTotal = runningTotal + weight;
-        }
+		weightTotal += weight;
 		return "";
 	}
 
@@ -568,7 +536,7 @@ public class Course implements CourseADT, Serializable
 		for (int j = 0; j<studentList.size(); j++){
 			getStudent(j).removeGrade(i,type);
 		}
-        runningTotal = runningTotal - getDeliverable(i).getWeight();
+		weightTotal -= getDeliverable(i).getWeight();
         deliverableList.set(i, null);
 		stkDeliver.push(i);
 		return true;

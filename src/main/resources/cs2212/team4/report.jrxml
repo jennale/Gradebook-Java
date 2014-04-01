@@ -146,9 +146,8 @@
 		<variableExpression><![CDATA[$F{deliverType}.equals("Other") ? $F{grade} : null]]></variableExpression>
 	</variable>
 	<title>
-		<band height="89" splitType="Stretch">
+		<band height="70" splitType="Stretch">
 			<property name="local_mesure_unitheight" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
 				<reportElement key="" x="0" y="0" width="280" height="30" uuid="75826cf7-62d3-46b4-b4d5-5e78e69bc8a6"/>
 				<textElement verticalAlignment="Middle">
@@ -167,6 +166,17 @@
 				<reportElement mode="Opaque" x="350" y="0" width="205" height="50" backcolor="#FFFFFF" uuid="e33ac20c-215b-4a01-9dbe-29b22e4e5609"/>
 				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
+			<line>
+				<reportElement x="0" y="60" width="555" height="1" uuid="29a98744-2186-4910-9b6a-e886cb243beb">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
 		</band>
 	</title>
 	<pageHeader>
@@ -338,6 +348,17 @@
 				</textElement>
 				<textFieldExpression><![CDATA["Class Average"]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="0" y="70" width="555" height="1" uuid="1ca1e64f-cfbb-4999-8a51-17678fc8e469">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -396,7 +417,7 @@
 		</band>
 	</columnFooter>
 	<summary>
-		<band height="440">
+		<band height="430">
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<lineChart>
@@ -438,7 +459,7 @@
 			</lineChart>
 			<bar3DChart>
 				<chart evaluationTime="Report">
-					<reportElement x="0" y="210" width="280" height="210" uuid="abeb3a1c-ce84-41f7-ad80-62706cfdfe57"/>
+					<reportElement x="0" y="220" width="280" height="210" uuid="abeb3a1c-ce84-41f7-ad80-62706cfdfe57"/>
 					<chartTitle>
 						<font fontName="Arial" size="14"/>
 						<titleExpression><![CDATA["Averages Chart"]]></titleExpression>
@@ -476,7 +497,7 @@
 			</bar3DChart>
 			<pie3DChart>
 				<chart evaluationTime="Report">
-					<reportElement x="280" y="210" width="275" height="210" uuid="7f0d34a7-9f5a-40a4-a73d-857c0fd2d012"/>
+					<reportElement x="280" y="220" width="275" height="210" uuid="7f0d34a7-9f5a-40a4-a73d-857c0fd2d012"/>
 					<chartTitle>
 						<font fontName="Arial" size="14"/>
 						<titleExpression><![CDATA["Weight Distribution"]]></titleExpression>
@@ -503,11 +524,6 @@
 					<itemLabel/>
 				</pie3DPlot>
 			</pie3DChart>
-			<staticText>
-				<reportElement x="280" y="420" width="275" height="20" uuid="1c7e33ce-434c-4586-8af9-0c018d9bdbd1"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<text><![CDATA[*Grades with no enteries are automatically set to 0]]></text>
-			</staticText>
 		</band>
 	</summary>
 </jasperReport>

@@ -181,6 +181,8 @@ public class CourseTest
 		Assert.assertTrue(crs5.getClassDeliverableAvg(0)==-1);
 		//Average for a course with deliverables and students, but no grades
 		Assert.assertTrue(crs3.getClassDeliverableAvg(0)==-1);
+		//Try to get a deliverable that's out of bounds
+		Assert.assertTrue(crs3.getClassDeliverableAvg(3)==-1);
 	}
 
 	@Test
@@ -240,6 +242,13 @@ public class CourseTest
 	{
 		crs5.setDescription("A new description");
 		Assert.assertTrue(crs5.getDescription().equals("A new description"));
+	}
+	
+	@Test
+	public void testSetTotalWeight()
+	{
+		crs1.setTotalWeight(110);
+		Assert.assertTrue(crs1.getTotalWeight()==110);
 	}
 
 	@Test

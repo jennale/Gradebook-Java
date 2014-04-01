@@ -124,7 +124,7 @@ public class Course implements CourseADT, Serializable
 	 * 
 	 */
 	public Student getStudent(int stud) {
-		if (stud > studentList.size() - 1)
+		if (stud > studentList.size() - 1 || stud < 0)
 			return null;
 		return studentList.get(stud);
 	}
@@ -137,7 +137,7 @@ public class Course implements CourseADT, Serializable
 	 * 
 	 */
 	public Deliverable getDeliverable(int deliver) {
-		if (deliver < deliverableList.size())
+		if (deliver < deliverableList.size() && deliver>=0)
 			return deliverableList.get(deliver);
 		return null;
 	}
@@ -151,7 +151,7 @@ public class Course implements CourseADT, Serializable
 	 * 
 	 */
 	public double getGrade(Student stud, int grade) {
-		if (grade > studentList.size() - 1)
+		if (grade > studentList.size() - 1 || grade < 0)
 			return -1;
 		return stud.getGrade(grade);
 	}
@@ -341,7 +341,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Sets the course color
 	 * 
-	 * @param description The desired course color
+	 * @param color The desired course color
 	 * 
 	 */
 	public void setColor(Color color){
@@ -361,7 +361,7 @@ public class Course implements CourseADT, Serializable
         /**
 	 * Sets the total weight
 	 * 
-	 * @param description The desired total weight
+	 * @param weightTotal The desired total weight
 	 * 
 	 */
 	public void setTotalWeight(double weightTotal){

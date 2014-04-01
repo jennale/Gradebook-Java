@@ -4,12 +4,15 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class CourseTest
 {
-	Course crs1, crs2, crs3, crs4, crs5;
+	Course crs1, crs2, crs3, crs4, crs5, crs6;
 	Student stud, stud2;
 	Deliverable deliver, deliver2;
+	ArrayList<Student> studList;
+	ArrayList<Deliverable> deliverList;
 	
 	@Before
 	public void testCourse()
@@ -19,6 +22,10 @@ public class CourseTest
 		deliver=new Deliverable("Project", "assignment", 54, 0);
 		stud2=new Student("John", "Johnson", "250222444", "jjohn22");
 		deliver2=new Deliverable("Midterm", "exam", 46, 0);
+		studList= new ArrayList<Student>();
+		deliverList= new ArrayList<Deliverable>();
+		studList.add(new Student("John", "Johnson", "250222444", "jjohn22"));
+		deliverList.add(new Deliverable("Midterm", "exam", 46, 0));
 		
 		//A course with students, grades, description, assignment deliverable, exam deliverable
 		crs1=new Course("English", "B", "2121");
@@ -48,6 +55,10 @@ public class CourseTest
 		//A course with only an exam deliverable
 		crs5=new Course("Scientology", "A", "4020");
 		crs5.addDeliverable("Midterm", "exam", 25);
+		
+		//A copy of course 5
+		crs6=new Course("Scientology", "A", "4020");
+		crs6.addDeliverable("Midterm", "exam", 25);
 	}
 
 	@Test
@@ -145,121 +156,175 @@ public class CourseTest
 	@Test
 	public void testGetClassExamAvg()
 	{
-		 
+		//Exam average for a course with an exam deliverable, students, and grades
+		Assert.assertTrue(crs1.getClassExamAvg()==56);
+		//Exam average for a course with no students or deliverables
+		Assert.assertTrue(crs2.getClassExamAvg()==-1);
+		//Exam average for a course with exam deliverables but no students
+		Assert.assertTrue(crs4.getClassExamAvg()==-1);
+		//Exam average for a course with students but no deliverables
+		Assert.assertTrue(crs5.getClassExamAvg()==-1);
+		//Exam average for a course with deliverables and students, but no grades
+		Assert.assertTrue(crs3.getClassExamAvg()==0);
 	}
 
 	@Test
 	public void testGetClassDeliverableAvg()
 	{
-		 
+		//Average for a course with deliverables, students, and grades
+		Assert.assertTrue(crs1.getClassDeliverableAvg(0)==96);
+		//Average for a course with no students or deliverables
+		Assert.assertTrue(crs2.getClassDeliverableAvg(0)==-1);
+		//Average for a course with deliverables but no students
+		Assert.assertTrue(crs4.getClassDeliverableAvg(0)==-1);
+		//Average for a course with students but no deliverables
+		Assert.assertTrue(crs5.getClassDeliverableAvg(0)==-1);
+		//Average for a course with deliverables and students, but no grades
+		Assert.assertTrue(crs3.getClassDeliverableAvg(0)==-1);
 	}
 
 	@Test
 	public void testGetDeliverableListSize()
 	{
-		 
+		Assert.assertTrue(crs1.getDeliverableListSize()==2);
 	}
 
 	@Test
 	public void testGetStudentListSize()
 	{
-		 
+		Assert.assertTrue(crs1.getStudentListSize()==2);
 	}
 
 	@Test
 	public void testGetStudents()
 	{
-		 
+		//Assert.assertTrue(crs4.getStudents().equals(studList));
 	}
 
 	@Test
 	public void testGetDeliverables()
 	{
-		 
+		//Assert.assertTrue(crs4.getDeliverables().equals(deliverList));
 	}
 
 	@Test
 	public void testSetTitle()
 	{
-		 
+		 crs5.setTitle("New title");
+		 Assert.assertTrue(crs5.getTitle().equals("New title"));
 	}
 
 	@Test
 	public void testSetTerm()
 	{
-		 
+		crs5.setTerm("New term");
+		Assert.assertTrue(crs5.getTerm().equals("New term"));
 	}
 
 	@Test
 	public void testSetCode()
 	{
-		 
+		crs5.setCode("z");
+		Assert.assertTrue(crs5.getCode().equals("z"));
 	}
 
 	@Test
 	public void testSetColor()
 	{
-		 
+		crs5.setColor(new Color(100,100,100));
+		Assert.assertTrue(crs5.getColor().equals(new Color(100,100,100)));
 	}
 
 	@Test
 	public void testSetDescription()
 	{
-		 
+		crs5.setDescription("A new description");
+		Assert.assertTrue(crs5.getDescription().equals("A new description"));
 	}
 
 	@Test
 	public void testEditStudentNumber()
 	{
-		 
+		//Change to the same number
+		Assert.assertTrue(crs1.editStudentNumber(stud,"250555000").equals(""));
+		//Change to a new number
+		Assert.assertTrue(crs1.editStudentNumber(stud,"000222000").equals(""));
+		//Try setting to a number already belonging to a student
+		Assert.assertTrue(crs1.editStudentNumber(stud,"250222444").equals("The Student Number already exists"));
 	}
 
 	@Test
 	public void testEditStudentEmail()
 	{
-		 
+		//Change to the same email
+		Assert.assertTrue(crs1.editStudentEmail(stud,"mpoppins").equals(""));
+		//Change to a new email
+		Assert.assertTrue(crs1.editStudentEmail(stud,"poppy777").equals(""));
+		//Try setting to a email already belonging to a student
+		Assert.assertTrue(crs1.editStudentEmail(stud,"jjohn22").equals("The Student Email already exists"));
 	}
 
 	@Test
 	public void testFindStudent()
 	{
-		 
+		Assert.assertTrue(crs1.findStudent("250555000")==0);
+		Assert.assertTrue(crs1.findStudent("250222444")==1);
+		//Find a non existing student
+		Assert.assertTrue(crs1.findStudent("0909090909")==-1);
 	}
 
 	@Test
 	public void testAddStudent()
 	{
-		 
+		Assert.assertTrue(crs1.addStudent("Jimmy", "Falucci", "9876543210", "jfalucci"));
+		//Try adding a student with an existing email
+		Assert.assertFalse(crs1.addStudent("Copy", "Cat", "number", "mpoppins"));
+		//Try adding a student with an existing number
+		Assert.assertFalse(crs1.addStudent("Copy", "Cat", "250222444", "email"));
 	}
 
 	@Test
 	public void testRemoveStudent()
 	{
-		 
+		Assert.assertTrue(crs4.removeStudent(0));
+		//Try removing a student from an index that is out of bounds
+		Assert.assertFalse(crs1.removeStudent(3));
 	}
 
 	@Test
 	public void testFindDeliverable()
 	{
-		 
+		Assert.assertTrue(crs1.findDeliverable(deliver)==0);
+		//Find a non existing deliverable
+		Assert.assertTrue(crs3.findDeliverable(deliver)==-1);
 	}
 
 	@Test
 	public void testAddDeliverable()
 	{
-		 
+		//Add existing deliverable
+		Assert.assertTrue(crs1.addDeliverable("Project", "assignment", 54).equals("Deliverable already exists"));
+		//Add a deliverable that exceeds total weight
+		Assert.assertTrue(crs1.addDeliverable("Final exam", "exam", 98).equals("You have exceeded the course 100% weight \nceiling, current usable weight "
+					                                                            + (100 - crs1.getTotalWeight()) + "%"));
+		//Add a deliverable to a course with pre-existing deliverables
+		Assert.assertTrue(crs5.addDeliverable("New project", "assignment", 20).equals(""));
+		//Add a deliverable to a course without pre-existing deliverables
+		Assert.assertTrue(crs2.addDeliverable("Project 2", "assignment", 20).equals(""));
 	}
 
 	@Test
 	public void testRemoveDeliverable()
 	{
-		 
+		Assert.assertTrue(crs1.removeDeliverable(0));
+		//Try to remove a deliverable outside index
+		Assert.assertFalse(crs1.removeDeliverable(2));
 	}
 
 	@Test
 	public void testAddGrade()
 	{
-		 
+		
 	}
 
 	@Test
@@ -271,13 +336,14 @@ public class CourseTest
 	@Test
 	public void testEqualsCourse()
 	{
-		 
+		Assert.assertTrue(crs5.equals(crs6));
+		Assert.assertFalse(crs1.equals(crs2));
 	}
 
 	@Test
 	public void testToString()
 	{
-		 
+		Assert.assertTrue(crs1.toString().equals("\"English\", \"B\", \"2121\"\n"));
 	}
 
 }

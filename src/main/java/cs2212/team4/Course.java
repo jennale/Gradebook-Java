@@ -249,7 +249,7 @@ public class Course implements CourseADT, Serializable
 			int ctr = 0;
 			for (int i = 0; i < studentList.size(); i++) {
 				if (studentList.get(i).getGrade(deliver) != -1) {
-					avg = studentList.get(i).getGrade(deliver);
+					avg += studentList.get(i).getGrade(deliver);
 					ctr++;
 				}
 			}

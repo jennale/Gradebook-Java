@@ -1,64 +1,107 @@
 package cs2212.team4;
 
 import static org.junit.Assert.*;
-
+import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 
-public class GradebookTest {
+/**
+ * @author Steve Juarez
+ */
 
-	@Test
-	public void testGradebook() {
-		
+public class GradebookTest 
+{	
+	Gradebook gradebook;
+	Course course;
+
+	@Before
+	public void testGradebook()
+	{
+		gradebook = new Gradebook();
+		gradebook.addCourse("Writing", "A", "2020");
+		course = new Course("Writing", "A", "2020");
+	}
+
+	@After
+	public void testGradebook2()
+	{
+		gradebook.removeCourse(course);
 	}
 
 	@Test
-	public void testGetCourse() {
-		
+	public void testGetCourse()
+	{
+		assertTrue(course.equals(gradebook.getCourse(gradebook.findCourse(course))));
+		assertEquals(null, gradebook.getCourse(-1));
 	}
 
 	@Test
-	public void testGetCourseListSize() {
-		
+	public void testGetCourseListSize()
+	{
+		int numCourses = 0;
+		for(int i=0;i<gradebook.getCourseListSize();i++){if(gradebook.getCourse(i)!=null)numCourses++;}
+		assertEquals(numCourses, gradebook.getCourseListSize());
 	}
 
 	@Test
-	public void testGetPath() {
-		
+	public void testGetPath()
+	{
+		assertTrue(gradebook.getPath().equals("")); 
 	}
 
 	@Test
-	public void testGetPrevCourse() {
-		
+	public void testGetPrevCourse()
+	{
+		gradebook.setPrevCourse(course);
+		assertTrue(gradebook.getPrevCourse().equals(course));
 	}
 
 	@Test
-	public void testSetPath() {
-		
+	public void testSetPath()
+	{
+		gradebook.setPath("path");
+		assertTrue(gradebook.getPath().equals("path"));
 	}
 
 	@Test
-	public void testSetPrevCourse() {
-		
+	public void testSetPrevCourse()
+	{
+		gradebook.setPrevCourse(new Course("Title", "Term", "Code"));
+		assertTrue(gradebook.getPrevCourse().equals(new Course("Title", "Term", "Code")));
 	}
 
 	@Test
-	public void testStore() {
-		
+	public void testStore()
+	{
+		assertTrue(gradebook.store() == true);
 	}
 
 	@Test
-	public void testFindCourse() {
-		
+	public void testLoad()
+	{
+		gradebook.store();
+		Gradebook gradebook2 = new Gradebook();
+		assertTrue(course.equals(gradebook2.getCourse(gradebook.findCourse(course))));
 	}
 
 	@Test
-	public void testAddCourse() {
-		
+	public void testFindCourse()
+	{
+		assertEquals(-1, gradebook.findCourse(new Course("Title", "Term", "Code")));
+		assertTrue(gradebook.findCourse(course) > 0);
 	}
 
 	@Test
-	public void testRemoveCourse() {
-		
+	public void testAddCourse()
+	{
+		assertTrue(gradebook.addCourse("Title", "Term", "Code"));		
+		assertFalse(gradebook.addCourse("Writing", "A", "2020"));
 	}
 
+	@Test
+	public void testRemoveCourse()
+	{
+		assertTrue(gradebook.removeCourse(course));
+		assertFalse(gradebook.removeCourse(new Course ("Title", "Term", "Code")));
+	}
 }

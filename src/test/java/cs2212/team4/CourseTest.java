@@ -7,27 +7,37 @@ import java.awt.Color;
 
 public class CourseTest
 {
-	Course crs1, crs2;
-	Student stud;
-	Deliverable deliver;
+	Course crs1, crs2, crs3;
+	Student stud, stud2;
+	Deliverable deliver, deliver2;
 	
 	@Before
 	public void testCourse()
 	{
 		Color color = new Color(20, 150, 250);
-		crs1=new Course("English", "B", "2121");
-		crs2=new Course("Computer Science", "A", "2208");
+		stud=new Student("Marry", "Poppins", "250555000", "mpoppins");
+		deliver=new Deliverable("Project", "Other", 54, 0);
+		stud2=new Student("John", "Johnson", "250222444", "jjohn22");
+		deliver2=new Deliverable("Midterm", "Exm", 25, 0);
 		
+		//A course with students, grades, description, deliverable
+		crs1=new Course("English", "B", "2121");
 		crs1.setDescription("A course in English");
+		crs1.addStudent("Marry", "Poppins", "250555000", "mpoppins");
+		crs1.addStudent("John", "Johnson", "250222444", "jjohn22");
+		crs1.addDeliverable("Project", "Other", 54);
+		crs1.getStudent(0).addGrade(0, 97, "Other", 54);
+		crs1.getStudent(1).addGrade(0, 95, "Other", 54);
+		
+		//A course with only a description
+		crs2=new Course("Computer Science", "A", "2208");
 		crs2.setDescription("A course in Computer Science");
 		
-		crs1.addStudent("Zaid", "Albirawi", "250626000", "zalbiraw");
-		stud=new Student("Zaid", "Albirawi", "250626000", "zalbiraw");
-		
-		crs1.addDeliverable("Project", "Other", 54);
-		deliver=new Deliverable("Project", "Other", 54, 0);
-		
-		crs1.getStudent(0).addGrade(0, 100, "Other", 54);
+		//A course with a student with no assigned grade, description, deliverable
+		crs3=new Course("Philosophy", "B", "1022");
+		crs3.setDescription("A course in Philosophy");
+		crs3.addStudent("John", "Johnson", "250222444", "jjohn22");
+		crs3.addDeliverable("Midterm", "Exm", 25);
 	}
 
 	@Test
@@ -68,57 +78,44 @@ public class CourseTest
 	@Test
 	public void testGetStudent()
 	{
-		Assert.assertTrue(crs1.getStudent(1)==null);
+		Assert.assertTrue(crs1.getStudent(2)==null);
 		Assert.assertTrue(crs1.getStudent(-1)==null);
 		Assert.assertTrue(crs1.getStudent(0).equals(stud));
+		Assert.assertFalse(crs1.getStudent(0).equals(crs3.getStudent(0)));
 	}
 
 	@Test
 	public void testGetDeliverable()
 	{
-		 
+		Assert.assertTrue(crs1.getDeliverable(1)==null);
+		Assert.assertTrue(crs1.getDeliverable(-1)==null);
+		Assert.assertTrue(crs1.getDeliverable(0).equals(deliver));
+		Assert.assertFalse(crs1.getDeliverable(0).equals(crs3.getDeliverable(0)));
 	}
 
 	@Test
 	public void testGetGrade() 
 	{
-		 
-	}
-
-	@Test
-	public void testGetRunningTotal()
-	{
-		
-	}
-
-	@Test
-	public void testCalcRunningTotal()
-	{
-		 
-	}
-
-	@Test
-	public void testUpdateRunningTotDouble()
-	{
-		 
-	}
-
-	@Test
-	public void testUpdateRunningTotDoubleDouble()
-	{
-		 
+		Assert.assertTrue(crs1.getGrade(stud,1)==-1);
+		Assert.assertTrue(crs1.getGrade(stud,-1)==-1);
+		Assert.assertTrue(crs1.getGrade(crs1.getStudent(0),0)==97);
 	}
 
 	@Test
 	public void testGetClassAvg()
 	{
-		 
+		//Average for a course with deliverables, students, and grades
+		Assert.assertTrue(crs1.getClassAvg()==96);
+		//Average for a course with no students or deliverables
+		Assert.assertTrue(crs2.getClassAvg()==-1);
+		//Average for a course with deliverables and students, but no grades
+		Assert.assertTrue(crs3.getClassAvg()==0);
 	}
 
 	@Test
 	public void testGetClassAsnAvg()
 	{
-		 
+		
 	}
 
 	@Test

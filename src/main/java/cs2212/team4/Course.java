@@ -159,7 +159,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Gets the average for a course
 	 *
-	 * @return The average between all the students' grades in the course. If there are no students or no deliverables in the course, return -1
+	 * @return The average between all the students' grades in the course. If there are no students or no deliverables in the course, return -1. If there are no assigned grades, return 0
 	 *
 	 */
 	public double getClassAvg(){
@@ -184,7 +184,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Gets the average for a course assignments 
 	 *
-	 * @return The average between all the students' assignment grades in the course. If there are no students or no deliverables in the course, return -1
+	 * @return The average between all the students' assignment grades in the course. If there are no students or no deliverables in the course, return -1. If there are no assigned grades, return 0
 	 *
 	 */
 	public double getClassAsnAvg(){
@@ -208,7 +208,7 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Gets the average for a course exams 
 	 *
-	 * @return The average between all the students' exams grades in the course. If there are no students or no deliverables in the course, return -1
+	 * @return The average between all the students' exams grades in the course. If there are no students or no deliverables in the course, return -1. If there are no assigned grades, return 0
 	 *
 	 */
 	public double getClassExamAvg() {
@@ -230,11 +230,11 @@ public class Course implements CourseADT, Serializable
 	}
 	
 	/**
-	 * Gets the average for a course exams 
+	 * Gets the average for a course deliverable
 	 *
-	 * @param deliver 
+	 * @param deliver the index of the deliverable in the course we are looking for
 	 *
-	 * @return The class average for a specific deliverable.
+	 * @return The class average for a specific deliverable. If no students or deliverables, return -1. If fetching a deliverable returns null, return -1.
 	 *
 	 */
 	public double getClassDeliverableAvg(int deliver) {
@@ -407,9 +407,9 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Edit a student's ID number
 	 * 
-	 * @param stud	The student whose ID number we want to change
+	 * @param stud The student whose ID number we want to change
 	 * @param number The new ID number we want to change to
-	 * @return true if the ID number was changed or if requested change was already the current number. Or, if the number already belongs to another student, return false
+	 * @return empty string if ID number was changed or if requested change was already the current number. Or, if the number already belongs to another student, return string message with this problem
 	 * 
 	 */
 	public String editStudentNumber(Student stud, String number) {
@@ -427,7 +427,7 @@ public class Course implements CourseADT, Serializable
 	 * 
 	 * @param stud The student whose email we want to change
 	 * @param email The new email we want to change to
-	 * @return true if the email was changed or if requested change was already the current email. Or, if the email already belongs to another student, return false
+	 * @return empty string if the email was changed or if requested change was already the current email. Or, if the email already belongs to another student, return string message with this problem
 	 * 
 	 */
 	public String editStudentEmail(Student stud, String email) {
@@ -477,7 +477,7 @@ public class Course implements CourseADT, Serializable
 	 * Remove a student from the course
 	 * 
 	 * @param i The student's index number in the list of students in this course
-	 * @return true if the student was removed. Or, if the index given falls our of bounds of the list of students, return false
+	 * @return true if the student was removed. Or, if the index given falls out of bounds of the list of students, return false
 	 * 
 	 */
 	public boolean removeStudent(int i) {
@@ -505,9 +505,9 @@ public class Course implements CourseADT, Serializable
 	 * Adds a deliverable to the course
 	 * 
 	 * @param name The name of the dliverable
-	 * @param type	The type of the deliverable
+	 * @param type The type of the deliverable
 	 * @param weight The weight of the deliverable
-	 * @return true if a deliverable was added to the course. Or, if the deliverable already exists, return false
+	 * @return empty string if a deliverable was added to the course. If the deliverable already exists, return a message explaining this problem. If course weight exceeded, return a message explaining this problem
 	 * 
 	 */
 	public String addDeliverable(String name, String type, double weight) {
@@ -550,7 +550,9 @@ public class Course implements CourseADT, Serializable
 	/**
 	 * Imports students into the course
 	 * @param file The path where the file containing the students to be imported is located
-	 * @return true if the students were imported successfully, otherwise return false
+	 * @return empty string if the students were imported successfully. If there is no first name, last name, student number, or email, then return a message pertaining to the particular missing value. If reader fails, return message saying the file is corrupted.
+	 * @throws IOexcpetion If an output exception occured
+	 * @throws FileNotFoundException If a FileNotFound exception occured
 	 * 
 	 */
 	public String importStudents(File file)
@@ -615,7 +617,8 @@ public class Course implements CourseADT, Serializable
 	 * Exports the Students of a course into a .csv file
 	 * 
 	 * @param file The path where we want to export the students
-	 * @return true if the students were exported, false otherwise
+	 * @return empty string if the students were exported
+	 * @throws IOexcpetion If an output exception occured
 	 * 
 	 */
 	public String exportStudents(File file) {
@@ -638,7 +641,10 @@ public class Course implements CourseADT, Serializable
 	 * Imports deliverables into the course
 	 * 
 	 * @param file The path where the file containing the deliverables to be imported is located
-	 * @return true if the deliverables were imported successfully, otherwise return false
+	 * @return empty string if the deliverables were imported successfully. If there is no name, type, or weight, then return a message pertaining to the particular missing value. If reader fails, return message saying the file is corrupted.
+	 * @throws IOexcpetion If an input exception occured
+	 * @throws FileNotFoundException If a FileNotFound exception occured
+	 * @throws NumberFormatException If a NumberFormat exception occured
 	 * 
 	 */
 	public String importDeliverables(File file) {
@@ -697,7 +703,8 @@ public class Course implements CourseADT, Serializable
 	 * Exports the deliverables of a course into a .csv file
 	 * 
 	 * @param file The path where we want to export the deliverables
-	 * @return true if the deliverables were exported, false otherwise
+	 * @return empty string if the deliverables were exported.
+	 * @throws IOexcpetion If an output exception occured
 	 * 
 	 */
 	public String exportDeliverables(File file) {
@@ -719,7 +726,10 @@ public class Course implements CourseADT, Serializable
 	 * Imports students' grades into the course
 	 * 
 	 * @param file The path where the file containing the students' grades to be imported is located
-	 * @return true if the grades were imported successfully, otherwise return false
+	 * @return empty string if the grades were imported successfully. If there is no student number, then return a message pertaining to the missing value. If reader fails, return message saying the file is corrupted.
+	 * @throws IOexcpetion If an input exception occured
+	 * @throws FileNotFoundException If a FileNotFound exception occured
+	 * @throws NumberFormatException If a NumberFormat exception occured
 	 * 
 	 */
 	public String importGrades(File file) {
@@ -795,7 +805,8 @@ public class Course implements CourseADT, Serializable
 	 * Exports students' grades into a .csv file
 	 * 
 	 * @param file The path where we want to export the grades
-	 * @return true if the grades were exported, false otherwise
+	 * @return empty string if the grades were exported.
+	 * @throws IOexcpetion If an input exception occured
 	 * 
 	 */
 	public String exportGrades(File file) {

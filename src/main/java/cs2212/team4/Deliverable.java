@@ -141,7 +141,7 @@ public class Deliverable implements DeliverableADT, Serializable
 	/**
 	  * A toString method
 	  * 
-	  * return the deliverable information. Including name, type, and weight
+	  * @return the deliverable information. Including name, type, and weight
 	  * 
 	  */
 	public String toString() {

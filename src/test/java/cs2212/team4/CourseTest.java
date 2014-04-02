@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.io.File;
 
 public class CourseTest
 {
@@ -344,19 +345,49 @@ public class CourseTest
 		//Try to remove a deliverable outside index
 		Assert.assertFalse(crs1.removeDeliverable(2));
 	}
-
+	
 	@Test
-	public void testAddGrade()
+	public void testImportStudents()
 	{
-		
+		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Students.csv");
+		Assert.assertTrue(crs1.importStudents(file)=="");
 	}
 
 	@Test
-	public void testRemoveGrade()
+	public void testExportStudents()
 	{
-		 
+		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Students.csv");
+		Assert.assertTrue(crs4.exportStudents(file)=="");
 	}
 
+	@Test
+	public void testImportDeliverables() 
+	{
+		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Deliverables.csv");
+		Assert.assertTrue(crs1.importDeliverables(file)=="");
+	}
+
+	@Test
+	public void testExportDeliverables()
+	{
+		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Deliverables.csv");
+		Assert.assertTrue(crs1.exportDeliverables(file)=="");
+	}
+
+	@Test
+	public void testImportGrades() 
+	{
+		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Grades.csv");
+		Assert.assertTrue(crs1.importGrades(file)=="");
+	}
+
+	@Test
+	public void testExportGrades()
+	{
+		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Grades.csv");
+		Assert.assertTrue(crs1.exportGrades(file)=="");
+	}
+	
 	@Test
 	public void testEqualsCourse()
 	{

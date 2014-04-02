@@ -2,15 +2,29 @@ package cs2212.team4;
 
 import java.util.ArrayList;
 
+/**
+ * This class is used to calculate a student's average in a course.
+ */
 public class MyAvg {
 	Course course;
 	Student student;
 
+	/**
+	 * Constructor creates an average to be calculated for a student in a course.
+	 * 
+	 * @param course  the course the student is in
+	 * @param student the student the average will be calculated for
+	 */
 	public MyAvg(Course course, Student student) {
 		this.course = course;
 		this.student = student;
 	}
 
+	/**
+	 * Method to calculate an average for a student in a course.
+	 * 
+	 * @param reqAvg required average for the course
+	 */
 	public double calcAvg(double reqAvg) {
 		ArrayList<Integer> delivers = new ArrayList<Integer>();
 		double remWeight = 0;
@@ -27,7 +41,7 @@ public class MyAvg {
 				remWeight += course.getDeliverable(delivers.get(i)).getWeight() / 100;
 			}
 		}
-		
+
 		return (reqAvg - currAvg) / (1 - remWeight);
 	}
 }

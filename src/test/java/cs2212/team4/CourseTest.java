@@ -419,6 +419,13 @@ public class CourseTest
 	{
 		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Grades.csv");
 		Assert.assertTrue(crs1.importGrades(file)=="");
+		//No number
+		file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\GradesNoNumber.csv");
+		Assert.assertTrue(crs1.importGrades(file)=="Error: Student Number column was not found");
+		
+		//File not found exception
+		file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Gradeszzzzzz.csv");
+		Assert.assertTrue(crs1.importStudents(file)=="Error: File not found");
 	}
 
 	@Test
@@ -426,6 +433,10 @@ public class CourseTest
 	{
 		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Grades.csv");
 		Assert.assertTrue(crs1.exportGrades(file)=="");
+		
+		//Fail to export
+		file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\nonExistingDirectory\\Grades.csv");
+		Assert.assertTrue(crs4.exportStudents(file)=="Error: program failed to export the file");
 	}
 	
 	@Test

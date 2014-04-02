@@ -129,8 +129,7 @@ public class GradebookGUI extends JFrame {
 		}
 
 		updateInfo();
-
-		lblDbxVerify.setVisible(false);
+                
 		lblDbxDownload.setVisible(false);
 		lblDbxUpload.setVisible(false);
 
@@ -307,9 +306,8 @@ public class GradebookGUI extends JFrame {
         lblMauve = new javax.swing.JLabel();
         lblSteel = new javax.swing.JLabel();
         tabDropbox = new javax.swing.JPanel();
-        lblDbxAuthLink = new javax.swing.JLabel();
         txtDbxCode = new javax.swing.JTextField();
-        lblDbxGenerate = new javax.swing.JLabel();
+        lblDbxActivate = new javax.swing.JLabel();
         lblDbxUpload = new javax.swing.JLabel();
         lblDbxDownload = new javax.swing.JLabel();
         lblDbxSubmit = new javax.swing.JLabel();
@@ -1140,7 +1138,7 @@ public class GradebookGUI extends JFrame {
         getContentPane().add(lblTabGrades, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         lblSetup.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSetup.setText("Setup");
+        lblSetup.setText("Course Setup");
         lblSetup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSetup.setPreferredSize(new java.awt.Dimension(125, 40));
         getContentPane().add(lblSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 60, 125, 40));
@@ -1156,7 +1154,7 @@ public class GradebookGUI extends JFrame {
 
         lblDropbox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDropbox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/dropbox.png"))); // NOI18N
-        lblDropbox.setText("Dropbox");
+        lblDropbox.setText("Settings");
         lblDropbox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblDropbox.setPreferredSize(new java.awt.Dimension(125, 40));
         lblDropbox.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1275,7 +1273,7 @@ public class GradebookGUI extends JFrame {
         getContentPane().add(pnlCourseMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 250, 310));
 
         container.setBackground(new java.awt.Color(255, 255, 255));
-        container.setPreferredSize(new java.awt.Dimension(1080, 500));
+        container.setPreferredSize(new java.awt.Dimension(1080, 490));
 
         tabGrades.setBackground(new java.awt.Color(255, 255, 255));
         tabGrades.setPreferredSize(new java.awt.Dimension(1080, 480));
@@ -2346,7 +2344,7 @@ public class GradebookGUI extends JFrame {
                                             .addComponent(txtEditCourseCode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtEditCourseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSetupLayout.createSequentialGroup()
-                                        .addGap(0, 2, Short.MAX_VALUE)
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblEditDeleteDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblEditDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -2437,51 +2435,40 @@ public class GradebookGUI extends JFrame {
         tabDropbox.setBackground(new java.awt.Color(255, 255, 255));
         tabDropbox.setPreferredSize(new java.awt.Dimension(1080, 480));
 
-        lblDbxAuthLink.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDbxAuthLink.setText("Generate a new link");
-        lblDbxAuthLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblDbxAuthLink.setPreferredSize(new java.awt.Dimension(1000, 30));
-        lblDbxAuthLink.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblDbxAuthLinkMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblDbxAuthLinkMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblDbxAuthLinkMouseExited(evt);
-            }
-        });
-
         txtDbxCode.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtDbxCode.setText("Please enter the code...");
-        txtDbxCode.setPreferredSize(new java.awt.Dimension(1000, 30));
+        txtDbxCode.setPreferredSize(new java.awt.Dimension(500, 30));
         txtDbxCode.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtDbxCodeFocusGained(evt);
             }
         });
+        txtDbxCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDbxCodeActionPerformed(evt);
+            }
+        });
 
-        lblDbxGenerate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDbxGenerate.setText("Generate");
-        lblDbxGenerate.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
-        lblDbxGenerate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblDbxGenerate.setPreferredSize(new java.awt.Dimension(495, 30));
-        lblDbxGenerate.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblDbxActivate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDbxActivate.setText("Activate");
+        lblDbxActivate.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblDbxActivate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDbxActivate.setPreferredSize(new java.awt.Dimension(245, 30));
+        lblDbxActivate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblDbxGenerateMouseClicked(evt);
+                lblDbxActivateMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblDbxGenerateMouseEntered(evt);
+                lblDbxActivateMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblDbxGenerateMouseExited(evt);
+                lblDbxActivateMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblDbxGenerateMousePressed(evt);
+                lblDbxActivateMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                lblDbxGenerateMouseReleased(evt);
+                lblDbxActivateMouseReleased(evt);
             }
         });
 
@@ -2489,7 +2476,7 @@ public class GradebookGUI extends JFrame {
         lblDbxUpload.setText("Upload");
         lblDbxUpload.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         lblDbxUpload.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblDbxUpload.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxUpload.setPreferredSize(new java.awt.Dimension(245, 30));
         lblDbxUpload.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblDbxUploadMouseClicked(evt);
@@ -2512,7 +2499,7 @@ public class GradebookGUI extends JFrame {
         lblDbxDownload.setText("Download");
         lblDbxDownload.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         lblDbxDownload.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblDbxDownload.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxDownload.setPreferredSize(new java.awt.Dimension(245, 30));
         lblDbxDownload.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblDbxDownloadMouseClicked(evt);
@@ -2535,7 +2522,7 @@ public class GradebookGUI extends JFrame {
         lblDbxSubmit.setText("Submit");
         lblDbxSubmit.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         lblDbxSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblDbxSubmit.setPreferredSize(new java.awt.Dimension(495, 30));
+        lblDbxSubmit.setPreferredSize(new java.awt.Dimension(245, 30));
         lblDbxSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblDbxSubmitMouseClicked(evt);
@@ -2556,9 +2543,10 @@ public class GradebookGUI extends JFrame {
 
         lblDbxErrorLog.setForeground(java.awt.Color.lightGray);
         lblDbxErrorLog.setText("Disconnected");
+        lblDbxErrorLog.setPreferredSize(new java.awt.Dimension(480, 20));
 
         lblDbxVerify.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDbxVerify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/verify.png"))); // NOI18N
+        lblDbxVerify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/dropboxFalse.png"))); // NOI18N
         lblDbxVerify.setPreferredSize(new java.awt.Dimension(1000, 20));
 
         javax.swing.GroupLayout tabDropboxLayout = new javax.swing.GroupLayout(tabDropbox);
@@ -2566,60 +2554,57 @@ public class GradebookGUI extends JFrame {
         tabDropboxLayout.setHorizontalGroup(
             tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabDropboxLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblDbxAuthLink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtDbxCode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tabDropboxLayout.createSequentialGroup()
-                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblDbxUpload, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblDbxGenerate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(10, 10, 10)
+                        .addGap(560, 560, 560)
                         .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDbxSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblDbxDownload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(40, 40, 40))
-            .addGroup(tabDropboxLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDbxErrorLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDropboxLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(lblDbxVerify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                            .addComponent(txtDbxCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDbxVerify, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(tabDropboxLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDropboxLayout.createSequentialGroup()
+                                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblDbxUpload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDbxActivate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10)
+                                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDbxSubmit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDbxDownload, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDropboxLayout.createSequentialGroup()
+                                .addComponent(lblDbxErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)))))
+                .addGap(20, 20, 20))
         );
         tabDropboxLayout.setVerticalGroup(
             tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabDropboxLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(lblDbxVerify, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDbxAuthLink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(100, 100, 100)
+                .addComponent(lblDbxVerify, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                .addGap(60, 60, 60)
                 .addComponent(txtDbxCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDbxGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDbxSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                    .addComponent(lblDbxSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDbxActivate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
                 .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDbxUpload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDbxDownload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(lblDbxErrorLog)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(lblDbxErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
 
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
         container.setLayout(containerLayout);
         containerLayout.setHorizontalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1090, Short.MAX_VALUE)
+            .addGap(0, 2446, Short.MAX_VALUE)
             .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(containerLayout.createSequentialGroup()
-                    .addComponent(tabSetup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 10, Short.MAX_VALUE)))
+                    .addComponent(tabSetup, 1078, 1078, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 1366, Short.MAX_VALUE)))
             .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(containerLayout.createSequentialGroup()
                     .addComponent(tabGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2649,7 +2634,7 @@ public class GradebookGUI extends JFrame {
         container.setLayer(tabSetup, javax.swing.JLayeredPane.DEFAULT_LAYER);
         container.setLayer(tabDropbox, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 490));
+        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         lyrActiveCourse.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -2674,6 +2659,10 @@ public class GradebookGUI extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDbxCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDbxCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDbxCodeActionPerformed
 
 	private void lblWesternMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblWesternMouseClicked
 		if (currCourse != null) {
@@ -4590,12 +4579,6 @@ public class GradebookGUI extends JFrame {
 		tabSwitch(2);
 	}// GEN-LAST:event_lblDropboxMouseClicked
 
-	private void lblDbxGenerateMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMouseClicked
-		dbx = new Dropbox();
-		lblDbxAuthLink.setText(dbx.getAuthorizeUrl());
-		generated = true;
-	}// GEN-LAST:event_lblDbxGenerateMouseClicked
-
 	private void lblDbxUploadMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxUploadMouseClicked
 		if (!dbx.upload()) {
 			lblDbxErrorLog.setForeground(Color.red);
@@ -4616,26 +4599,10 @@ public class GradebookGUI extends JFrame {
 		}
 	}// GEN-LAST:event_lblDbxDownloadMouseClicked
 
-	private void lblDbxAuthLinkMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxAuthLinkMouseEntered
-		if (generated) {
-			lblDbxAuthLink.setForeground(Color.blue);
-			Font font = lblDbxAuthLink.getFont();
-			Map attributes = font.getAttributes();
-			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-			lblDbxAuthLink.setFont(font.deriveFont(attributes));
-		}
-	}// GEN-LAST:event_lblDbxAuthLinkMouseEntered
-
-	private void lblDbxAuthLinkMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxAuthLinkMouseExited
-		lblDbxAuthLink.setForeground(Color.black);
-		Font font = lblDbxAuthLink.getFont();
-		Map attributes = font.getAttributes();
-		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE);
-		lblDbxAuthLink.setFont(font.deriveFont(attributes));
-	}// GEN-LAST:event_lblDbxAuthLinkMouseExited
-
-	private void lblDbxAuthLinkMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxAuthLinkMouseClicked
-		if (generated) {
+	private void lblDbxActivateMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxAuthLinkMouseClicked
+	dbx = new Dropbox();
+	generated = true;	
+            if (generated) {
 			try {
 				java.awt.Desktop.getDesktop().browse(
 						java.net.URI.create(dbx.getAuthorizeUrl()));
@@ -4653,12 +4620,12 @@ public class GradebookGUI extends JFrame {
 				lblDbxErrorLog.setForeground(Color.green);
 				lblDbxErrorLog.setText("Connected.");
 
-				lblDbxAuthLink.setVisible(false);
 				txtDbxCode.setVisible(false);
-				lblDbxGenerate.setVisible(false);
+				lblDbxActivate.setVisible(false);
 				lblDbxSubmit.setVisible(false);
 
-				lblDbxVerify.setVisible(true);
+				lblDbxVerify.setIcon(new javax.swing.ImageIcon(getClass()
+					.getResource("/cs2212/team4/dropboxTrue.png")));
 				lblDbxDownload.setVisible(true);
 				lblDbxUpload.setVisible(true);
 			}
@@ -4673,24 +4640,24 @@ public class GradebookGUI extends JFrame {
 		txtDbxCode.select(0, txtDbxCode.getText().length());
 	}// GEN-LAST:event_txtDbxCodeFocusGained
 
-	private void lblDbxGenerateMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMouseEntered
-		lblDbxGenerate.setBorder(BorderFactory.createLineBorder(new Color(20,
+	private void lblDbxActivateMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMouseEntered
+		lblDbxActivate.setBorder(BorderFactory.createLineBorder(new Color(20,
 				150, 250)));
 	}// GEN-LAST:event_lblDbxGenerateMouseEntered
 
-	private void lblDbxGenerateMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMouseExited
-		lblDbxGenerate.setBorder(BorderFactory.createLineBorder(new Color(204,
+	private void lblDbxActivateMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMouseExited
+		lblDbxActivate.setBorder(BorderFactory.createLineBorder(new Color(204,
 				204, 204)));
 	}// GEN-LAST:event_lblDbxGenerateMouseExited
 
-	private void lblDbxGenerateMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMousePressed
-		lblDbxGenerate.setBorder(BorderFactory.createBevelBorder(0, new Color(
+	private void lblDbxActivateMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMousePressed
+		lblDbxActivate.setBorder(BorderFactory.createBevelBorder(0, new Color(
 				20, 150, 250), new Color(20, 150, 250),
 				new Color(20, 150, 250), new Color(20, 150, 250)));
 	}// GEN-LAST:event_lblDbxGenerateMousePressed
 
-	private void lblDbxGenerateMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMouseReleased
-		lblDbxGenerate.setBorder(BorderFactory.createLineBorder(new Color(20,
+	private void lblDbxActivateMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMouseReleased
+		lblDbxActivate.setBorder(BorderFactory.createLineBorder(new Color(20,
 				150, 250)));
 	}// GEN-LAST:event_lblDbxGenerateMouseReleased
 
@@ -5994,10 +5961,9 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblCourseSetup;
     private javax.swing.JLabel lblCourseTerm;
     private javax.swing.JLabel lblCourseTheme;
-    private javax.swing.JLabel lblDbxAuthLink;
+    private javax.swing.JLabel lblDbxActivate;
     private javax.swing.JLabel lblDbxDownload;
     private javax.swing.JLabel lblDbxErrorLog;
-    private javax.swing.JLabel lblDbxGenerate;
     private javax.swing.JLabel lblDbxSubmit;
     private javax.swing.JLabel lblDbxUpload;
     private javax.swing.JLabel lblDbxVerify;

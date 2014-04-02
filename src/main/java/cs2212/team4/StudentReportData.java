@@ -115,7 +115,6 @@ public class StudentReportData {
 	public String getDeliverType() {
 		if (i == -1)
 			return "";
-		System.out.println(course.getDeliverable(i).getType());
 		return course.getDeliverable(i).getType();
 	}
 }

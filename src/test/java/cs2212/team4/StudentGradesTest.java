@@ -21,11 +21,6 @@ public class StudentGradesTest {
 		stug2.add(0, 55, "assignment", 10);
 		stug2.add(1, 68, "assignment", 10);
 		stug2.add(2, 70, "assignment", 20);
-
-		// grades = new ArrayList<Grade>();
-		// grades.add( new Grade( 55, 10 ) );
-		// grades.add( new Grade( 68, 10 ) );
-		// grades.add( new Grade( 70, 20 ) ); 
 		
 	}
 

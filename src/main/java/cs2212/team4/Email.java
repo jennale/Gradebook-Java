@@ -115,7 +115,6 @@ public class Email {
 		} catch (UnsupportedEncodingException e) {
 			return "Failed to create a new sender internet address";
 		} catch (MessagingException e) {
-			System.out.println(e);
 			return "Failed to create a message";
 		}
 		return "";

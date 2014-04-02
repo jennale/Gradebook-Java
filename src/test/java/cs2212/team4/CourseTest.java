@@ -139,7 +139,7 @@ public class CourseTest
 		//Average for a course with students but no deliverables
 		Assert.assertTrue(crs5.getClassAvg()==-1);
 		//Average for a course with deliverables and students, but no grades
-		Assert.assertTrue(crs3.getClassAvg()==0);
+		Assert.assertTrue(crs3.getClassAvg()==-1);
 	}
 
 	@Test
@@ -154,7 +154,7 @@ public class CourseTest
 		//Assignment average for a course with students but no deliverables
 		Assert.assertTrue(crs5.getClassAsnAvg()==-1);
 		//Assignment average for a course with deliverables and students, but no grades
-		Assert.assertTrue(crs3.getClassAsnAvg()==0);
+		Assert.assertTrue(crs3.getClassAsnAvg()==-1);
 	}
 
 	@Test
@@ -169,7 +169,7 @@ public class CourseTest
 		//Exam average for a course with students but no deliverables
 		Assert.assertTrue(crs5.getClassExamAvg()==-1);
 		//Exam average for a course with deliverables and students, but no grades
-		Assert.assertTrue(crs3.getClassExamAvg()==0);
+		Assert.assertTrue(crs3.getClassExamAvg()==-1);
 	}
 
 	@Test

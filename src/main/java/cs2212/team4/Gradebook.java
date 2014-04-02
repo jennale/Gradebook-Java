@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Properties;
 
 /**
  * This class contains functionality to manage a list of courses in a Gradebook.
@@ -31,6 +32,8 @@ public class Gradebook implements GradebookADT, Serializable
 	private String path = "";
 
 	private Course prevCourse=null;
+	
+	private Properties properties=null;
 
 	/**
 	 * Constructor that creates an arrayList of courses representing a gradebook.
@@ -79,6 +82,15 @@ public class Gradebook implements GradebookADT, Serializable
 	 * 
 	 * @return the previous course in the list
 	 */
+	public Properties getProperties() {
+		return properties;
+	}
+	
+	/**
+	 * Gets the current value of the previous course in the list.
+	 * 
+	 * @return the previous course in the list
+	 */
 	public Course getPrevCourse() {
 		return prevCourse;
 	}
@@ -105,6 +117,15 @@ public class Gradebook implements GradebookADT, Serializable
 		this.prevCourse = prevCourse;
 	}
 
+	/**
+	 * Sets the properties course property.
+	 * 
+	 * @param properties the properties to be set as the email
+	 */
+	public void setProperties(Properties properties) {
+		this.properties = properties;
+	}
+
 	/* ************************************************************
 	 * Helper Methods
 	 ************************************************************ */
@@ -122,6 +143,7 @@ public class Gradebook implements GradebookADT, Serializable
 			ObjectOutputStream OUS = new ObjectOutputStream(
 					new FileOutputStream(file));
 			OUS.writeObject((Course) prevCourse);
+			OUS.writeObject((Properties) properties);
 			OUS.writeObject((ArrayList<Course>) courseList);
 			OUS.close();
 			return true;
@@ -143,6 +165,7 @@ public class Gradebook implements GradebookADT, Serializable
 			ObjectInputStream OIS = new ObjectInputStream(new FileInputStream(
 					path + "data.dat"));
 			prevCourse = (Course)OIS.readObject();
+			properties = (Properties)OIS.readObject();
 			courseList = (ArrayList<Course>) OIS.readObject();
 			OIS.close();
 			return true;

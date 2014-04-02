@@ -2,47 +2,32 @@ package cs2212.team4;
 
 import java.util.Properties;
 
-public class myProperties {
+public class MyProperties {
 
 	private Properties properties;
 
-	public myProperties(String username, String password, int provider) {
-		String mailHost="", socketPort="", port="";
+	public MyProperties(String username, String password, String provider) {
 		properties = new Properties();
 		
 		switch (provider){
-		case 1:
-			mailHost="";
-			socketPort="";
-			port="";
+		case "gmail":
+			properties.put("mail.smtp.host", "smtp.gmail.com");
 			break;
-		case 2:
-			mailHost="";
-			socketPort="";
-			port="";
+		case "yahoo":
+			properties.put("mail.smtp.host", "smtp.mail.yahoo.com");
 			break;
-		case 3:
-			mailHost="";
-			socketPort="";
-			port="";
-			break;
-		case 4:
-			mailHost="";
-			socketPort="";
-			port="";
+		case "hotmail":
+			properties.put("mail.smtp.host", "smtp.live.com");
 			break;
 		}
-		properties.put("mail.smtp.host", mailHost);
-		properties.put("mail.smtp.socketFactory.port", socketPort);
-		properties.put("mail.smtp.socketFactory.class",
-				"javax.net.ssl.SSLSocketFactory");
 		properties.put("mail.smtp.auth", "true");
-		properties.put("mail.smtp.port", port);
+		properties.put("mail.smtp.starttls.enable", "true");
+		properties.put("mail.smtp.port", "587");
 		properties.put("smtp.username", username);
 		properties.put("smtp.password", password);
 	}
 	
-	public myProperties(String mailHost, String socketPort, String port,
+	public MyProperties(String mailHost, String socketPort, String port,
 			String username, String password) {
 		properties = new Properties();
 

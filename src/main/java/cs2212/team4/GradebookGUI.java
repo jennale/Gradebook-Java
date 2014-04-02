@@ -129,14 +129,35 @@ public class GradebookGUI extends JFrame {
 		}
 
 		updateInfo();
-                
+
 		lblDbxDownload.setVisible(false);
 		lblDbxUpload.setVisible(false);
 
 		msgText.setText("Please enter a massage content...");
 		msgText.setForeground(Color.LIGHT_GRAY);
+
+		boolean boolEmailProps;
+		if (gradebook.getProperties() == null)
+			boolEmailProps = false;
+		else
+			boolEmailProps = true;
+
+		if (boolEmailProps){
+			lblEmailVarify.setIcon(new javax.swing.ImageIcon(getClass()
+					.getResource("/cs2212/team4/emailTrue.png")));
+                        lblEMLErrorLog.setForeground(Color.green);
+                        lblEMLErrorLog.setText("Connected.");
+                }
+                else{
+			lblEmailVarify.setIcon(new javax.swing.ImageIcon(getClass()
+					.getResource("/cs2212/team4/emailFalse.png")));
+                        lblEMLErrorLog.setForeground(Color.lightGray);
+                        lblEMLErrorLog.setText("Disconnected.");
+                }
 	}
 
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
@@ -294,8 +315,6 @@ public class GradebookGUI extends JFrame {
         txtCourseDesc = new javax.swing.JTextPane();
         lblEditDeleteDeliver = new javax.swing.JLabel();
         lblDeleteSure = new javax.swing.JLabel();
-        lblCourseDescription = new javax.swing.JLabel();
-        lblCourseTheme = new javax.swing.JLabel();
         lblBlue = new javax.swing.JLabel();
         lblWestern = new javax.swing.JLabel();
         lblCobalt = new javax.swing.JLabel();
@@ -313,6 +332,15 @@ public class GradebookGUI extends JFrame {
         lblDbxSubmit = new javax.swing.JLabel();
         lblDbxErrorLog = new javax.swing.JLabel();
         lblDbxVerify = new javax.swing.JLabel();
+        lblEmailVarify = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        lblPassword = new javax.swing.JLabel();
+        comboEmail = new javax.swing.JComboBox();
+        lblEmailAddress = new javax.swing.JLabel();
+        lblEMLErrorLog = new javax.swing.JLabel();
+        customizeSMTP = new javax.swing.JLabel();
+        lblSignin = new javax.swing.JLabel();
         lyrActiveCourse = new javax.swing.JLayeredPane();
         lblActiveCourseTitleInfo = new javax.swing.JLabel();
         lblActiveCourseInfo = new javax.swing.JLabel();
@@ -2167,10 +2195,6 @@ public class GradebookGUI extends JFrame {
         lblDeleteSure.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDeleteSure.setText(" ");
 
-        lblCourseDescription.setText("Course Description:");
-
-        lblCourseTheme.setText("Course Theme Color:");
-
         lblBlue.setBackground(new java.awt.Color(20, 150, 250));
         lblBlue.setToolTipText("");
         lblBlue.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
@@ -2291,10 +2315,7 @@ public class GradebookGUI extends JFrame {
                         .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCourseSetup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(courseDescScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCourseDescription)
-                            .addComponent(lblCourseTheme)
                             .addGroup(tabSetupLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
                                 .addComponent(lblWestern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblViolet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2344,7 +2365,7 @@ public class GradebookGUI extends JFrame {
                                             .addComponent(txtEditCourseCode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtEditCourseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSetupLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGap(0, 2, Short.MAX_VALUE)
                                         .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblEditDeleteDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblEditDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -2410,9 +2431,7 @@ public class GradebookGUI extends JFrame {
                             .addComponent(lblExportDelivers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEditDeleteDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSetupLayout.createSequentialGroup()
-                        .addComponent(lblCourseTheme)
-                        .addGap(5, 5, 5)
+                    .addGroup(tabSetupLayout.createSequentialGroup()
                         .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblWestern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2424,9 +2443,7 @@ public class GradebookGUI extends JFrame {
                             .addComponent(lblSteel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMauve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
-                        .addComponent(lblCourseDescription)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(courseDescScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(courseDescScroll)
                         .addGap(10, 10, 10)))
                 .addComponent(lblSetupErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2435,12 +2452,16 @@ public class GradebookGUI extends JFrame {
         tabDropbox.setBackground(new java.awt.Color(255, 255, 255));
         tabDropbox.setPreferredSize(new java.awt.Dimension(1080, 480));
 
+        txtDbxCode.setForeground(java.awt.Color.lightGray);
         txtDbxCode.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtDbxCode.setText("Please enter the code...");
         txtDbxCode.setPreferredSize(new java.awt.Dimension(500, 30));
         txtDbxCode.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtDbxCodeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDbxCodeFocusLost(evt);
             }
         });
         txtDbxCode.addActionListener(new java.awt.event.ActionListener() {
@@ -2543,56 +2564,177 @@ public class GradebookGUI extends JFrame {
 
         lblDbxErrorLog.setForeground(java.awt.Color.lightGray);
         lblDbxErrorLog.setText("Disconnected");
-        lblDbxErrorLog.setPreferredSize(new java.awt.Dimension(480, 20));
+        lblDbxErrorLog.setPreferredSize(new java.awt.Dimension(500, 20));
 
         lblDbxVerify.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDbxVerify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/dropboxFalse.png"))); // NOI18N
-        lblDbxVerify.setPreferredSize(new java.awt.Dimension(1000, 20));
+        lblDbxVerify.setPreferredSize(new java.awt.Dimension(500, 160));
+
+        lblEmailVarify.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmailVarify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2212/team4/emailFalse.png"))); // NOI18N
+        lblEmailVarify.setPreferredSize(new java.awt.Dimension(500, 160));
+
+        txtEmail.setForeground(new java.awt.Color(204, 204, 204));
+        txtEmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtEmail.setText("Please enter your email address...");
+        txtEmail.setPreferredSize(new java.awt.Dimension(400, 30));
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
+            }
+        });
+
+        txtPassword.setText("sickcoderoverhere");
+        txtPassword.setPreferredSize(new java.awt.Dimension(400, 30));
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusGained(evt);
+            }
+        });
+
+        lblPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPassword.setText("Password:");
+        lblPassword.setPreferredSize(new java.awt.Dimension(100, 30));
+
+        comboEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        comboEmail.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Gmail", "Hotmail", "Yahoo" }));
+        comboEmail.setPreferredSize(new java.awt.Dimension(500, 30));
+
+        lblEmailAddress.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblEmailAddress.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEmailAddress.setText("Email Address:");
+        lblEmailAddress.setPreferredSize(new java.awt.Dimension(100, 30));
+
+        lblEMLErrorLog.setForeground(java.awt.Color.lightGray);
+        lblEMLErrorLog.setText("Disconnected");
+        lblEMLErrorLog.setPreferredSize(new java.awt.Dimension(500, 20));
+
+        customizeSMTP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        customizeSMTP.setText("Customize your SMTP server");
+        customizeSMTP.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        customizeSMTP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        customizeSMTP.setPreferredSize(new java.awt.Dimension(245, 30));
+        customizeSMTP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customizeSMTPMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                customizeSMTPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                customizeSMTPMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                customizeSMTPMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                customizeSMTPMouseReleased(evt);
+            }
+        });
+
+        lblSignin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSignin.setText("Sing In");
+        lblSignin.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        lblSignin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSignin.setPreferredSize(new java.awt.Dimension(245, 30));
+        lblSignin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSigninMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSigninMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSigninMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblSigninMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblSigninMouseReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout tabDropboxLayout = new javax.swing.GroupLayout(tabDropbox);
         tabDropbox.setLayout(tabDropboxLayout);
         tabDropboxLayout.setHorizontalGroup(
             tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabDropboxLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabDropboxLayout.createSequentialGroup()
-                        .addGap(560, 560, 560)
+                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEmailVarify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
                         .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtDbxCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblDbxVerify, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(tabDropboxLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDropboxLayout.createSequentialGroup()
-                                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblDbxUpload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDbxActivate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblDbxVerify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDropboxLayout.createSequentialGroup()
+                        .addComponent(lblEMLErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(lblDbxErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDropboxLayout.createSequentialGroup()
+                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(tabDropboxLayout.createSequentialGroup()
+                                .addComponent(lblEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tabDropboxLayout.createSequentialGroup()
+                                .addComponent(customizeSMTP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDbxSubmit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDbxDownload, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDropboxLayout.createSequentialGroup()
-                                .addComponent(lblDbxErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)))))
+                                .addComponent(lblSignin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tabDropboxLayout.createSequentialGroup()
+                                .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDbxActivate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDbxUpload, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDbxSubmit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDbxDownload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20))
         );
         tabDropboxLayout.setVerticalGroup(
             tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabDropboxLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(lblDbxVerify, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                 .addGap(60, 60, 60)
-                .addComponent(txtDbxCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDbxVerify, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tabDropboxLayout.createSequentialGroup()
+                        .addComponent(lblEmailVarify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(comboEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDbxSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDbxActivate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
+                    .addComponent(txtDbxCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDbxUpload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDbxDownload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(lblDbxErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDbxSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDbxActivate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblDbxUpload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDbxDownload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblSignin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(customizeSMTP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
+                .addGroup(tabDropboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDbxErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEMLErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10))
         );
 
@@ -2660,9 +2802,128 @@ public class GradebookGUI extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDbxCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDbxCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDbxCodeActionPerformed
+	private void txtDbxCodeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtDbxCodeActionPerformed
+	}// GEN-LAST:event_txtDbxCodeActionPerformed
+
+	private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEmailFocusGained
+		if (txtEmail.getText().equals("Please enter your email address...")) {
+			txtEmail.setForeground(Color.BLACK);
+			txtEmail.selectAll();
+		}
+	}// GEN-LAST:event_txtEmailFocusGained
+
+	private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtEmailFocusLost
+		if (txtEmail.getText().equals("Please enter your email address..."))
+			txtEmail.setForeground(Color.lightGray);
+		if (txtEmail.getText().equals("")) {
+			txtEmail.setForeground(Color.lightGray);
+			txtEmail.setText("Please enter your email address...");
+		}
+	}// GEN-LAST:event_txtEmailFocusLost
+
+	private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtPasswordFocusGained
+		txtPassword.setText("");
+	}// GEN-LAST:event_txtPasswordFocusGained
+
+	private void txtDbxCodeFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtDbxCodeFocusLost
+		if (txtDbxCode.getText().equals("Please enter the code..."))
+			txtDbxCode.setForeground(Color.lightGray);
+		if (txtDbxCode.getText().equals("")) {
+			txtDbxCode.setForeground(Color.lightGray);
+			txtDbxCode.setText("Please enter the code...");
+		}
+	}// GEN-LAST:event_txtDbxCodeFocusLost
+
+	private void customizeSMTPMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_customizeSMTPMouseClicked
+		// TODO add your handling code here:
+	}// GEN-LAST:event_customizeSMTPMouseClicked
+
+	private void customizeSMTPMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_customizeSMTPMouseEntered
+		customizeSMTP.setBorder(BorderFactory.createLineBorder(new Color(20,
+				150, 250)));
+	}// GEN-LAST:event_customizeSMTPMouseEntered
+
+	private void customizeSMTPMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_customizeSMTPMouseExited
+		customizeSMTP.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_customizeSMTPMouseExited
+
+	private void customizeSMTPMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_customizeSMTPMousePressed
+		customizeSMTP.setBorder(BorderFactory.createBevelBorder(1, new Color(
+				20, 150, 250), new Color(20, 150, 250),
+				new Color(20, 150, 250), new Color(20, 150, 250)));
+	}// GEN-LAST:event_customizeSMTPMousePressed
+
+	private void customizeSMTPMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_customizeSMTPMouseReleased
+		customizeSMTP.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+	}// GEN-LAST:event_customizeSMTPMouseReleased
+
+	private void lblSigninMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblSigninMouseClicked
+		txtEmail.setBorder(defaultHighlightBorder);
+		txtPassword.setBorder(defaultHighlightBorder);
+
+		char[] temp = txtPassword.getPassword();
+		String password = "", returnMsg;
+		for (int i = 0; i < temp.length; i++)
+			password += temp[i];
+
+		if (comboEmail.getSelectedIndex() != 0) {
+			if (!txtEmail.getText()
+					.equals("Please enter your email address...")
+					&& !txtEmail.getText().equals("")) {
+				if (!password.equals("sickcoderoverhere")
+						&& !password.equals("")) {
+					MyProperties props = new MyProperties(txtEmail.getText(),
+							password,
+							((String) comboEmail.getSelectedItem()).toLowerCase());
+					Email test = new Email(props.getProperties());
+					if ((returnMsg=test.authenUser()).equals("")){
+                                                gradebook.setProperties(props.getProperties());
+                                                lblEmailVarify.setIcon(new javax.swing.ImageIcon(getClass()
+					.getResource("/cs2212/team4/emailTrue.png")));
+						lblEMLErrorLog.setForeground(Color.green);
+						lblEMLErrorLog.setText("Connected");
+					} else {
+						lblEMLErrorLog.setForeground(Color.red);
+						lblEMLErrorLog.setText("Incorrect information, please try again!");
+					}
+				} else {
+					lblEMLErrorLog.setForeground(Color.red);
+					lblEMLErrorLog.setText("Please enter your password");
+					txtPassword.setBorder(errorHighlightBorder);
+				}
+			} else {
+				lblEMLErrorLog.setForeground(Color.red);
+				lblEMLErrorLog.setText("Please enter an email address");
+				txtEmail.setBorder(errorHighlightBorder);
+			}
+		} else {
+			lblEMLErrorLog.setForeground(Color.red);
+			lblEMLErrorLog.setText("Please select your email providor");
+		}
+	}// GEN-LAST:event_lblSigninMouseClicked
+
+	private void lblSigninMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblSigninMouseEntered
+		lblSignin.setBorder(BorderFactory.createLineBorder(new Color(20, 150,
+				250)));
+	}// GEN-LAST:event_lblSigninMouseEntered
+
+	private void lblSigninMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblSigninMouseExited
+		lblSignin.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
+				204)));
+	}// GEN-LAST:event_lblSigninMouseExited
+
+	private void lblSigninMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblSigninMousePressed
+		lblSignin.setBorder(BorderFactory.createBevelBorder(1, new Color(20,
+				150, 250), new Color(20, 150, 250), new Color(20, 150, 250),
+				new Color(20, 150, 250)));
+	}// GEN-LAST:event_lblSigninMousePressed
+
+	private void lblSigninMouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblSigninMouseReleased
+		lblSignin.setBorder(BorderFactory.createLineBorder(new Color(204, 204,
+				204)));
+	}// GEN-LAST:event_lblSigninMouseReleased
 
 	private void lblWesternMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblWesternMouseClicked
 		if (currCourse != null) {
@@ -2882,14 +3143,16 @@ public class GradebookGUI extends JFrame {
 				for (int i = 0; i < indecies.length; i++) {
 					if (indecies[i] > -1
 							&& (student = currCourse.getStudent(indecies[i])) != null) {
-						Email email = new Email(currCourse, student,
-								txtSubject.getText(), msgText.getText(),
-								butToggle);
-						returnMsg = email.sendEmail();
-						if (!returnMsg.equals("")) {
-							lblEmailErrorLog.setForeground(Color.red);
-							lblEmailErrorLog.setText(returnMsg);
-						}
+						
+						 Email email = new Email(currCourse, student, txtSubject.getText(), msgText.getText(), butToggle, gradebook.getProperties());
+						 returnMsg = email.sendEmail(); 
+                                                 if (!returnMsg.equals("")) {
+						 lblEmailErrorLog.setForeground(Color.red);
+						 lblEmailErrorLog.setText(returnMsg); }
+                                                 else{
+                                                     lblEmailErrorLog.setForeground(Color.green);
+                                                     lblGradesErrorLog.setText("The emails have been successfully delivered!");
+                                                 }
 					}
 				}
 				closeFrame(emailFrame);
@@ -2897,7 +3160,7 @@ public class GradebookGUI extends JFrame {
 			} else {
 				lblEmailErrorLog.setForeground(Color.red);
 				lblEmailErrorLog.setText("Please enter a massage content...");
-			}
+                        }
 		} else {
 			lblEmailErrorLog.setForeground(Color.red);
 			lblEmailErrorLog.setText("Please enter an email subject...");
@@ -2941,6 +3204,7 @@ public class GradebookGUI extends JFrame {
 
 	private void lblEmailStudentsMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEmailStudentsMouseClicked
 		if (currCourse != null)
+                    if (gradebook.getProperties()!=null){
 			if (studentTable.getSelectedRow() != -1
 					&& currCourse.getStudent(studentTable.getSelectedRow()) != null) {
 				String str = "";
@@ -2965,6 +3229,10 @@ public class GradebookGUI extends JFrame {
 				lblGradesErrorLog.setForeground(Color.red);
 				lblGradesErrorLog.setText("Please select a student");
 			}
+                    }else {
+                        lblGradesErrorLog.setForeground(Color.red);
+			lblGradesErrorLog.setText("Please set the email properties in the Settings tab");
+                    }
 		else {
 			lblGradesErrorLog.setForeground(Color.red);
 			lblGradesErrorLog.setText("Please select a course");
@@ -4250,7 +4518,8 @@ public class GradebookGUI extends JFrame {
 			if (!weightException) {
 				if (currCourse.getTotalWeight() + weight <= 100) {
 					if (boolDeliver == 1) {
-                                                currCourse.setTotalWeight(currCourse.getTotalWeight()+weight-currDeliver.getWeight());
+						currCourse.setTotalWeight(currCourse.getTotalWeight()
+								+ weight - currDeliver.getWeight());
 						currDeliver.setName(txtEditDeliverName.getText());
 						currDeliver.setWeight(weight);
 						currDeliver.setType((String) comboEditDeliverType
@@ -4600,9 +4869,9 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblDbxDownloadMouseClicked
 
 	private void lblDbxActivateMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxAuthLinkMouseClicked
-	dbx = new Dropbox();
-	generated = true;	
-            if (generated) {
+		dbx = new Dropbox();
+		generated = true;
+		if (generated) {
 			try {
 				java.awt.Desktop.getDesktop().browse(
 						java.net.URI.create(dbx.getAuthorizeUrl()));
@@ -4625,7 +4894,7 @@ public class GradebookGUI extends JFrame {
 				lblDbxSubmit.setVisible(false);
 
 				lblDbxVerify.setIcon(new javax.swing.ImageIcon(getClass()
-					.getResource("/cs2212/team4/dropboxTrue.png")));
+						.getResource("/cs2212/team4/dropboxTrue.png")));
 				lblDbxDownload.setVisible(true);
 				lblDbxUpload.setVisible(true);
 			}
@@ -4637,7 +4906,8 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblDbxSubmitMouseClicked
 
 	private void txtDbxCodeFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_txtDbxCodeFocusGained
-		txtDbxCode.select(0, txtDbxCode.getText().length());
+		txtDbxCode.selectAll();
+		txtDbxCode.setForeground(Color.black);
 	}// GEN-LAST:event_txtDbxCodeFocusGained
 
 	private void lblDbxActivateMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblDbxGenerateMouseEntered
@@ -5915,6 +6185,7 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JComboBox comboDeliverType;
     private javax.swing.JComboBox comboEditCourseTerm;
     private javax.swing.JComboBox comboEditDeliverType;
+    private javax.swing.JComboBox comboEmail;
     private javax.swing.JLayeredPane container;
     private javax.swing.JLabel courseAsnAvg;
     private javax.swing.JLabel courseAvg;
@@ -5923,6 +6194,7 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JList courseMenuList;
     private javax.swing.JLabel courseName;
     private javax.swing.JScrollPane courses;
+    private javax.swing.JLabel customizeSMTP;
     private javax.swing.JLabel deleteDeliver;
     private javax.swing.JLabel deleteStudent;
     private javax.swing.JList deliverList;
@@ -5955,12 +6227,10 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblCourseAvg;
     private javax.swing.JLabel lblCourseCode;
     private javax.swing.JLabel lblCourseDeliverables;
-    private javax.swing.JLabel lblCourseDescription;
     private javax.swing.JLabel lblCourseExamAvg;
     private javax.swing.JLabel lblCourseName;
     private javax.swing.JLabel lblCourseSetup;
     private javax.swing.JLabel lblCourseTerm;
-    private javax.swing.JLabel lblCourseTheme;
     private javax.swing.JLabel lblDbxActivate;
     private javax.swing.JLabel lblDbxDownload;
     private javax.swing.JLabel lblDbxErrorLog;
@@ -5973,6 +6243,7 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblDeliverType;
     private javax.swing.JLabel lblDeliverWeight;
     private javax.swing.JLabel lblDropbox;
+    private javax.swing.JLabel lblEMLErrorLog;
     private javax.swing.JLabel lblEditCourse;
     private javax.swing.JLabel lblEditCourseCode;
     private javax.swing.JLabel lblEditCourseTerm;
@@ -5983,8 +6254,10 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblEditDeliverType;
     private javax.swing.JLabel lblEditDeliverWeight;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblEmailAddress;
     private javax.swing.JLabel lblEmailErrorLog;
     private javax.swing.JLabel lblEmailStudents;
+    private javax.swing.JLabel lblEmailVarify;
     private javax.swing.JLabel lblEnterAvg;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblExmAvg;
@@ -6003,11 +6276,13 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblMini;
     private javax.swing.JLabel lblNumber;
     private javax.swing.JLabel lblOlive;
+    private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRecipients;
     private javax.swing.JTextPane lblResult;
     private javax.swing.JLabel lblSendEmail;
     private javax.swing.JLabel lblSetup;
     private javax.swing.JLabel lblSetupErrorLog;
+    private javax.swing.JLabel lblSignin;
     private javax.swing.JLabel lblSteel;
     private javax.swing.JLabel lblStudentAddErrorLog;
     private javax.swing.JLabel lblStudentEmail;
@@ -6054,6 +6329,8 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JTextField txtEditCourseTitle;
     private javax.swing.JTextField txtEditDeliverName;
     private javax.swing.JTextField txtEditDeliverWeight;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtStudentEmail;
     private javax.swing.JTextField txtStudentNameFirst;
     private javax.swing.JTextField txtStudentNameLast;

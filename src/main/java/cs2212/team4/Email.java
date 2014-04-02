@@ -12,12 +12,16 @@ import java.util.*;
 
 public class Email {
 
-	private static String msgSubject, msg;
+	private static String msgSubject="", msg="";
 	private static Properties properties;
 	private static Student student;
 	private static Course course;
-	private static boolean boolReport;
+	private static boolean boolReport=false;
 
+	public Email(Properties properties){
+		Email.properties = properties;
+	}
+	
 	public Email(Course course, Student student, String msgSubject, String msg,
 			boolean boolReport, Properties properties) {
 		Email.msgSubject = msgSubject;
@@ -41,7 +45,20 @@ public class Email {
 				return "Error, temprary file cannot be removed";
 		return "";
 	}
-	
+
+	public String authenUser() {
+		Email.msgSubject = "Gradebook has authenticated your email";
+		Email.msg = "Gradebook has authenticated your email address, and you are now ready to go!";
+		Email.boolReport = false;
+		String returnMsg;
+
+		Session session = getSession(properties);
+		if (!(returnMsg = sendMessage(session, properties, properties.getProperty("smtp.username")))
+				.equals(""))
+			return returnMsg;
+		return "";
+	}
+
 	private static Session getSession(final Properties properties) {
 		Session session = Session.getInstance(properties,
 				new javax.mail.Authenticator() {
@@ -98,6 +115,7 @@ public class Email {
 		} catch (UnsupportedEncodingException e) {
 			return "Failed to create a new sender internet address";
 		} catch (MessagingException e) {
+			System.out.println(e);
 			return "Failed to create a message";
 		}
 		return "";

@@ -2,7 +2,6 @@ package cs2212.team4;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.After;
 import org.junit.Test;
 
 /**
@@ -20,6 +19,7 @@ public class GradebookTest
 		gradebook = new Gradebook();
 		gradebook.addCourse("Writing", "A", "2020");
 		course = new Course("Writing", "A", "2020");
+		gradebook.clearJenkins();
 	}
 
 	@Test

@@ -143,8 +143,8 @@ public class Gradebook implements GradebookADT, Serializable
 			ObjectOutputStream OUS = new ObjectOutputStream(
 					new FileOutputStream(file));
 			OUS.writeObject((Course) prevCourse);
-			OUS.writeObject((ArrayList<Course>) courseList);
 			OUS.writeObject((Properties) properties);
+			OUS.writeObject((ArrayList<Course>) courseList);
 			OUS.close();
 			return true;
 		} catch (FileNotFoundException e) {
@@ -165,8 +165,8 @@ public class Gradebook implements GradebookADT, Serializable
 			ObjectInputStream OIS = new ObjectInputStream(new FileInputStream(
 					path + "data.dat"));
 			prevCourse = (Course)OIS.readObject();
-			courseList = (ArrayList<Course>) OIS.readObject();
 			properties = (Properties)OIS.readObject();
+			courseList = (ArrayList<Course>) OIS.readObject();
 			OIS.close();
 			return true;
 		} catch (ClassNotFoundException e) {
@@ -221,5 +221,12 @@ public class Gradebook implements GradebookADT, Serializable
 		else
 			courseList.remove(i);
 		return true;
+	}
+	
+	public boolean clearJenkins(){
+		File file = new File("data.dat");
+		if (file.exists())
+			return file.delete();
+		return false;
 	}
 }

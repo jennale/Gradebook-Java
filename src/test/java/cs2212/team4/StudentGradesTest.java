@@ -123,6 +123,10 @@ public class StudentGradesTest {
 		//remove a grade of an "other" type, return true
 		Assert.assertTrue( stug2.remove( 3, "bonus") );
 		
+		stug2.add( 3, 94, "bonus", 5);
+		stug2.add( 4, 66, "exam", 20);
+		stug2.remove(3, "bonus");
+		Assert.assertFalse( stug2.remove( 3,"bonus") );
 	}
 
 }

@@ -189,7 +189,7 @@ public class GradesTable extends DefaultTableModel{
 	 *
 	 * @param rowIndex    row location to be checked
 	 * @param columnIndex column location to be checked
-	 * @return true       true if cell is editable, false otherwise
+	 * @return boolean       true if cell is editable, false otherwise
 	 */
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {

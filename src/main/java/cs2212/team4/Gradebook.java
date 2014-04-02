@@ -163,7 +163,7 @@ public class Gradebook implements GradebookADT, Serializable
 	private boolean load() {
 		try {
 			ObjectInputStream OIS = new ObjectInputStream(new FileInputStream(
-					path + "data.dat"));
+					path + "data"));
 			prevCourse = (Course)OIS.readObject();
 			properties = (Properties)OIS.readObject();
 			courseList = (ArrayList<Course>) OIS.readObject();

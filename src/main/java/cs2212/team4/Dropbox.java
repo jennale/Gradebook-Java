@@ -6,7 +6,7 @@ import java.util.Locale;
 
 /**
 *
-* Dropbox class will be used to allow a used to sync their files to a valid dropbox account
+* Dropbox class will be used to allow a user to sync their files to a valid dropbox account
 *
 * team4-gradebook application
 *

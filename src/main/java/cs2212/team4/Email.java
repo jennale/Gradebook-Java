@@ -10,18 +10,50 @@ import javax.mail.internet.*;
 
 import java.util.*;
 
+/**
+*
+* Email class will be used to allow a user to send out emails
+*
+* team4-gradebook application
+*
+* @author Zaid Albirawi
+* @version 1.6 3/25/2014
+*/
+
 public class Email {
 
+	//The email message subject
 	private static String msgSubject="", msg="";
+	//The email properties
 	private static Properties properties;
+	//The student for whome the email is dedicated
 	private static Student student;
+	//The course for which an email is being generated
 	private static Course course;
+	//A boolean to keep track of the report feature
 	private static boolean boolReport=false;
 
+	/**
+	 * Constructor that creates an Email object with only a set of properties
+	 * 
+	 * @param properties The properties desired for this email
+	 * 
+	 */
 	public Email(Properties properties){
 		Email.properties = properties;
 	}
 	
+	/**
+	 * Constructor that creates an Email object for a specific student
+	 * 
+	 * @param course The course for which an email is being generated
+	 * @param student The student for whome the email is dedicated
+	 * @param msgSubject The email message subject
+	 * @param msg The message associated with the email
+	 * @param boolReport A boolean indicating whether a report should be sent
+	 * @param properties The properties desired for this email
+	 * 
+	 */
 	public Email(Course course, Student student, String msgSubject, String msg,
 			boolean boolReport, Properties properties) {
 		Email.msgSubject = msgSubject;

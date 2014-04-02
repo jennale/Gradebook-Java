@@ -1,8 +1,6 @@
 package cs2212.team4;
 
 import static org.junit.Assert.*;
-
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,7 +19,6 @@ public class GradebookTest
 		gradebook = new Gradebook();
 		gradebook.addCourse("Writing", "A", "2020");
 		course = new Course("Writing", "A", "2020");
-		
 	}
 
 	@Test
@@ -85,10 +82,5 @@ public class GradebookTest
 	{
 		assertTrue(gradebook.removeCourse(course));
 		assertFalse(gradebook.removeCourse(new Course ("Title", "Term", "Code")));
-	}
-	
-	@Test
-	public void clearJenkins(){
-		Assert.assertTrue(gradebook.clearJenkins());
 	}
 }

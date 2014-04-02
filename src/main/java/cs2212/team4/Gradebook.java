@@ -163,7 +163,7 @@ public class Gradebook implements GradebookADT, Serializable
 	private boolean load() {
 		try {
 			ObjectInputStream OIS = new ObjectInputStream(new FileInputStream(
-					path + "data"));
+					path + "data.dat"));
 			prevCourse = (Course)OIS.readObject();
 			properties = (Properties)OIS.readObject();
 			courseList = (ArrayList<Course>) OIS.readObject();
@@ -221,12 +221,5 @@ public class Gradebook implements GradebookADT, Serializable
 		else
 			courseList.remove(i);
 		return true;
-	}
-	
-	public boolean clearJenkins(){
-		File file = new File("data.dat");
-		if (file.exists())
-			return file.delete();
-		return false;
 	}
 }

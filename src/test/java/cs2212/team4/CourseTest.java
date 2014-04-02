@@ -59,6 +59,10 @@ public class CourseTest
 		//A copy of course 5
 		crs6=new Course("Scientology", "A", "4020");
 		crs6.addDeliverable("Midterm", "exam", 25);
+		
+		crs6=new Course("Scientology", "A", "4020");
+		crs6.addDeliverable("Midterm", "exam", 46);
+		
 	}
 
 	@Test
@@ -183,6 +187,9 @@ public class CourseTest
 		Assert.assertTrue(crs3.getClassDeliverableAvg(0)==-1);
 		//Try to get a deliverable that's out of bounds
 		Assert.assertTrue(crs3.getClassDeliverableAvg(3)==-1);
+		
+		crs3.removeDeliverable(0);
+		Assert.assertTrue(crs3.getClassDeliverableAvg(0)==-1);
 	}
 
 	@Test
@@ -200,13 +207,17 @@ public class CourseTest
 	@Test
 	public void testGetStudents()
 	{
-		//Assert.assertTrue(crs4.getStudents().equals(studList));
+		for (int i=0; i<studList.size(); i++){
+			Assert.assertTrue(crs4.getStudents().get(i).equals(studList.get(i)));
+		}
 	}
 
 	@Test
 	public void testGetDeliverables()
 	{
-		//Assert.assertTrue(crs4.getDeliverables().equals(deliverList));
+		for (int i=0; i<deliverList.size(); i++){
+			Assert.assertTrue(crs6.getDeliverables().get(i).equals(deliverList.get(i)));
+		}
 	}
 
 	@Test
@@ -320,6 +331,10 @@ public class CourseTest
 		Assert.assertTrue(crs5.addDeliverable("New project", "assignment", 20).equals(""));
 		//Add a deliverable to a course without pre-existing deliverables
 		Assert.assertTrue(crs2.addDeliverable("Project 2", "assignment", 20).equals(""));
+		
+		crs2.removeDeliverable(crs2.getDeliverableListSize()-1);
+		
+		Assert.assertTrue(crs2.addDeliverable("Final Assignment", "assignment", 5).equals(""));
 	}
 
 	@Test

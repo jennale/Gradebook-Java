@@ -133,7 +133,7 @@ public class StudentReportDataTest {
 		// if i is not greater than -1, should return student number
 		Assert.assertSame ("tedmosby@uwo.ca", srd1.getStudentEmail() );
 		// if i is greater than -1, should return null
-		Assert.assertSame ( "", srd2.getStudentNumber() );
+		Assert.assertSame ( "", srd2.getStudentEmail() );
 	}
 
 	@Test

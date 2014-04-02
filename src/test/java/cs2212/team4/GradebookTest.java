@@ -22,12 +22,6 @@ public class GradebookTest
 		course = new Course("Writing", "A", "2020");
 	}
 
-	@After
-	public void testGradebook2()
-	{
-		gradebook.removeCourse(course);
-	}
-
 	@Test
 	public void testGetCourse()
 	{
@@ -68,20 +62,6 @@ public class GradebookTest
 	{
 		gradebook.setPrevCourse(new Course("Title", "Term", "Code"));
 		assertTrue(gradebook.getPrevCourse().equals(new Course("Title", "Term", "Code")));
-	}
-
-	@Test
-	public void testStore()
-	{
-		assertTrue(gradebook.store() == true);
-	}
-
-	@Test
-	public void testLoad()
-	{
-		gradebook.store();
-		Gradebook gradebook2 = new Gradebook();
-		assertTrue(course.equals(gradebook2.getCourse(gradebook.findCourse(course))));
 	}
 
 	@Test

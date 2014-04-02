@@ -237,8 +237,8 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  */
 	public boolean add(int deliver, double grade, String type, double weight) {
 		boolean boolExm = false, boolAsn = false;
-		if (deliver >= grades.size())
-			for (int i = grades.size(); i < deliver + 1; i++)
+		if (deliver >= grades.size())							// if deliverable number is greater than size of grades array
+			for (int i = grades.size(); i < deliver + 1; i++)	// add a number of null grade objects to array until deliverable number is reached
 				grades.add(null);
 		if (type.equalsIgnoreCase(EXM)) {
 			exm.add(deliver);

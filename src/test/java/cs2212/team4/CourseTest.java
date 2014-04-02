@@ -385,6 +385,19 @@ public class CourseTest
 	{
 		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Deliverables.csv");
 		Assert.assertTrue(crs1.importDeliverables(file)=="");
+		//No name
+		file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\DeliverablesNoName.csv");
+		Assert.assertTrue(crs1.importDeliverables(file)=="Error: Name column was not found");
+		//No type
+		file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\DeliverablesNoType.csv");
+		Assert.assertTrue(crs1.importDeliverables(file)=="Error: Type column was not found");
+		//No weight
+		file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\DeliverablesNoWeight.csv");
+		Assert.assertTrue(crs1.importDeliverables(file)=="Error: Weight column was not found");
+		
+		//File not found exception
+		file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Deliverableszzzzzz.csv");
+		Assert.assertTrue(crs1.importStudents(file)=="Error: File not found");
 	}
 
 	@Test
@@ -392,6 +405,13 @@ public class CourseTest
 	{
 		File file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\Deliverables.csv");
 		Assert.assertTrue(crs1.exportDeliverables(file)=="");
+		
+		file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\DeliverablesEmpty.csv");
+		Assert.assertTrue(crs1.exportDeliverables(file)=="");
+		
+		//Fail to export
+		file = new File("src\\test\\java\\cs2212\\team4\\testFiles\\nonExistingDirectory\\Deliverables.csv");
+		Assert.assertTrue(crs4.exportStudents(file)=="Error: program failed to export the file");
 	}
 
 	@Test

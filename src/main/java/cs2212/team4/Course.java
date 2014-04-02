@@ -175,7 +175,6 @@ public class Course implements CourseADT, Serializable
 			}
 			if (ctr>0)
 				return avg/ctr;
-			return 0;
 		}
 		return -1;
 	}
@@ -202,7 +201,7 @@ public class Course implements CourseADT, Serializable
 		}
 		if (ctr>0)
 			return avg/ctr;
-		return 0;
+		return -1;
 	}
 	
 	/**
@@ -226,7 +225,7 @@ public class Course implements CourseADT, Serializable
 		}
 		if (ctr>0)
 			return avg/ctr;
-		return 0;
+		return -1;
 	}
 	
 	/**

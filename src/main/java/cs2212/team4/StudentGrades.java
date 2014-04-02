@@ -19,7 +19,7 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	* Instance Variables
 	************************************************************ */
 	
-	// The StudentGrades Class version
+	// The StudentGrades Class vegetGradeListrsion
 	private static final long serialVersionUID = 1L;
 	// The StudentGrades object Grade objects list.
 	private ArrayList<Grade> grades;
@@ -91,7 +91,9 @@ public class StudentGrades implements StudentGradesADT, Serializable
 	  * 
 	  */
 	public double getGrade(int grade) {
-		if (grade >= grades.size() ||grades.get(grade)==null )
+		if (grade >= grades.size() || grade<0)
+			return -1;
+		if (grades.get(grade)==null)
 			return -1;
 		return grades.get(grade).getGrade();
 	}

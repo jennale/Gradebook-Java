@@ -2365,7 +2365,7 @@ public class GradebookGUI extends JFrame {
                                             .addComponent(txtEditCourseCode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtEditCourseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSetupLayout.createSequentialGroup()
-                                        .addGap(0, 2, Short.MAX_VALUE)
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addGroup(tabSetupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblEditDeleteDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblEditDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -2637,7 +2637,7 @@ public class GradebookGUI extends JFrame {
         });
 
         lblSignin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSignin.setText("Sing In");
+        lblSignin.setText("Sign In");
         lblSignin.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         lblSignin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSignin.setPreferredSize(new java.awt.Dimension(245, 30));

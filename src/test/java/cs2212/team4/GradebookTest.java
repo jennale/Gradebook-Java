@@ -25,7 +25,7 @@ public class GradebookTest
 	@Test
 	public void testGetCourse()
 	{
-		assertTrue(course.equals(gradebook.getCourse(gradebook.findCourse(course))));
+		assertTrue(course.equals(gradebook.getCourse(0)));
 		assertEquals(null, gradebook.getCourse(-1));
 	}
 

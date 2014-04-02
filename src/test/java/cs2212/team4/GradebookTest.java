@@ -87,8 +87,8 @@ public class GradebookTest
 	@Test
 	public void testFindCourse()
 	{
-		// assertEquals(-1, gradebook.findCourse(new Course("Title", "Term", "Code")));
-		// assertTrue(gradebook.findCourse(course) > 0);
+		assertEquals(-1, gradebook.findCourse(new Course("Title", "Term", "Code")));
+		assertTrue(gradebook.findCourse(course) >= 0);
 	}
 
 	@Test

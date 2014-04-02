@@ -27,6 +27,7 @@ public class MyAvg {
 				remWeight += course.getDeliverable(delivers.get(i)).getWeight() / 100;
 			}
 		}
+		
 		return (reqAvg - currAvg) / (1 - remWeight);
 	}
 }

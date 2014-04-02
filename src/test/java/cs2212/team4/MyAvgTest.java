@@ -37,12 +37,10 @@ public class MyAvgTest {
 
 	@Test
 	public void testCalcAvg() {
-		System.out.println( "HERROOOOOOOOOOOOOOOOOOOOOO " + myAvg1.calcAvg(68.0) );
+
 		Assert.assertTrue( myAvg1.calcAvg(68.0) == 81.00000000000003);
-		System.out.println( "HERROOOOOOOOOOOOOOOOOOOOOO " + myAvg2.calcAvg(68.0) );
 		Assert.assertTrue( myAvg2.calcAvg(68.0) == 68.0);
-		//Assert.assertEquals( myAvg2.calcAvg(80.0) );
-		//Assert.assertEquals( myAvg3.calcAvg(70.0) );
+
 	}
 
 }

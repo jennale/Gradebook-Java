@@ -63,7 +63,12 @@ public class Email {
 		Email.boolReport = boolReport;
 		Email.properties = properties;
 	}
-
+	
+	/**
+	 * Sends an email to a user(s).
+	 * 
+	 * @return String a string containing the message sent
+	 */
 	public String sendEmail() {
 		String returnMsg;
 
@@ -74,10 +79,15 @@ public class Email {
 		File reportFile = new File("src/main/resources/cs2212/team4/report.pdf");
 		if (reportFile.exists())
 			if (!reportFile.delete())
-				return "Error, temprary file cannot be removed";
+				return "Error, temporary file cannot be removed";
 		return "";
 	}
 
+	/**
+	 * Method to verify a user's email address.
+	 * 
+	 * @return String a message detailing the success or failure of authentication
+	 */
 	public String authenUser() {
 		Email.msgSubject = "Gradebook has authenticated your email";
 		Email.msg = "Gradebook has authenticated your email address, and you are now ready to go!";

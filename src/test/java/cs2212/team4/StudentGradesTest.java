@@ -8,8 +8,7 @@ import java.util.ArrayList;
 public class StudentGradesTest {
 	
 	StudentGrades stug1, stug2;
-	ArrayList<Grade> gradesList;
-	Grade grade1, grade2, grade3;
+	ArrayList<Grade> grades;
 	
 	@Before
 	public void testStudentGrades() {
@@ -23,10 +22,10 @@ public class StudentGradesTest {
 		stug2.add(1, 68, "assignment", 10);
 		stug2.add(2, 70, "assignment", 20);
 
-		//gradeList = new ArrayList<Grade>();
-		//gradesList.set( 0, stug1.getGrade( 0 ) );
-		//gradesList.set( 1, stug1.getGrade( 1 ) );
-		//gradesList.set( 3, stug1.getGrade( 3 ) ); 
+		// grades = new ArrayList<Grade>();
+		// grades.add( new Grade( 55, 10 ) );
+		// grades.add( new Grade( 68, 10 ) );
+		// grades.add( new Grade( 70, 20 ) ); 
 		
 	}
 
@@ -59,8 +58,8 @@ public class StudentGradesTest {
 
 	@Test
 	public void testGetGradeList() {
-		// should return grade list
-		//Assert.assertArrayEquals ( gradesList, stug1.getGradeList() );
+		// Assert.assertEquals( grades, stug2.getGradeList() );
+		
 	}
 
 	@Test
@@ -89,14 +88,40 @@ public class StudentGradesTest {
 		// add a student grade where type is "exam"
 		
 		// add a student grade where type is "assignment"
+		Assert.assertTrue( stug2.add(6, 70, "assignment", 20) );
 		
 		// add a student grade where type is neither
-		
+		Assert.assertTrue( stug2.add(7, 80, "bonus", 5) );
 
 	}
 
 	@Test
 	public void testRemove() {
+		stug2.add( 3, 94, "bonus", 5);
+		stug2.add( 4, 66, "exam", 20);
+		stug2.add( 5, 86, "assignment", 20);
+		stug2.add( 6, 50, "exam", 20);
+		
+		//remove a grade that has a deliverable number greater than gradelist size, return false
+		Assert.assertFalse ( stug2.remove( 7, "exam" ) );
+		
+		//remove a grade of an exam type, return true
+		Assert.assertTrue (stug2.remove( 6, "exam") );
+		
+		//remove a grade of an exam type, that has an incorrect deliverable number, return false
+		Assert.assertFalse (stug2.remove( 5, "exam") );
+		
+		//remove a grade of an assignment type, return true
+		Assert.assertTrue( stug2.remove( 5, "assignment") );
+		
+		//remove a grade of an assignment type, that has an incorrect deliverable number, return false
+		Assert.assertFalse( stug2.remove( 4, "assignment") );
+		
+		//remove a grade of an "other" type that has a non-existing deliverable number, return false
+		Assert.assertFalse( stug2.remove( 2, "bonus") );
+		
+		//remove a grade of an "other" type, return true
+		Assert.assertTrue( stug2.remove( 3, "bonus") );
 		
 	}
 

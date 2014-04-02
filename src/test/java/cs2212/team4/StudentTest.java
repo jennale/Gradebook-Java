@@ -1,6 +1,9 @@
 package cs2212.team4;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -135,7 +138,9 @@ public class StudentTest {
 
 	@Test
 	public void testToStringGrade() {
-		//needs test
+		ArrayList<Integer> d = new ArrayList<Integer>();
+		d.add(0);
+		assertEquals(student.toStringGrade(d.toArray()), "\"Joe\", \"Johns\", \"123456789\", \"jj@uwo.ca\", \"80.0\"\n");
 	}
 
 	@Test

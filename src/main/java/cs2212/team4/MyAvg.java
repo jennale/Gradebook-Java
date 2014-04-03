@@ -31,6 +31,7 @@ public class MyAvg {
 	 * Method to calculate needed grade based on passed average
 	 * 
 	 * @param reqAvg required average for the course that the student wishes to achieve
+	 * @return the grade needed with the remaining weight to achieve desired average
 	 */
 	public Object calcAvg(double reqAvg) {
 

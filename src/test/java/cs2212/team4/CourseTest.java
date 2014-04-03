@@ -372,10 +372,14 @@ public class CourseTest
 	public void testExportStudents()
 	{
 		File file = new File("gradebook-files/testFiles/Students.csv");
+		if (file.exists())
+			file.delete();
 		Assert.assertTrue(crs4.exportStudents(file)=="");
 		
 		//Fail to export
-		file = new File("gradebook-files/testFiles/nonExistingDirectory\\Students.csv");
+		file = new File("gradebook-files/testFiles/nonExistingDirectory/Students.csv");
+		if (file.exists())
+			file.delete();
 		Assert.assertTrue(crs4.exportStudents(file)=="Error: program failed to export the file");
 	}
 
@@ -403,13 +407,19 @@ public class CourseTest
 	public void testExportDeliverables()
 	{
 		File file = new File("gradebook-files/testFiles/Deliverables.csv");
+		if (file.exists())
+			file.delete();
 		Assert.assertTrue(crs1.exportDeliverables(file)=="");
 		
 		file = new File("gradebook-files/testFiles/DeliverablesEmpty.csv");
+		if (file.exists())
+			file.delete();
 		Assert.assertTrue(crs1.exportDeliverables(file)=="");
 		
 		//Fail to export
-		file = new File("gradebook-files/testFiles/nonExistingDirectory\\Deliverables.csv");
+		file = new File("gradebook-files/testFiles/nonExistingDirectory/Deliverables.csv");
+		if (file.exists())
+			file.delete();
 		Assert.assertTrue(crs4.exportStudents(file)=="Error: program failed to export the file");
 	}
 
@@ -432,10 +442,14 @@ public class CourseTest
 	public void testExportGrades()
 	{
 		File file = new File("gradebook-files/testFiles/Grades.csv");
+		if (file.exists())
+			file.delete();
 		Assert.assertTrue(crs1.exportGrades(file)=="");
 		
 		//Fail to export
-		file = new File("gradebook-files/testFiles/nonExistingDirectory\\Grades.csv");
+		file = new File("gradebook-files/testFiles/nonExistingDirectory/Grades.csv");
+		if (file.exists())
+			file.delete();
 		Assert.assertTrue(crs4.exportStudents(file)=="Error: program failed to export the file");
 	}
 	

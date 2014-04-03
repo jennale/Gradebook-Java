@@ -42,7 +42,7 @@ public class Email {
 		File reportFile = new File("gradebook-files/report.pdf");
 		if (reportFile.exists())
 			if (!reportFile.delete())
-				return "Error, temporary file cannot be removed";
+				return "Error, temprary file cannot be removed";
 		return "";
 	}
 
@@ -101,7 +101,7 @@ public class Email {
 
 				MimeBodyPart fileAttachmentPart = new MimeBodyPart();
 				File attachmentFile = new File(
-						"src/main/resources/cs2212/team4/report.pdf");
+						"gradebook-files/testFiles/report.pdf");
 				if (!attachmentFile.exists())
 					return "Not able to find the generated report";
 				DataSource source = new FileDataSource(attachmentFile);

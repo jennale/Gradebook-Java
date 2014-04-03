@@ -178,7 +178,7 @@ public interface CourseADT
 	/**
 	 * Sets the course color
 	 * 
-	 * @param description The desired course color
+	 * @param color The desired course color
 	 * 
 	 */
 	public void setColor(Color color);

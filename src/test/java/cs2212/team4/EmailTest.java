@@ -19,12 +19,21 @@ public class EmailTest {
 	{
 		course1 = new Course( "Classical Racism 101", "A", "2304");
 		course1.addStudent("Ted", "Mosby", "250565432", "tedmosby@uwo.ca");
-		username = new String("professor@prof.com");
-		password = new String("professa123");
+		
+		course1.addDeliverable("Project", "assignment", 24);
+		course1.addDeliverable("Projecttwo", "assignment", 30);
+		course1.addDeliverable("Midterm", "exam", 46);
+		
+		course1.getStudent(0).addGrade(0, 97, "assignment", 24);
+		course1.getStudent(0).addGrade(1, 50, "exam", 46);
+		course1.getStudent(0).addGrade(2, 76, "assignment", 30);
+		
+		username = "softengteam4@hotmail.com";
+		password = "Apple1234";
 		prop1 = new Properties();
 		
 		
-		prop1.put("mail.smtp.host", "smtp.gmail.com");
+		prop1.put("mail.smtp.host", "smtp.live.com");
 		prop1.put("mail.smtp.auth", "true");
 		prop1.put("mail.smtp.starttls.enable", "true");
 		prop1.put("mail.smtp.port", "587");
@@ -32,14 +41,14 @@ public class EmailTest {
 		prop1.put("smtp.password", password);
 		
 		email1 = new Email( prop1);
-		email2 = new Email( course1, course1.getStudent(0), "Ted Mosby's Grades", "Here are your grades good sir", false, prop1);
+		email2 = new Email( course1, course1.getStudent(0), "Ted Mosby's Grades", "Here are your grades good sir", true, prop1);
 		
 	}
 	
 	@Test
 	public void testSendEmail ()
 	{
-		//System.out.println( "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE " + email2.sendEmail() );
+		System.out.println( "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE " + email1.sendEmail() );
 		//Assert.assertSame( "", email2.sendEmail() );
 		// if return message is not equal to "", return message
 		// 
@@ -50,7 +59,7 @@ public class EmailTest {
 	@Test
 	public void testAuthenUser ()
 	{
-		//System.out.println( "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + email2.authenUser() );
+		System.out.println( "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + email1.authenUser() );
 	}
 	
 	@Test

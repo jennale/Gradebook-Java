@@ -20,22 +20,44 @@ public class EmailTest {
 	@Before
 	public void testEmail ()
 	{
-		course1 = new Course( "Satanism 101", "A", "2304");
-		stud1 = new Student( "Mel", "Gibson", "250544365", "melgibs22@uwo.ca");
-		//email1 = new Email( course1, stud1, "Mel Gibson's Grades", "Here are your grades good sir", true);
+		course1 = new Course( "Classical Racism 101", "A", "2304");
+		course1.addStudent("Ted", "Mosby", "250565432", "tedmosby@uwo.ca");
+		
+		course1.addDeliverable("Project", "assignment", 24);
+		course1.addDeliverable("Projecttwo", "assignment", 30);
+		course1.addDeliverable("Midterm", "exam", 46);
+		
+		course1.getStudent(0).addGrade(0, 97, "assignment", 24);
+		course1.getStudent(0).addGrade(1, 50, "exam", 46);
+		course1.getStudent(0).addGrade(2, 76, "assignment", 30);
+		
+		username = "softengteam4@hotmail.com";
+		password = "Apple1234";
+		prop1 = new Properties();
+		
+		
+		prop1.put("mail.smtp.host", "smtp.live.com");
+		prop1.put("mail.smtp.auth", "true");
+		prop1.put("mail.smtp.starttls.enable", "true");
+		prop1.put("mail.smtp.port", "587");
+		prop1.put("smtp.username", username);
+		prop1.put("smtp.password", password);
+		
+		email1 = new Email( prop1);
+		email2 = new Email( course1, course1.getStudent(0), "Ted Mosby's Grades", "Here are your grades good sir", true, prop1);
 		
 	}
 	
 	@Test
 	public void testgetSession ()
 	{
-	
+		
 	}
 	
 	@Test
 	public void testloadProperties ()
 	{
-	
+
 	}
 	
 	@Test

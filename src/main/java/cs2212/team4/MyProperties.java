@@ -2,10 +2,27 @@ package cs2212.team4;
 
 import java.util.Properties;
 
+/**
+*
+* A class that creates properties for an email
+*
+* team4-gradebook application
+*
+* @author Zaid Albirawi
+* @version 1.6 3/25/2014
+*/
 public class MyProperties {
 
 	private Properties properties;
 
+	/**
+	 * Constructor that creates properties required for an email class
+	 * 
+	 * @param username Username for the smtp
+	 * @param password password for the smtp
+	 * @param provider The email provider
+	 * 
+	 */
 	public MyProperties(String username, String password, String provider) {
 		properties = new Properties();
 
@@ -26,9 +43,19 @@ public class MyProperties {
 		properties.put("smtp.username", username);
 		properties.put("smtp.password", password);
 	}
-
-	public MyProperties(String mailHost, String port, String username,
-			String password) {
+	
+	/**
+	 * Constructor that creates properties required for an email class
+	 * 
+	 * @param mailHost The mailing host
+	 * @param socketPort The socket port for the email
+	 * @param port The port for which to sen the email
+	 * @param username Username for the smtp
+	 * @param password password for the smtp
+	 * 
+	 */
+	public MyProperties(String mailHost, String socketPort, String port,
+			String username, String password) {
 		properties = new Properties();
 
 		properties.put("mail.smtp.host", mailHost);
@@ -42,6 +69,12 @@ public class MyProperties {
 		properties.put("smtp.password", password);
 	}
 
+	/**
+	 * Get properties method that gives the properties we set up
+	 * 
+	 * @return The MyProperties object we defined in this class
+	 * 
+	 */
 	public Properties getProperties() {
 		return properties;
 	}

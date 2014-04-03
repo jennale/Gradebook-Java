@@ -31,8 +31,8 @@ public class EmailTest {
 		course1.getStudent(0).addGrade(1, 50, "exam", 46);
 		course1.getStudent(0).addGrade(2, 76, "assignment", 30);
 		
-		username = "softengteam4@hotmail.com";
-		password = "Apple1234";
+		String username = "softengteam4@hotmail.com";
+		String password = "Apple1234";
 		prop1 = new Properties();
 		
 		

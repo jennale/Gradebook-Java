@@ -2997,18 +2997,20 @@ public class GradebookGUI extends JFrame {
 				MyAvg myAvg = new MyAvg(currCourse,
 						currCourse.getStudent(studentTable.getSelectedRow()));
 				lblResult.setForeground(Color.black);
-				if (myAvg.calcAvg(avg) > 100 || myAvg.calcAvg(avg) < 0)
+                if (myAvg.calcAvg(avg)==null)
+                    lblResult.setText("This average cannot be obtained - student already has grades assigned for 100% of the course");
+				else if ((double)myAvg.calcAvg(avg) > 100 || (double)myAvg.calcAvg(avg) < 0)
 					lblResult
 							.setText(String
 									.format("This average cannot be obtained, required average, %.2f",
 											myAvg.calcAvg(avg))
 									+ "%.");
-				else
-					lblResult.setText(String.format(
-							"The student needs to obtaine an average of %.2f",
-							myAvg.calcAvg(avg))
-							+ "% for the rest of the course to recieve a "
-							+ txtAvg.getText() + "%");
+                else
+                    lblResult.setText(String.format(
+                            "The student needs to obtain an average of %.2f",
+                            myAvg.calcAvg(avg))
+                            + "% in the remainder of the course to receive a "
+                            + txtAvg.getText() + "%");
 			} else {
 				lblResult.setForeground(Color.red);
 				lblResult.setText("Please enter a number between 0-100");

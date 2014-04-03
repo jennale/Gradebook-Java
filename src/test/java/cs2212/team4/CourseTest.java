@@ -356,16 +356,16 @@ public class CourseTest
 		//No last name column
 		file = new File("gradebook-files/testFiles/StudentsNoLast.csv");
 		Assert.assertTrue(crs1.importStudents(file)=="Error: Last Name column was not found");
-		//No last name column
+		//No student name column
 		file = new File("gradebook-files/testFiles/StudentsNoNumber.csv");
 		Assert.assertTrue(crs1.importStudents(file)=="Error: Student Number column was not found");
-		//No last name column
+		//No email column
 		file = new File("gradebook-files/testFiles/StudentsNoEmail.csv");
-		//Assert.assertTrue(crs1.importStudents(file)=="Error: Email column was not found");
+		Assert.assertTrue(crs1.importStudents(file)=="Error: Email column was not found");
 		
 		//File not found exception
 		file = new File("gradebook-files/testFiles/Studentszzzzzz.csv");
-		Assert.assertTrue(crs1.importStudents(file)=="Error: File not found");
+		Assert.assertTrue(crs1.importStudents(file)=="Error: File not found");		
 	}
 
 	@Test

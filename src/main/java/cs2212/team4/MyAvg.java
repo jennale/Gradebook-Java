@@ -2,19 +2,36 @@ package cs2212.team4;
 
 import java.util.ArrayList;
 
+/**
+*
+* A class that calculates what mark a student must receive to achieve a certain average
+*
+* team4-gradebook application
+*
+* @author Zaid Albirawi
+* @version 1.6 3/25/2014
+*/
 public class MyAvg {
 	Course course;
 	Student student;
-
+	
+	/**
+	 * Constructor that creates the myAvg object based off the student and course
+	 * 
+	 * @param student The student for whom we want to calculate needed grade
+	 * @param course The course for which we will calculate that needed grade
+	 * 
+	 */
 	public MyAvg(Course course, Student student) {
 		this.course = course;
 		this.student = student;
 	}
 
 	/**
-	 * Method to calculate an average for a student in a course.
+	 * Method to calculate needed grade based on passed average
 	 * 
-	 * @param reqAvg required average for the course
+	 * @param reqAvg required average for the course that the student wishes to achieve
+	 * @return the grade needed with the remaining weight to achieve desired average
 	 */
 	public Object calcAvg(double reqAvg) {
 

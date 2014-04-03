@@ -3973,6 +3973,7 @@ public class GradebookGUI extends JFrame {
 								"Non-existing students",
 								JOptionPane.YES_NO_OPTION,
 								JOptionPane.OK_OPTION);
+                                updateInfo();
 					} else
 						lblGradesErrorLog.setText(returnMsg);
 				} else

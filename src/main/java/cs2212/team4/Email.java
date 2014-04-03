@@ -12,16 +12,16 @@ import java.util.*;
 
 public class Email {
 
-	private static String msgSubject="", msg="";
+	private static String msgSubject = "", msg = "";
 	private static Properties properties;
 	private static Student student;
 	private static Course course;
-	private static boolean boolReport=false;
+	private static boolean boolReport = false;
 
-	public Email(Properties properties){
+	public Email(Properties properties) {
 		Email.properties = properties;
 	}
-	
+
 	public Email(Course course, Student student, String msgSubject, String msg,
 			boolean boolReport, Properties properties) {
 		Email.msgSubject = msgSubject;
@@ -53,8 +53,8 @@ public class Email {
 		String returnMsg;
 
 		Session session = getSession(properties);
-		if (!(returnMsg = sendMessage(session, properties, properties.getProperty("smtp.username")))
-				.equals(""))
+		if (!(returnMsg = sendMessage(session, properties,
+				properties.getProperty("smtp.username"))).equals(""))
 			return returnMsg;
 		return "";
 	}
@@ -95,13 +95,14 @@ public class Email {
 
 			if (Email.boolReport) {
 				returnMsg = generateReport();
-
+				
 				if (!returnMsg.equals(""))
 					return returnMsg;
 
 				MimeBodyPart fileAttachmentPart = new MimeBodyPart();
 				File attachmentFile = new File(
-						"gradebook-files/testFiles/report.pdf");
+						"gradebook-files/report.pdf");
+				 
 				if (!attachmentFile.exists())
 					return "Not able to find the generated report";
 				DataSource source = new FileDataSource(attachmentFile);
@@ -115,6 +116,7 @@ public class Email {
 		} catch (UnsupportedEncodingException e) {
 			return "Failed to create a new sender internet address";
 		} catch (MessagingException e) {
+			System.out.print(e);
 			return "Failed to create a message";
 		}
 		return "";

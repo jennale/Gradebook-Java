@@ -205,7 +205,7 @@ import java.util.List;
     }
 
     /**
-     * For visual purposes - fills the Jtable with blank rows or columns to get rid of empty space onscreen.
+     * For visual purposes - fills the table with blank columns to get rid of empty space onscreen.
      */
     public void fillScreen(){
         //Fill with columns/rows if there is empty space in the screen

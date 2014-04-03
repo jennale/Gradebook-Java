@@ -6,7 +6,7 @@ import java.awt.*;
 import java.text.*;
 
 /**
- * A class to display a table of grades. 
+ * A custom cell renderer used to display and format GRADES in a gradestable object.
  * 
  * @author Jenna Le 
  * @version 1.0 2014-03-31

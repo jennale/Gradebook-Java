@@ -49,15 +49,14 @@ public interface StudentADT
 	public double getGrade(int grade);
 
 	/**
-	 * Gets a grade from the student at the specified index.
-	 * 
-	 * @param grade the index of the grade to be returned
+	 * Gets the student's average
+	 *
 	 * @return      the grade for this student at the specified index
 	 */
 	public double getAvg();
 
 	/**
-	 * Gets the student's grade average.
+	 * Gets the student's assignment average.
 	 * 
 	 * @return an average based on all the student's grades
 	 */

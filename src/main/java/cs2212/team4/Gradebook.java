@@ -119,6 +119,7 @@ public class Gradebook implements GradebookADT, Serializable
 	public boolean store() {
 		try {
 			File file = new File("gradebook-files/data.dat");
+			file.mkdirs();
 			if (file.exists())
 				file.delete();
 			ObjectOutputStream OUS = new ObjectOutputStream(

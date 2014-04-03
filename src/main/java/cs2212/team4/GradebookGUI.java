@@ -37,6 +37,7 @@ public class GradebookGUI extends JFrame {
 	JFrame addFrame = new JFrame("");
 	JFrame emailFrame = new JFrame("");
 	JFrame calcFrame = new JFrame("");
+        JFrame propsFrame = new JFrame("");
 
 	public GradebookGUI() {
 		int size;
@@ -95,6 +96,16 @@ public class GradebookGUI extends JFrame {
 		calcFrame.setLocationRelativeTo(this);
 		calcFrame.setAlwaysOnTop(true);
 		calcFrame.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent evt) {
+				enable();
+			}
+		});
+                
+                propsFrame.setResizable(false);
+		propsFrame.setSize(520, 280);
+		propsFrame.setLocationRelativeTo(this);
+		propsFrame.setAlwaysOnTop(true);
+		propsFrame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent evt) {
 				enable();
 			}
@@ -237,6 +248,18 @@ public class GradebookGUI extends JFrame {
         lblCalculate = new javax.swing.JLabel();
         resultScroll = new javax.swing.JScrollPane();
         lblResult = new javax.swing.JTextPane();
+        pnlCustom = new javax.swing.JPanel();
+        lblHostName1 = new javax.swing.JLabel();
+        lblHostName3 = new javax.swing.JLabel();
+        txtHostName = new javax.swing.JTextField();
+        txtCustomPassword = new javax.swing.JPasswordField();
+        lblPassword1 = new javax.swing.JLabel();
+        lblEmailAddress1 = new javax.swing.JLabel();
+        txtCustomEmail = new javax.swing.JTextField();
+        txtPort = new javax.swing.JTextField();
+        lblCutomTitle = new javax.swing.JLabel();
+        lblCustomSubmit = new javax.swing.JLabel();
+        lblSMTPError = new javax.swing.JLabel();
         lblGrades = new javax.swing.JLabel();
         lblTabGrades = new javax.swing.JLabel();
         lblSetup = new javax.swing.JLabel();
@@ -1117,6 +1140,173 @@ public class GradebookGUI extends JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(resultScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        pnlCustom.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCustom.setPreferredSize(new java.awt.Dimension(520, 260));
+
+        lblHostName1.setText("Host Name:");
+        lblHostName1.setMinimumSize(new java.awt.Dimension(100, 30));
+        lblHostName1.setPreferredSize(new java.awt.Dimension(100, 30));
+
+        lblHostName3.setText("Port:");
+        lblHostName3.setMinimumSize(new java.awt.Dimension(100, 30));
+        lblHostName3.setPreferredSize(new java.awt.Dimension(100, 30));
+
+        txtHostName.setForeground(new java.awt.Color(204, 204, 204));
+        txtHostName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtHostName.setText("Please enter the host name...");
+        txtHostName.setPreferredSize(new java.awt.Dimension(400, 30));
+        txtHostName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtHostNameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtHostNameFocusLost(evt);
+            }
+        });
+
+        txtCustomPassword.setText("sickcoderoverhere");
+        txtCustomPassword.setPreferredSize(new java.awt.Dimension(400, 30));
+        txtCustomPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCustomPasswordFocusGained(evt);
+            }
+        });
+
+        lblPassword1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblPassword1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPassword1.setText("Password:");
+        lblPassword1.setPreferredSize(new java.awt.Dimension(100, 30));
+
+        lblEmailAddress1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblEmailAddress1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEmailAddress1.setText("Email Address:");
+        lblEmailAddress1.setPreferredSize(new java.awt.Dimension(100, 30));
+
+        txtCustomEmail.setForeground(new java.awt.Color(204, 204, 204));
+        txtCustomEmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtCustomEmail.setText("Please enter your email address...");
+        txtCustomEmail.setPreferredSize(new java.awt.Dimension(400, 30));
+        txtCustomEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCustomEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCustomEmailFocusLost(evt);
+            }
+        });
+
+        txtPort.setForeground(new java.awt.Color(204, 204, 204));
+        txtPort.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtPort.setText("Please enter a port...");
+        txtPort.setPreferredSize(new java.awt.Dimension(400, 30));
+        txtPort.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPortFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPortFocusLost(evt);
+            }
+        });
+
+        lblCutomTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCutomTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCutomTitle.setText("Custom SMTP");
+        lblCutomTitle.setPreferredSize(new java.awt.Dimension(500, 30));
+
+        lblCustomSubmit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCustomSubmit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCustomSubmit.setText("Submit");
+        lblCustomSubmit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        lblCustomSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCustomSubmit.setPreferredSize(new java.awt.Dimension(500, 30));
+        lblCustomSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCustomSubmitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblCustomSubmitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblCustomSubmitMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblCustomSubmitMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblCustomSubmitMouseReleased(evt);
+            }
+        });
+
+        lblSMTPError.setPreferredSize(new java.awt.Dimension(500, 20));
+
+        javax.swing.GroupLayout pnlCustomLayout = new javax.swing.GroupLayout(pnlCustom);
+        pnlCustom.setLayout(pnlCustomLayout);
+        pnlCustomLayout.setHorizontalGroup(
+            pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCustomLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCustomSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+            .addGroup(pnlCustomLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCustomLayout.createSequentialGroup()
+                        .addGroup(pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlCustomLayout.createSequentialGroup()
+                                .addGroup(pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCustomLayout.createSequentialGroup()
+                                        .addComponent(lblPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(txtCustomPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlCustomLayout.createSequentialGroup()
+                                        .addComponent(lblHostName3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(txtPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlCustomLayout.createSequentialGroup()
+                                        .addComponent(lblHostName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(txtHostName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(pnlCustomLayout.createSequentialGroup()
+                                .addComponent(lblEmailAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(txtCustomEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlCustomLayout.createSequentialGroup()
+                        .addGroup(pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCutomTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblSMTPError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
+        );
+        pnlCustomLayout.setVerticalGroup(
+            pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCustomLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblCutomTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHostName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHostName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHostName3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmailAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCustomEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(pnlCustomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCustomPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(lblCustomSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(lblSMTPError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2794,6 +2984,110 @@ public class GradebookGUI extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtHostNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHostNameFocusGained
+        txtHostName.selectAll();
+        txtHostName.setForeground(Color.black);
+    }//GEN-LAST:event_txtHostNameFocusGained
+
+    private void txtHostNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHostNameFocusLost
+        if (txtHostName.getText().equals(""))
+            txtHostName.setText("Please enter the host name...");
+        if (txtHostName.getText().equals("Please enter the host name..."))
+            txtHostName.setForeground(Color.lightGray);
+    }//GEN-LAST:event_txtHostNameFocusLost
+
+    private void txtCustomPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCustomPasswordFocusGained
+        txtCustomPassword.setText("");
+    }//GEN-LAST:event_txtCustomPasswordFocusGained
+
+    private void txtCustomEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCustomEmailFocusGained
+        txtCustomEmail.selectAll();
+        txtCustomEmail.setForeground(Color.black);
+    }//GEN-LAST:event_txtCustomEmailFocusGained
+
+    private void txtCustomEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCustomEmailFocusLost
+        if (txtCustomEmail.getText().equals(""))
+            txtCustomEmail.setText("Please enter your email address...");
+        if (txtCustomEmail.getText().equals("Please enter your email address..."))
+            txtCustomEmail.setForeground(Color.lightGray);
+    }//GEN-LAST:event_txtCustomEmailFocusLost
+
+    private void txtPortFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPortFocusGained
+        txtPort.selectAll();
+        txtPort.setForeground(Color.black);
+    }//GEN-LAST:event_txtPortFocusGained
+
+    private void txtPortFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPortFocusLost
+        if (txtPort.getText().equals(""))
+            txtPort.setText("Please enter a port...");
+        if (txtPort.getText().equals("Please enter a port..."))
+            txtPort.setForeground(Color.lightGray);
+    }//GEN-LAST:event_txtPortFocusLost
+
+    private void lblCustomSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCustomSubmitMouseClicked
+        char[] pass = txtCustomPassword.getPassword();
+        if (!txtHostName.getText().equals("Please enter the host name...")){
+            if (!txtPort.getText().equals("Please enter a port...")){
+                if (!txtCustomEmail.getText().equals("Please enter your email address...")){
+                    if (txtCustomPassword.getPassword().length!=0){
+                        String password="";
+                        for (int i=0; i<txtCustomPassword.getPassword().length;i++){
+                            password+=pass[i];
+                        }
+                        MyProperties props = new MyProperties(txtHostName.getText(), txtPort.getText(), txtCustomEmail.getText(),
+			password);
+                        Email email = new Email(props.getProperties());
+                        if (email.authenUser().equals("")){
+                            gradebook.setProperties(props.getProperties());
+                            lblEMLErrorLog.setForeground(Color.green);
+                            lblEMLErrorLog.setText("Connected.");
+                            lblSMTPError.setText("");
+                            closeFrame(propsFrame);
+                        }
+                        else {
+                            lblSMTPError.setForeground(Color.red);
+                            lblSMTPError.setText("Invalid information");
+                        }
+                        
+                    } else {
+                        lblSMTPError.setForeground(Color.red);
+                        lblSMTPError.setText("Please enter a password");
+                    }
+                } else {
+                    lblSMTPError.setForeground(Color.red);
+                    lblSMTPError.setText("Please enter an email");
+                }
+            } else {
+                lblSMTPError.setForeground(Color.red);
+                lblSMTPError.setText("Please enter a port");
+            }
+        } else {
+            lblSMTPError.setForeground(Color.red);
+            lblSMTPError.setText("Please enter a hostname");
+        }
+    }//GEN-LAST:event_lblCustomSubmitMouseClicked
+
+    private void lblCustomSubmitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCustomSubmitMouseEntered
+        lblCustomSubmit.setBorder(BorderFactory.createLineBorder(new Color(20,
+				150, 250)));
+    }//GEN-LAST:event_lblCustomSubmitMouseEntered
+
+    private void lblCustomSubmitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCustomSubmitMouseExited
+       lblCustomSubmit.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+    }//GEN-LAST:event_lblCustomSubmitMouseExited
+
+    private void lblCustomSubmitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCustomSubmitMousePressed
+        lblCustomSubmit.setBorder(BorderFactory.createBevelBorder(1, new Color(
+				20, 150, 250), new Color(20, 150, 250),
+				new Color(20, 150, 250), new Color(20, 150, 250)));
+    }//GEN-LAST:event_lblCustomSubmitMousePressed
+
+    private void lblCustomSubmitMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCustomSubmitMouseReleased
+        lblCustomSubmit.setBorder(BorderFactory.createLineBorder(new Color(204,
+				204, 204)));
+    }//GEN-LAST:event_lblCustomSubmitMouseReleased
+
 	private void txtDbxCodeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtDbxCodeActionPerformed
 	}// GEN-LAST:event_txtDbxCodeActionPerformed
 
@@ -2827,7 +3121,10 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_txtDbxCodeFocusLost
 
 	private void customizeSMTPMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_customizeSMTPMouseClicked
-		// TODO add your handling code here:
+		propsFrame.add(pnlCustom);
+		pnlCustom.setVisible(true);
+		propsFrame.setVisible(true);
+		disable();
 	}// GEN-LAST:event_customizeSMTPMouseClicked
 
 	private void customizeSMTPMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_customizeSMTPMouseEntered
@@ -2997,20 +3294,18 @@ public class GradebookGUI extends JFrame {
 				MyAvg myAvg = new MyAvg(currCourse,
 						currCourse.getStudent(studentTable.getSelectedRow()));
 				lblResult.setForeground(Color.black);
-                if (myAvg.calcAvg(avg)==null)
-                    lblResult.setText("This average cannot be obtained - student already has grades assigned for 100% of the course");
-				else if ((double)myAvg.calcAvg(avg) > 100 || (double)myAvg.calcAvg(avg) < 0)
+				if (myAvg.calcAvg(avg) > 100 || myAvg.calcAvg(avg) < 0)
 					lblResult
 							.setText(String
 									.format("This average cannot be obtained, required average, %.2f",
 											myAvg.calcAvg(avg))
 									+ "%.");
-                else
-                    lblResult.setText(String.format(
-                            "The student needs to obtain an average of %.2f",
-                            myAvg.calcAvg(avg))
-                            + "% in the remainder of the course to receive a "
-                            + txtAvg.getText() + "%");
+				else
+					lblResult.setText(String.format(
+							"The student needs to obtaine an average of %.2f",
+							myAvg.calcAvg(avg))
+							+ "% for the rest of the course to recieve a "
+							+ txtAvg.getText() + "%");
 			} else {
 				lblResult.setForeground(Color.red);
 				lblResult.setText("Please enter a number between 0-100");
@@ -3275,7 +3570,6 @@ public class GradebookGUI extends JFrame {
 			if (studentTable.getSelectedRows().length <= 1) {
 				if (studentTable.getSelectedRow() != -1
 						&& currCourse.getStudent(studentTable.getSelectedRow()) != null) {
-					disable();
 					calcFrame.add(pnlCalc);
 					pnlCalc.setVisible(true);
 					calcFrame.setVisible(true);
@@ -3975,7 +4269,6 @@ public class GradebookGUI extends JFrame {
 								"Non-existing students",
 								JOptionPane.YES_NO_OPTION,
 								JOptionPane.OK_OPTION);
-                                updateInfo();
 					} else
 						lblGradesErrorLog.setText(returnMsg);
 				} else
@@ -5939,7 +6232,6 @@ public class GradebookGUI extends JFrame {
 		lblEmailErrorLog.setText("");
 
 		pnlEmail.setVisible(false);
-		emailFrame.dispose();
 	}
 
 	private void closeFrame(JFrame frame) {
@@ -6226,6 +6518,8 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblCourseName;
     private javax.swing.JLabel lblCourseSetup;
     private javax.swing.JLabel lblCourseTerm;
+    private javax.swing.JLabel lblCustomSubmit;
+    private javax.swing.JLabel lblCutomTitle;
     private javax.swing.JLabel lblDbxActivate;
     private javax.swing.JLabel lblDbxDownload;
     private javax.swing.JLabel lblDbxErrorLog;
@@ -6250,6 +6544,7 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblEditDeliverWeight;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmailAddress;
+    private javax.swing.JLabel lblEmailAddress1;
     private javax.swing.JLabel lblEmailErrorLog;
     private javax.swing.JLabel lblEmailStudents;
     private javax.swing.JLabel lblEmailVarify;
@@ -6262,6 +6557,8 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblGrades;
     private javax.swing.JLabel lblGradesErrorLog;
+    private javax.swing.JLabel lblHostName1;
+    private javax.swing.JLabel lblHostName3;
     private javax.swing.JLabel lblImportDelivers;
     private javax.swing.JLabel lblImportGrades;
     private javax.swing.JLabel lblImportStudents;
@@ -6272,8 +6569,10 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JLabel lblNumber;
     private javax.swing.JLabel lblOlive;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblRecipients;
     private javax.swing.JTextPane lblResult;
+    private javax.swing.JLabel lblSMTPError;
     private javax.swing.JLabel lblSendEmail;
     private javax.swing.JLabel lblSetup;
     private javax.swing.JLabel lblSetupErrorLog;
@@ -6302,6 +6601,7 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JPanel pnlAddStudentContainer;
     private javax.swing.JPanel pnlCalc;
     private javax.swing.JPanel pnlCourseMenu;
+    private javax.swing.JPanel pnlCustom;
     private javax.swing.JPanel pnlEmail;
     private javax.swing.JPanel pnlTables;
     private javax.swing.JLabel recipients;
@@ -6317,6 +6617,8 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JTextField txtCourseCode;
     private javax.swing.JTextPane txtCourseDesc;
     private javax.swing.JTextField txtCourseName;
+    private javax.swing.JTextField txtCustomEmail;
+    private javax.swing.JPasswordField txtCustomPassword;
     private javax.swing.JTextField txtDbxCode;
     private javax.swing.JTextField txtDeliverName;
     private javax.swing.JTextField txtDeliverWeight;
@@ -6325,7 +6627,9 @@ public class GradebookGUI extends JFrame {
     private javax.swing.JTextField txtEditDeliverName;
     private javax.swing.JTextField txtEditDeliverWeight;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtHostName;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPort;
     private javax.swing.JTextField txtStudentEmail;
     private javax.swing.JTextField txtStudentNameFirst;
     private javax.swing.JTextField txtStudentNameLast;

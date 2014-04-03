@@ -8,8 +8,8 @@ public class MyProperties {
 
 	public MyProperties(String username, String password, String provider) {
 		properties = new Properties();
-		
-		switch (provider){
+
+		switch (provider) {
 		case "gmail":
 			properties.put("mail.smtp.host", "smtp.gmail.com");
 			break;
@@ -26,17 +26,17 @@ public class MyProperties {
 		properties.put("smtp.username", username);
 		properties.put("smtp.password", password);
 	}
-	
-	public MyProperties(String mailHost, String socketPort, String port,
-			String username, String password) {
+
+	public MyProperties(String mailHost, String port, String username,
+			String password) {
 		properties = new Properties();
 
 		properties.put("mail.smtp.host", mailHost);
-		properties.put("mail.smtp.socketFactory.port", socketPort);
+		properties.put("mail.smtp.starttls.enable", "true");
+		properties.put("mail.smtp.socketFactory.port", port);
 		properties.put("mail.smtp.socketFactory.class",
 				"javax.net.ssl.SSLSocketFactory");
 		properties.put("mail.smtp.auth", "true");
-		properties.put("mail.smtp.port", port);
 		properties.put("mail.smtp.port", port);
 		properties.put("smtp.username", username);
 		properties.put("smtp.password", password);

@@ -42,7 +42,7 @@ public class Email {
 		File reportFile = new File("gradebook-files/report.pdf");
 		if (reportFile.exists())
 			if (!reportFile.delete())
-				return "Error, temprary file cannot be removed";
+				return "Error, temporary file cannot be removed";
 		return "";
 	}
 

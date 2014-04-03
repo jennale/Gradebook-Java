@@ -3,55 +3,70 @@ package cs2212.team4;
 import java.util.*;
 import org.junit.Test;
 import org.junit.Before;
+import junit.framework.Assert;
 
 public class EmailTest {
 	
 	
 	Course course1, course2;
-	Student stud1, stud2;
 	Email email1, email2;
 	Properties prop1, prop2;
-	
-	@Before
-	public void createProperties (){
-		
-	}
+	String username, password;
+
 	
 	@Before
 	public void testEmail ()
 	{
-		course1 = new Course( "Satanism 101", "A", "2304");
-		stud1 = new Student( "Mel", "Gibson", "250544365", "melgibs22@uwo.ca");
-		//email1 = new Email( course1, stud1, "Mel Gibson's Grades", "Here are your grades good sir", true);
+		course1 = new Course( "Classical Racism 101", "A", "2304");
+		course1.addStudent("Ted", "Mosby", "250565432", "tedmosby@uwo.ca");
+		username = new String("professor@prof.com");
+		password = new String("professa123");
+		prop1 = new Properties();
+		
+		
+		prop1.put("mail.smtp.host", "smtp.gmail.com");
+		prop1.put("mail.smtp.auth", "true");
+		prop1.put("mail.smtp.starttls.enable", "true");
+		prop1.put("mail.smtp.port", "587");
+		prop1.put("smtp.username", username);
+		prop1.put("smtp.password", password);
+		
+		email1 = new Email( prop1);
+		email2 = new Email( course1, course1.getStudent(0), "Ted Mosby's Grades", "Here are your grades good sir", false, prop1);
 		
 	}
 	
 	@Test
-	public void testgetSession ()
+	public void testSendEmail ()
+	{
+		//System.out.println( "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE " + email2.sendEmail() );
+		//Assert.assertSame( "", email2.sendEmail() );
+		// if return message is not equal to "", return message
+		// 
+		
+		
+	}
+	
+	@Test
+	public void testAuthenUser ()
+	{
+		//System.out.println( "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + email2.authenUser() );
+	}
+	
+	@Test
+	public void testGetSession ()
 	{
 	
 	}
 	
 	@Test
-	public void testloadProperties ()
+	public void testSendMessage ()
 	{
 	
 	}
 	
 	@Test
-	public void testsendMessage ()
-	{
-	
-	}
-	
-	@Test
-	public void testgenerateReport ()
-	{
-	
-	}
-	
-	@Test
-	public void testsendEmail ()
+	public void testGenerateReports ()
 	{
 	
 	}

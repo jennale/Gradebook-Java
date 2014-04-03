@@ -6788,13 +6788,16 @@ public class GradebookGUI extends JFrame {
 	}// GEN-LAST:event_lblEditCourseMouseClicked
 
 	private void lblEditCourseMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblEditCourseMouseEntered
-		if (currCourse != null
-				&& (!currCourse.getTitle().equals(txtEditCourseTitle.getText())
-						|| !currCourse.getCode().equals(
-								txtEditCourseCode.getText()) || !currCourse
+		String title=currCourse.getTitle();
+                String code =currCourse.getCode();
+                
+            if (currCourse != null &&!code.equals("")&&!title.equals("")
+				&& ((!title.equals(txtEditCourseTitle.getText()))
+						|| (!code.equals(
+								txtEditCourseCode.getText()))|| !currCourse
 						.getTerm()
 						.equals(comboEditCourseTerm.getSelectedItem()))) {
-			int i = gradebook.findCourse(new Course(txtEditCourseTitle
+               			int i = gradebook.findCourse(new Course(txtEditCourseTitle
 					.getText(), (String) comboEditCourseTerm.getSelectedItem(),
 					txtEditCourseCode.getText()));
 			if (i == -1) {

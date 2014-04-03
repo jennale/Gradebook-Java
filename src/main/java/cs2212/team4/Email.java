@@ -74,7 +74,7 @@ public class Email {
 		File reportFile = new File("src/main/resources/cs2212/team4/report.pdf");
 		if (reportFile.exists())
 			if (!reportFile.delete())
-				return "Error, temprary file cannot be removed";
+				return "Error, temporary file cannot be removed";
 		return "";
 	}
 

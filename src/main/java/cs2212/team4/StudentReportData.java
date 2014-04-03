@@ -1,10 +1,19 @@
 package cs2212.team4;
 
 public class StudentReportData {
+	
+	/* ************************************************************
+	 * Instance Variables
+	 ************************************************************ */
+	
+	// The StudentReportData object student,course and i
 	private Student student;
 	private Course course;
 	private int i;
 
+	/**
+	 * Constructor creates a StudentReportData
+	 */
 	public StudentReportData(Student student, Course course, int i) {
 		this.student = student;
 		this.course = course;

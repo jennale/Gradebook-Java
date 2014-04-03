@@ -29,7 +29,6 @@ public class Gradebook implements GradebookADT, Serializable
 	// The Gradebook object Course object list.
 	private ArrayList<Course> courseList;
 	// The path to where the data will be saved.
-	private String path = "";
 
 	private Course prevCourse=null;
 	
@@ -54,7 +53,7 @@ public class Gradebook implements GradebookADT, Serializable
 	 * @return    the course at the specified index
 	 */
 	public Course getCourse(int crs) {
-		if (courseList.size() > crs)
+		if (courseList.size() > crs && crs >= 0)
 			return courseList.get(crs);
 		return null;
 	}
@@ -66,15 +65,6 @@ public class Gradebook implements GradebookADT, Serializable
 	 */
 	public int getCourseListSize() {
 		return courseList.size();
-	}
-
-	/**
-	 * Returns a String with the path where data is stored.
-	 * 
-	 * @return the path of the data
-	 */
-	public String getPath() {
-		return path;
 	}
 
 	/**
@@ -98,15 +88,6 @@ public class Gradebook implements GradebookADT, Serializable
 	/* ************************************************************
 	 * Mutator Methods
 	 ************************************************************ */
-
-	/**
-	 * Sets the data path where data is stored.
-	 * 
-	 * @param path the path where data is to be stored
-	 */
-	public void setPath(String path) {
-		this.path = path;
-	}
 
 	/**
 	 * Sets the previous course property.
@@ -137,7 +118,7 @@ public class Gradebook implements GradebookADT, Serializable
 	 */
 	public boolean store() {
 		try {
-			File file = new File(path + "data.dat");
+			File file = new File("gradebook-files/data.dat");
 			if (file.exists())
 				file.delete();
 			ObjectOutputStream OUS = new ObjectOutputStream(
@@ -163,7 +144,7 @@ public class Gradebook implements GradebookADT, Serializable
 	private boolean load() {
 		try {
 			ObjectInputStream OIS = new ObjectInputStream(new FileInputStream(
-					path + "data.dat"));
+					"gradebook-files/data.dat"));
 			prevCourse = (Course)OIS.readObject();
 			properties = (Properties)OIS.readObject();
 			courseList = (ArrayList<Course>) OIS.readObject();

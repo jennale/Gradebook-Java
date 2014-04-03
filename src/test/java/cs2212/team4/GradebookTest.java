@@ -3,7 +3,6 @@ package cs2212.team4;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.Properties;
 
 /**
  * @author Steve Juarez
@@ -25,8 +24,8 @@ public class GradebookTest
 	@Test
 	public void testGetCourse()
 	{
-		assertTrue(course.equals(gradebook.getCourse(0)));
-		assertEquals(null, gradebook.getCourse(10));
+		assertTrue(course.equals(gradebook.getCourse(gradebook.findCourse(course))));
+		assertEquals(null, gradebook.getCourse(-1));
 	}
 
 	@Test
@@ -38,31 +37,10 @@ public class GradebookTest
 	}
 
 	@Test
-	public void testGetPath()
-	{
-		assertTrue(gradebook.getPath().equals("")); 
-	}
-
-	@Test
 	public void testGetPrevCourse()
 	{
 		gradebook.setPrevCourse(course);
 		assertTrue(gradebook.getPrevCourse().equals(course));
-	}
-	
-	@Test
-	public void testGetProperties()
-	{
-		Properties p = new Properties();
-		gradebook.setProperties(p);
-		assertTrue(gradebook.getProperties().equals(p));
-	}
-
-	@Test
-	public void testSetPath()
-	{
-		gradebook.setPath("path");
-		assertTrue(gradebook.getPath().equals("path"));
 	}
 
 	@Test
@@ -70,14 +48,6 @@ public class GradebookTest
 	{
 		gradebook.setPrevCourse(new Course("Title", "Term", "Code"));
 		assertTrue(gradebook.getPrevCourse().equals(new Course("Title", "Term", "Code")));
-	}
-	
-	@Test
-	public void testSetProperties()
-	{
-		Properties p = new Properties();
-		gradebook.setProperties(p);
-		assertTrue(gradebook.getProperties().equals(p));
 	}
 
 	@Test

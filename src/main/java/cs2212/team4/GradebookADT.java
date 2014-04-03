@@ -27,25 +27,11 @@ public interface GradebookADT
 	public int getCourseListSize();
 
 	/**
-	 * Returns a String with the path where data is stored.
-	 * 
-	 * @return the path of the data
-	 */
-	public String getPath();
-
-	/**
 	 * Gets the current value of the previous course in the list.
 	 * 
 	 * @return the previous course in the list
 	 */
 	public Course getPrevCourse();
-
-	/**
-	 * Sets the data path where data is stored.
-	 * 
-	 * @param path the path where data is to be stored
-	 */
-	public void setPath(String path);
 
 	/**
 	 * Sets the previous course property.

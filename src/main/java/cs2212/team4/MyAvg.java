@@ -35,7 +35,7 @@ public class MyAvg {
                 ctr++;
 			}
 		}
-        if (ctr==delivers.size())
+        if (ctr==delivers.size() && course.getTotalWeight()==100)
             return null;
 
 		return (reqAvg - currAvg) / (1 - remWeight);

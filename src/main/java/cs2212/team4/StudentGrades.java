@@ -290,11 +290,12 @@ public class StudentGrades implements StudentGradesADT, Serializable
 				return false;
 
 		grades.set(deliver, null);
-        calcAvg();
         if (boolExm)
 			calcExmAvg();
 		else if (boolAsn)
 			calcAsnAvg();
-		return true;
+        calcAvg();
+
+        return true;
 	}
 }

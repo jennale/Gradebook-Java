@@ -17,8 +17,11 @@ public class MyAvgTest {
 		course1.addStudent("Barney", "Stinson", "987654321", "barneystin@uwo.ca");
 		course1.addStudent("Steve", "Rogers", "123456789", "steverogers@uwo.ca");
 		
-		course1.getStudent(0).addGrade(0, 91, "assignment", 50);
-		course1.getStudent(0).addGrade(1, 63, "exam", 50);
+		course1.addDeliverable("Project", "assignment", 20);
+		course1.addDeliverable("Mid-Term", "exam", 30);
+		
+		course1.getStudent(0).addGrade(0, 91, "assignment", 20);
+		course1.getStudent(0).addGrade(1, 63, "exam", 30);
 		
 		course1.getStudent(1).addGrade(0, 77, "assignment", 50);
 		course1.getStudent(1).addGrade(1, 88, "exam", 50);
@@ -33,9 +36,8 @@ public class MyAvgTest {
 
 	@Test
 	public void testCalcAvg() {
-		//Assert.assertEquals( 77.0, myAvg1);
-		//Assert.assertEquals( 82.5, myAvg2);
-		//Assert.assertEquals( 77.0, myAvg3);
+		//Assert.assertEquals( 45.80000000000001, myAvg1.calcAvg(60.0));
+
 	}
 
 }

@@ -10,18 +10,48 @@ import javax.mail.internet.*;
 
 import java.util.*;
 
+/**
+ * This class contains functionality to send emails containing student reports.
+ * 
+ * @author Zaid Albirawi
+ * @version 2.0 3/31/2014
+ */
 public class Email {
 
+	/* ************************************************************
+	 * Instance Variables
+	 ************************************************************ */
+	
+	// message subject for email
 	private static String msgSubject = "", msg = "";
+	// properties regarding smtp for email sender
 	private static Properties properties;
+	// student email is being sent to
 	private static Student student;
+	// course student is in
 	private static Course course;
+	// existence of report
 	private static boolean boolReport = false;
-
+	
+	/**
+	 * Constructor creates an email object, containing specifications of how email should be sent
+	 * 
+	 * @param properties containing the specs for email sending
+	 */
 	public Email(Properties properties) {
 		Email.properties = properties;
 	}
 
+	/**
+	 * Constructor creates an email object, containing specifications of how email should be sent
+	 * 
+	 * @param course of student email is being sent to 
+	 * @param student email is being sent to
+	 * @param msgSubject subject of email
+	 * @param msg message of email
+	 * @param boolReport status of report
+	 * @param properties containing the specs for email sending
+	 */
 	public Email(Course course, Student student, String msgSubject, String msg,
 			boolean boolReport, Properties properties) {
 		Email.msgSubject = msgSubject;
@@ -31,7 +61,12 @@ public class Email {
 		Email.boolReport = boolReport;
 		Email.properties = properties;
 	}
-
+	
+	/**
+	 * sendEmail method sends email based on specifications from email object
+	 * 
+	 * @return returnMsg String returned from sendMessage method if error exists
+	 */
 	public String sendEmail() {
 		String returnMsg;
 
@@ -46,6 +81,11 @@ public class Email {
 		return "";
 	}
 
+	/**
+	 * authenUser method authenticates user
+	 * 
+	 * @return returnMsg string returned from sendMessage method if error exists
+	 */
 	public String authenUser() {
 		Email.msgSubject = "Gradebook has authenticated your email";
 		Email.msg = "Gradebook has authenticated your email address, and you are now ready to go!";
@@ -58,7 +98,13 @@ public class Email {
 			return returnMsg;
 		return "";
 	}
-
+	
+	/**
+	 * getSession method gets session based on specifications from properties
+	 * @param properties containing username and password
+	 * 
+	 * @return session object containing specs from properties
+	 */
 	private static Session getSession(final Properties properties) {
 		Session session = Session.getInstance(properties,
 				new javax.mail.Authenticator() {
@@ -72,7 +118,15 @@ public class Email {
 				});
 		return session;
 	}
-
+	
+	/**
+	 * sendMessage method sends message based on session object, properties object, and student email to be sent to
+	 * @param session object for email sending specs
+	 * @param properties detailing email sending specs
+	 * @param studentEmail email of student message is being sent to
+	 * 
+	 * @return error message if message failed
+	 */
 	private static String sendMessage(Session session, Properties properties,
 			String studentEmail) {
 		try {
@@ -121,7 +175,12 @@ public class Email {
 		}
 		return "";
 	}
-
+	
+	/**
+	 * generateReport method generates a report for the email
+	 * 
+	 * @return returnMsg if report generation error
+	 */
 	private static String generateReport() {
 		String returnMsg;
 		Report report = new Report(course, student);

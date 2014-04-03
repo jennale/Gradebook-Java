@@ -33,7 +33,7 @@ public class MyAvg {
 	 * @param reqAvg required average for the course that the student wishes to achieve
 	 * @return the grade needed with the remaining weight to achieve desired average
 	 */
-	public Object calcAvg(double reqAvg) {
+	public double calcAvg(double reqAvg) {
 		ArrayList<Integer> delivers = new ArrayList<Integer>();
 		double remWeight = 0;
 		double currAvg = 0;

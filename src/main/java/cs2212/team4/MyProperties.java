@@ -49,12 +49,12 @@ public class MyProperties {
 	 * 
 	 * @param mailHost The mailing host
 	 * @param socketPort The socket port for the email
-	 * @param port The port for which to sen the email
+	 * @param port The port for which to send the email
 	 * @param username Username for the smtp
 	 * @param password password for the smtp
 	 * 
 	 */
-	public MyProperties(String mailHost, String socketPort, String port,
+	public MyProperties(String mailHost, String port,
 			String username, String password) {
 		properties = new Properties();
 

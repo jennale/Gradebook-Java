@@ -51,8 +51,6 @@ public class EmailTest {
 		//System.out.println( "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE " + email1.sendEmail() );
 		//Assert.assertSame( "", email2.sendEmail() );
 		// if return message is not equal to "", return message
-		// 
-		
 		
 	}
 	

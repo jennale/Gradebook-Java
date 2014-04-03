@@ -550,8 +550,8 @@ public class Course implements CourseADT, Serializable
 	 * Imports students into the course
 	 * @param file The path where the file containing the students to be imported is located
 	 * @return empty string if the students were imported successfully. If there is no first name, last name, student number, or email, then return a message pertaining to the particular missing value. If reader fails, return message saying the file is corrupted.
-	 * @throws IOexcpetion If an output exception occured
-	 * @throws FileNotFoundException If a FileNotFound exception occured
+	 * @throws IOexcpetion If an output exception occurred
+	 * @throws FileNotFoundException If a FileNotFound exception occurred
 	 * 
 	 */
 	public String importStudents(File file)
@@ -641,9 +641,9 @@ public class Course implements CourseADT, Serializable
 	 * 
 	 * @param file The path where the file containing the deliverables to be imported is located
 	 * @return empty string if the deliverables were imported successfully. If there is no name, type, or weight, then return a message pertaining to the particular missing value. If reader fails, return message saying the file is corrupted.
-	 * @throws IOexcpetion If an input exception occured
-	 * @throws FileNotFoundException If a FileNotFound exception occured
-	 * @throws NumberFormatException If a NumberFormat exception occured
+	 * @throws IOexcpetion If an input exception occurred
+	 * @throws FileNotFoundException If a FileNotFound exception occurred
+	 * @throws NumberFormatException If a NumberFormat exception occurred
 	 * 
 	 */
 	public String importDeliverables(File file) {
@@ -703,7 +703,7 @@ public class Course implements CourseADT, Serializable
 	 * 
 	 * @param file The path where we want to export the deliverables
 	 * @return empty string if the deliverables were exported.
-	 * @throws IOexcpetion If an output exception occured
+	 * @throws IOexcpetion If an output exception occurred
 	 * 
 	 */
 	public String exportDeliverables(File file) {
@@ -726,9 +726,9 @@ public class Course implements CourseADT, Serializable
 	 * 
 	 * @param file The path where the file containing the students' grades to be imported is located
 	 * @return empty string if the grades were imported successfully. If there is no student number, then return a message pertaining to the missing value. If reader fails, return message saying the file is corrupted.
-	 * @throws IOexcpetion If an input exception occured
-	 * @throws FileNotFoundException If a FileNotFound exception occured
-	 * @throws NumberFormatException If a NumberFormat exception occured
+	 * @throws IOexcpetion If an input exception occurred
+	 * @throws FileNotFoundException If a FileNotFound exception occurred
+	 * @throws NumberFormatException If a NumberFormat exception occurred
 	 * 
 	 */
 	public String importGrades(File file) {
@@ -805,7 +805,7 @@ public class Course implements CourseADT, Serializable
 	 * 
 	 * @param file The path where we want to export the grades
 	 * @return empty string if the grades were exported.
-	 * @throws IOexcpetion If an input exception occured
+	 * @throws IOexcpetion If an input exception occurred
 	 * 
 	 */
 	public String exportGrades(File file) {

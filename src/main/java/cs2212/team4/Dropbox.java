@@ -6,7 +6,7 @@ import java.util.Locale;
 
 /**
 *
-* Dropbox class will be used to allow a user to sync their files to a valid dropbox account
+* Dropbox class will be used to allow a used to sync their files to a valid dropbox account
 *
 * team4-gradebook application
 *
@@ -31,11 +31,11 @@ public class Dropbox {
 	 * 
 	 */
 	public Dropbox() {
-		final String APP_KEY = "ch7qua6ztawqz1j";
-		final String APP_SECRET = "x7kd39n4ph965yh";
+		final String APP_KEY = "ap5itf7kv6l5maq";
+		final String APP_SECRET = "dm0n6jsq9o2gu61";
 
 		appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
-		config = new DbxRequestConfig("gradebook-team4", Locale.getDefault()
+		config = new DbxRequestConfig("team4-gradebook", Locale.getDefault()
 				.toString());
 		webAuth = new DbxWebAuthNoRedirect(config, appInfo);
 	}
@@ -81,7 +81,7 @@ public class Dropbox {
 	 * 
 	 */
 	public boolean upload() {
-		File dataFile = new File("data.dat");
+		File dataFile = new File("gradebook-files/data.dat");
 		try {
 			FileInputStream FIS = new FileInputStream(dataFile);
 			DbxEntry.File uploadedFile = client.uploadFile(
@@ -95,6 +95,7 @@ public class Dropbox {
 				return false;
 			}
 		} catch (DbxException e) {
+			System.out.println(e);
 			return false;
 		} catch (FileNotFoundException e) {
 			return false;
@@ -113,7 +114,7 @@ public class Dropbox {
 	 */
 	public boolean download() {
 		try {
-			OutputStream OS = new FileOutputStream("data.dat");
+			OutputStream OS = new FileOutputStream("/gradebook-files/data.dat");
 			DbxEntry.File downloadedFile = client.getFile(
 					"/gradebook/data.dat", null, OS);
 			if (downloadedFile != null) {

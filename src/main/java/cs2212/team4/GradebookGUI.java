@@ -3,13 +3,11 @@ package cs2212.team4;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.font.TextAttribute;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Map;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
@@ -50,8 +48,7 @@ public class GradebookGUI extends JFrame {
 		tabDropbox.setVisible(false);
 
 		pnlCourseMenu.setVisible(false);
-
-		defaultHighlightBorder = txtCourseName.getBorder();
+                defaultHighlightBorder = txtCourseName.getBorder();
 		try {
 			InputStream is = new FileInputStream(new File(
 					"/src/main/resources/cs2212/team4/helvetica.ttf"));
@@ -69,7 +66,6 @@ public class GradebookGUI extends JFrame {
 			lblSetup.setFont(helvetica);
 			lblDropbox.setFont(helvetica);
 		}
-
 		pnlAddCourse.setVisible(false);
 		pnlAddDeliver.setVisible(false);
 		pnlAddStudent.setVisible(false);
@@ -355,7 +351,7 @@ public class GradebookGUI extends JFrame {
         lblAddStudentTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAddStudentTitle.setText("Add a New Student");
 
-        lblStudentNameFirst.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblStudentNameFirst.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblStudentNameFirst.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblStudentNameFirst.setText("Student First Name:");
         lblStudentNameFirst.setToolTipText("");
@@ -373,7 +369,7 @@ public class GradebookGUI extends JFrame {
             }
         });
 
-        lblStudentNameLast.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblStudentNameLast.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblStudentNameLast.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblStudentNameLast.setText("Student Last Name:");
         lblStudentNameLast.setToolTipText("");
@@ -390,7 +386,7 @@ public class GradebookGUI extends JFrame {
             }
         });
 
-        lblStudentNumber.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblStudentNumber.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblStudentNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblStudentNumber.setText("Student Number:");
         lblStudentNumber.setToolTipText("");
@@ -406,7 +402,7 @@ public class GradebookGUI extends JFrame {
             }
         });
 
-        lblStudentEmail.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblStudentEmail.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblStudentEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblStudentEmail.setText("Student Email:");
         lblStudentEmail.setToolTipText("");
@@ -522,7 +518,7 @@ public class GradebookGUI extends JFrame {
                     .addComponent(txtStudentEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addComponent(lblStudentAddErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(pnlAddStudentContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCancelStudentAddition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -575,7 +571,7 @@ public class GradebookGUI extends JFrame {
             }
         });
 
-        subject.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        subject.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         subject.setText("Email Subject:");
         subject.setPreferredSize(new java.awt.Dimension(120, 30));
 
@@ -590,7 +586,7 @@ public class GradebookGUI extends JFrame {
             }
         });
 
-        recipients.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        recipients.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         recipients.setText("Email Recipients:");
         recipients.setPreferredSize(new java.awt.Dimension(120, 30));
 
@@ -702,7 +698,7 @@ public class GradebookGUI extends JFrame {
         pnlAddDeliver.setPreferredSize(new java.awt.Dimension(350, 250));
         pnlAddDeliver.setVerifyInputWhenFocusTarget(false);
 
-        lblDeliverName.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblDeliverName.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblDeliverName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDeliverName.setText("Deliverable Name:");
         lblDeliverName.setToolTipText("");
@@ -734,13 +730,13 @@ public class GradebookGUI extends JFrame {
             }
         });
 
-        lblDeliverType.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblDeliverType.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblDeliverType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDeliverType.setText("Deliverable Type:");
         lblDeliverType.setToolTipText("");
         lblDeliverType.setPreferredSize(new java.awt.Dimension(140, 30));
 
-        lblDeliverWeight.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblDeliverWeight.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblDeliverWeight.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDeliverWeight.setText("Deliverable Weight:");
         lblDeliverWeight.setToolTipText("");
@@ -812,29 +808,25 @@ public class GradebookGUI extends JFrame {
         pnlAddDeliverLayout.setHorizontalGroup(
             pnlAddDeliverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAddDeliverLayout.createSequentialGroup()
+                .addGroup(pnlAddDeliverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblAddDeliverTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlAddDeliverLayout.createSequentialGroup()
+                        .addComponent(lblDeliverType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(comboDeliverType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlAddDeliverLayout.createSequentialGroup()
+                        .addComponent(lblDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(txtDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlAddDeliverLayout.createSequentialGroup()
+                        .addComponent(lblDeliverWeight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(txtDeliverWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10))
+            .addGroup(pnlAddDeliverLayout.createSequentialGroup()
+                .addComponent(lblAddDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addGroup(pnlAddDeliverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAddDeliverLayout.createSequentialGroup()
-                        .addGroup(pnlAddDeliverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblAddDeliverTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlAddDeliverLayout.createSequentialGroup()
-                                .addComponent(lblDeliverType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(comboDeliverType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlAddDeliverLayout.createSequentialGroup()
-                                .addComponent(lblDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(txtDeliverName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlAddDeliverLayout.createSequentialGroup()
-                                .addComponent(lblDeliverWeight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(txtDeliverWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(10, 10, 10))
-                    .addGroup(pnlAddDeliverLayout.createSequentialGroup()
-                        .addComponent(lblAddDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(lblCancelDeliverAddition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))))
+                .addComponent(lblCancelDeliverAddition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(pnlAddDeliverLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(addDeliverErrorLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -859,7 +851,7 @@ public class GradebookGUI extends JFrame {
                     .addComponent(lblDeliverType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(5, 5, 5)
                 .addComponent(addDeliverErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addGap(0, 0, 0)
                 .addGroup(pnlAddDeliverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAddDeliver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCancelDeliverAddition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -876,7 +868,7 @@ public class GradebookGUI extends JFrame {
         lblAddCourseTitle.setText("Add a New Course");
         lblAddCourseTitle.setPreferredSize(new java.awt.Dimension(150, 22));
 
-        lblCourseName.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblCourseName.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblCourseName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCourseName.setText("Course Title:");
         lblCourseName.setToolTipText("");
@@ -894,7 +886,7 @@ public class GradebookGUI extends JFrame {
             }
         });
 
-        lblCourseCode.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblCourseCode.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblCourseCode.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCourseCode.setText("Course Code:");
         lblCourseCode.setToolTipText("");
@@ -911,7 +903,7 @@ public class GradebookGUI extends JFrame {
             }
         });
 
-        lblCourseTerm.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        lblCourseTerm.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         lblCourseTerm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCourseTerm.setText("Course Term:");
         lblCourseTerm.setToolTipText("");
@@ -1017,7 +1009,7 @@ public class GradebookGUI extends JFrame {
                         .addComponent(comboCourseTerm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addComponent(lblCourseAddErrorLog, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(5, 5, 5)
                 .addGroup(pnlAddCourseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAddCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCancelCourseAddition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1712,7 +1704,7 @@ public class GradebookGUI extends JFrame {
             }
         });
 
-        lblCourseAvg.setFont(new java.awt.Font("Helvetica", 0, 40)); // NOI18N
+        lblCourseAvg.setFont(new java.awt.Font("Helvetica", 0, 30)); // NOI18N
         lblCourseAvg.setForeground(new java.awt.Color(70, 70, 70));
         lblCourseAvg.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCourseAvg.setText("--%");
@@ -1730,13 +1722,13 @@ public class GradebookGUI extends JFrame {
         courseExamAvg.setText("Class Exam Avg:");
         courseExamAvg.setPreferredSize(new java.awt.Dimension(120, 20));
 
-        lblCourseAsnAvg.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblCourseAsnAvg.setFont(new java.awt.Font("Helvetica", 0, 12)); // NOI18N
         lblCourseAsnAvg.setForeground(new java.awt.Color(70, 70, 70));
         lblCourseAsnAvg.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCourseAsnAvg.setText("--%");
         lblCourseAsnAvg.setPreferredSize(new java.awt.Dimension(60, 20));
 
-        lblCourseExamAvg.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        lblCourseExamAvg.setFont(new java.awt.Font("Helvetica", 0, 12)); // NOI18N
         lblCourseExamAvg.setForeground(new java.awt.Color(70, 70, 70));
         lblCourseExamAvg.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCourseExamAvg.setText("--%");
@@ -3005,18 +2997,20 @@ public class GradebookGUI extends JFrame {
 				MyAvg myAvg = new MyAvg(currCourse,
 						currCourse.getStudent(studentTable.getSelectedRow()));
 				lblResult.setForeground(Color.black);
-				if (myAvg.calcAvg(avg) > 100 || myAvg.calcAvg(avg) < 0)
+                if (myAvg.calcAvg(avg)==null)
+                    lblResult.setText("This average cannot be obtained - student already has grades assigned for 100% of the course");
+				else if ((double)myAvg.calcAvg(avg) > 100 || (double)myAvg.calcAvg(avg) < 0)
 					lblResult
 							.setText(String
 									.format("This average cannot be obtained, required average, %.2f",
 											myAvg.calcAvg(avg))
 									+ "%.");
-				else
-					lblResult.setText(String.format(
-							"The student needs to obtaine an average of %.2f",
-							myAvg.calcAvg(avg))
-							+ "% for the rest of the course to recieve a "
-							+ txtAvg.getText() + "%");
+                else
+                    lblResult.setText(String.format(
+                            "The student needs to obtain an average of %.2f",
+                            myAvg.calcAvg(avg))
+                            + "% in the remainder of the course to receive a "
+                            + txtAvg.getText() + "%");
 			} else {
 				lblResult.setForeground(Color.red);
 				lblResult.setText("Please enter a number between 0-100");
@@ -3981,6 +3975,7 @@ public class GradebookGUI extends JFrame {
 								"Non-existing students",
 								JOptionPane.YES_NO_OPTION,
 								JOptionPane.OK_OPTION);
+                                updateInfo();
 					} else
 						lblGradesErrorLog.setText(returnMsg);
 				} else

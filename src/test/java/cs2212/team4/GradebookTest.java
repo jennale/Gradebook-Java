@@ -37,23 +37,10 @@ public class GradebookTest
 	}
 
 	@Test
-	public void testGetPath()
-	{
-		assertTrue(gradebook.getPath().equals("")); 
-	}
-
-	@Test
 	public void testGetPrevCourse()
 	{
 		gradebook.setPrevCourse(course);
 		assertTrue(gradebook.getPrevCourse().equals(course));
-	}
-
-	@Test
-	public void testSetPath()
-	{
-		gradebook.setPath("path");
-		assertTrue(gradebook.getPath().equals("path"));
 	}
 
 	@Test

@@ -11,10 +11,17 @@ public class MyAvg {
 		this.student = student;
 	}
 
-	public double calcAvg(double reqAvg) {
+	/**
+	 * Method to calculate an average for a student in a course.
+	 * 
+	 * @param reqAvg required average for the course
+	 */
+	public Object calcAvg(double reqAvg) {
+
 		ArrayList<Integer> delivers = new ArrayList<Integer>();
 		double remWeight = 0;
 		double currAvg = 0;
+        int ctr=0;
 		for (int i = 0; i < course.getDeliverableListSize(); i++)
 			if (course.getDeliverable(i) != null)
 				delivers.add(i);
@@ -25,9 +32,12 @@ public class MyAvg {
 						* course.getDeliverable(delivers.get(i)).getWeight()
 						/ 100;
 				remWeight += course.getDeliverable(delivers.get(i)).getWeight() / 100;
+                ctr++;
 			}
 		}
-		
+        if (ctr==delivers.size() && course.getTotalWeight()==100)
+            return null;
+
 		return (reqAvg - currAvg) / (1 - remWeight);
 	}
 }

@@ -17,7 +17,6 @@ public class CourseTest
 	@Before
 	public void testCourse()
 	{
-		Color color = new Color(20, 150, 250);
 		stud=new Student("Marry", "Poppins", "250555000", "mpoppins");
 		deliver=new Deliverable("Project", "assignment", 54, 0);
 		stud2=new Student("John", "Johnson", "250222444", "jjohn22");

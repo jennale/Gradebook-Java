@@ -48,7 +48,7 @@ public class EmailTest {
 	@Test
 	public void testSendEmail ()
 	{
-		System.out.println( "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE " + email1.sendEmail() );
+		//System.out.println( "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE " + email1.sendEmail() );
 		//Assert.assertSame( "", email2.sendEmail() );
 		// if return message is not equal to "", return message
 		// 
@@ -59,7 +59,7 @@ public class EmailTest {
 	@Test
 	public void testAuthenUser ()
 	{
-		System.out.println( "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + email1.authenUser() );
+		//System.out.println( "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + email1.authenUser() );
 	}
 	
 	@Test

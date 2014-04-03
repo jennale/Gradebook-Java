@@ -102,7 +102,7 @@ public class GradebookGUI extends JFrame {
 		});
 
 		propsFrame.setResizable(false);
-		propsFrame.setSize(520, 280);
+		propsFrame.setSize(520, 290);
 		propsFrame.setLocationRelativeTo(this);
 		propsFrame.setAlwaysOnTop(true);
 		propsFrame.addWindowListener(new WindowAdapter() {

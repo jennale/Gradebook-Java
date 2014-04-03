@@ -18,21 +18,53 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
+/**
+*
+* A class that mimics a report for a student and their grades in a course
+*
+* team4-gradebook application
+*
+* @author Zaid Albirawi
+* @version 1.6 3/25/2014
+*/
+
 public class Report {
 
 	private Course course;
 	private Student student;
 
+	/**
+	 * Constructor that creates report for a student in a given course
+	 * 
+	 * @param student The student for whom to create the report
+	 * @param course The course from which the report is created
+	 * 
+	 */
 	public Report(Course course, Student student) {
 		this.course = course;
 		this.student = student;
 	}
 
+	/**
+	 * Get an input stream for the file where the grades are stored
+	 * 
+	 * @param filename the file path where the file with the grades is located
+	 * @return An input stream based on the passed file
+	 * 
+	 */
 	private static InputStream loadResource(String filename) {
 		return GradebookGUI.class.getClassLoader()
 				.getResourceAsStream(filename);
 	}
 
+	/**
+	 * Collect and return a collection of student report data
+	 * 
+	 * @param student The student for whom to collect the report data
+	 * @param course The course from which the report data is collected
+	 * @return a collection of students' deliverables data
+	 * 
+	 */
 	public static Collection<StudentReportData> reportData(Student student,
 			Course course) {
 		Collection<StudentReportData> temp = new ArrayList<StudentReportData>();
@@ -45,6 +77,14 @@ public class Report {
 		return temp;
 	}
 
+	/**
+	 * Generate a report for the student in this class
+	 * 
+	 * @return empty string if report successfully generated. If cannot find report.jrxml or logo.png, will return appropriate message for either situation.
+	 * @throws JRException A JR exception meaning the file is non-writable
+	 * @throws IOException and input/output exception
+	 * 
+	 */
 	public String generateReport() {
 		try {
 			InputStream logoStream = loadResource("cs2212/team4/logo.png");

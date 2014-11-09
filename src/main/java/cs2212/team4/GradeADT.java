@@ -4,7 +4,7 @@ package cs2212.team4;
  *
  * GradeADT implements the method interface for the Grade class.
  *
- * @author Zaid Albirawi
+ * @author Zaid Albirawi & Jenna Le
  * @version 1.0 3/1/2014
  */
 

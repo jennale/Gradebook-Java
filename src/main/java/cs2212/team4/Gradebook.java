@@ -14,7 +14,7 @@ import java.util.Properties;
 /**
  * This class contains functionality to manage a list of courses in a Gradebook.
  * 
- * @author Zaid Albirawi
+ * @author Zaid Albirawi & Jenna Le
  * @version 2.0 3/31/2014
  */
 

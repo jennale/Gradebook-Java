@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * CourseADT implements the method interface for the Course class.
  *
- * @author Zaid Albirawi
+ * @author Zaid Albirawi & Jenna Le
  * @version 1.0 2/28/2014
  */
 

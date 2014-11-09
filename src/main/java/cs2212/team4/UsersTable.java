@@ -11,7 +11,7 @@ import java.util.List;
  * It also contains a reference to a GradesTable object, which contains the Grades of the students in another
  * table format.
  *
- * Jenna Le
+ * @author Jenna Le
  * */
 
  public class UsersTable extends DefaultTableModel{

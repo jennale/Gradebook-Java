@@ -6,7 +6,7 @@ import java.io.Serializable;
  * This class provides the ability to create a Student and add/delete
  * a Student's grade among a few other things.
  *
- * @author Zaid Albirawi
+ * @author Zaid Albirawi & Jenna Le
  * @version 20 3/31/2014
  */
 

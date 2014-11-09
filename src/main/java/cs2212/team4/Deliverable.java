@@ -8,7 +8,7 @@ import java.io.Serializable;
  *
  * team4-gradebook application
  *
- * @author Zaid Albirawi
+ * @author Zaid Albirawi & Jenna Le
  * @version 2.0 3/1/2014
  */
 

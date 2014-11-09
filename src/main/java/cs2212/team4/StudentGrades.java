@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * team4-gradebook application
  *
- * @author Zaid Albirawi
+ * @author Zaid Albirawi & Jenna Le
  * @version 1.0 3/1/2014
  */
 

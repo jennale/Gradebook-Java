@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * StudentGradesADT implements the method interface for the StudentGrades class.
  *
- * @author Zaid Albirawi
+ * @author Zaid Albirawi & Jenna Le
  * @version 1.0 3/1/2014
  */
 

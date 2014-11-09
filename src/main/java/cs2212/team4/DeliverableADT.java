@@ -4,7 +4,7 @@ package cs2212.team4;
  *
  * DeliverableADT implements the method interface for the Deliverable class.
  *
- * @author Zaid Albirawi
+ * @author Zaid Albirawi & Jenna Le
  * @version 2.0 3/1/2014
  */
 

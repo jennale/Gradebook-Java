@@ -20,7 +20,7 @@ import au.com.bytecode.opencsv.CSVReader;
  *
  * team4-gradebook application
  *
- * @author Zaid Albirawi
+ * @author Zaid Albirawi & Jenna Le
  * @version 1.6 3/25/2014
  */
 

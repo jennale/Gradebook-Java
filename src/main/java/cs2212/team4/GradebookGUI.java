@@ -14,6 +14,14 @@ import javax.swing.border.MatteBorder;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
+/**
+ *
+ * GradebookGUI creates the graphic interface for the gradebook application. 
+ * 
+ * @author Zaid Albirawi & Jenna Le
+ * @version 2.0 3/31/2014
+ */
+
 public class GradebookGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;

@@ -1,4 +1,9 @@
 package cs2212.team4;
+/**
+ *
+ * Class used to generate student report PDFs.
+ *
+ * */
 
 public class StudentReportData {
 	private Student student;
